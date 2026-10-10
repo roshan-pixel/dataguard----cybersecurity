@@ -190,8 +190,8 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
         >
           <defs>
             <radialGradient id="radarSweep3D" cx="0" cy="0" r="235" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#2B66FF" stopOpacity="0.5" />
-              <stop offset="60%" stopColor="#2B66FF" stopOpacity="0.12" />
+              <stop offset="0%" stopColor="#2B66FF" stopOpacity="0.7" />
+              <stop offset="50%" stopColor="#2B66FF" stopOpacity="0.22" />
               <stop offset="100%" stopColor="#2B66FF" stopOpacity="0" />
             </radialGradient>
 
@@ -203,6 +203,18 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               </feMerge>
             </filter>
 
+            <filter id="sweepGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <filter id="dishShadow" x="-15%" y="-15%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="12" stdDeviation="18" floodColor="#2B66FF" floodOpacity="0.18" />
+            </filter>
+
             <filter id="radarFloorGlow" x="-30%" y="-30%" width="160%" height="160%">
               <feGaussianBlur in="SourceGraphic" stdDeviation="18" />
             </filter>
@@ -211,17 +223,17 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           {/* Soft grounding floor shadow under radar base platform */}
           <ellipse 
             cx="578" 
-            cy="650" 
+            cy="670" 
             rx="270" 
             ry="48" 
-            fill="rgba(43, 102, 255, 0.12)" 
+            fill="rgba(43, 102, 255, 0.09)" 
             filter="url(#radarFloorGlow)" 
           />
 
           {/* =========================================================================
               ISOMETRIC 3D RADAR DISH & CONCENTRIC RINGS (Centered at cx: 578.5, cy: 444.0)
               ========================================================================= */}
-          <g transform="translate(578.5, 444) rotate(-3)">
+          <g transform="translate(578.5, 444) rotate(-3)" filter="url(#dishShadow)">
             <g transform="scale(1, 0.49)">
 
               {/* Complete, perfectly circular concentric radar rings of dense uniform blue dots */}
@@ -233,16 +245,14 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                   r={r} 
                   fill="none" 
                   stroke="#2B66FF" 
-                  strokeWidth="1.5" 
-                  strokeDasharray="3 5" 
-                  opacity={0.35 + i * 0.08} 
+                  strokeWidth="2"  
+                  strokeDasharray="3 3" 
+                  opacity={0.42 + i * 0.09} 
                 />
               ))}
 
-              {/* Outer range perimeter boundary & crosshair telemetry axes */}
-              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="1.8" opacity="0.4" />
-              <line x1="-240" y1="0" x2="240" y2="0" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 8" opacity="0.3" />
-              <line x1="0" y1="-240" x2="0" y2="240" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 8" opacity="0.3" />
+              {/* Outer range perimeter boundary */}
+              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 3" opacity="0.5" />
 
               {/* Smooth continuous elliptical orbital data pulses */}
               <motion.circle
@@ -251,11 +261,11 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 r="110"
                 fill="none"
                 stroke="#2B66FF"
-                strokeWidth="2.5"
+                strokeWidth="3.5"
                 strokeDasharray="40 180"
                 animate={{ strokeDashoffset: [220, 0] }}
                 transition={{ duration: 4.8, repeat: Infinity, ease: 'linear' }}
-                opacity="0.75"
+                opacity="0.9"
               />
               <motion.circle
                 cx="0"
@@ -263,11 +273,11 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 r="165"
                 fill="none"
                 stroke="#2B66FF"
-                strokeWidth="2.5"
+                strokeWidth="3.5"
                 strokeDasharray="50 290"
                 animate={{ strokeDashoffset: [0, 340] }}
                 transition={{ duration: 5.6, repeat: Infinity, ease: 'linear' }}
-                opacity="0.65"
+                opacity="0.85"
               />
 
               {/* 360° Rotating Radar Beam Sweep with gradient detection cone & scanline */}
@@ -275,8 +285,8 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3.6, repeat: Infinity, ease: 'linear' }}
               >
-                <path d="M 0 0 L 235 0 A 235 235 0 0 1 117.5 203.5 Z" fill="url(#radarSweep3D)" />
-                <line x1="0" y1="0" x2="235" y2="0" stroke="#2B66FF" strokeWidth="2.5" opacity="0.95" />
+                <path d="M 0 0 L 235 0 A 235 235 0 0 1 117.5 203.5 Z" fill="url(#radarSweep3D)" filter="url(#sweepGlow)" />
+                <line x1="0" y1="0" x2="235" y2="0" stroke="#2B66FF" strokeWidth="3" opacity="1" />
               </motion.g>
 
               {/* Central hub core pulse */}
@@ -332,7 +342,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           >
             {/* Holographic frame bracket matching perspective trapezoid */}
             <path
-              d="M 347 288 L 427 258 L 427 340 L 347 370 Z"
+              d="M 347 318 L 427 288 L 427 370 L 347 400 Z"
               fill="none"
               stroke="#2B66FF"
               strokeWidth="1.5"
@@ -340,12 +350,12 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               opacity="0.4"
             />
             <path
-              d="M 347 288 L 427 258 L 427 340 L 347 370 Z"
+              d="M 347 318 L 427 288 L 427 370 L 347 400 Z"
               fill="rgba(43, 102, 255, 0.04)"
             />
             {/* Live streaming telemetry line chart waveform */}
             <motion.path
-              d="M 356 345 Q 366 318, 378 330 T 399 308 T 422 322"
+              d="M 356 375 Q 366 348, 378 360 T 399 338 T 422 352"
               fill="none"
               stroke="#2B66FF"
               strokeWidth="2.2"
@@ -357,7 +367,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             {/* Warning alert indicator dot on panel 1 */}
             <motion.circle
               cx="388"
-              cy="292"
+              cy="322"
               r="4"
               fill="#F59E0B"
               animate={{ scale: [1, 1.4, 1], opacity: [0.8, 1, 0.8] }}
@@ -372,7 +382,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           >
             {/* Holographic frame bracket matching perspective trapezoid */}
             <path
-              d="M 669 258 L 781 302 L 781 384 L 669 340 Z"
+              d="M 669 288 L 781 332 L 781 414 L 669 370 Z"
               fill="none"
               stroke="#2B66FF"
               strokeWidth="1.5"
@@ -380,15 +390,15 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               opacity="0.4"
             />
             <path
-              d="M 669 258 L 781 302 L 781 384 L 669 340 Z"
+              d="M 669 288 L 781 332 L 781 414 L 669 370 Z"
               fill="rgba(43, 102, 255, 0.04)"
             />
             {/* 4 Animated Real-Time Throughput Activity Bars */}
             {[
-              { x: 690, yBase: 368, baseH: 38, delay: 0 },
-              { x: 712, yBase: 375, baseH: 55, delay: 0.2 },
-              { x: 734, yBase: 382, baseH: 44, delay: 0.4 },
-              { x: 756, yBase: 389, baseH: 62, delay: 0.1 },
+              { x: 690, yBase: 398, baseH: 38, delay: 0 },
+              { x: 712, yBase: 405, baseH: 55, delay: 0.2 },
+              { x: 734, yBase: 412, baseH: 44, delay: 0.4 },
+              { x: 756, yBase: 419, baseH: 62, delay: 0.1 },
             ].map((bar, i) => (
               <motion.line
                 key={i}
