@@ -181,62 +181,279 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
         </svg>
       )}
 
-      {/* Tab 02: Real-Time Radar Sweep on 3D Dish (Focal: 703, 403) */}
+      {/* Tab 02: Real-Time Radar / Sonar Telemetry Interface Animation */}
       {activeTab === 1 && (
         <svg 
           viewBox="0 0 1200 900" 
           className="w-full h-full object-contain"
           preserveAspectRatio="xMidYMid meet"
         >
-          {/* Radar Dish Elliptical Isometric Plane */}
-          <g transform="translate(703, 403) rotate(-22) scale(1, 0.62)">
-            {/* Concentric radar range rings matching the 3D dish rim */}
-            <circle cx="0" cy="0" r="70" fill="none" stroke="#2B66FF" strokeWidth="1.5" strokeDasharray="4 8" opacity="0.35" />
-            <circle cx="0" cy="0" r="140" fill="none" stroke="#2B66FF" strokeWidth="1.5" strokeDasharray="4 8" opacity="0.3" />
-            <circle cx="0" cy="0" r="210" fill="none" stroke="#2B66FF" strokeWidth="2" opacity="0.4" />
+          <defs>
+            <radialGradient id="radarSweep3D" cx="0" cy="0" r="235" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#2B66FF" stopOpacity="0.5" />
+              <stop offset="60%" stopColor="#2B66FF" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#2B66FF" stopOpacity="0" />
+            </radialGradient>
 
-            {/* 360° Rotating Radar Beam Sweep */}
-            <motion.g
-              animate={{ rotate: 360 }}
-              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear' }}
-            >
-              <defs>
-                <linearGradient id="radarSweep3D" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#2B66FF" stopOpacity="0.45" />
-                  <stop offset="60%" stopColor="#2B66FF" stopOpacity="0.08" />
-                  <stop offset="100%" stopColor="#2B66FF" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <path d="M 0 0 L 220 0 A 220 220 0 0 1 155 155 Z" fill="url(#radarSweep3D)" />
-              <line x1="0" y1="0" x2="220" y2="0" stroke="#2B66FF" strokeWidth="2.5" opacity="0.9" />
-            </motion.g>
+            <filter id="alertGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
 
-            {/* Target pings precisely positioned on the radar dish */}
-            {[
-              { x: 90, y: -60, color: '#10B981', delay: 0.3 },
-              { x: -110, y: 70, color: '#2B66FF', delay: 1.6 },
-              { x: 140, y: 90, color: '#F59E0B', delay: 2.1 },
-              { x: -70, y: -110, color: '#10B981', delay: 0.9 },
-            ].map((blip, i) => (
-              <g key={i} transform={`translate(${blip.x}, ${blip.y})`}>
-                <motion.circle
-                  r="5"
-                  fill={blip.color}
-                  animate={{ opacity: [0.3, 1, 0.3], scale: [0.9, 1.4, 0.9] }}
-                  transition={{ duration: 1.6, repeat: Infinity, delay: blip.delay }}
+            <filter id="radarFloorGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="18" />
+            </filter>
+          </defs>
+
+          {/* Soft grounding floor shadow under radar base platform */}
+          <ellipse 
+            cx="578" 
+            cy="650" 
+            rx="270" 
+            ry="48" 
+            fill="rgba(43, 102, 255, 0.12)" 
+            filter="url(#radarFloorGlow)" 
+          />
+
+          {/* =========================================================================
+              ISOMETRIC 3D RADAR DISH & CONCENTRIC RINGS (Centered at cx: 578.5, cy: 444.0)
+              ========================================================================= */}
+          <g transform="translate(578.5, 444) rotate(-3)">
+            <g transform="scale(1, 0.49)">
+
+              {/* Complete, perfectly circular concentric radar rings of dense uniform blue dots */}
+              {[55, 110, 165, 220].map((r, i) => (
+                <circle 
+                  key={i} 
+                  cx="0" 
+                  cy="0" 
+                  r={r} 
+                  fill="none" 
+                  stroke="#2B66FF" 
+                  strokeWidth="1.5" 
+                  strokeDasharray="3 5" 
+                  opacity={0.35 + i * 0.08} 
                 />
-                <motion.circle
-                  r="12"
-                  fill="none"
-                  stroke={blip.color}
-                  strokeWidth="1.5"
-                  initial={{ r: 5, opacity: 0.8 }}
-                  animate={{ r: 20, opacity: 0 }}
-                  transition={{ duration: 1.6, repeat: Infinity, delay: blip.delay, ease: 'easeOut' }}
-                />
-              </g>
-            ))}
+              ))}
+
+              {/* Outer range perimeter boundary & crosshair telemetry axes */}
+              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="1.8" opacity="0.4" />
+              <line x1="-240" y1="0" x2="240" y2="0" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 8" opacity="0.3" />
+              <line x1="0" y1="-240" x2="0" y2="240" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 8" opacity="0.3" />
+
+              {/* Smooth continuous elliptical orbital data pulses */}
+              <motion.circle
+                cx="0"
+                cy="0"
+                r="110"
+                fill="none"
+                stroke="#2B66FF"
+                strokeWidth="2.5"
+                strokeDasharray="40 180"
+                animate={{ strokeDashoffset: [220, 0] }}
+                transition={{ duration: 4.8, repeat: Infinity, ease: 'linear' }}
+                opacity="0.75"
+              />
+              <motion.circle
+                cx="0"
+                cy="0"
+                r="165"
+                fill="none"
+                stroke="#2B66FF"
+                strokeWidth="2.5"
+                strokeDasharray="50 290"
+                animate={{ strokeDashoffset: [0, 340] }}
+                transition={{ duration: 5.6, repeat: Infinity, ease: 'linear' }}
+                opacity="0.65"
+              />
+
+              {/* 360° Rotating Radar Beam Sweep with gradient detection cone & scanline */}
+              <motion.g
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3.6, repeat: Infinity, ease: 'linear' }}
+              >
+                <path d="M 0 0 L 235 0 A 235 235 0 0 1 117.5 203.5 Z" fill="url(#radarSweep3D)" />
+                <line x1="0" y1="0" x2="235" y2="0" stroke="#2B66FF" strokeWidth="2.5" opacity="0.95" />
+              </motion.g>
+
+              {/* Central hub core pulse */}
+              <circle cx="0" cy="0" r="12" fill="#2B66FF" opacity="0.85" />
+              <motion.circle 
+                cx="0" 
+                cy="0" 
+                r="18" 
+                fill="none" 
+                stroke="#2B66FF" 
+                strokeWidth="1.5"
+                animate={{ scale: [1, 1.6, 1], opacity: [0.8, 0.2, 0.8] }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+              />
+
+              {/* Target detection pings precisely anchored to dish landmark features */}
+              {[
+                { x: -83.1, y: 142.5, color: '#F59E0B', label: 'ALERT', delay: 0.2 },
+                { x: 135, y: -70, color: '#10B981', label: 'OK', delay: 1.8 },
+                { x: -120, y: -85, color: '#2B66FF', label: '●', delay: 2.6 },
+                { x: 115, y: 125, color: '#10B981', label: 'DATA', delay: 1.0 },
+              ].map((blip, i) => (
+                <g key={i} transform={`translate(${blip.x}, ${blip.y})`}>
+                  <motion.circle
+                    r="5.5"
+                    fill={blip.color}
+                    animate={{ opacity: [0.35, 1, 0.35], scale: [0.9, 1.35, 0.9] }}
+                    transition={{ duration: 1.8, repeat: Infinity, delay: blip.delay }}
+                  />
+                  <motion.circle
+                    r="12"
+                    fill="none"
+                    stroke={blip.color}
+                    strokeWidth="1.6"
+                    initial={{ r: 6, opacity: 0.9 }}
+                    animate={{ r: 24, opacity: 0 }}
+                    transition={{ duration: 1.8, repeat: Infinity, delay: blip.delay, ease: 'easeOut' }}
+                  />
+                  <text x="8" y="4" fontSize="10" fill={blip.color} opacity="0.7" fontFamily="monospace">{blip.label}</text>
+                </g>
+              ))}
+
+            </g>
           </g>
+
+          {/* =========================================================================
+              FLOATING HOLOGRAPHIC UI PANELS ANCHORED ABOVE THE RADAR
+              ========================================================================= */}
+          {/* Panel 1: Left Holographic Telemetry Panel (x: 345..429, y: 260..379) with Line Chart Waveform */}
+          <motion.g
+            animate={{ y: [0, -3.5, 0] }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            {/* Holographic frame bracket matching perspective trapezoid */}
+            <path
+              d="M 347 288 L 427 258 L 427 340 L 347 370 Z"
+              fill="none"
+              stroke="#2B66FF"
+              strokeWidth="1.5"
+              strokeDasharray="4 6"
+              opacity="0.4"
+            />
+            <path
+              d="M 347 288 L 427 258 L 427 340 L 347 370 Z"
+              fill="rgba(43, 102, 255, 0.04)"
+            />
+            {/* Live streaming telemetry line chart waveform */}
+            <motion.path
+              d="M 356 345 Q 366 318, 378 330 T 399 308 T 422 322"
+              fill="none"
+              stroke="#2B66FF"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              opacity="0.9"
+              animate={{ opacity: [0.65, 1, 0.65] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            {/* Warning alert indicator dot on panel 1 */}
+            <motion.circle
+              cx="388"
+              cy="292"
+              r="4"
+              fill="#F59E0B"
+              animate={{ scale: [1, 1.4, 1], opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 1.4, repeat: Infinity }}
+            />
+          </motion.g>
+
+          {/* Panel 2: Right Holographic Bar Chart Panel (x: 666..784, y: 250..389) */}
+          <motion.g
+            animate={{ y: [0, -3.5, 0] }}
+            transition={{ duration: 3.6, repeat: Infinity, delay: 0.4, ease: 'easeInOut' }}
+          >
+            {/* Holographic frame bracket matching perspective trapezoid */}
+            <path
+              d="M 669 258 L 781 302 L 781 384 L 669 340 Z"
+              fill="none"
+              stroke="#2B66FF"
+              strokeWidth="1.5"
+              strokeDasharray="4 6"
+              opacity="0.4"
+            />
+            <path
+              d="M 669 258 L 781 302 L 781 384 L 669 340 Z"
+              fill="rgba(43, 102, 255, 0.04)"
+            />
+            {/* 4 Animated Real-Time Throughput Activity Bars */}
+            {[
+              { x: 690, yBase: 368, baseH: 38, delay: 0 },
+              { x: 712, yBase: 375, baseH: 55, delay: 0.2 },
+              { x: 734, yBase: 382, baseH: 44, delay: 0.4 },
+              { x: 756, yBase: 389, baseH: 62, delay: 0.1 },
+            ].map((bar, i) => (
+              <motion.line
+                key={i}
+                x1={bar.x}
+                y1={bar.yBase}
+                x2={bar.x}
+                y2={bar.yBase - bar.baseH}
+                stroke="#2B66FF"
+                strokeWidth="4"
+                strokeLinecap="round"
+                opacity="0.9"
+                animate={{
+                  y2: [bar.yBase - bar.baseH, bar.yBase - (bar.baseH * 0.55), bar.yBase - bar.baseH],
+                  opacity: [0.7, 1, 0.7],
+                }}
+                transition={{
+                  duration: 1.6,
+                  repeat: Infinity,
+                  delay: bar.delay,
+                  ease: 'easeInOut',
+                }}
+              />
+            ))}
+          </motion.g>
+
+          {/* =========================================================================
+              MODERN SHIELD ICON WITH YELLOW ALERT TRIANGLE (x: 810..923, y: 293..489)
+              ========================================================================= */}
+          <motion.g
+            animate={{ y: [0, -2.5, 0] }}
+            transition={{ duration: 4.0, repeat: Infinity, delay: 0.2, ease: 'easeInOut' }}
+          >
+            {/* Yellow alert triangle badge on shield face */}
+            <polygon 
+              points="866,342 876,360 856,360" 
+              fill="#F59E0B" 
+              stroke="#D97706" 
+              strokeWidth="1"
+              filter="url(#alertGlow)"
+            />
+            <line x1="866" y1="347" x2="866" y2="353" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" />
+            <circle cx="866" cy="357" r="0.9" fill="#fff" />
+
+            {/* Glowing alert pulse aura behind the triangle */}
+            <motion.circle
+              cx="866"
+              cy="353"
+              r="12"
+              fill="none"
+              stroke="#F59E0B"
+              strokeWidth="1.5"
+              animate={{ r: [8, 22], opacity: [0.8, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
+            />
+
+            {/* Subtle cobalt shield contour accent aura */}
+            <path
+              d="M 822 334 Q 866 316, 910 334 Q 910 405, 866 450 Q 822 405, 822 334 Z"
+              fill="none"
+              stroke="#2B66FF"
+              strokeWidth="1.5"
+              strokeDasharray="4 8"
+              opacity="0.35"
+            />
+          </motion.g>
         </svg>
       )}
 
