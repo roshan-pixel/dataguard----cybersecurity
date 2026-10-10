@@ -1643,60 +1643,646 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
         </svg>
       )}
 
-      {/* Tab 04: Flowing Quantum Cryptographic Infinity Stream (Lobe L: 426, 432; C: 615, 499; R: 770, 466) */}
+      {/* Tab 04: End-to-End Quantum-Resilient Cryptography (100% 3D Isometric Rebuild) */}
       {activeTab === 3 && (
         <svg 
-          viewBox="0 0 1200 900" 
+          viewBox="30 20 1120 790" 
           className="w-full h-full object-contain"
           preserveAspectRatio="xMidYMid meet"
         >
-          {/* Fitted 3D isometric infinity path */}
-          <path
-            d="M 615 499 C 520 400, 350 360, 350 450 C 350 540, 520 580, 615 499 C 710 410, 880 390, 880 480 C 880 570, 710 590, 615 499 Z"
-            fill="none"
-            stroke="#2B66FF"
-            strokeWidth="2.5"
-            strokeDasharray="6 8"
-            opacity="0.3"
-          />
+          <defs>
+            {/* Soft Floor Shadow Filter */}
+            <filter id="pqcFloorShadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="16" />
+            </filter>
 
-          {/* Flowing illuminated quantum pulse stream along the path */}
-          <motion.path
-            d="M 615 499 C 520 400, 350 360, 350 450 C 350 540, 520 580, 615 499 C 710 410, 880 390, 880 480 C 880 570, 710 590, 615 499 Z"
-            fill="none"
-            stroke="#2B66FF"
-            strokeWidth="3.5"
-            strokeDasharray="90 340"
-            initial={{ strokeDashoffset: 430 }}
-            animate={{ strokeDashoffset: [430, 0] }}
-            transition={{ duration: 4.2, repeat: Infinity, ease: 'linear' }}
-          />
+            {/* Quantum Energy Core Glow Filter */}
+            <filter id="pqcGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
 
-          {/* Cryptographic key rotation node pulses at exact landmarks */}
-          <motion.circle
-            cx="426"
-            cy="432"
-            r="8"
-            fill="#10B981"
-            animate={{ scale: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-          <motion.circle
-            cx="770"
-            cy="466"
-            r="8"
-            fill="#2B66FF"
-            animate={{ scale: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-          />
-          <motion.circle
-            cx="615"
-            cy="499"
-            r="7"
-            fill="#F59E0B"
-            animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-          />
+            {/* Crisp Holographic Pill Drop Shadow */}
+            <filter id="pqcPillShadow" x="-15%" y="-20%" width="130%" height="150%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#0F172A" floodOpacity="0.15" />
+            </filter>
+
+            {/* Infinity Ribbon Track - Top Metallic Surface Gradient */}
+            <linearGradient id="pqcRibbonTopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="35%" stopColor="#F8FAFC" />
+              <stop offset="70%" stopColor="#EFF6FF" />
+              <stop offset="100%" stopColor="#DBEAFE" />
+            </linearGradient>
+
+            {/* Infinity Ribbon Track - 3D Vertical Depth Facet Gradient */}
+            <linearGradient id="pqcRibbonDepthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#93C5FD" />
+              <stop offset="45%" stopColor="#3B82F6" />
+              <stop offset="100%" stopColor="#1D4ED8" />
+            </linearGradient>
+
+            {/* 3D Padlock Body - Titanium Front Face Gradient */}
+            <linearGradient id="pqcLockFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="30%" stopColor="#F0F9FF" />
+              <stop offset="70%" stopColor="#DBEAFE" />
+              <stop offset="100%" stopColor="#93C5FD" />
+            </linearGradient>
+
+            {/* 3D Padlock - Side Depth Facet Gradient */}
+            <linearGradient id="pqcLockSideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#60A5FA" />
+              <stop offset="50%" stopColor="#2563EB" />
+              <stop offset="100%" stopColor="#1D4ED8" />
+            </linearGradient>
+
+            {/* 3D Padlock - Top Cap Facet Gradient */}
+            <linearGradient id="pqcLockTopGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="100%" stopColor="#BFDBFE" />
+            </linearGradient>
+
+            {/* Floating Glass Holographic Panel Gradient */}
+            <linearGradient id="pqcPanelGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="rgba(255, 255, 255, 0.98)" />
+              <stop offset="100%" stopColor="rgba(240, 249, 255, 0.92)" />
+            </linearGradient>
+
+            {/* Blueprint Dot Grid Floor Pattern */}
+            <pattern id="pqcDotGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+              <circle cx="14" cy="14" r="1" fill="#2B66FF" opacity="0.10" />
+            </pattern>
+          </defs>
+
+          {/* =========================================================================
+              FLOOR CONTACT SHADOWS & BLUEPRINT ISOMETRIC GRID
+              ========================================================================= */}
+          <rect x="60" y="80" width="1080" height="740" fill="url(#pqcDotGrid)" opacity="0.6" />
+
+          {/* Soft elliptical contact shadows beneath both lobes and the crossover */}
+          <ellipse cx="380" cy="580" rx="180" ry="36" fill="rgba(43, 102, 255, 0.16)" filter="url(#pqcFloorShadow)" />
+          <ellipse cx="780" cy="580" rx="180" ry="36" fill="rgba(43, 102, 255, 0.16)" filter="url(#pqcFloorShadow)" />
+          <ellipse cx="580" cy="590" rx="90" ry="24" fill="rgba(43, 102, 255, 0.20)" filter="url(#pqcFloorShadow)" />
+          {/* Padlock contact shadow */}
+          <ellipse cx="715" cy="625" rx="55" ry="16" fill="rgba(43, 102, 255, 0.28)" filter="url(#pqcFloorShadow)" />
+
+          {/* Isometric baseline guide rails */}
+          <line x1="160" y1="410" x2="580" y2="620" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
+          <line x1="580" y1="620" x2="1000" y2="410" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
+
+          {/* =========================================================================
+              3D ISOMETRIC QUANTUM MÖBIUS INFINITY RIBBON TRACK
+              Constructed in two layered interlocking halves for authentic 3D crossover
+              ========================================================================= */}
+          {/* --- HALF 1 (UNDER-PASS): Right Lobe through Center to Left Lobe --- */}
+          <g>
+            {/* 3D Depth Under-Extrusion (+24px down) */}
+            <path
+              d="M 800 494 C 800 589, 680 609, 580 504 C 480 399, 360 399, 360 494"
+              stroke="url(#pqcRibbonDepthGrad)"
+              strokeWidth="56"
+              fill="none"
+              strokeLinecap="round"
+            />
+            {/* Top Metallic Track Surface */}
+            <path
+              d="M 800 470 C 800 565, 680 585, 580 480 C 480 375, 360 375, 360 470"
+              stroke="url(#pqcRibbonTopGrad)"
+              strokeWidth="50"
+              fill="none"
+              strokeLinecap="round"
+            />
+            {/* Cyan Energy Guide Rails */}
+            <path
+              d="M 800 470 C 800 565, 680 585, 580 480 C 480 375, 360 375, 360 470"
+              stroke="#2B66FF"
+              strokeWidth="2.0"
+              strokeDasharray="6 8"
+              fill="none"
+              opacity="0.5"
+            />
+            {/* Streaming Quantum Laser Pulse on Under-Pass */}
+            <motion.path
+              d="M 800 470 C 800 565, 680 585, 580 480 C 480 375, 360 375, 360 470"
+              stroke="#38BDF8"
+              strokeWidth="3.2"
+              strokeDasharray="70 280"
+              fill="none"
+              animate={{ strokeDashoffset: [350, 0] }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear' }}
+            />
+            <motion.path
+              d="M 800 470 C 800 565, 680 585, 580 480 C 480 375, 360 375, 360 470"
+              stroke="#FFFFFF"
+              strokeWidth="1.6"
+              strokeDasharray="30 320"
+              fill="none"
+              animate={{ strokeDashoffset: [350, 0] }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear' }}
+            />
+          </g>
+
+          {/* --- HALF 2 (OVER-PASS): Left Lobe through Center to Right Lobe --- */}
+          {/* Rendered on top so it crosses OVER Half 1 at (580, 480) with full 3D overlap */}
+          <g>
+            {/* 3D Depth Over-Extrusion (+24px down) */}
+            <path
+              d="M 360 494 C 360 589, 480 609, 580 504 C 680 399, 800 399, 800 494"
+              stroke="url(#pqcRibbonDepthGrad)"
+              strokeWidth="56"
+              fill="none"
+              strokeLinecap="round"
+            />
+            {/* Top Metallic Track Surface */}
+            <path
+              d="M 360 470 C 360 565, 480 585, 580 480 C 680 375, 800 375, 800 470"
+              stroke="url(#pqcRibbonTopGrad)"
+              strokeWidth="50"
+              fill="none"
+              strokeLinecap="round"
+            />
+            {/* Cyan Energy Guide Rails */}
+            <path
+              d="M 360 470 C 360 565, 480 585, 580 480 C 680 375, 800 375, 800 470"
+              stroke="#2B66FF"
+              strokeWidth="2.0"
+              strokeDasharray="6 8"
+              fill="none"
+              opacity="0.5"
+            />
+            {/* Streaming Quantum Laser Pulse on Over-Pass */}
+            <motion.path
+              d="M 360 470 C 360 565, 480 585, 580 480 C 680 375, 800 375, 800 470"
+              stroke="#38BDF8"
+              strokeWidth="3.2"
+              strokeDasharray="70 280"
+              fill="none"
+              animate={{ strokeDashoffset: [350, 0] }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear', delay: 1.6 }}
+            />
+            <motion.path
+              d="M 360 470 C 360 565, 480 585, 580 480 C 680 375, 800 375, 800 470"
+              stroke="#FFFFFF"
+              strokeWidth="1.6"
+              strokeDasharray="30 320"
+              fill="none"
+              animate={{ strokeDashoffset: [350, 0] }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear', delay: 1.6 }}
+            />
+          </g>
+
+          {/* =========================================================================
+              CRYPTOGRAPHIC KEY EXCHANGE NODES & CALLOUT BADGES
+              ========================================================================= */}
+          {/* Node 1: Left Apex Key Generation Hub */}
+          <g>
+            <circle cx="360" cy="470" r="7" fill="#10B981" />
+            <motion.circle
+              cx="360"
+              cy="470"
+              r="14"
+              fill="none"
+              stroke="#10B981"
+              strokeWidth="1.8"
+              animate={{ r: [7, 22], opacity: [0.95, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity }}
+            />
+            {/* Leader line to Callout Badge */}
+            <line x1="330" y1="470" x2="280" y2="470" stroke="#10B981" strokeWidth="1.6" />
+            <rect
+              x="130"
+              y="452"
+              width="150"
+              height="36"
+              rx="6"
+              fill="#FFFFFF"
+              stroke="#10B981"
+              strokeWidth="2.2"
+              filter="url(#pqcPillShadow)"
+            />
+            <circle cx="146" cy="470" r="4.5" fill="#10B981" />
+            <text
+              x="158"
+              y="476"
+              fontSize="13.5"
+              fill="#065F46"
+              fontWeight="900"
+              fontFamily="monospace"
+              letterSpacing="0.02em"
+            >
+              ML-KEM-1024
+            </text>
+          </g>
+
+          {/* Node 2: Center Crossover Decapsulation Hub */}
+          <g>
+            <circle cx="580" cy="480" r="7.5" fill="#2B66FF" />
+            <motion.circle
+              cx="580"
+              cy="480"
+              r="15"
+              fill="none"
+              stroke="#38BDF8"
+              strokeWidth="2.0"
+              animate={{ r: [7.5, 24], opacity: [0.95, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, delay: 0.9 }}
+            />
+            <circle cx="580" cy="480" r="3.5" fill="#FFFFFF" />
+          </g>
+
+          {/* Node 3: Right Apex Shared Secret Hub */}
+          <g>
+            <circle cx="800" cy="470" r="7" fill="#2B66FF" />
+            <motion.circle
+              cx="800"
+              cy="470"
+              r="14"
+              fill="none"
+              stroke="#2B66FF"
+              strokeWidth="1.8"
+              animate={{ r: [7, 22], opacity: [0.95, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, delay: 0.5 }}
+            />
+            {/* Leader line to Callout Badge */}
+            <line x1="800" y1="470" x2="850" y2="470" stroke="#2B66FF" strokeWidth="1.6" />
+            <rect
+              x="850"
+              y="452"
+              width="170"
+              height="36"
+              rx="6"
+              fill="#FFFFFF"
+              stroke="#2B66FF"
+              strokeWidth="2.2"
+              filter="url(#pqcPillShadow)"
+            />
+            <circle cx="866" cy="470" r="4.5" fill="#2B66FF" />
+            <text
+              x="878"
+              y="476"
+              fontSize="13.5"
+              fill="#1E3A8A"
+              fontWeight="900"
+              fontFamily="monospace"
+              letterSpacing="0.02em"
+            >
+              SHARED SECRET
+            </text>
+          </g>
+
+          {/* =========================================================================
+              FLOATING HOLOGRAPHIC PANELS (100% 3D ISOMETRIC ALIGNED WITH TRACK)
+              ========================================================================= */}
+          {/* --- PANEL 1: LEFT PQC CRYPTO ENGINE & CODE VAULT --- */}
+          <motion.g
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            {/* Suspended Blueprint Ceiling Mount */}
+            <line
+              x1="380"
+              y1="10"
+              x2="380"
+              y2="125"
+              stroke="#2B66FF"
+              strokeWidth="2"
+              strokeDasharray="3 4"
+              opacity="0.5"
+            />
+            <rect x="370" y="6" width="20" height="8" rx="2" fill="#2B66FF" />
+            <circle cx="380" cy="10" r="2.5" fill="#38BDF8" />
+
+            {/* Left Panel Body: Isometric Skew Group matching the 3D axis */}
+            <g transform="translate(255, 125) skewY(26.565)">
+              <rect
+                x="0"
+                y="0"
+                width="265"
+                height="180"
+                rx="8"
+                fill="url(#pqcPanelGlass)"
+                stroke="#2B66FF"
+                strokeWidth="2.2"
+                filter="url(#pqcPillShadow)"
+              />
+              <rect
+                x="6"
+                y="6"
+                width="253"
+                height="168"
+                rx="5"
+                fill="none"
+                stroke="#38BDF8"
+                strokeWidth="1.4"
+                opacity="0.8"
+              />
+
+              {/* Window Controls Header */}
+              <circle cx="18" cy="22" r="4.5" fill="#EF4444" />
+              <circle cx="32" cy="22" r="4.5" fill="#F59E0B" />
+              <circle cx="46" cy="22" r="4.5" fill="#10B981" />
+              <text
+                x="60"
+                y="27"
+                fontSize="15.5"
+                fill="#0F172A"
+                fontWeight="900"
+                fontFamily="monospace"
+              >
+                PQC KEM // ML-KEM-1024
+              </text>
+              <line x1="12" y1="36" x2="253" y2="36" stroke="#2B66FF" strokeWidth="1.4" opacity="0.35" />
+
+              {/* Code Engine Header Tag */}
+              <rect x="14" y="46" width="60" height="24" rx="4" fill="#EFF6FF" stroke="#2B66FF" strokeWidth="1.2" />
+              <text x="25" y="63" fontSize="13" fill="#2B66FF" fontWeight="900" fontFamily="monospace">
+                &lt; / &gt;
+              </text>
+              <text x="82" y="64" fontSize="15" fill="#1E3A8A" fontWeight="900" fontFamily="monospace">
+                CRYPTO ENGINE
+              </text>
+
+              {/* Active Key Hash & Details */}
+              <text x="14" y="94" fontSize="14" fill="#047857" fontWeight="900" fontFamily="monospace">
+                KEY: 0x9F4B...A2C8
+              </text>
+              <text x="14" y="114" fontSize="12.5" fill="#10B981" fontWeight="800" fontFamily="monospace">
+                [ROTATING · 24H CADENCE]
+              </text>
+              <text x="14" y="138" fontSize="13.5" fill="#334155" fontWeight="800" fontFamily="monospace">
+                ALGO: FIPS 203 / KYBER
+              </text>
+              <text x="14" y="162" fontSize="14" fill="#2563EB" fontWeight="900" fontFamily="monospace">
+                STATUS: ACTIVE // mTLS 1.3
+              </text>
+            </g>
+          </motion.g>
+
+          {/* --- PANEL 2: RIGHT CRYPTO AGILITY MATRIX & RESILIENCE CHECKLIST --- */}
+          <motion.g
+            animate={{ y: [0, -3.8, 0] }}
+            transition={{ duration: 3.8, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
+          >
+            {/* Projection Anchor Beam down to Track */}
+            <line
+              x1="920"
+              y1="310"
+              x2="890"
+              y2="425"
+              stroke="#2B66FF"
+              strokeWidth="1.8"
+              strokeDasharray="3 4"
+              opacity="0.45"
+            />
+            <ellipse cx="890" cy="425" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.6" opacity="0.6" />
+
+            {/* Right Panel Body: Isometric Skew Group matching the 3D axis */}
+            <g transform="translate(775, 115) skewY(26.565)">
+              <rect
+                x="0"
+                y="0"
+                width="265"
+                height="180"
+                rx="8"
+                fill="url(#pqcPanelGlass)"
+                stroke="#2B66FF"
+                strokeWidth="2.2"
+                filter="url(#pqcPillShadow)"
+              />
+              <rect
+                x="6"
+                y="6"
+                width="253"
+                height="168"
+                rx="5"
+                fill="none"
+                stroke="#38BDF8"
+                strokeWidth="1.4"
+                opacity="0.8"
+              />
+
+              {/* Status Header */}
+              <circle cx="20" cy="22" r="5.5" fill="#10B981" />
+              <text
+                x="32"
+                y="27"
+                fontSize="16"
+                fill="#0F172A"
+                fontWeight="900"
+                fontFamily="monospace"
+              >
+                CRYPTO AGILITY MATRIX
+              </text>
+              <line x1="12" y1="36" x2="253" y2="36" stroke="#2B66FF" strokeWidth="1.4" opacity="0.35" />
+
+              {/* Checklist Items */}
+              <text x="14" y="58" fontSize="14" fill="#047857" fontWeight="900" fontFamily="monospace">
+                ✓ NIST FIPS 203 READY
+              </text>
+              <text x="14" y="82" fontSize="14" fill="#047857" fontWeight="900" fontFamily="monospace">
+                ✓ AES-256-GCM QUANTUM
+              </text>
+              <text x="14" y="106" fontSize="14" fill="#047857" fontWeight="900" fontFamily="monospace">
+                ✓ HSM KEY CUSTODY (24h)
+              </text>
+              <text x="14" y="130" fontSize="14" fill="#047857" fontWeight="900" fontFamily="monospace">
+                ✓ ZERO PLAINTEXT LEAK
+              </text>
+
+              {/* Entropy Status Tag */}
+              <rect x="14" y="144" width="238" height="24" rx="4" fill="#EFF6FF" stroke="#2B66FF" strokeWidth="1.2" />
+              <circle cx="26" cy="156" r="3.5" fill="#10B981" />
+              <text x="36" y="161" fontSize="12.5" fill="#1E3A8A" fontWeight="900" fontFamily="monospace">
+                ENTROPY: 99.99% // HIGH
+              </text>
+            </g>
+          </motion.g>
+
+          {/* =========================================================================
+              HEROIC 3D ISOMETRIC QUANTUM PADLOCK (FRONT RIGHT TRACK)
+              Constructed with exact isometric facets: slope 0.5 (26.565°) & depth (+22, -11)
+              ========================================================================= */}
+          <motion.g
+            animate={{ y: [0, -4.5, 0] }}
+            transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            {/* --- 3D SHACKLE (CURVED U-BAR FULLY INSERTED INTO PADLOCK TOP) --- */}
+            {/* Back Shackle Extrusion (+22, -11) */}
+            <path
+              d="M 702 484 L 702 399 Q 702 359, 722 359 Q 742 359, 742 419 L 742 504"
+              fill="none"
+              stroke="#1D4ED8"
+              strokeWidth="13"
+              strokeLinecap="round"
+            />
+            {/* Front Shackle */}
+            <path
+              d="M 680 495 L 680 410 Q 680 370, 700 370 Q 720 370, 720 430 L 720 515"
+              fill="none"
+              stroke="#2B66FF"
+              strokeWidth="14"
+              strokeLinecap="round"
+            />
+            {/* Front Shackle Cyan Core */}
+            <path
+              d="M 680 410 Q 680 370, 700 370 Q 720 370, 720 430"
+              fill="none"
+              stroke="#38BDF8"
+              strokeWidth="7"
+              strokeLinecap="round"
+            />
+            {/* Hot White Highlight Core */}
+            <path
+              d="M 680 410 Q 680 370, 700 370 Q 720 370, 720 430"
+              fill="none"
+              stroke="#FFFFFF"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            />
+
+            {/* --- 3D LOCK BODY (SOLID ISOMETRIC BLOCK) --- */}
+            {/* Top Facet: connects front top edge (655, 475)-(745, 520) to back (+22, -11) */}
+            <polygon
+              points="655,475 677,464 767,509 745,520"
+              fill="url(#pqcLockTopGrad)"
+              stroke="#2B66FF"
+              strokeWidth="2.2"
+              strokeLinejoin="round"
+            />
+            {/* Right Depth Facet */}
+            <polygon
+              points="745,520 767,509 767,599 745,610"
+              fill="url(#pqcLockSideGrad)"
+              stroke="#2B66FF"
+              strokeWidth="2.2"
+              strokeLinejoin="round"
+            />
+
+            {/* Main Front Face with Isometric Skew Group (100% parallel to 3D grid) */}
+            <g transform="translate(655, 475) skewY(26.565)">
+              <rect
+                x="0"
+                y="0"
+                width="90"
+                height="90"
+                rx="6"
+                fill="url(#pqcLockFaceGrad)"
+                stroke="#2B66FF"
+                strokeWidth="2.6"
+              />
+              <rect
+                x="5"
+                y="5"
+                width="80"
+                height="80"
+                rx="4"
+                fill="none"
+                stroke="#38BDF8"
+                strokeWidth="1.6"
+                opacity="0.85"
+              />
+
+              {/* Lock Status Beacon LED */}
+              <circle cx="20" cy="20" r="4.5" fill="#10B981" />
+              <motion.circle
+                cx="20"
+                cy="20"
+                r="9"
+                fill="none"
+                stroke="#10B981"
+                strokeWidth="1.4"
+                animate={{ r: [4.5, 12], opacity: [0.95, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity }}
+              />
+
+              {/* Precision Cyber Keyhole */}
+              <circle cx="45" cy="46" r="7" fill="#1E3A8A" />
+              <polygon points="42,46 48,46 51,64 39,64" fill="#1E3A8A" />
+              <circle cx="45" cy="46" r="3.2" fill="#38BDF8" filter="url(#pqcGlow)" />
+              <circle cx="45" cy="46" r="1.6" fill="#FFFFFF" />
+
+              {/* Monospace Security Badge on Lock Face */}
+              <text
+                x="12"
+                y="80"
+                fontSize="11"
+                fill="#1E3A8A"
+                fontWeight="900"
+                fontFamily="monospace"
+                letterSpacing="0.04em"
+              >
+                PQC // 256b
+              </text>
+            </g>
+
+            {/* Docked Lock Telemetry Callout Pill */}
+            <rect
+              x="630"
+              y="628"
+              width="150"
+              height="32"
+              rx="6"
+              fill="#FFFFFF"
+              stroke="#2B66FF"
+              strokeWidth="2.2"
+              filter="url(#pqcPillShadow)"
+            />
+            <circle cx="646" cy="644" r="4" fill="#10B981" />
+            <text
+              x="658"
+              y="650"
+              fontSize="12.5"
+              fill="#1E3A8A"
+              fontWeight="900"
+              fontFamily="monospace"
+              letterSpacing="0.02em"
+            >
+              SEALED // PQC
+            </text>
+          </motion.g>
+
+          {/* =========================================================================
+              TOP BLUEPRINT TELEMETRY STATUS BADGE (High Visibility, Bold Monospace)
+              ========================================================================= */}
+          <g transform="translate(390, 45)">
+            <rect
+              x="0"
+              y="0"
+              width="420"
+              height="44"
+              rx="8"
+              fill="#FFFFFF"
+              stroke="#2B66FF"
+              strokeWidth="2.2"
+              filter="url(#pqcPillShadow)"
+            />
+            <circle cx="22" cy="22" r="6" fill="#10B981" />
+            <motion.circle
+              cx="22"
+              cy="22"
+              r="12"
+              fill="none"
+              stroke="#10B981"
+              strokeWidth="1.6"
+              animate={{ r: [6, 16], opacity: [0.9, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity }}
+            />
+            <text
+              x="38"
+              y="28"
+              fontSize="16.5"
+              fill="#0F172A"
+              fontWeight="900"
+              fontFamily="monospace"
+              letterSpacing="0.03em"
+            >
+              POST-QUANTUM RESILIENT // FIPS 203
+            </text>
+          </g>
         </svg>
       )}
     </div>

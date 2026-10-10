@@ -585,7 +585,7 @@ export const SecurityShowcase: React.FC<SecurityShowcaseProps> = ({ onOpenDemo }
                     className="relative w-full h-full flex items-center justify-center z-0"
                   >
                     <div className="relative h-full max-w-full aspect-[4/3] flex items-center justify-center">
-                      {activeTab !== 1 && activeTab !== 2 ? (
+                      {activeTab !== 1 && activeTab !== 2 && activeTab !== 3 ? (
                         <img 
                           src={tabs[activeTab].image} 
                           alt={tabs[activeTab].title}
