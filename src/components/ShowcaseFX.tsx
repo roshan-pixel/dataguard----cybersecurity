@@ -1670,6 +1670,15 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#0F172A" floodOpacity="0.15" />
             </filter>
 
+            {/* Soft Even Keyhole Glow Filter */}
+            <filter id="pqcKeyholeGlow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3.0" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
             {/* Infinity Ribbon Track - Top Metallic Surface Gradient */}
             <linearGradient id="pqcRibbonTopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FFFFFF" />
@@ -1706,6 +1715,36 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               <stop offset="100%" stopColor="#BFDBFE" />
             </linearGradient>
 
+            {/* Shackle Metallic Body Gradient */}
+            <linearGradient id="pqcShackleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#93C5FD" />
+              <stop offset="30%" stopColor="#3B82F6" />
+              <stop offset="65%" stopColor="#2563EB" />
+              <stop offset="100%" stopColor="#1D4ED8" />
+            </linearGradient>
+
+            {/* Soft Keyhole Halo Gradient */}
+            <radialGradient id="pqcKeyholeHalo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.45" />
+              <stop offset="45%" stopColor="#0EA5E9" stopOpacity="0.18" />
+              <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+            </radialGradient>
+
+            {/* Recessed Collar Inner Depth Gradient */}
+            <linearGradient id="pqcHoleBoreGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#0A1120" />
+              <stop offset="50%" stopColor="#172554" />
+              <stop offset="100%" stopColor="#1E3A8A" />
+            </linearGradient>
+
+            {/* Recessed Collar Bevel Rim Gradient */}
+            <linearGradient id="pqcCollarRimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="40%" stopColor="#E2E8F0" />
+              <stop offset="80%" stopColor="#93C5FD" />
+              <stop offset="100%" stopColor="#1E40AF" />
+            </linearGradient>
+
             {/* Floating Glass Holographic Panel Gradient */}
             <linearGradient id="pqcPanelGlass" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="rgba(255, 255, 255, 0.98)" />
@@ -1728,7 +1767,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           <ellipse cx="780" cy="580" rx="180" ry="36" fill="rgba(43, 102, 255, 0.16)" filter="url(#pqcFloorShadow)" />
           <ellipse cx="580" cy="590" rx="90" ry="24" fill="rgba(43, 102, 255, 0.20)" filter="url(#pqcFloorShadow)" />
           {/* Padlock contact shadow */}
-          <ellipse cx="715" cy="690" rx="55" ry="16" fill="rgba(43, 102, 255, 0.28)" filter="url(#pqcFloorShadow)" />
+          <ellipse cx="715" cy="672" rx="55" ry="14" fill="rgba(43, 102, 255, 0.22)" filter="url(#pqcFloorShadow)" />
 
           {/* Isometric baseline guide rails */}
           <line x1="160" y1="410" x2="580" y2="620" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
@@ -2146,33 +2185,63 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             <path
               d="M 706 559 L 706 501 C 706 465, 746 465, 746 521 L 746 579"
               fill="none"
-              stroke="#1D4ED8"
+              stroke="#172554"
               strokeWidth="11"
               strokeLinecap="round"
             />
-            {/* Shackle Metallic Blue Core */}
+            {/* Shackle Metallic Blue Body */}
             <path
               d="M 706 559 L 706 501 C 706 465, 746 465, 746 521 L 746 579"
               fill="none"
-              stroke="#2B66FF"
+              stroke="url(#pqcShackleGrad)"
               strokeWidth="8.5"
               strokeLinecap="round"
             />
-            {/* Shackle Glowing Cyan Core */}
+            {/* Shackle Glowing Cyan Core (ambient base) */}
             <path
               d="M 706 559 L 706 501 C 706 465, 746 465, 746 521 L 746 579"
               fill="none"
               stroke="#38BDF8"
               strokeWidth="4.5"
               strokeLinecap="round"
+              opacity="0.75"
             />
-            {/* Shackle Specular Hot White Core Highlight */}
+
+            {/* STRENGTHENED GLOSSY SPECULAR HIGHLIGHTS */}
+            {/* Broad high-gloss reflective sheen along entire lit left leg and top arch */}
             <path
-              d="M 706 501 C 706 469, 738 469, 738 487"
+              d="M 706 550 L 706 501 C 706 464, 745 464, 745 496"
+              fill="none"
+              stroke="#BAE6FD"
+              strokeWidth="3.2"
+              strokeLinecap="round"
+              opacity="0.9"
+            />
+            {/* Brilliant razor-sharp mirror specular highlight */}
+            <path
+              d="M 706 544 L 706 501 C 706 466, 743 466, 743 490"
               fill="none"
               stroke="#FFFFFF"
-              strokeWidth="1.6"
+              strokeWidth="1.8"
               strokeLinecap="round"
+              opacity="1.0"
+            />
+            {/* Hot specular crest glint at apex curve */}
+            <path
+              d="M 714 472 C 722 466, 730 466, 738 472"
+              fill="none"
+              stroke="#FFFFFF"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+            />
+            {/* Secondary specular rim on right leg */}
+            <path
+              d="M 746 500 L 746 565"
+              fill="none"
+              stroke="#E0F2FE"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              opacity="0.55"
             />
 
             {/* 3. Top Cap Facet: Parallelogram from front top (675, 555)-(755, 595) to back (+24, -12) */}
@@ -2185,16 +2254,66 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               strokeLinejoin="round"
             />
 
-            {/* 4. Shackle Entry Collar Ferrules (True 3D Isometric Cylinders on Top Cap) */}
-            {/* Left Collar at (706, 559) */}
-            <ellipse cx="706" cy="561" rx="9" ry="4.5" fill="#1E40AF" stroke="#2B66FF" strokeWidth="1.2" />
-            <ellipse cx="706" cy="558" rx="9" ry="4.5" fill="#DBEAFE" stroke="#2B66FF" strokeWidth="1.2" />
-            <ellipse cx="706" cy="558" rx="5.5" ry="2.8" fill="#172554" />
+            {/* 4. Shackle Entry Collar Ferrules (Recessed 3D Holes with Proper Inner Shading) */}
+            {/* Left Recessed Hole at (706, 559) */}
+            <g>
+              {/* Outer chamfer / beveled collar ring */}
+              <ellipse cx="706" cy="560" rx="9.5" ry="4.8" fill="url(#pqcCollarRimGrad)" stroke="#2B66FF" strokeWidth="1.2" />
+              {/* Recessed bore cavity depth shadow */}
+              <ellipse cx="706" cy="560.5" rx="7.2" ry="3.6" fill="#0B132B" />
+              {/* Inner cylindrical bore depth wall */}
+              <path
+                d="M 698.8 560.5 C 698.8 564.2, 713.2 564.2, 713.2 560.5 L 712.2 558.5 C 712.2 561.8, 699.8 561.8, 699.8 558.5 Z"
+                fill="url(#pqcHoleBoreGrad)"
+              />
+              {/* Deep interior bore hole */}
+              <ellipse cx="706" cy="559.5" rx="6.0" ry="2.9" fill="#070C18" />
+              {/* Inner upper-back shadow crescent (depth shading) */}
+              <path
+                d="M 700.5 558.5 C 702.5 557.2, 709.5 557.2, 711.5 558.5 C 709 559.4, 703 559.4, 700.5 558.5 Z"
+                fill="#050811"
+                opacity="0.9"
+              />
+              {/* Lower-front lip specular catchlight reflection */}
+              <path
+                d="M 699.5 561.2 C 702.5 563.2, 709.5 563.2, 712.5 561.2"
+                fill="none"
+                stroke="#FFFFFF"
+                strokeWidth="1.0"
+                strokeLinecap="round"
+                opacity="0.85"
+              />
+            </g>
 
-            {/* Right Collar at (746, 579) */}
-            <ellipse cx="746" cy="581" rx="9" ry="4.5" fill="#1E40AF" stroke="#2B66FF" strokeWidth="1.2" />
-            <ellipse cx="746" cy="578" rx="9" ry="4.5" fill="#DBEAFE" stroke="#2B66FF" strokeWidth="1.2" />
-            <ellipse cx="746" cy="578" rx="5.5" ry="2.8" fill="#172554" />
+            {/* Right Recessed Hole at (746, 579) */}
+            <g>
+              {/* Outer chamfer / beveled collar ring */}
+              <ellipse cx="746" cy="580" rx="9.5" ry="4.8" fill="url(#pqcCollarRimGrad)" stroke="#2B66FF" strokeWidth="1.2" />
+              {/* Recessed bore cavity depth shadow */}
+              <ellipse cx="746" cy="580.5" rx="7.2" ry="3.6" fill="#0B132B" />
+              {/* Inner cylindrical bore depth wall */}
+              <path
+                d="M 738.8 580.5 C 738.8 584.2, 753.2 584.2, 753.2 580.5 L 752.2 578.5 C 752.2 581.8, 739.8 581.8, 739.8 578.5 Z"
+                fill="url(#pqcHoleBoreGrad)"
+              />
+              {/* Deep interior bore hole */}
+              <ellipse cx="746" cy="579.5" rx="6.0" ry="2.9" fill="#070C18" />
+              {/* Inner upper-back shadow crescent (depth shading) */}
+              <path
+                d="M 740.5 578.5 C 742.5 577.2, 749.5 577.2, 751.5 578.5 C 749 579.4, 743 579.4, 740.5 578.5 Z"
+                fill="#050811"
+                opacity="0.9"
+              />
+              {/* Lower-front lip specular catchlight reflection */}
+              <path
+                d="M 739.5 581.2 C 742.5 583.2, 749.5 583.2, 752.5 581.2"
+                fill="none"
+                stroke="#FFFFFF"
+                strokeWidth="1.0"
+                strokeLinecap="round"
+                opacity="0.85"
+              />
+            </g>
 
             {/* 5. Right Side Depth Facet */}
             <polygon
@@ -2245,15 +2364,48 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 transition={{ duration: 1.6, repeat: Infinity }}
               />
 
-              {/* Iconic Cyber Keyhole */}
-              <circle cx="40" cy="46" r="7.5" fill="#1E3A8A" />
-              <polygon points="36.5,46 43.5,46 46,65 34,65" fill="#1E3A8A" />
-              <circle cx="40" cy="46" r="3.5" fill="#38BDF8" filter="url(#pqcGlow)" />
-              <circle cx="40" cy="46" r="1.8" fill="#FFFFFF" />
+              {/* Perfectly Centered, Cleaned Up, Soft Keyhole Glow */}
+              <g>
+                {/* Soft, even ambient glow halo centered at (40, 52) */}
+                <ellipse cx="40" cy="52" rx="15" ry="18" fill="url(#pqcKeyholeHalo)" />
+
+                {/* Deep Keyhole Cavity Base */}
+                <circle cx="40" cy="46" r="7.2" fill="#0A1122" />
+                <polygon points="36.5,46 43.5,46 45.8,64 34.2,64" fill="#0A1122" />
+
+                {/* Subtle Keyhole Inner Bevel Stroke */}
+                <circle cx="40" cy="46" r="7.2" fill="none" stroke="#1E3A8A" strokeWidth="1.0" />
+                <polygon points="36.5,46 43.5,46 45.8,64 34.2,64" fill="none" stroke="#1E3A8A" strokeWidth="1.0" />
+
+                {/* Centered Soft Even Inner Glow Beam along vertical axis */}
+                <line
+                  x1="40"
+                  y1="46"
+                  x2="40"
+                  y2="59"
+                  stroke="#38BDF8"
+                  strokeWidth="3.2"
+                  strokeLinecap="round"
+                  filter="url(#pqcKeyholeGlow)"
+                  opacity="0.9"
+                />
+                {/* Core hot white centered filament */}
+                <line
+                  x1="40"
+                  y1="46"
+                  x2="40"
+                  y2="55"
+                  stroke="#FFFFFF"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  opacity="0.95"
+                />
+                {/* Aperture center specular dot */}
+                <circle cx="40" cy="46" r="1.6" fill="#FFFFFF" />
+              </g>
             </g>
 
-            {/* 7. Docked Padlock Telemetry Callout Pill */}
-            <line x1="715" y1="665" x2="715" y2="702" stroke="#2B66FF" strokeWidth="1.6" strokeDasharray="3 3" opacity="0.6" />
+            {/* 7. Docked Padlock Telemetry Callout Pill (NO FAINT VERTICAL LINE!) */}
             <rect
               x="612"
               y="702"

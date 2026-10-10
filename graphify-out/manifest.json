@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\sections\\SecurityShowcase.tsx": {
-    "mtime": 1791625826.4597769,
-    "ast_hash": "1670ece81a6f77b894f0fb5944bebaa8",
+    "mtime": 1791632647.273055,
+    "ast_hash": "080569dab2796803b5a313cc9f7eec71",
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\sections\\SimpleSteps.tsx": {
@@ -310,8 +310,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\scripts\\clean_showcase.py": {
-    "mtime": 1790778143.9612105,
-    "ast_hash": "60b9245e4dac8be351e0f03697f86a93",
+    "mtime": 1791632667.2664452,
+    "ast_hash": "db663304f3728cde8743c43de4ce02b1",
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\public\\assets\\showcase\\encryption.png": {
@@ -355,8 +355,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\components\\ShowcaseFX.tsx": {
-    "mtime": 1791626167.4067526,
-    "ast_hash": "265766a691c740b65e249c2a2cd3750f",
+    "mtime": 1791633756.3883379,
+    "ast_hash": "9f2dbf7515b725c06b125a6f7645cba0",
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\screenshots\\hero_visualized.png": {
@@ -395,13 +395,13 @@
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\scripts\\ask_claude.py": {
-    "mtime": 1790781722.2743995,
-    "ast_hash": "e9fb057c4be2decc58eab6ecdd1150da",
+    "mtime": 1791632667.2664452,
+    "ast_hash": "a3c9c2734169d77b6197401bf89814d1",
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\scripts\\purify_all_showcase.py": {
-    "mtime": 1790782379.1745284,
-    "ast_hash": "35eee52e80a0c559750c71f367f24eb6",
+    "mtime": 1791632667.2664452,
+    "ast_hash": "2b0a767aab66b1ee1a6628934f1529d1",
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\public\\assets\\showcase\\clean\\zero_trust_purified.png": {
