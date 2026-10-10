@@ -190,8 +190,8 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
         >
           <defs>
             <radialGradient id="radarSweep3D" cx="0" cy="0" r="235" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#2B66FF" stopOpacity="0.7" />
-              <stop offset="50%" stopColor="#2B66FF" stopOpacity="0.22" />
+              <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.85" />
+              <stop offset="40%" stopColor="#2B66FF" stopOpacity="0.35" />
               <stop offset="100%" stopColor="#2B66FF" stopOpacity="0" />
             </radialGradient>
 
@@ -234,7 +234,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               ISOMETRIC 3D RADAR DISH & CONCENTRIC RINGS (Centered at cx: 578.5, cy: 444.0)
               ========================================================================= */}
           <g transform="translate(578.5, 444) rotate(-3)" filter="url(#dishShadow)">
-            <g transform="scale(1, 0.49)">
+            <g transform="scale(1.35, 0.66)">
 
               {/* Complete, perfectly circular concentric radar rings of dense uniform blue dots */}
               {[55, 110, 165, 220].map((r, i) => (
@@ -262,7 +262,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 fill="none"
                 stroke="#2B66FF"
                 strokeWidth="3.5"
-                strokeDasharray="40 180"
+                strokeDasharray="55 170"
                 animate={{ strokeDashoffset: [220, 0] }}
                 transition={{ duration: 4.8, repeat: Infinity, ease: 'linear' }}
                 opacity="0.9"
@@ -274,7 +274,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 fill="none"
                 stroke="#2B66FF"
                 strokeWidth="3.5"
-                strokeDasharray="50 290"
+                strokeDasharray="70 260"
                 animate={{ strokeDashoffset: [0, 340] }}
                 transition={{ duration: 5.6, repeat: Infinity, ease: 'linear' }}
                 opacity="0.85"
@@ -285,8 +285,11 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3.6, repeat: Infinity, ease: 'linear' }}
               >
-                <path d="M 0 0 L 235 0 A 235 235 0 0 1 117.5 203.5 Z" fill="url(#radarSweep3D)" filter="url(#sweepGlow)" />
-                <line x1="0" y1="0" x2="235" y2="0" stroke="#2B66FF" strokeWidth="3" opacity="1" />
+                <path d="M 0 0 L 235 0 A 235 235 0 0 1 117.5 203.5 Z" fill="url(#radarSweep3D)" filter="url(#sweepGlow)" opacity="0.9" />
+                {/* Bright leading-edge scanline */}
+                <line x1="0" y1="0" x2="235" y2="0" stroke="#60A5FA" strokeWidth="3.5" opacity="1" />
+                {/* Trailing edge */}
+                <line x1="0" y1="0" x2="117.5" y2="203.5" stroke="#2B66FF" strokeWidth="1.5" opacity="0.5" />
               </motion.g>
 
               {/* Central hub core pulse */}
@@ -342,7 +345,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           >
             {/* Holographic frame bracket matching perspective trapezoid */}
             <path
-              d="M 347 318 L 427 288 L 427 370 L 347 400 Z"
+              d="M 347 338 L 427 308 L 427 390 L 347 420 Z"
               fill="none"
               stroke="#2B66FF"
               strokeWidth="1.5"
@@ -350,12 +353,12 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               opacity="0.4"
             />
             <path
-              d="M 347 318 L 427 288 L 427 370 L 347 400 Z"
+              d="M 347 338 L 427 308 L 427 390 L 347 420 Z"
               fill="rgba(43, 102, 255, 0.04)"
             />
             {/* Live streaming telemetry line chart waveform */}
             <motion.path
-              d="M 356 375 Q 366 348, 378 360 T 399 338 T 422 352"
+              d="M 356 395 Q 366 368, 378 380 T 399 358 T 422 372"
               fill="none"
               stroke="#2B66FF"
               strokeWidth="2.2"
@@ -367,7 +370,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             {/* Warning alert indicator dot on panel 1 */}
             <motion.circle
               cx="388"
-              cy="322"
+              cy="342"
               r="4"
               fill="#F59E0B"
               animate={{ scale: [1, 1.4, 1], opacity: [0.8, 1, 0.8] }}
