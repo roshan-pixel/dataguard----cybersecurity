@@ -585,11 +585,15 @@ export const SecurityShowcase: React.FC<SecurityShowcaseProps> = ({ onOpenDemo }
                     className="relative w-full h-full flex items-center justify-center z-0"
                   >
                     <div className="relative h-full max-w-full aspect-[4/3] flex items-center justify-center">
-                      <img 
-                        src={tabs[activeTab].image} 
-                        alt={tabs[activeTab].title}
-                        className="w-full h-full object-contain select-none filter drop-shadow-sm"
-                      />
+                      {activeTab !== 1 ? (
+                        <img 
+                          src={tabs[activeTab].image} 
+                          alt={tabs[activeTab].title}
+                          className="w-full h-full object-contain select-none filter drop-shadow-sm"
+                        />
+                      ) : (
+                        <div className="w-full h-full aspect-[4/3]" />
+                      )}
 
                       {/* LIVE ACTIVE MOVING ILLUSTRATION OVERLAYS */}
                       <ShowcaseFX activeTab={activeTab} />

@@ -181,7 +181,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
         </svg>
       )}
 
-      {/* Tab 02: Real-Time Radar / Sonar Telemetry Interface Animation */}
+      {/* Tab 02: Real-Time Radar / Sonar Telemetry Interface Animation (Built 100% From Scratch) */}
       {activeTab === 1 && (
         <svg 
           viewBox="0 0 1200 900" 
@@ -189,185 +189,363 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           preserveAspectRatio="xMidYMid meet"
         >
           <defs>
-            <radialGradient id="radarSweep3D" cx="0" cy="0" r="235" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.80" />
-              <stop offset="35%" stopColor="#2B66FF" stopOpacity="0.45" />
-              <stop offset="75%" stopColor="#2B66FF" stopOpacity="0.15" />
+            {/* Luminous Radar Sweep Radial Gradient */}
+            <radialGradient id="radarSweep3D" cx="0" cy="0" r="310" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.88" />
+              <stop offset="25%" stopColor="#2B66FF" stopOpacity="0.55" />
+              <stop offset="65%" stopColor="#2B66FF" stopOpacity="0.18" />
               <stop offset="100%" stopColor="#2B66FF" stopOpacity="0" />
             </radialGradient>
 
+            {/* 3D Pedestal Cylinder Metallic Gradient */}
+            <linearGradient id="pedestalCylinderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#E2E8F0" stopOpacity="0.35" />
+              <stop offset="20%" stopColor="#F1F5F9" stopOpacity="0.65" />
+              <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.90" />
+              <stop offset="80%" stopColor="#EFF6FF" stopOpacity="0.65" />
+              <stop offset="100%" stopColor="#DBEAFE" stopOpacity="0.45" />
+            </linearGradient>
+
+            {/* Holographic UI Glass Gradient */}
+            <linearGradient id="panelGlassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="rgba(255, 255, 255, 0.95)" />
+              <stop offset="100%" stopColor="rgba(239, 246, 255, 0.85)" />
+            </linearGradient>
+
+            {/* Waveform Gradient Fill */}
+            <linearGradient id="waveformAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.30" />
+              <stop offset="100%" stopColor="#2B66FF" stopOpacity="0.0" />
+            </linearGradient>
+
+            {/* Shield Front Gradient */}
+            <linearGradient id="shieldFrontGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="100%" stopColor="#F8FAFC" />
+            </linearGradient>
+
+            {/* Subtle Blueprint Dot Grid Pattern */}
+            <pattern id="radarGridPattern" width="32" height="32" patternUnits="userSpaceOnUse">
+              <circle cx="16" cy="16" r="1" fill="#2B66FF" opacity="0.10" />
+            </pattern>
+
+            {/* Alert Beacon Glow Filter */}
             <filter id="alertGlow" x="-60%" y="-60%" width="220%" height="220%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
 
+            {/* Radar Sweep Leading Edge Glow Filter */}
             <filter id="sweepGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
 
-            <filter id="dishShadow" x="-30%" y="-30%" width="160%" height="160%">
-              <feDropShadow dx="0" dy="10" stdDeviation="14" floodColor="#2B66FF" floodOpacity="0.14" />
+            {/* Dish Drop Shadow */}
+            <filter id="dishDropShadow" x="-25%" y="-25%" width="150%" height="150%">
+              <feDropShadow dx="0" dy="14" stdDeviation="16" floodColor="#2B66FF" floodOpacity="0.14" />
             </filter>
 
+            {/* Soft Floor Shadow Blur Filter */}
             <filter id="radarFloorGlow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="18" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
             </filter>
           </defs>
 
-          {/* Soft grounding floor shadow under radar base platform */}
+          {/* Background Blueprint Micro Dot Grid */}
+          <rect width="1200" height="900" fill="url(#radarGridPattern)" opacity="0.8" />
+
+          {/* Precision Blueprint Corner Markers */}
+          <g stroke="#CBD5E1" strokeWidth="1.5" fill="none" opacity="0.7">
+            <path d="M 60 90 L 60 60 L 90 60" />
+            <path d="M 1140 90 L 1140 60 L 1110 60" />
+            <path d="M 60 810 L 60 840 L 90 840" />
+            <path d="M 1140 810 L 1140 840 L 1110 840" />
+          </g>
+
+          {/* Main Visual Scene scaled for prominent heroic presence */}
+          <g transform="translate(600, 440) scale(1.18) translate(-580, -450)">
+            {/* Soft Grounding Floor Plane Contact Shadows */}
+            <ellipse 
+              cx="580" 
+              cy="680" 
+            rx="400" 
+            ry="55" 
+            fill="rgba(43, 102, 255, 0.12)" 
+            filter="url(#radarFloorGlow)" 
+          />
           <ellipse 
-            cx="578" 
-            cy="650" 
-            rx="270" 
-            ry="48" 
-            fill="rgba(43, 102, 255, 0.10)" 
+            cx="580" 
+            cy="665" 
+            rx="330" 
+            ry="36" 
+            fill="rgba(15, 23, 42, 0.08)" 
             filter="url(#radarFloorGlow)" 
           />
 
           {/* =========================================================================
-              ISOMETRIC 3D RADAR DISH & CONCENTRIC RINGS (Centered at cx: 578.5, cy: 444.0)
+              ISOMETRIC 3D RADAR PEDESTAL & CONCENTRIC DISH (Centered at 580, 450)
               ========================================================================= */}
-          <g transform="translate(578.5, 444) rotate(-3)" filter="url(#dishShadow)">
-            <g transform="scale(1, 0.49)">
+          <g transform="translate(580, 450) rotate(-3)" filter="url(#dishDropShadow)">
+            <g transform="scale(1, 0.50)">
 
-              {/* Complete, fully continuous concentric radar rings — zero gaps, solid & dense */}
-              {[55, 110, 165, 220].map((r, i) => (
-                <g key={i}>
-                  {/* Continuous solid structural base ring to eliminate dissolving edges */}
-                  <circle 
-                    cx="0" 
-                    cy="0" 
-                    r={r} 
-                    fill="none" 
-                    stroke="#2B66FF" 
-                    strokeWidth="1.6"  
-                    opacity={0.5 + i * 0.12} 
+              {/* 3D Cylindrical Pedestal Skirt & Front Depth Wall */}
+              <path
+                d="M -340 0 L -340 80 A 340 340 0 0 0 340 80 L 340 0 A 340 340 0 0 1 -340 0 Z"
+                fill="url(#pedestalCylinderGrad)"
+                stroke="#2B66FF"
+                strokeWidth="1.6"
+                opacity="0.85"
+              />
+
+              {/* Vertical 3D Cylinder Seam Ribs showing curved perspective depth */}
+              {[15, 35, 55, 75, 90, 105, 125, 145, 165].map((deg, i) => {
+                const rad = (deg * Math.PI) / 180;
+                const x = 340 * Math.cos(rad);
+                const y0 = 340 * Math.sin(rad);
+                return (
+                  <line
+                    key={`rib-${i}`}
+                    x1={x}
+                    y1={y0}
+                    x2={x}
+                    y2={y0 + 80}
+                    stroke="#2B66FF"
+                    strokeWidth="1.2"
+                    strokeDasharray="3 4"
+                    opacity="0.32"
                   />
-                  {/* Dense primary uniform particle ring */}
+                );
+              })}
+
+              {/* Pedestal Bottom Base Rim (Solid baseline + dense micro-dots) */}
+              <path
+                d="M -340 80 A 340 340 0 0 0 340 80"
+                fill="none"
+                stroke="#2B66FF"
+                strokeWidth="2.4"
+                opacity="0.6"
+              />
+              <path
+                d="M -340 80 A 340 340 0 0 0 340 80"
+                fill="none"
+                stroke="#2B66FF"
+                strokeWidth="3.2"
+                strokeDasharray="2.5 3"
+                opacity="0.9"
+              />
+
+              {/* Outer Stepped Pedestal Lips */}
+              <circle cx="0" cy="0" r="340" fill="none" stroke="#2B66FF" strokeWidth="2.0" opacity="0.5" />
+              <circle cx="0" cy="0" r="340" fill="none" stroke="#2B66FF" strokeWidth="3.0" strokeDasharray="3 3" opacity="0.9" />
+
+              <circle cx="0" cy="0" r="325" fill="none" stroke="#2B66FF" strokeWidth="1.6" opacity="0.45" />
+              <circle cx="0" cy="0" r="325" fill="none" stroke="#2B66FF" strokeWidth="2.6" strokeDasharray="2 3" opacity="0.8" />
+
+              {/* Outer Dish Perimeter Rim Boundary (r = 310) */}
+              <circle cx="0" cy="0" r="310" fill="rgba(240, 246, 255, 0.45)" stroke="#2B66FF" strokeWidth="2.4" opacity="0.75" />
+              <circle cx="0" cy="0" r="310" fill="none" stroke="#2B66FF" strokeWidth="3.4" strokeDasharray="2.5 2.5" opacity="0.95" />
+              <circle cx="0" cy="0" r="310" fill="none" stroke="#38BDF8" strokeWidth="2.2" strokeDasharray="1.5 2.5" strokeDashoffset="1.2" opacity="0.85" />
+
+              {/* Cardinal Telemetry Axes (X and Y Crosshairs within dish, neatly terminated) */}
+              <line x1="-310" y1="0" x2="310" y2="0" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="4 6" opacity="0.45" />
+              <line x1="0" y1="-310" x2="0" y2="310" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="4 6" opacity="0.45" />
+
+              {/* Diagonal 45° Guidelines */}
+              <line x1="-219" y1="-219" x2="219" y2="219" stroke="#2B66FF" strokeWidth="1.0" strokeDasharray="2 6" opacity="0.25" />
+              <line x1="-219" y1="219" x2="219" y2="-219" stroke="#2B66FF" strokeWidth="1.0" strokeDasharray="2 6" opacity="0.25" />
+
+              {/* Cardinal Perimeter Orientation Markers */}
+              <text x="0" y="-322" fontSize="12" fill="#2B66FF" opacity="0.8" fontFamily="monospace" textAnchor="middle" fontWeight="bold">000° // N</text>
+              <text x="322" y="4" fontSize="12" fill="#2B66FF" opacity="0.8" fontFamily="monospace" textAnchor="start" fontWeight="bold">090° // E</text>
+              <text x="0" y="334" fontSize="12" fill="#2B66FF" opacity="0.8" fontFamily="monospace" textAnchor="middle" fontWeight="bold">180° // S</text>
+              <text x="-322" y="4" fontSize="12" fill="#2B66FF" opacity="0.8" fontFamily="monospace" textAnchor="end" fontWeight="bold">270° // W</text>
+
+              {/* Complete, 100% Continuous Concentric Radar Rings (r = 65, 130, 195, 260) */}
+              {[65, 130, 195, 260].map((r, i) => (
+                <g key={`ring-${i}`}>
+                  {/* Solid structural base stroke eliminating any edge dissolution */}
                   <circle 
                     cx="0" 
                     cy="0" 
                     r={r} 
                     fill="none" 
                     stroke="#2B66FF" 
-                    strokeWidth="2.8"  
+                    strokeWidth="1.8"  
+                    opacity={0.45 + i * 0.12} 
+                  />
+                  {/* Dense primary uniform dot circle */}
+                  <circle 
+                    cx="0" 
+                    cy="0" 
+                    r={r} 
+                    fill="none" 
+                    stroke="#2B66FF" 
+                    strokeWidth="3.2"  
                     strokeDasharray="2.5 2.5" 
-                    opacity={0.95} 
+                    opacity="0.95" 
                   />
-                  {/* Secondary micro-particles for outer rings to ensure clean, unbroken circles */}
-                  {r >= 165 && (
+                  {/* Interleaved micro-dots on outer rings for maximum unbroken circle clarity */}
+                  {r >= 130 && (
                     <circle 
                       cx="0" 
                       cy="0" 
                       r={r} 
                       fill="none" 
-                      stroke="#2B66FF" 
+                      stroke="#38BDF8" 
                       strokeWidth="2.4"  
                       strokeDasharray="2 3" 
                       strokeDashoffset="1.2"
-                      opacity={0.85} 
+                      opacity="0.85" 
                     />
                   )}
                 </g>
               ))}
 
-              {/* Outer range perimeter boundary rings — solid continuous baseline + dense dots */}
-              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="1.8" opacity="0.65" />
-              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="2.8" strokeDasharray="2.5 2.5" opacity="0.95" />
-              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="2.2" strokeDasharray="1.5 2.5" strokeDashoffset="1" opacity="0.85" />
+              {/* Monospace Range Distance Tags along 45° diagonal axis */}
+              {[
+                { r: 65, label: '25KM' },
+                { r: 130, label: '50KM' },
+                { r: 195, label: '75KM' },
+                { r: 260, label: '100KM' },
+              ].map((item, idx) => (
+                <text
+                  key={`range-${idx}`}
+                  x={item.r * 0.707 + 6}
+                  y={item.r * 0.707 - 4}
+                  fontSize="10"
+                  fill="#2B66FF"
+                  opacity="0.75"
+                  fontFamily="monospace"
+                  fontWeight="600"
+                >
+                  {item.label}
+                </text>
+              ))}
 
-              {/* Stepped dish lip & outer platform rings to tighten outer field */}
-              <circle cx="0" cy="0" r="255" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.45" />
-              <circle cx="0" cy="0" r="255" fill="none" stroke="#2B66FF" strokeWidth="2.4" strokeDasharray="3 3" opacity="0.8" />
-              <circle cx="0" cy="0" r="278" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.4" />
-              <circle cx="0" cy="0" r="278" fill="none" stroke="#2B66FF" strokeWidth="2.4" strokeDasharray="3 4" opacity="0.75" />
-
-              {/* Smooth continuous elliptical orbital data pulses */}
+              {/* Smooth Continuous Elliptical Orbital Data Pulses */}
               <motion.circle
                 cx="0"
                 cy="0"
-                r="110"
+                r="130"
                 fill="none"
-                stroke="#2B66FF"
-                strokeWidth="3.2"
-                strokeDasharray="45 160"
-                animate={{ strokeDashoffset: [205, 0] }}
-                transition={{ duration: 4.8, repeat: Infinity, ease: 'linear' }}
+                stroke="#38BDF8"
+                strokeWidth="3.6"
+                strokeDasharray="50 160"
+                animate={{ strokeDashoffset: [210, 0] }}
+                transition={{ duration: 4.6, repeat: Infinity, ease: 'linear' }}
                 opacity="0.9"
               />
               <motion.circle
                 cx="0"
                 cy="0"
-                r="165"
+                r="195"
                 fill="none"
                 stroke="#2B66FF"
-                strokeWidth="3.2"
-                strokeDasharray="60 250"
+                strokeWidth="3.6"
+                strokeDasharray="70 240"
                 animate={{ strokeDashoffset: [0, 310] }}
-                transition={{ duration: 5.6, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 5.4, repeat: Infinity, ease: 'linear' }}
                 opacity="0.85"
               />
+              <motion.circle
+                cx="0"
+                cy="0"
+                r="260"
+                fill="none"
+                stroke="#38BDF8"
+                strokeWidth="3.2"
+                strokeDasharray="85 320"
+                animate={{ strokeDashoffset: [405, 0] }}
+                transition={{ duration: 6.2, repeat: Infinity, ease: 'linear' }}
+                opacity="0.8"
+              />
 
-              {/* 360° Rotating Radar Beam Sweep with luminous gradient cone & dual scanline */}
+              {/* 360° Rotating Radar Sweep Cone with luminous radial gradient, electric cyan scanline, white laser core */}
               <motion.g
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3.6, repeat: Infinity, ease: 'linear' }}
               >
-                <path d="M 0 0 L 235 0 A 235 235 0 0 1 117.5 203.5 Z" fill="url(#radarSweep3D)" filter="url(#sweepGlow)" opacity="0.95" />
-                {/* Sharp outer arc rim of sweep */}
-                <path d="M 235 0 A 235 235 0 0 1 117.5 203.5" fill="none" stroke="#60A5FA" strokeWidth="2.2" opacity="0.85" />
+                {/* 60° sweep wedge sector */}
+                <path 
+                  d="M 0 0 L 310 0 A 310 310 0 0 1 155 268.5 Z" 
+                  fill="url(#radarSweep3D)" 
+                  filter="url(#sweepGlow)" 
+                  opacity="0.95" 
+                />
+                {/* Arc highlight along outer rim */}
+                <path 
+                  d="M 310 0 A 310 310 0 0 1 155 268.5" 
+                  fill="none" 
+                  stroke="#60A5FA" 
+                  strokeWidth="2.8" 
+                  opacity="0.85" 
+                />
                 {/* Electric sky-blue leading edge scanline */}
-                <line x1="0" y1="0" x2="235" y2="0" stroke="#38BDF8" strokeWidth="3.5" opacity="1" />
+                <line x1="0" y1="0" x2="310" y2="0" stroke="#38BDF8" strokeWidth="4.0" opacity="1" />
                 {/* Crisp white laser core */}
-                <line x1="0" y1="0" x2="235" y2="0" stroke="#FFFFFF" strokeWidth="1.4" opacity="0.95" />
+                <line x1="0" y1="0" x2="310" y2="0" stroke="#FFFFFF" strokeWidth="1.6" opacity="0.95" />
                 {/* Trailing edge */}
-                <line x1="0" y1="0" x2="117.5" y2="203.5" stroke="#2B66FF" strokeWidth="1.5" opacity="0.6" />
+                <line x1="0" y1="0" x2="155" y2="268.5" stroke="#2B66FF" strokeWidth="1.6" opacity="0.55" />
               </motion.g>
 
-              {/* Central hub core pulse */}
-              <circle cx="0" cy="0" r="12" fill="#2B66FF" opacity="0.85" />
+              {/* Central Radar Emitter Core */}
+              <circle cx="0" cy="0" r="18" fill="#2B66FF" opacity="0.9" />
+              <circle cx="0" cy="0" r="10" fill="#38BDF8" />
+              <circle cx="0" cy="0" r="4" fill="#FFFFFF" />
               <motion.circle 
                 cx="0" 
                 cy="0" 
-                r="18" 
+                r="26" 
                 fill="none" 
-                stroke="#2B66FF" 
-                strokeWidth="1.5"
-                animate={{ scale: [1, 1.6, 1], opacity: [0.8, 0.2, 0.8] }}
+                stroke="#38BDF8" 
+                strokeWidth="1.8"
+                animate={{ scale: [1, 1.8, 1], opacity: [0.85, 0.15, 0.85] }}
                 transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
               />
 
-              {/* Target detection pings precisely anchored to dish landmark features */}
+              {/* Target Detection Pings with live telemetry tags */}
               {[
-                { x: -74, y: 151, color: '#F59E0B', label: 'ALERT', delay: 0.2 },
-                { x: 135, y: -70, color: '#10B981', label: 'OK', delay: 1.8 },
-                { x: -120, y: -85, color: '#2B66FF', label: '●', delay: 2.6 },
-                { x: 115, y: 125, color: '#10B981', label: 'DATA', delay: 1.0 },
+                { x: -100, y: 175, color: '#F59E0B', label: 'ALERT // ANOMALY', delay: 0.2 },
+                { x: 165, y: -80, color: '#10B981', label: 'NODE-01 // HEALTHY', delay: 1.8 },
+                { x: -155, y: -100, color: '#38BDF8', label: 'GATEWAY // 99.8%', delay: 2.6 },
+                { x: 150, y: 145, color: '#6366F1', label: 'STREAM // SECURE', delay: 1.0 },
               ].map((blip, i) => (
-                <g key={i} transform={`translate(${blip.x}, ${blip.y})`}>
+                <g key={`blip-${i}`} transform={`translate(${blip.x}, ${blip.y})`}>
                   <motion.circle
-                    r="5.5"
+                    r="6.5"
                     fill={blip.color}
-                    animate={{ opacity: [0.35, 1, 0.35], scale: [0.9, 1.35, 0.9] }}
+                    animate={{ opacity: [0.4, 1, 0.4], scale: [0.9, 1.35, 0.9] }}
                     transition={{ duration: 1.8, repeat: Infinity, delay: blip.delay }}
                   />
                   <motion.circle
-                    r="12"
+                    r="14"
                     fill="none"
                     stroke={blip.color}
-                    strokeWidth="1.6"
-                    initial={{ r: 6, opacity: 0.9 }}
-                    animate={{ r: 24, opacity: 0 }}
+                    strokeWidth="1.8"
+                    initial={{ r: 8, opacity: 0.9 }}
+                    animate={{ r: 28, opacity: 0 }}
                     transition={{ duration: 1.8, repeat: Infinity, delay: blip.delay, ease: 'easeOut' }}
                   />
-                  <text x="8" y="4" fontSize="10" fill={blip.color} opacity="0.75" fontFamily="monospace">{blip.label}</text>
+                  {/* Anchor tick to tag */}
+                  <line x1="8" y1="-2" x2="16" y2="-8" stroke={blip.color} strokeWidth="1.2" opacity="0.6" />
+                  <text 
+                    x="20" 
+                    y="-5" 
+                    fontSize="11" 
+                    fill={blip.color} 
+                    opacity="0.9" 
+                    fontFamily="monospace"
+                    fontWeight="600"
+                  >
+                    {blip.label}
+                  </text>
                 </g>
               ))}
 
@@ -377,174 +555,260 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           {/* =========================================================================
               FLOATING HOLOGRAPHIC UI PANELS ANCHORED ABOVE THE RADAR
               ========================================================================= */}
-          {/* Panel 1: Left Holographic Telemetry Panel (x: 345..439, y: 254..389) with Line Chart Waveform */}
+          {/* Panel 1: Left Holographic Telemetry Panel (Waveform / Signal Monitor) */}
           <motion.g
-            animate={{ y: [0, -3.5, 0] }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            {/* Holographic frame bracket matching perspective trapezoid */}
-            <path
-              d="M 347 288 L 427 258 L 427 340 L 347 370 Z"
-              fill="none"
+            {/* Projection Anchor Beam down to the dish surface */}
+            <line 
+              x1="285" 
+              y1="360" 
+              x2="380" 
+              y2="420" 
+              stroke="#2B66FF" 
+              strokeWidth="1.4" 
+              strokeDasharray="3 4" 
+              opacity="0.45" 
+            />
+            <ellipse cx="380" cy="420" rx="10" ry="5" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.6" />
+
+            {/* Trapezoidal Glass Panel Body */}
+            <polygon
+              points="220,220 350,180 350,320 220,360"
+              fill="url(#panelGlassGrad)"
               stroke="#2B66FF"
-              strokeWidth="1.5"
-              strokeDasharray="4 6"
-              opacity="0.45"
+              strokeWidth="1.8"
+              strokeDasharray="5 3"
+              opacity="0.85"
             />
+            {/* Inner solid high-tech border */}
+            <polygon
+              points="226,226 344,190 344,314 226,350"
+              fill="none"
+              stroke="#38BDF8"
+              strokeWidth="1.2"
+              opacity="0.75"
+            />
+
+            {/* Header Bar */}
+            <circle cx="242" cy="234" r="4" fill="#F59E0B" />
+            <text x="254" y="237" fontSize="10" fill="#1E40AF" fontWeight="bold" fontFamily="monospace">
+              SIGNAL TELEMETRY
+            </text>
+            <line x1="234" y1="246" x2="338" y2="214" stroke="#2B66FF" strokeWidth="1" opacity="0.3" />
+
+            {/* Horizontal Grid lines inside panel */}
+            <line x1="234" y1="278" x2="338" y2="246" stroke="#2B66FF" strokeWidth="0.8" strokeDasharray="2 3" opacity="0.2" />
+            <line x1="234" y1="310" x2="338" y2="278" stroke="#2B66FF" strokeWidth="0.8" strokeDasharray="2 3" opacity="0.2" />
+
+            {/* Waveform area fill */}
             <path
-              d="M 347 288 L 427 258 L 427 340 L 347 370 Z"
-              fill="rgba(43, 102, 255, 0.04)"
+              d="M 236 325 Q 255 275, 275 300 T 305 265 T 338 285 L 338 305 L 236 335 Z"
+              fill="url(#waveformAreaGrad)"
             />
-            {/* Live streaming telemetry line chart waveform */}
+
+            {/* Live Streaming Signal Waveform */}
             <motion.path
-              d="M 356 345 Q 366 318, 378 330 T 399 308 T 422 322"
+              d="M 236 325 Q 255 275, 275 300 T 305 265 T 338 285"
               fill="none"
               stroke="#2B66FF"
-              strokeWidth="2.2"
+              strokeWidth="2.8"
               strokeLinecap="round"
-              opacity="0.9"
-              animate={{ opacity: [0.65, 1, 0.65] }}
+              opacity="0.95"
+              animate={{ opacity: [0.75, 1, 0.75] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
             />
-            {/* Warning alert indicator dot on panel 1 */}
-            <motion.circle
-              cx="388"
-              cy="292"
-              r="4"
-              fill="#F59E0B"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.8, 1, 0.8] }}
-              transition={{ duration: 1.4, repeat: Infinity }}
-            />
+
+            {/* Peak warning beacon point */}
+            <circle cx="305" cy="265" r="3.5" fill="#F59E0B" />
+            <text x="260" y="345" fontSize="9" fill="#64748B" fontFamily="monospace">99.98% COHERENCE</text>
           </motion.g>
 
-          {/* Panel 2: Right Holographic Bar Chart Panel (x: 650..799, y: 240..409) */}
+          {/* Panel 2: Right Holographic UI Panel (Real-Time Throughput / Activity Bars) */}
           <motion.g
-            animate={{ y: [0, -3.5, 0] }}
-            transition={{ duration: 3.6, repeat: Infinity, delay: 0.4, ease: 'easeInOut' }}
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 3.8, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
           >
-            {/* Holographic frame bracket matching perspective trapezoid */}
-            <path
-              d="M 669 258 L 781 302 L 781 384 L 669 340 Z"
-              fill="none"
+            {/* Projection Anchor Beam down to the dish surface */}
+            <line 
+              x1="710" 
+              y1="340" 
+              x2="680" 
+              y2="410" 
+              stroke="#2B66FF" 
+              strokeWidth="1.4" 
+              strokeDasharray="3 4" 
+              opacity="0.45" 
+            />
+            <ellipse cx="680" cy="410" rx="10" ry="5" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.6" />
+
+            {/* Trapezoidal Glass Panel Body */}
+            <polygon
+              points="640,180 780,230 780,370 640,320"
+              fill="url(#panelGlassGrad)"
               stroke="#2B66FF"
-              strokeWidth="1.5"
-              strokeDasharray="4 6"
-              opacity="0.45"
+              strokeWidth="1.8"
+              strokeDasharray="5 3"
+              opacity="0.85"
             />
-            <path
-              d="M 669 258 L 781 302 L 781 384 L 669 340 Z"
-              fill="rgba(43, 102, 255, 0.04)"
+            {/* Inner solid border */}
+            <polygon
+              points="646,190 774,236 774,360 646,314"
+              fill="none"
+              stroke="#38BDF8"
+              strokeWidth="1.2"
+              opacity="0.75"
             />
-            {/* 4 Animated Real-Time Throughput Activity Bars */}
+
+            {/* Header Bar */}
+            <circle cx="662" cy="206" r="4" fill="#10B981" />
+            <text x="674" y="209" fontSize="10" fill="#1E40AF" fontWeight="bold" fontFamily="monospace">
+              THROUGHPUT // EPS
+            </text>
+            <line x1="654" y1="218" x2="766" y2="258" stroke="#2B66FF" strokeWidth="1" opacity="0.3" />
+
+            {/* Horizontal Grid lines */}
+            <line x1="654" y1="252" x2="766" y2="292" stroke="#2B66FF" strokeWidth="0.8" strokeDasharray="2 3" opacity="0.2" />
+            <line x1="654" y1="286" x2="766" y2="326" stroke="#2B66FF" strokeWidth="0.8" strokeDasharray="2 3" opacity="0.2" />
+
+            {/* 5 Animated Real-Time Throughput Activity Bars */}
             {[
-              { x: 694, yBase: 346, baseH: 38, delay: 0 },
-              { x: 718, yBase: 355, baseH: 55, delay: 0.2 },
-              { x: 742, yBase: 364, baseH: 44, delay: 0.4 },
-              { x: 764, yBase: 373, baseH: 62, delay: 0.1 },
+              { x: 670, yBase: 306, baseH: 42, delay: 0 },
+              { x: 692, yBase: 314, baseH: 64, delay: 0.2 },
+              { x: 714, yBase: 322, baseH: 50, delay: 0.4 },
+              { x: 736, yBase: 330, baseH: 72, delay: 0.1 },
+              { x: 758, yBase: 338, baseH: 56, delay: 0.3 },
             ].map((bar, i) => (
-              <motion.line
-                key={i}
-                x1={bar.x}
-                y1={bar.yBase}
-                x2={bar.x}
-                y2={bar.yBase - bar.baseH}
-                stroke="#2B66FF"
-                strokeWidth="3.5"
-                strokeLinecap="round"
-                opacity="0.9"
-                animate={{
-                  y2: [bar.yBase - bar.baseH, bar.yBase - (bar.baseH * 0.55), bar.yBase - bar.baseH],
-                  opacity: [0.7, 1, 0.7],
-                }}
-                transition={{
-                  duration: 1.6,
-                  repeat: Infinity,
-                  delay: bar.delay,
-                  ease: 'easeInOut',
-                }}
-              />
+              <g key={`bar-${i}`}>
+                {/* Bar track background */}
+                <line
+                  x1={bar.x}
+                  y1={bar.yBase}
+                  x2={bar.x}
+                  y2={bar.yBase - 85}
+                  stroke="#E2E8F0"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  opacity="0.5"
+                />
+                {/* Active animated throughput bar */}
+                <motion.line
+                  x1={bar.x}
+                  y1={bar.yBase}
+                  x2={bar.x}
+                  y2={bar.yBase - bar.baseH}
+                  stroke="#2B66FF"
+                  strokeWidth="4.5"
+                  strokeLinecap="round"
+                  opacity="0.95"
+                  animate={{
+                    y2: [bar.yBase - bar.baseH, bar.yBase - (bar.baseH * 0.45), bar.yBase - bar.baseH],
+                    opacity: [0.75, 1, 0.75],
+                  }}
+                  transition={{
+                    duration: 1.6,
+                    repeat: Infinity,
+                    delay: bar.delay,
+                    ease: 'easeInOut',
+                  }}
+                />
+              </g>
             ))}
+
+            <text x="680" y="355" fontSize="9" fill="#64748B" fontFamily="monospace">12.4K INGEST / SEC</text>
           </motion.g>
 
           {/* =========================================================================
-              MODERN SOLID 3D ISOMETRIC SHIELD WITH ALERT BEACON (x: 810..925, y: 300..490)
+              MODERN SOLID 3D ISOMETRIC SHIELD WITH ALERT BEACON (Right Side)
               ========================================================================= */}
           <motion.g
-            animate={{ y: [0, -3, 0] }}
+            animate={{ y: [0, -3.5, 0] }}
             transition={{ duration: 4.0, repeat: Infinity, delay: 0.2, ease: 'easeInOut' }}
           >
-            {/* Top 3D extrusion facet */}
+            {/* Soft Shield Floor Contact Shadow */}
+            <ellipse 
+              cx="955" 
+              cy="520" 
+              rx="55" 
+              ry="14" 
+              fill="rgba(43, 102, 255, 0.16)" 
+              filter="url(#radarFloorGlow)" 
+            />
+
+            {/* Top 3D Extrusion Facet */}
             <polygon
-              points="820,342 838,330 880,308 922,330 904,342 862,320"
+              points="895,330 915,316 965,292 1015,316 995,330 945,306"
               fill="#F0F7FF"
               stroke="#2B66FF"
-              strokeWidth="2"
+              strokeWidth="2.2"
               strokeLinejoin="round"
             />
 
-            {/* Right side 3D extrusion facet */}
+            {/* Right Side 3D Extrusion Depth Facet */}
             <path
-              d="M 904 342 L 922 330 L 922 402 Q 914 432, 900 454 Q 890 462, 880 468 L 862 478 Q 882 464, 896 442 L 904 412 Z"
+              d="M 995 330 L 1015 316 L 1015 402 Q 1005 438, 989 464 Q 977 474, 965 482 L 945 494 Q 969 478, 985 452 L 995 416 Z"
               fill="#DBEAFE"
               stroke="#2B66FF"
-              strokeWidth="2"
+              strokeWidth="2.2"
               strokeLinejoin="round"
             />
 
-            {/* Solid Front Face with clean white frosted background to completely mask fragmented dots */}
+            {/* Solid Front Face with clean frosted fill */}
             <path
-              d="M 820 342 L 862 320 L 904 342 L 904 412 Q 904 450, 862 478 Q 820 450, 820 412 Z"
-              fill="#FFFFFF"
+              d="M 895 330 L 945 306 L 995 330 L 995 416 Q 995 462, 945 494 Q 895 462, 895 416 Z"
+              fill="url(#shieldFrontGrad)"
               stroke="#2B66FF"
-              strokeWidth="2.5"
+              strokeWidth="3.0"
               strokeLinejoin="round"
             />
 
-            {/* Inner blueprint perimeter accent line */}
+            {/* Inner Blueprint Perimeter Accent Line */}
             <path
-              d="M 826 348 L 862 330 L 898 348 L 898 410 Q 898 444, 862 470 Q 826 444, 826 410 Z"
+              d="M 903 338 L 945 318 L 987 338 L 987 414 Q 987 454, 945 484 Q 903 454, 903 414 Z"
               fill="rgba(43, 102, 255, 0.04)"
-              stroke="#2B66FF"
-              strokeWidth="1.2"
+              stroke="#38BDF8"
+              strokeWidth="1.4"
               strokeDasharray="3 3"
-              opacity="0.6"
+              opacity="0.75"
             />
 
-            {/* Crisp solid security checkmark emblem */}
+            {/* Glowing Yellow Alert Triangle Badge Mounted on Shield */}
+            <polygon 
+              points="945,340 961,368 929,368" 
+              fill="#F59E0B" 
+              stroke="#D97706" 
+              strokeWidth="1.4"
+              filter="url(#alertGlow)"
+            />
+            <line x1="945" y1="347" x2="945" y2="358" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" />
+            <circle cx="945" cy="364" r="1.4" fill="#FFFFFF" />
+
+            {/* Glowing Alert Pulse Beacon expanding behind the badge */}
+            <motion.circle
+              cx="945"
+              cy="356"
+              r="16"
+              fill="none"
+              stroke="#F59E0B"
+              strokeWidth="1.8"
+              animate={{ r: [12, 30], opacity: [0.9, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
+            />
+
+            {/* Crisp Solid Security Checkmark Emblem */}
             <path
-              d="M 850 418 L 860 428 L 876 404"
+              d="M 929 425 L 941 437 L 963 408"
               fill="none"
               stroke="#2B66FF"
-              strokeWidth="3.2"
+              strokeWidth="4.0"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-
-            {/* Prominent Yellow Alert Triangle Badge mounted on shield */}
-            <polygon 
-              points="862,352 874,372 850,372" 
-              fill="#F59E0B" 
-              stroke="#D97706" 
-              strokeWidth="1.2"
-              filter="url(#alertGlow)"
-            />
-            <line x1="862" y1="357" x2="862" y2="364" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" />
-            <circle cx="862" cy="368" r="1" fill="#fff" />
-
-            {/* Glowing alert pulse beacon expanding behind the badge */}
-            <motion.circle
-              cx="862"
-              cy="364"
-              r="14"
-              fill="none"
-              stroke="#F59E0B"
-              strokeWidth="1.6"
-              animate={{ r: [10, 26], opacity: [0.85, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
-            />
           </motion.g>
-        </svg>
-      )}
+        </g>
+      </svg>
+    )}
 
       {/* Tab 03: Threat Detection Laser Deflections on Wall (Firewall surface: x=590..660, y=280..600) */}
       {activeTab === 2 && (
