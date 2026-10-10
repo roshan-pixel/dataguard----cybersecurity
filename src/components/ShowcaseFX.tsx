@@ -819,7 +819,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
       {/* Tab 03: Automated Threat Detection & Firewall Defense (100% 3D Isometric Aligned) */}
       {activeTab === 2 && (
         <svg 
-          viewBox="0 0 1200 900" 
+          viewBox="30 20 1120 790" 
           className="w-full h-full object-contain"
           preserveAspectRatio="xMidYMid meet"
         >
@@ -1111,37 +1111,46 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
 
           {/* =========================================================================
               MODERN SOLID 3D ISOMETRIC SHIELD (100% 3D-ALIGNED WITH WALL PLANE)
-              Constructed inside the wall's isometric transform matrix: skewY(26.565deg)
-              Front face at (580, 460); Depth extrusion along (+20, -10)
+              Constructed with exact mathematical isometric facets matching skewY(26.565deg)
+              Front face at (580, 460); Depth extrusion (+24, -12) matching wall depth slope -0.5
               ========================================================================= */}
           <motion.g
             animate={{ y: [0, -4.5, 0] }}
             transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
           >
-            {/* --- BACK DEPTH EXTRUSION (Shifted +20px x, -10px y in screen space) --- */}
-            <g transform="translate(600, 450) skewY(26.565)">
+            {/* --- BACK DEPTH EXTRUSION (Shifted +24px x, -12px y along depth axis) --- */}
+            <g transform="translate(604, 448) skewY(26.565)">
               <path 
                 d="M -85 -95 Q 0 -75, 85 -95 L 85 15 Q 85 85, 0 120 Q -85 85, -85 15 Z" 
-                fill="#BFDBFE" 
+                fill="#93C5FD" 
                 stroke="#2B66FF" 
-                strokeWidth="2.2" 
+                strokeWidth="2.4" 
                 strokeLinejoin="round" 
               />
             </g>
 
-            {/* --- TOP 3D DEPTH FACET (Connecting front & back top rims) --- */}
-            <polygon 
-              points="495,337.5 515,327.5 685,412.5 665,422.5" 
+            {/* --- TOP 3D DEPTH FACET (Mathematically exact curve connecting front & back top rims) --- */}
+            <path 
+              d="M 495 322.5 Q 580 385, 665 407.5 L 689 395.5 Q 604 373, 519 310.5 Z" 
               fill="#F0F7FF" 
               stroke="#2B66FF" 
               strokeWidth="2.0" 
               strokeLinejoin="round" 
             />
 
-            {/* --- RIGHT 3D DEPTH FACET (Connecting front & back right rims) --- */}
+            {/* --- RIGHT 3D DEPTH FACET (Connecting front & back right straight rims) --- */}
             <polygon 
-              points="665,422.5 685,412.5 685,522.5 665,532.5" 
-              fill="#93C5FD" 
+              points="665,407.5 689,395.5 689,505.5 665,517.5" 
+              fill="#60A5FA" 
+              stroke="#2B66FF" 
+              strokeWidth="2.0" 
+              strokeLinejoin="round" 
+            />
+
+            {/* --- BOTTOM-RIGHT 3D DEPTH FACET (Connecting front & back bottom curves) --- */}
+            <path 
+              d="M 665 517.5 Q 665 580, 580 580 L 604 568 Q 689 568, 689 505.5 Z" 
+              fill="#3B82F6" 
               stroke="#2B66FF" 
               strokeWidth="2.0" 
               strokeLinejoin="round" 
@@ -1154,8 +1163,8 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 d="M -90 -100 Q 0 -80, 90 -100 L 90 18 Q 90 92, 0 128 Q -90 92, -90 18 Z" 
                 fill="none" 
                 stroke="#38BDF8" 
-                strokeWidth="2.4" 
-                animate={{ scale: [1, 1.06, 1], opacity: [0.75, 0.15, 0.75] }}
+                strokeWidth="2.6" 
+                animate={{ scale: [1, 1.05, 1], opacity: [0.8, 0.2, 0.8] }}
                 transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
               />
 
@@ -1164,7 +1173,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 d="M -85 -95 Q 0 -75, 85 -95 L 85 15 Q 85 85, 0 120 Q -85 85, -85 15 Z" 
                 fill="url(#threatShieldFace)" 
                 stroke="#2B66FF" 
-                strokeWidth="2.6" 
+                strokeWidth="2.8" 
                 strokeLinejoin="round" 
               />
 
@@ -1181,91 +1190,91 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 d="M -73 -83 Q 0 -67, 73 -83 L 73 12 Q 73 73, 0 106 Q -73 73, -73 12 Z" 
                 fill="none" 
                 stroke="#38BDF8" 
-                strokeWidth="2" 
+                strokeWidth="2.2" 
                 strokeDasharray="6 4" 
                 opacity="0.9" 
               />
 
               {/* Solid 3D-Aligned Security Checkmark Emblem */}
               <path 
-                d="M -36 -5 L -8 32 L 40 -26" 
+                d="M -38 -5 L -8 32 L 42 -26" 
                 fill="none" 
                 stroke="#2B66FF" 
-                strokeWidth="6" 
+                strokeWidth="6.5" 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
               />
               {/* White Laser Core inside Checkmark */}
               <path 
-                d="M -36 -5 L -8 32 L 40 -26" 
+                d="M -38 -5 L -8 32 L 42 -26" 
                 fill="none" 
                 stroke="#FFFFFF" 
-                strokeWidth="2.4" 
+                strokeWidth="2.8" 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
               />
               {/* Sparkling Core Vertex Beacon */}
-              <circle cx="-8" cy="32" r="5.5" fill="#38BDF8" filter="url(#threatGlow)" />
-              <circle cx="-8" cy="32" r="2.8" fill="#FFFFFF" />
+              <circle cx="-8" cy="32" r="6" fill="#38BDF8" filter="url(#threatGlow)" />
+              <circle cx="-8" cy="32" r="3" fill="#FFFFFF" />
             </g>
           </motion.g>
 
           {/* =========================================================================
               INCOMING THREAT ATTACK VECTORS & ACTIVE DEFENSIVE DEFLECTIONS
-              Spaced cleanly below y=300 to eliminate any overlap with Incidents panel
+              Evenly spaced between y=345 and y=645; Clean clearance below Incidents panel
               ========================================================================= */}
           {[
             { 
               startX: 130, 
-              startY: 315, 
-              hitX: 505, 
-              hitY: 338, 
-              bounceX: 390, 
-              bounceY: 280, 
+              startY: 345, 
+              hitX: 500, 
+              hitY: 360, 
+              bounceX: 380, 
+              bounceY: 300, 
               color: '#EF4444', 
               label: '0-DAY EXPLOIT // INTERCEPTED', 
               delay: 0.0 
             },
             { 
-              startX: 90, 
-              startY: 395, 
-              hitX: 500, 
-              hitY: 390, 
-              bounceX: 380, 
-              bounceY: 350, 
+              startX: 95, 
+              startY: 420, 
+              hitX: 495, 
+              hitY: 415, 
+              bounceX: 370, 
+              bounceY: 365, 
               color: '#F59E0B', 
               label: 'SQL INJECTION // TARPIT', 
               delay: 0.8 
             },
             { 
-              startX: 70, 
-              startY: 470, 
-              hitX: 500, 
-              hitY: 430, 
-              bounceX: 370, 
-              bounceY: 420, 
+              startX: 75, 
+              startY: 495, 
+              hitX: 495, 
+              hitY: 470, 
+              bounceX: 360, 
+              bounceY: 440, 
               color: '#F43F5E', 
               label: 'DDOS VOLUMETRIC // BLOCKED', 
               delay: 1.6 
             },
             { 
-              startX: 90, 
-              startY: 550, 
-              hitX: 525, 
-              hitY: 498, 
-              bounceX: 390, 
-              bounceY: 500, 
+              startX: 95, 
+              startY: 570, 
+              hitX: 515, 
+              hitY: 525, 
+              bounceX: 380, 
+              bounceY: 515, 
               color: '#A855F7', 
               label: 'CRED STUFFING // DENIED', 
               delay: 2.4 
             },
             { 
               startX: 130, 
-              startY: 630, 
-              hitX: 555, 
-              hitY: 543, 
-              bounceX: 420, 
-              bounceY: 580, 
+              startY: 645, 
+              hitX: 545, 
+              hitY: 575, 
+              bounceX: 410, 
+              bounceY: 590, 
               color: '#EF4444', 
               label: 'DATA EXFIL // PREVENTED', 
               delay: 1.2 
@@ -1279,9 +1288,9 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 x2={threat.hitX} 
                 y2={threat.hitY} 
                 stroke={threat.color} 
-                strokeWidth="1.2" 
+                strokeWidth="1.4" 
                 strokeDasharray="4 6" 
-                opacity="0.32" 
+                opacity="0.35" 
               />
 
               {/* Fast Streaming Attack Laser Packet (Moving towards Shield) */}
@@ -1291,7 +1300,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 x2={threat.hitX} 
                 y2={threat.hitY} 
                 stroke={threat.color} 
-                strokeWidth="3.6" 
+                strokeWidth="4" 
                 strokeDasharray="50 150" 
                 initial={{ strokeDashoffset: 200, opacity: 0 }}
                 animate={{ strokeDashoffset: [200, 0], opacity: [0, 1, 0.9, 0] }}
@@ -1304,7 +1313,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 x2={threat.hitX} 
                 y2={threat.hitY} 
                 stroke="#FFFFFF" 
-                strokeWidth="1.6" 
+                strokeWidth="1.8" 
                 strokeDasharray="25 175" 
                 initial={{ strokeDashoffset: 200, opacity: 0 }}
                 animate={{ strokeDashoffset: [200, 0], opacity: [0, 1, 0.85, 0] }}
@@ -1312,38 +1321,47 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               />
 
               {/* Threat Origin Emitter Node with Blinking Ping */}
-              <circle cx={threat.startX} cy={threat.startY} r="5.5" fill={threat.color} />
+              <circle cx={threat.startX} cy={threat.startY} r="6" fill={threat.color} />
               <motion.circle 
                 cx={threat.startX} 
                 cy={threat.startY} 
-                r="11" 
+                r="12" 
                 fill="none" 
                 stroke={threat.color} 
-                strokeWidth="1.6" 
-                animate={{ r: [5.5, 17], opacity: [0.9, 0] }}
+                strokeWidth="1.8" 
+                animate={{ r: [6, 18], opacity: [0.95, 0] }}
                 transition={{ duration: 1.4, repeat: Infinity, delay: threat.delay }}
               />
 
-              {/* High-Contrast Readable Monospace Telemetry Status Pill Tag */}
+              {/* High-Contrast Readable Monospace Telemetry Status Pill Tag (Scaled Up & Bold) */}
+              <line 
+                x1={threat.startX + 20} 
+                y1={threat.startY - 4} 
+                x2={threat.startX} 
+                y2={threat.startY} 
+                stroke={threat.color} 
+                strokeWidth="1.8" 
+                opacity="0.6" 
+              />
               <rect 
-                x={threat.startX - 8} 
-                y={threat.startY - 26} 
-                width="200" 
-                height="22" 
-                rx="4" 
+                x={threat.startX - 10} 
+                y={threat.startY - 38} 
+                width="270" 
+                height="34" 
+                rx="6" 
                 fill="#FFFFFF" 
                 stroke={threat.color} 
-                strokeWidth="2" 
+                strokeWidth="2.2" 
                 filter="url(#pillShadow)" 
               />
               <text 
-                x={threat.startX + 2} 
-                y={threat.startY - 11} 
-                fontSize="11" 
+                x={threat.startX + 6} 
+                y={threat.startY - 16} 
+                fontSize="15.5" 
                 fill={threat.color} 
-                fontWeight="800" 
+                fontWeight="900" 
                 fontFamily="monospace"
-                letterSpacing="0.02em"
+                letterSpacing="0.03em"
               >
                 {threat.label}
               </text>
@@ -1357,7 +1375,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 animate={{ r: [3, 26], opacity: [0, 0.95, 0] }}
                 transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay + 0.5, ease: 'easeOut' }}
               />
-              <circle cx={threat.hitX} cy={threat.hitY} r="5" fill="#FFFFFF" filter="url(#threatGlow)" />
+              <circle cx={threat.hitX} cy={threat.hitY} r="5.5" fill="#FFFFFF" filter="url(#threatGlow)" />
 
               {/* Deflected Energy Ray Bouncing Off into Perimeter */}
               <motion.line 
@@ -1366,7 +1384,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 x2={threat.bounceX} 
                 y2={threat.bounceY} 
                 stroke="#38BDF8" 
-                strokeWidth="2.8" 
+                strokeWidth="3.0" 
                 strokeDasharray="30 80" 
                 initial={{ strokeDashoffset: 110, opacity: 0 }}
                 animate={{ strokeDashoffset: [110, 0], opacity: [0, 1, 0.8, 0] }}
@@ -1378,7 +1396,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 x2={threat.bounceX} 
                 y2={threat.bounceY} 
                 stroke="#FFFFFF" 
-                strokeWidth="1.4" 
+                strokeWidth="1.6" 
                 strokeDasharray="15 95" 
                 initial={{ strokeDashoffset: 110, opacity: 0 }}
                 animate={{ strokeDashoffset: [110, 0], opacity: [0, 1, 0.85, 0] }}
@@ -1389,48 +1407,48 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
 
           {/* =========================================================================
               FLOATING HOLOGRAPHIC UI PANELS (100% 3D ISOMETRIC-ALIGNED WITH BOXES)
-              Both panels use isometric skew matrices so all text and borders align
+              Both panels use isometric skew matrices with large, bold, readable fonts
               ========================================================================= */}
           {/* --- PANEL 1: LEFT THREAT INTELLIGENCE INCIDENT FEED --- */}
-          {/* Positioned at y=75 with suspended mount: 100px+ clearance above 0-DAY ray */}
+          {/* Safe y=145 with skewY(-26.565): top-right at y=25 (zero clipping), bottom at y=275 (zero overlap with y=345) */}
           <motion.g
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            {/* Suspended Blueprint Ceiling Mount (zero collision with attack vectors) */}
+            {/* Suspended Blueprint Ceiling Mount */}
             <line 
-              x1="185" 
+              x1="180" 
               y1="10" 
-              x2="185" 
-              y2="75" 
+              x2="180" 
+              y2="135" 
               stroke="#2B66FF" 
-              strokeWidth="1.8" 
+              strokeWidth="2" 
               strokeDasharray="3 4" 
               opacity="0.5" 
             />
-            <rect x="175" y="6" width="20" height="8" rx="2" fill="#2B66FF" />
-            <circle cx="185" cy="10" r="2.5" fill="#38BDF8" />
+            <rect x="170" y="6" width="20" height="8" rx="2" fill="#2B66FF" />
+            <circle cx="180" cy="10" r="2.5" fill="#38BDF8" />
 
             {/* Left Panel Body: Isometric Skew Group matching left projection plane */}
-            <g transform="translate(65, 80) skewY(-26.565)">
+            <g transform="translate(60, 145) skewY(-26.565)">
               {/* Glass Card Outer Box */}
               <rect 
                 x="0" 
                 y="0" 
-                width="240" 
-                height="150" 
+                width="245" 
+                height="155" 
                 rx="8" 
                 fill="url(#threatPanelGlass)" 
                 stroke="#2B66FF" 
-                strokeWidth="2" 
+                strokeWidth="2.2" 
                 filter="url(#pillShadow)" 
               />
               {/* Inner High-Tech Border */}
               <rect 
                 x="6" 
                 y="6" 
-                width="228" 
-                height="138" 
+                width="233" 
+                height="143" 
                 rx="5" 
                 fill="none" 
                 stroke="#38BDF8" 
@@ -1439,30 +1457,30 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               />
 
               {/* Header: Red Alert Beacon + Title (100% parallel to box top) */}
-              <circle cx="20" cy="22" r="5" fill="#EF4444" />
+              <circle cx="20" cy="22" r="5.5" fill="#EF4444" />
               <text 
                 x="32" 
-                y="26" 
-                fontSize="13" 
+                y="27" 
+                fontSize="16" 
                 fill="#0F172A" 
-                fontWeight="800" 
+                fontWeight="900" 
                 fontFamily="monospace"
               >
                 INCIDENTS // LIVE
               </text>
-              <line x1="12" y1="36" x2="228" y2="36" stroke="#2B66FF" strokeWidth="1.2" opacity="0.35" />
+              <line x1="12" y1="36" x2="233" y2="36" stroke="#2B66FF" strokeWidth="1.4" opacity="0.35" />
 
               {/* Feed Status Items (Large, bold, high-contrast, strictly aligned) */}
-              <text x="16" y="58" fontSize="12" fill="#1E3A8A" fontWeight="800" fontFamily="monospace">
+              <text x="14" y="58" fontSize="15" fill="#1E3A8A" fontWeight="900" fontFamily="monospace">
                 • 0-DAY MITIGATION
               </text>
-              <text x="16" y="78" fontSize="12" fill="#047857" fontWeight="800" fontFamily="monospace">
+              <text x="14" y="78" fontSize="15.5" fill="#047857" fontWeight="900" fontFamily="monospace">
                 [100% BLOCKED]
               </text>
-              <text x="16" y="104" fontSize="11" fill="#334155" fontWeight="700" fontFamily="monospace">
-                MTTD: &lt;4.8ms • TARPIT ON
+              <text x="14" y="104" fontSize="13.5" fill="#334155" fontWeight="800" fontFamily="monospace">
+                MTTD: &lt;4.8ms • TARPIT
               </text>
-              <text x="16" y="126" fontSize="11.5" fill="#2563EB" fontWeight="800" fontFamily="monospace">
+              <text x="14" y="128" fontSize="14.5" fill="#2563EB" fontWeight="900" fontFamily="monospace">
                 1,284 THREATS FILTERED
               </text>
             </g>
@@ -1477,36 +1495,36 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             {/* Projection Anchor Beam down to Wall Coping */}
             <line 
               x1="910" 
-              y1="340" 
+              y1="330" 
               x2="880" 
               y2="435" 
               stroke="#2B66FF" 
-              strokeWidth="1.6" 
+              strokeWidth="1.8" 
               strokeDasharray="3 4" 
               opacity="0.45" 
             />
-            <ellipse cx="880" cy="435" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.6" />
+            <ellipse cx="880" cy="435" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.6" opacity="0.6" />
 
             {/* Right Panel Body: Isometric Skew Group matching the Wall's Front Face */}
-            <g transform="translate(810, 140) skewY(26.565)">
+            <g transform="translate(800, 130) skewY(26.565)">
               {/* Glass Card Outer Box */}
               <rect 
                 x="0" 
                 y="0" 
-                width="220" 
-                height="155" 
+                width="260" 
+                height="175" 
                 rx="8" 
                 fill="url(#threatPanelGlass)" 
                 stroke="#2B66FF" 
-                strokeWidth="2" 
+                strokeWidth="2.2" 
                 filter="url(#pillShadow)" 
               />
               {/* Inner High-Tech Border */}
               <rect 
                 x="6" 
                 y="6" 
-                width="208" 
-                height="143" 
+                width="248" 
+                height="163" 
                 rx="5" 
                 fill="none" 
                 stroke="#38BDF8" 
@@ -1515,50 +1533,50 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               />
 
               {/* Header: Green Online Beacon + Title (100% parallel to box top) */}
-              <circle cx="20" cy="22" r="5" fill="#10B981" />
+              <circle cx="20" cy="22" r="5.5" fill="#10B981" />
               <text 
                 x="32" 
-                y="26" 
-                fontSize="13" 
+                y="27" 
+                fontSize="16.5" 
                 fill="#0F172A" 
-                fontWeight="800" 
+                fontWeight="900" 
                 fontFamily="monospace"
               >
                 FIREWALL MATRIX
               </text>
-              <line x1="12" y1="36" x2="208" y2="36" stroke="#2B66FF" strokeWidth="1.2" opacity="0.35" />
+              <line x1="12" y1="36" x2="248" y2="36" stroke="#2B66FF" strokeWidth="1.4" opacity="0.35" />
 
               {/* 4 Animated Defense Processing Activity Bars */}
               {[
-                { label: 'WAF', x: 35, baseH: 48, delay: 0 },
-                { label: 'IPS', x: 80, baseH: 68, delay: 0.2 },
-                { label: 'SAND', x: 125, baseH: 54, delay: 0.4 },
-                { label: 'AI', x: 170, baseH: 72, delay: 0.1 },
+                { label: 'WAF', x: 40, baseH: 55, delay: 0 },
+                { label: 'IPS', x: 95, baseH: 75, delay: 0.2 },
+                { label: 'SAND', x: 150, baseH: 60, delay: 0.4 },
+                { label: 'AI', x: 205, baseH: 80, delay: 0.1 },
               ].map((bar, i) => (
                 <g key={`defense-bar-${i}`}>
                   {/* Track Background */}
                   <line 
                     x1={bar.x} 
-                    y1="120" 
+                    y1="130" 
                     x2={bar.x} 
                     y2="45" 
                     stroke="#E2E8F0" 
-                    strokeWidth="6" 
+                    strokeWidth="8" 
                     strokeLinecap="round" 
                     opacity="0.65" 
                   />
                   {/* Active Animated Throughput Bar */}
                   <motion.line 
                     x1={bar.x} 
-                    y1="120" 
+                    y1="130" 
                     x2={bar.x} 
-                    y2={120 - bar.baseH} 
+                    y2={130 - bar.baseH} 
                     stroke="#2B66FF" 
-                    strokeWidth="6.5" 
+                    strokeWidth="8.5" 
                     strokeLinecap="round" 
                     opacity="0.95" 
                     animate={{ 
-                      y2: [120 - bar.baseH, 120 - (bar.baseH * 0.45), 120 - bar.baseH],
+                      y2: [130 - bar.baseH, 130 - (bar.baseH * 0.45), 130 - bar.baseH],
                       opacity: [0.75, 1, 0.75],
                     }}
                     transition={{ 
@@ -1569,11 +1587,11 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                     }}
                   />
                   <text 
-                    x={bar.x - 12} 
-                    y="134" 
-                    fontSize="9.5" 
-                    fill="#475569" 
-                    fontWeight="800"
+                    x={bar.x - 14} 
+                    y="146" 
+                    fontSize="13" 
+                    fill="#334155" 
+                    fontWeight="900"
                     fontFamily="monospace"
                   >
                     {bar.label}
@@ -1582,11 +1600,11 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               ))}
 
               <text 
-                x="20" 
-                y="146" 
-                fontSize="10.5" 
+                x="18" 
+                y="164" 
+                fontSize="13.5" 
                 fill="#047857" 
-                fontWeight="800" 
+                fontWeight="900" 
                 fontFamily="monospace"
               >
                 DEFENSE: ACTIVE // 100%
@@ -1595,28 +1613,29 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           </motion.g>
 
           {/* =========================================================================
-              TOP BLUEPRINT TELEMETRY STATUS BADGE
+              TOP BLUEPRINT TELEMETRY STATUS BADGE (High Visibility, Bold Monospace)
               ========================================================================= */}
-          <g transform="translate(460, 65)">
+          <g transform="translate(410, 45)">
             <rect 
               x="0" 
               y="0" 
-              width="290" 
-              height="32" 
-              rx="6" 
+              width="380" 
+              height="42" 
+              rx="8" 
               fill="#FFFFFF" 
               stroke="#2B66FF" 
-              strokeWidth="1.8" 
+              strokeWidth="2.2" 
               filter="url(#pillShadow)" 
             />
-            <circle cx="16" cy="16" r="4.5" fill="#10B981" />
+            <circle cx="20" cy="21" r="5.5" fill="#10B981" />
             <text 
-              x="30" 
-              y="21" 
-              fontSize="11.5" 
+              x="34" 
+              y="27" 
+              fontSize="16" 
               fill="#0F172A" 
-              fontWeight="800" 
+              fontWeight="900" 
               fontFamily="monospace"
+              letterSpacing="0.03em"
             >
               0-DAY DEFENSE // AUTOMATED TARPIT
             </text>

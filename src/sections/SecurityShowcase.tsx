@@ -554,7 +554,7 @@ export const SecurityShowcase: React.FC<SecurityShowcaseProps> = ({ onOpenDemo }
               {/* Main Stage (Bounded Responsive Height, No CSS Aspect Width Explosion) */}
               <div 
                 ref={stageRef}
-                className="relative w-full h-[360px] sm:h-[440px] lg:h-[480px] xl:h-[520px] bg-gradient-to-b from-[#F8FAFC] to-white flex items-center justify-center p-6 sm:p-10 overflow-hidden"
+                className="relative w-full h-[360px] sm:h-[440px] lg:h-[480px] xl:h-[520px] bg-gradient-to-b from-[#F8FAFC] to-white flex items-center justify-center p-3 sm:p-6 overflow-hidden"
               >
                 {/* Interactive Pointer Constellation Canvas (matching Hero interactive physics) */}
                 <canvas 
