@@ -190,8 +190,9 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
         >
           <defs>
             <radialGradient id="radarSweep3D" cx="0" cy="0" r="235" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.85" />
-              <stop offset="40%" stopColor="#2B66FF" stopOpacity="0.38" />
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.80" />
+              <stop offset="35%" stopColor="#2B66FF" stopOpacity="0.45" />
+              <stop offset="75%" stopColor="#2B66FF" stopOpacity="0.15" />
               <stop offset="100%" stopColor="#2B66FF" stopOpacity="0" />
             </radialGradient>
 
@@ -204,7 +205,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             </filter>
 
             <filter id="sweepGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
@@ -236,23 +237,57 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           <g transform="translate(578.5, 444) rotate(-3)" filter="url(#dishShadow)">
             <g transform="scale(1, 0.49)">
 
-              {/* Complete, perfectly circular concentric radar rings of dense uniform blue dots */}
+              {/* Complete, fully continuous concentric radar rings — zero gaps, solid & dense */}
               {[55, 110, 165, 220].map((r, i) => (
-                <circle 
-                  key={i} 
-                  cx="0" 
-                  cy="0" 
-                  r={r} 
-                  fill="none" 
-                  stroke="#2B66FF" 
-                  strokeWidth="2.2"  
-                  strokeDasharray="3 3" 
-                  opacity={0.45 + i * 0.12} 
-                />
+                <g key={i}>
+                  {/* Continuous solid structural base ring to eliminate dissolving edges */}
+                  <circle 
+                    cx="0" 
+                    cy="0" 
+                    r={r} 
+                    fill="none" 
+                    stroke="#2B66FF" 
+                    strokeWidth="1.6"  
+                    opacity={0.5 + i * 0.12} 
+                  />
+                  {/* Dense primary uniform particle ring */}
+                  <circle 
+                    cx="0" 
+                    cy="0" 
+                    r={r} 
+                    fill="none" 
+                    stroke="#2B66FF" 
+                    strokeWidth="2.8"  
+                    strokeDasharray="2.5 2.5" 
+                    opacity={0.95} 
+                  />
+                  {/* Secondary micro-particles for outer rings to ensure clean, unbroken circles */}
+                  {r >= 165 && (
+                    <circle 
+                      cx="0" 
+                      cy="0" 
+                      r={r} 
+                      fill="none" 
+                      stroke="#2B66FF" 
+                      strokeWidth="2.4"  
+                      strokeDasharray="2 3" 
+                      strokeDashoffset="1.2"
+                      opacity={0.85} 
+                    />
+                  )}
+                </g>
               ))}
 
-              {/* Outer range perimeter boundary */}
-              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="2.2" strokeDasharray="3 3" opacity="0.6" />
+              {/* Outer range perimeter boundary rings — solid continuous baseline + dense dots */}
+              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="1.8" opacity="0.65" />
+              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="2.8" strokeDasharray="2.5 2.5" opacity="0.95" />
+              <circle cx="0" cy="0" r="235" fill="none" stroke="#2B66FF" strokeWidth="2.2" strokeDasharray="1.5 2.5" strokeDashoffset="1" opacity="0.85" />
+
+              {/* Stepped dish lip & outer platform rings to tighten outer field */}
+              <circle cx="0" cy="0" r="255" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.45" />
+              <circle cx="0" cy="0" r="255" fill="none" stroke="#2B66FF" strokeWidth="2.4" strokeDasharray="3 3" opacity="0.8" />
+              <circle cx="0" cy="0" r="278" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.4" />
+              <circle cx="0" cy="0" r="278" fill="none" stroke="#2B66FF" strokeWidth="2.4" strokeDasharray="3 4" opacity="0.75" />
 
               {/* Smooth continuous elliptical orbital data pulses */}
               <motion.circle
@@ -261,11 +296,11 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 r="110"
                 fill="none"
                 stroke="#2B66FF"
-                strokeWidth="3"
+                strokeWidth="3.2"
                 strokeDasharray="45 160"
                 animate={{ strokeDashoffset: [205, 0] }}
                 transition={{ duration: 4.8, repeat: Infinity, ease: 'linear' }}
-                opacity="0.85"
+                opacity="0.9"
               />
               <motion.circle
                 cx="0"
@@ -273,23 +308,27 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 r="165"
                 fill="none"
                 stroke="#2B66FF"
-                strokeWidth="3"
+                strokeWidth="3.2"
                 strokeDasharray="60 250"
                 animate={{ strokeDashoffset: [0, 310] }}
                 transition={{ duration: 5.6, repeat: Infinity, ease: 'linear' }}
-                opacity="0.8"
+                opacity="0.85"
               />
 
-              {/* 360° Rotating Radar Beam Sweep with gradient detection cone & scanline */}
+              {/* 360° Rotating Radar Beam Sweep with luminous gradient cone & dual scanline */}
               <motion.g
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3.6, repeat: Infinity, ease: 'linear' }}
               >
                 <path d="M 0 0 L 235 0 A 235 235 0 0 1 117.5 203.5 Z" fill="url(#radarSweep3D)" filter="url(#sweepGlow)" opacity="0.95" />
-                {/* Bright leading-edge scanline */}
-                <line x1="0" y1="0" x2="235" y2="0" stroke="#60A5FA" strokeWidth="3.5" opacity="1" />
+                {/* Sharp outer arc rim of sweep */}
+                <path d="M 235 0 A 235 235 0 0 1 117.5 203.5" fill="none" stroke="#60A5FA" strokeWidth="2.2" opacity="0.85" />
+                {/* Electric sky-blue leading edge scanline */}
+                <line x1="0" y1="0" x2="235" y2="0" stroke="#38BDF8" strokeWidth="3.5" opacity="1" />
+                {/* Crisp white laser core */}
+                <line x1="0" y1="0" x2="235" y2="0" stroke="#FFFFFF" strokeWidth="1.4" opacity="0.95" />
                 {/* Trailing edge */}
-                <line x1="0" y1="0" x2="117.5" y2="203.5" stroke="#2B66FF" strokeWidth="1.5" opacity="0.5" />
+                <line x1="0" y1="0" x2="117.5" y2="203.5" stroke="#2B66FF" strokeWidth="1.5" opacity="0.6" />
               </motion.g>
 
               {/* Central hub core pulse */}
@@ -428,43 +467,80 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           </motion.g>
 
           {/* =========================================================================
-              MODERN SHIELD ICON WITH YELLOW ALERT TRIANGLE (x: 800..923, y: 290..489)
+              MODERN SOLID 3D ISOMETRIC SHIELD WITH ALERT BEACON (x: 810..925, y: 300..490)
               ========================================================================= */}
           <motion.g
-            animate={{ y: [0, -2.5, 0] }}
+            animate={{ y: [0, -3, 0] }}
             transition={{ duration: 4.0, repeat: Infinity, delay: 0.2, ease: 'easeInOut' }}
           >
-            {/* Yellow alert triangle badge on shield face */}
-            <polygon 
-              points="866,342 876,360 856,360" 
-              fill="#F59E0B" 
-              stroke="#D97706" 
-              strokeWidth="1"
-              filter="url(#alertGlow)"
-            />
-            <line x1="866" y1="347" x2="866" y2="353" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" />
-            <circle cx="866" cy="357" r="0.9" fill="#fff" />
-
-            {/* Glowing alert pulse aura behind the triangle */}
-            <motion.circle
-              cx="866"
-              cy="353"
-              r="12"
-              fill="none"
-              stroke="#F59E0B"
-              strokeWidth="1.5"
-              animate={{ r: [8, 22], opacity: [0.8, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
+            {/* Top 3D extrusion facet */}
+            <polygon
+              points="820,342 838,330 880,308 922,330 904,342 862,320"
+              fill="#F0F7FF"
+              stroke="#2B66FF"
+              strokeWidth="2"
+              strokeLinejoin="round"
             />
 
-            {/* Subtle cobalt shield contour accent aura */}
+            {/* Right side 3D extrusion facet */}
             <path
-              d="M 822 334 Q 866 316, 910 334 Q 910 405, 866 450 Q 822 405, 822 334 Z"
+              d="M 904 342 L 922 330 L 922 402 Q 914 432, 900 454 Q 890 462, 880 468 L 862 478 Q 882 464, 896 442 L 904 412 Z"
+              fill="#DBEAFE"
+              stroke="#2B66FF"
+              strokeWidth="2"
+              strokeLinejoin="round"
+            />
+
+            {/* Solid Front Face with clean white frosted background to completely mask fragmented dots */}
+            <path
+              d="M 820 342 L 862 320 L 904 342 L 904 412 Q 904 450, 862 478 Q 820 450, 820 412 Z"
+              fill="#FFFFFF"
+              stroke="#2B66FF"
+              strokeWidth="2.5"
+              strokeLinejoin="round"
+            />
+
+            {/* Inner blueprint perimeter accent line */}
+            <path
+              d="M 826 348 L 862 330 L 898 348 L 898 410 Q 898 444, 862 470 Q 826 444, 826 410 Z"
+              fill="rgba(43, 102, 255, 0.04)"
+              stroke="#2B66FF"
+              strokeWidth="1.2"
+              strokeDasharray="3 3"
+              opacity="0.6"
+            />
+
+            {/* Crisp solid security checkmark emblem */}
+            <path
+              d="M 850 418 L 860 428 L 876 404"
               fill="none"
               stroke="#2B66FF"
-              strokeWidth="1.5"
-              strokeDasharray="4 8"
-              opacity="0.35"
+              strokeWidth="3.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+
+            {/* Prominent Yellow Alert Triangle Badge mounted on shield */}
+            <polygon 
+              points="862,352 874,372 850,372" 
+              fill="#F59E0B" 
+              stroke="#D97706" 
+              strokeWidth="1.2"
+              filter="url(#alertGlow)"
+            />
+            <line x1="862" y1="357" x2="862" y2="364" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" />
+            <circle cx="862" cy="368" r="1" fill="#fff" />
+
+            {/* Glowing alert pulse beacon expanding behind the badge */}
+            <motion.circle
+              cx="862"
+              cy="364"
+              r="14"
+              fill="none"
+              stroke="#F59E0B"
+              strokeWidth="1.6"
+              animate={{ r: [10, 26], opacity: [0.85, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
             />
           </motion.g>
         </svg>
