@@ -679,6 +679,33 @@
       "norm_label": "vite.config.ts"
     },
     {
+      "label": "ask_claude.py",
+      "file_type": "code",
+      "source_file": "scripts/ask_claude.py",
+      "source_location": "L1",
+      "id": "scripts_ask_claude_py",
+      "community": 13,
+      "norm_label": "ask_claude.py"
+    },
+    {
+      "label": "clean_showcase.py",
+      "file_type": "code",
+      "source_file": "scripts/clean_showcase.py",
+      "source_location": "L1",
+      "id": "scripts_clean_showcase_py",
+      "community": 12,
+      "norm_label": "clean_showcase.py"
+    },
+    {
+      "label": "purify_all_showcase.py",
+      "file_type": "code",
+      "source_file": "scripts/purify_all_showcase.py",
+      "source_location": "L1",
+      "id": "scripts_purify_all_showcase_py",
+      "community": 14,
+      "norm_label": "purify_all_showcase.py"
+    },
+    {
       "label": "App.tsx",
       "file_type": "code",
       "source_file": "src/App.tsx",
@@ -1066,6 +1093,87 @@
       "norm_label": "navbar()"
     },
     {
+      "label": "ShowcaseFX.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L1",
+      "id": "src_components_showcasefx_tsx",
+      "community": 19,
+      "norm_label": "showcasefx.tsx"
+    },
+    {
+      "label": "LENS_CONFIG",
+      "file_type": "code",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L16",
+      "id": "components_showcasefx_lens_config",
+      "community": 19,
+      "norm_label": "lens_config"
+    },
+    {
+      "label": "LensDotColumn",
+      "file_type": "code",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L28",
+      "id": "components_showcasefx_lensdotcolumn",
+      "community": 19,
+      "norm_label": "lensdotcolumn"
+    },
+    {
+      "label": "generateLensColumns()",
+      "file_type": "code",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L34",
+      "id": "components_showcasefx_generatelenscolumns",
+      "community": 19,
+      "norm_label": "generatelenscolumns()"
+    },
+    {
+      "label": "generateLensKeyframesCSS()",
+      "file_type": "code",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L65",
+      "id": "components_showcasefx_generatelenskeyframescss",
+      "community": 19,
+      "norm_label": "generatelenskeyframescss()"
+    },
+    {
+      "label": "LENS_COLUMNS",
+      "file_type": "code",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L113",
+      "id": "components_showcasefx_lens_columns",
+      "community": 19,
+      "norm_label": "lens_columns"
+    },
+    {
+      "label": "LENS_KEYFRAMES_CSS",
+      "file_type": "code",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L114",
+      "id": "components_showcasefx_lens_keyframes_css",
+      "community": 19,
+      "norm_label": "lens_keyframes_css"
+    },
+    {
+      "label": "ShowcaseFXProps",
+      "file_type": "code",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L116",
+      "id": "components_showcasefx_showcasefxprops",
+      "community": 19,
+      "norm_label": "showcasefxprops"
+    },
+    {
+      "label": "ShowcaseFX()",
+      "file_type": "code",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L120",
+      "id": "components_showcasefx_showcasefx",
+      "community": 19,
+      "norm_label": "showcasefx()"
+    },
+    {
       "label": "AdvancedFeatures.tsx",
       "file_type": "code",
       "source_file": "src/sections/AdvancedFeatures.tsx",
@@ -1215,25 +1323,34 @@
       "source_file": "src/sections/SecurityShowcase.tsx",
       "source_location": "L1",
       "id": "src_sections_securityshowcase_tsx",
-      "community": 3,
+      "community": 19,
       "norm_label": "securityshowcase.tsx"
     },
     {
       "label": "SecurityShowcaseProps",
       "file_type": "code",
       "source_file": "src/sections/SecurityShowcase.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "sections_securityshowcase_securityshowcaseprops",
-      "community": 3,
+      "community": 19,
       "norm_label": "securityshowcaseprops"
+    },
+    {
+      "label": "slideVariants",
+      "file_type": "code",
+      "source_file": "src/sections/SecurityShowcase.tsx",
+      "source_location": "L12",
+      "id": "sections_securityshowcase_slidevariants",
+      "community": 19,
+      "norm_label": "slidevariants"
     },
     {
       "label": "SecurityShowcase()",
       "file_type": "code",
       "source_file": "src/sections/SecurityShowcase.tsx",
-      "source_location": "L11",
+      "source_location": "L30",
       "id": "sections_securityshowcase_securityshowcase",
-      "community": 3,
+      "community": 19,
       "norm_label": "securityshowcase()"
     },
     {
@@ -2951,9 +3068,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "src_api_types_ts",
-      "confidence_score": 1.0
+      "target": "src_api_types_ts"
     },
     {
       "relation": "imports",
@@ -2962,9 +3079,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_types_diagnostichealthresponse",
-      "confidence_score": 1.0
+      "target": "api_types_diagnostichealthresponse"
     },
     {
       "relation": "imports",
@@ -2973,9 +3090,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_types_perimeterauditrequest",
-      "confidence_score": 1.0
+      "target": "api_types_perimeterauditrequest"
     },
     {
       "relation": "imports",
@@ -2984,9 +3101,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_types_perimeterauditresponse",
-      "confidence_score": 1.0
+      "target": "api_types_perimeterauditresponse"
     },
     {
       "relation": "imports",
@@ -2995,9 +3112,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_types_telemetrystreamevent",
-      "confidence_score": 1.0
+      "target": "api_types_telemetrystreamevent"
     },
     {
       "relation": "imports",
@@ -3006,9 +3123,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_types_zerotrusttokenverificationrequest",
-      "confidence_score": 1.0
+      "target": "api_types_zerotrusttokenverificationrequest"
     },
     {
       "relation": "imports",
@@ -3017,9 +3134,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_types_zerotrusttokenverificationresponse",
-      "confidence_score": 1.0
+      "target": "api_types_zerotrusttokenverificationresponse"
     },
     {
       "relation": "imports",
@@ -3028,9 +3145,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_types_isolatenoderequest",
-      "confidence_score": 1.0
+      "target": "api_types_isolatenoderequest"
     },
     {
       "relation": "imports",
@@ -3039,9 +3156,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_types_isolatenoderesponse",
-      "confidence_score": 1.0
+      "target": "api_types_isolatenoderesponse"
     },
     {
       "relation": "contains",
@@ -3049,9 +3166,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_managementapi_dataguardmanagementapiclient",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient"
     },
     {
       "relation": "contains",
@@ -3059,9 +3176,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L254",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_managementapi_ts",
-      "target": "api_managementapi_dataguardapi",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardapi"
     },
     {
       "relation": "imports_from",
@@ -3070,9 +3187,9 @@
       "source_file": "src/components/InteractiveDemoModal.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_interactivedemomodal_tsx",
-      "target": "src_api_managementapi_ts",
-      "confidence_score": 1.0
+      "target": "src_api_managementapi_ts"
     },
     {
       "relation": "method",
@@ -3080,9 +3197,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient",
-      "target": "api_managementapi_dataguardmanagementapiclient_constructor",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_constructor"
     },
     {
       "relation": "method",
@@ -3090,9 +3207,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient",
-      "target": "api_managementapi_dataguardmanagementapiclient_getheaders",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_getheaders"
     },
     {
       "relation": "method",
@@ -3100,9 +3217,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient",
-      "target": "api_managementapi_dataguardmanagementapiclient_getdiagnostichealth",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_getdiagnostichealth"
     },
     {
       "relation": "method",
@@ -3110,9 +3227,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient",
-      "target": "api_managementapi_dataguardmanagementapiclient_runperimeteraudit",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_runperimeteraudit"
     },
     {
       "relation": "method",
@@ -3120,9 +3237,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient",
-      "target": "api_managementapi_dataguardmanagementapiclient_gettelemetrystream",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_gettelemetrystream"
     },
     {
       "relation": "method",
@@ -3130,9 +3247,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L202",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient",
-      "target": "api_managementapi_dataguardmanagementapiclient_verifyzerotrusttoken",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_verifyzerotrusttoken"
     },
     {
       "relation": "method",
@@ -3140,9 +3257,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L231",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient",
-      "target": "api_managementapi_dataguardmanagementapiclient_isolatenode",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_isolatenode"
     },
     {
       "relation": "calls",
@@ -3151,9 +3268,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient_getdiagnostichealth",
-      "target": "api_managementapi_dataguardmanagementapiclient_getheaders",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_getheaders"
     },
     {
       "relation": "calls",
@@ -3162,9 +3279,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient_runperimeteraudit",
-      "target": "api_managementapi_dataguardmanagementapiclient_getheaders",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_getheaders"
     },
     {
       "relation": "calls",
@@ -3173,9 +3290,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient_gettelemetrystream",
-      "target": "api_managementapi_dataguardmanagementapiclient_getheaders",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_getheaders"
     },
     {
       "relation": "calls",
@@ -3184,9 +3301,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient_verifyzerotrusttoken",
-      "target": "api_managementapi_dataguardmanagementapiclient_getheaders",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_getheaders"
     },
     {
       "relation": "calls",
@@ -3195,9 +3312,9 @@
       "source_file": "src/api/managementApi.ts",
       "source_location": "L235",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_managementapi_dataguardmanagementapiclient_isolatenode",
-      "target": "api_managementapi_dataguardmanagementapiclient_getheaders",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardmanagementapiclient_getheaders"
     },
     {
       "relation": "imports",
@@ -3206,9 +3323,9 @@
       "source_file": "src/components/InteractiveDemoModal.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_interactivedemomodal_tsx",
-      "target": "api_managementapi_dataguardapi",
-      "confidence_score": 1.0
+      "target": "api_managementapi_dataguardapi"
     },
     {
       "relation": "contains",
@@ -3216,9 +3333,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_severitylevel",
-      "confidence_score": 1.0
+      "target": "api_types_severitylevel"
     },
     {
       "relation": "contains",
@@ -3226,9 +3343,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_nodestatus",
-      "confidence_score": 1.0
+      "target": "api_types_nodestatus"
     },
     {
       "relation": "contains",
@@ -3236,9 +3353,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_diagnostichealthresponse",
-      "confidence_score": 1.0
+      "target": "api_types_diagnostichealthresponse"
     },
     {
       "relation": "contains",
@@ -3246,9 +3363,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_perimeterauditrequest",
-      "confidence_score": 1.0
+      "target": "api_types_perimeterauditrequest"
     },
     {
       "relation": "contains",
@@ -3256,9 +3373,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_vulnerabilityfinding",
-      "confidence_score": 1.0
+      "target": "api_types_vulnerabilityfinding"
     },
     {
       "relation": "contains",
@@ -3266,9 +3383,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_perimeterauditresponse",
-      "confidence_score": 1.0
+      "target": "api_types_perimeterauditresponse"
     },
     {
       "relation": "contains",
@@ -3276,9 +3393,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_telemetrystreamevent",
-      "confidence_score": 1.0
+      "target": "api_types_telemetrystreamevent"
     },
     {
       "relation": "contains",
@@ -3286,9 +3403,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_zerotrusttokenverificationrequest",
-      "confidence_score": 1.0
+      "target": "api_types_zerotrusttokenverificationrequest"
     },
     {
       "relation": "contains",
@@ -3296,9 +3413,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_zerotrusttokenverificationresponse",
-      "confidence_score": 1.0
+      "target": "api_types_zerotrusttokenverificationresponse"
     },
     {
       "relation": "contains",
@@ -3306,9 +3423,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_isolatenoderequest",
-      "confidence_score": 1.0
+      "target": "api_types_isolatenoderequest"
     },
     {
       "relation": "contains",
@@ -3316,9 +3433,9 @@
       "source_file": "src/api/types.ts",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_api_types_ts",
-      "target": "api_types_isolatenoderesponse",
-      "confidence_score": 1.0
+      "target": "api_types_isolatenoderesponse"
     },
     {
       "relation": "contains",
@@ -3893,6 +4010,108 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_showcasefx_tsx",
+      "target": "components_showcasefx_lens_config"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_showcasefx_tsx",
+      "target": "components_showcasefx_lensdotcolumn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_showcasefx_tsx",
+      "target": "components_showcasefx_generatelenscolumns"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_showcasefx_tsx",
+      "target": "components_showcasefx_generatelenskeyframescss"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_showcasefx_tsx",
+      "target": "components_showcasefx_lens_columns"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_showcasefx_tsx",
+      "target": "components_showcasefx_lens_keyframes_css"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_showcasefx_tsx",
+      "target": "components_showcasefx_showcasefxprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShowcaseFX.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_showcasefx_tsx",
+      "target": "components_showcasefx_showcasefx"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sections/SecurityShowcase.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sections_securityshowcase_tsx",
+      "target": "src_components_showcasefx_tsx"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sections/SecurityShowcase.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sections_securityshowcase_tsx",
+      "target": "components_showcasefx_showcasefx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/sections/AdvancedFeatures.tsx",
       "source_location": "L7",
       "weight": 1.0,
@@ -4004,6 +4223,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/sections/SecurityShowcase.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sections_securityshowcase_tsx",
+      "target": "sections_securityshowcase_slidevariants"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sections/SecurityShowcase.tsx",
       "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4096,9 +4325,9 @@
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_md",
-      "target": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform"
     },
     {
       "relation": "contains",
@@ -4116,9 +4345,9 @@
       "source_file": "README.md",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "target": "dataguard_cybersecurity_readme_table_of_contents",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_table_of_contents"
     },
     {
       "relation": "contains",
@@ -4126,9 +4355,9 @@
       "source_file": "README.md",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "target": "dataguard_cybersecurity_readme_1_system_architecture_diagram",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_1_system_architecture_diagram"
     },
     {
       "relation": "contains",
@@ -4136,9 +4365,9 @@
       "source_file": "README.md",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "target": "dataguard_cybersecurity_readme_2_core_engineering_highlights",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_2_core_engineering_highlights"
     },
     {
       "relation": "contains",
@@ -4146,9 +4375,9 @@
       "source_file": "README.md",
       "source_location": "L126",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "target": "dataguard_cybersecurity_readme_3_end_to_end_sequence_flow",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_3_end_to_end_sequence_flow"
     },
     {
       "relation": "contains",
@@ -4156,9 +4385,9 @@
       "source_file": "README.md",
       "source_location": "L187",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "target": "dataguard_cybersecurity_readme_4_http_management_diagnostic_api_reference",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_4_http_management_diagnostic_api_reference"
     },
     {
       "relation": "contains",
@@ -4166,9 +4395,9 @@
       "source_file": "README.md",
       "source_location": "L240",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "target": "dataguard_cybersecurity_readme_5_graphify_knowledge_graph",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_5_graphify_knowledge_graph"
     },
     {
       "relation": "contains",
@@ -4176,9 +4405,9 @@
       "source_file": "README.md",
       "source_location": "L274",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "target": "dataguard_cybersecurity_readme_6_component_directory_structure",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_6_component_directory_structure"
     },
     {
       "relation": "contains",
@@ -4186,9 +4415,9 @@
       "source_file": "README.md",
       "source_location": "L325",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "target": "dataguard_cybersecurity_readme_7_getting_started_production_build",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_7_getting_started_production_build"
     },
     {
       "relation": "contains",
@@ -4196,9 +4425,9 @@
       "source_file": "README.md",
       "source_location": "L355",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
-      "target": "dataguard_cybersecurity_readme_license_credits",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_license_credits"
     },
     {
       "relation": "contains",
@@ -4206,9 +4435,9 @@
       "source_file": "README.md",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_1_system_architecture_diagram",
-      "target": "dataguard_cybersecurity_readme_codeblock_1",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_1"
     },
     {
       "relation": "contains",
@@ -4226,9 +4455,9 @@
       "source_file": "README.md",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_2_core_engineering_highlights",
-      "target": "dataguard_cybersecurity_readme_2_1_100_visual_fidelity_to_behance_reference_255038607",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_2_1_100_visual_fidelity_to_behance_reference_255038607"
     },
     {
       "relation": "contains",
@@ -4236,9 +4465,9 @@
       "source_file": "README.md",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_2_core_engineering_highlights",
-      "target": "dataguard_cybersecurity_readme_2_2_generative_particle_canvas_collision_engine",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_2_2_generative_particle_canvas_collision_engine"
     },
     {
       "relation": "contains",
@@ -4246,9 +4475,9 @@
       "source_file": "README.md",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_2_core_engineering_highlights",
-      "target": "dataguard_cybersecurity_readme_2_3_zero_asset_synthetic_web_audio_micro_interactions",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_2_3_zero_asset_synthetic_web_audio_micro_interactions"
     },
     {
       "relation": "contains",
@@ -4256,9 +4485,9 @@
       "source_file": "README.md",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_2_core_engineering_highlights",
-      "target": "dataguard_cybersecurity_readme_2_4_dual_viewport_presentation_switcher",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_2_4_dual_viewport_presentation_switcher"
     },
     {
       "relation": "contains",
@@ -4266,9 +4495,9 @@
       "source_file": "README.md",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_2_core_engineering_highlights",
-      "target": "dataguard_cybersecurity_readme_2_5_stepwise_perimeter_vulnerability_scanner",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_2_5_stepwise_perimeter_vulnerability_scanner"
     },
     {
       "relation": "contains",
@@ -4276,9 +4505,9 @@
       "source_file": "README.md",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_2_core_engineering_highlights",
-      "target": "dataguard_cybersecurity_readme_2_6_production_build_performance",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_2_6_production_build_performance"
     },
     {
       "relation": "contains",
@@ -4286,9 +4515,9 @@
       "source_file": "README.md",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_3_end_to_end_sequence_flow",
-      "target": "dataguard_cybersecurity_readme_3_1_zero_trust_access_threat_scanning_pipeline",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_3_1_zero_trust_access_threat_scanning_pipeline"
     },
     {
       "relation": "contains",
@@ -4296,9 +4525,9 @@
       "source_file": "README.md",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_3_end_to_end_sequence_flow",
-      "target": "dataguard_cybersecurity_readme_3_2_real_time_telemetry_diagnostic_alerting_flow",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_3_2_real_time_telemetry_diagnostic_alerting_flow"
     },
     {
       "relation": "contains",
@@ -4306,9 +4535,9 @@
       "source_file": "README.md",
       "source_location": "L130",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_3_1_zero_trust_access_threat_scanning_pipeline",
-      "target": "dataguard_cybersecurity_readme_codeblock_2",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_2"
     },
     {
       "relation": "contains",
@@ -4316,9 +4545,9 @@
       "source_file": "README.md",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_3_2_real_time_telemetry_diagnostic_alerting_flow",
-      "target": "dataguard_cybersecurity_readme_codeblock_3",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_3"
     },
     {
       "relation": "contains",
@@ -4326,9 +4555,9 @@
       "source_file": "README.md",
       "source_location": "L193",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_4_http_management_diagnostic_api_reference",
-      "target": "dataguard_cybersecurity_readme_4_1_core_endpoints_summary",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_4_1_core_endpoints_summary"
     },
     {
       "relation": "contains",
@@ -4336,9 +4565,9 @@
       "source_file": "README.md",
       "source_location": "L203",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_4_http_management_diagnostic_api_reference",
-      "target": "dataguard_cybersecurity_readme_4_2_sample_request_response",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_4_2_sample_request_response"
     },
     {
       "relation": "contains",
@@ -4346,9 +4575,9 @@
       "source_file": "README.md",
       "source_location": "L205",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_4_2_sample_request_response",
-      "target": "dataguard_cybersecurity_readme_cluster_health_diagnostic",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_cluster_health_diagnostic"
     },
     {
       "relation": "contains",
@@ -4356,9 +4585,9 @@
       "source_file": "README.md",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_cluster_health_diagnostic",
-      "target": "dataguard_cybersecurity_readme_codeblock_4",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_4"
     },
     {
       "relation": "contains",
@@ -4366,9 +4595,9 @@
       "source_file": "README.md",
       "source_location": "L213",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_cluster_health_diagnostic",
-      "target": "dataguard_cybersecurity_readme_codeblock_5",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_5"
     },
     {
       "relation": "contains",
@@ -4376,9 +4605,9 @@
       "source_file": "README.md",
       "source_location": "L244",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_5_graphify_knowledge_graph",
-      "target": "dataguard_cybersecurity_readme_knowledge_graph_metrics",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_knowledge_graph_metrics"
     },
     {
       "relation": "contains",
@@ -4386,9 +4615,9 @@
       "source_file": "README.md",
       "source_location": "L250",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_5_graphify_knowledge_graph",
-      "target": "dataguard_cybersecurity_readme_core_abstractions_god_nodes",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_core_abstractions_god_nodes"
     },
     {
       "relation": "contains",
@@ -4396,9 +4625,9 @@
       "source_file": "README.md",
       "source_location": "L257",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_5_graphify_knowledge_graph",
-      "target": "dataguard_cybersecurity_readme_graph_inspection_commands",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_graph_inspection_commands"
     },
     {
       "relation": "contains",
@@ -4406,9 +4635,9 @@
       "source_file": "README.md",
       "source_location": "L258",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_graph_inspection_commands",
-      "target": "dataguard_cybersecurity_readme_codeblock_6",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_6"
     },
     {
       "relation": "contains",
@@ -4416,9 +4645,9 @@
       "source_file": "README.md",
       "source_location": "L276",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_6_component_directory_structure",
-      "target": "dataguard_cybersecurity_readme_codeblock_7",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_7"
     },
     {
       "relation": "contains",
@@ -4426,9 +4655,9 @@
       "source_file": "README.md",
       "source_location": "L327",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_7_getting_started_production_build",
-      "target": "dataguard_cybersecurity_readme_prerequisites",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_prerequisites"
     },
     {
       "relation": "contains",
@@ -4436,9 +4665,9 @@
       "source_file": "README.md",
       "source_location": "L331",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_7_getting_started_production_build",
-      "target": "dataguard_cybersecurity_readme_installation",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_installation"
     },
     {
       "relation": "contains",
@@ -4446,9 +4675,9 @@
       "source_file": "README.md",
       "source_location": "L341",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_7_getting_started_production_build",
-      "target": "dataguard_cybersecurity_readme_development",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_development"
     },
     {
       "relation": "contains",
@@ -4456,9 +4685,9 @@
       "source_file": "README.md",
       "source_location": "L347",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_7_getting_started_production_build",
-      "target": "dataguard_cybersecurity_readme_production_build",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_production_build"
     },
     {
       "relation": "contains",
@@ -4466,9 +4695,9 @@
       "source_file": "README.md",
       "source_location": "L332",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_installation",
-      "target": "dataguard_cybersecurity_readme_codeblock_8",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_8"
     },
     {
       "relation": "contains",
@@ -4476,9 +4705,9 @@
       "source_file": "README.md",
       "source_location": "L342",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_development",
-      "target": "dataguard_cybersecurity_readme_codeblock_9",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_9"
     },
     {
       "relation": "contains",
@@ -4486,9 +4715,9 @@
       "source_file": "README.md",
       "source_location": "L348",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dataguard_cybersecurity_readme_production_build",
-      "target": "dataguard_cybersecurity_readme_codeblock_10",
-      "confidence_score": 1.0
+      "target": "dataguard_cybersecurity_readme_codeblock_10"
     },
     {
       "relation": "contains",
@@ -4496,9 +4725,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_md",
-      "target": "docs_api_reference_dataguard_cybersecurity_http_management_diagnostic_api_reference",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_dataguard_cybersecurity_http_management_diagnostic_api_reference"
     },
     {
       "relation": "contains",
@@ -4506,9 +4735,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_dataguard_cybersecurity_http_management_diagnostic_api_reference",
-      "target": "docs_api_reference_1_global_specifications",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_1_global_specifications"
     },
     {
       "relation": "contains",
@@ -4516,9 +4745,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_dataguard_cybersecurity_http_management_diagnostic_api_reference",
-      "target": "docs_api_reference_2_authentication_headers",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_2_authentication_headers"
     },
     {
       "relation": "contains",
@@ -4526,9 +4755,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_dataguard_cybersecurity_http_management_diagnostic_api_reference",
-      "target": "docs_api_reference_3_endpoints_overview",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_3_endpoints_overview"
     },
     {
       "relation": "contains",
@@ -4536,9 +4765,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_dataguard_cybersecurity_http_management_diagnostic_api_reference",
-      "target": "docs_api_reference_4_endpoint_reference",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_4_endpoint_reference"
     },
     {
       "relation": "contains",
@@ -4546,9 +4775,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L248",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_dataguard_cybersecurity_http_management_diagnostic_api_reference",
-      "target": "docs_api_reference_5_http_status_code_conventions",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_5_http_status_code_conventions"
     },
     {
       "relation": "contains",
@@ -4556,9 +4785,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_2_authentication_headers",
-      "target": "docs_api_reference_codeblock_1",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_1"
     },
     {
       "relation": "contains",
@@ -4566,9 +4795,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_endpoint_reference",
-      "target": "docs_api_reference_4_1_cluster_health_diagnostic",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_4_1_cluster_health_diagnostic"
     },
     {
       "relation": "contains",
@@ -4576,9 +4805,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_endpoint_reference",
-      "target": "docs_api_reference_4_2_on_demand_perimeter_audit",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_4_2_on_demand_perimeter_audit"
     },
     {
       "relation": "contains",
@@ -4586,9 +4815,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_endpoint_reference",
-      "target": "docs_api_reference_4_3_real_time_telemetry_stream",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_4_3_real_time_telemetry_stream"
     },
     {
       "relation": "contains",
@@ -4596,9 +4825,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_endpoint_reference",
-      "target": "docs_api_reference_4_4_zero_trust_token_verification",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_4_4_zero_trust_token_verification"
     },
     {
       "relation": "contains",
@@ -4606,9 +4835,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_endpoint_reference",
-      "target": "docs_api_reference_4_5_automated_node_quarantine_mitigation",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_4_5_automated_node_quarantine_mitigation"
     },
     {
       "relation": "contains",
@@ -4616,9 +4845,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_1_cluster_health_diagnostic",
-      "target": "docs_api_reference_get_health_diagnostic",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_get_health_diagnostic"
     },
     {
       "relation": "contains",
@@ -4626,9 +4855,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_get_health_diagnostic",
-      "target": "docs_api_reference_codeblock_2",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_2"
     },
     {
       "relation": "contains",
@@ -4636,9 +4865,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_get_health_diagnostic",
-      "target": "docs_api_reference_codeblock_3",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_3"
     },
     {
       "relation": "contains",
@@ -4646,9 +4875,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_2_on_demand_perimeter_audit",
-      "target": "docs_api_reference_post_security_perimeter_audit",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_post_security_perimeter_audit"
     },
     {
       "relation": "contains",
@@ -4656,9 +4885,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_post_security_perimeter_audit",
-      "target": "docs_api_reference_codeblock_4",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_4"
     },
     {
       "relation": "contains",
@@ -4666,9 +4895,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L112",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_post_security_perimeter_audit",
-      "target": "docs_api_reference_codeblock_5",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_5"
     },
     {
       "relation": "contains",
@@ -4676,9 +4905,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_3_real_time_telemetry_stream",
-      "target": "docs_api_reference_get_telemetry_stream",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_get_telemetry_stream"
     },
     {
       "relation": "contains",
@@ -4686,9 +4915,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_get_telemetry_stream",
-      "target": "docs_api_reference_codeblock_6",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_6"
     },
     {
       "relation": "contains",
@@ -4696,9 +4925,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L157",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_get_telemetry_stream",
-      "target": "docs_api_reference_codeblock_7",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_7"
     },
     {
       "relation": "contains",
@@ -4706,9 +4935,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L188",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_4_zero_trust_token_verification",
-      "target": "docs_api_reference_post_access_verify_token",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_post_access_verify_token"
     },
     {
       "relation": "contains",
@@ -4716,9 +4945,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L192",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_post_access_verify_token",
-      "target": "docs_api_reference_codeblock_8",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_8"
     },
     {
       "relation": "contains",
@@ -4726,9 +4955,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L205",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_post_access_verify_token",
-      "target": "docs_api_reference_codeblock_9",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_9"
     },
     {
       "relation": "contains",
@@ -4736,9 +4965,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L221",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_4_5_automated_node_quarantine_mitigation",
-      "target": "docs_api_reference_post_mitigation_isolate_node",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_post_mitigation_isolate_node"
     },
     {
       "relation": "contains",
@@ -4746,9 +4975,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L225",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_post_mitigation_isolate_node",
-      "target": "docs_api_reference_codeblock_10",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_10"
     },
     {
       "relation": "contains",
@@ -4756,9 +4985,9 @@
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L237",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_api_reference_post_mitigation_isolate_node",
-      "target": "docs_api_reference_codeblock_11",
-      "confidence_score": 1.0
+      "target": "docs_api_reference_codeblock_11"
     },
     {
       "relation": "contains",
@@ -4781,5 +5010,6 @@
       "target": "dataguard_cybersecurity_readme_expanding_the_oxlint_configuration"
     }
   ],
-  "hyperedges": []
+  "hyperedges": [],
+  "built_at_commit": "f6d577cdc64b10a5d27434f9a4ef637eec1eaffd"
 }

@@ -1,13 +1,18 @@
-# Graph Report - dataguard-cybersecurity  (2026-09-30)
+# Graph Report - dataguard-cybersecurity  (2026-10-10)
 
 ## Corpus Check
-- 29 files · ~312,815 words
+- 33 files · ~463,019 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 218 nodes · 273 edges · 16 communities (13 shown, 3 thin omitted)
+- 231 nodes · 284 edges · 20 communities (17 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `f6d577cd`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Community 0|Community 0]]
@@ -23,6 +28,7 @@
 - [[_COMMUNITY_Community 10|Community 10]]
 - [[_COMMUNITY_Community 11|Community 11]]
 - [[_COMMUNITY_Community 15|Community 15]]
+- [[_COMMUNITY_Community 19|Community 19]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 18 edges
@@ -39,7 +45,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (16 total, 3 thin omitted)
+## Communities (20 total, 3 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.10
@@ -54,8 +60,8 @@ Cohesion: 0.12
 Nodes (16): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection, noEmit, noFallthroughCasesInSwitch (+8 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.13
-Nodes (20): sound, Crosshair(), CrosshairProps, LogoBar(), Navbar(), NavbarProps, AdvancedFeatures(), AdvancedFeaturesProps (+12 more)
+Cohesion: 0.14
+Nodes (18): sound, Crosshair(), CrosshairProps, LogoBar(), Navbar(), NavbarProps, AdvancedFeatures(), AdvancedFeaturesProps (+10 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.18
@@ -81,8 +87,12 @@ Nodes (33): 1. System Architecture Diagram, 2.1. 100% Visual Fidelity to Behance
 Cohesion: 0.25
 Nodes (8): 7. Getting Started & Production Build, code:bash (npm run build), code:bash (# Clone the repository), code:bash (npm run dev), Development, Installation, Prerequisites, Production Build
 
+### Community 19 - "Community 19"
+Cohesion: 0.17
+Nodes (9): LENS_COLUMNS, LENS_CONFIG, LENS_KEYFRAMES_CSS, LensDotColumn, ShowcaseFX(), ShowcaseFXProps, SecurityShowcase(), SecurityShowcaseProps (+1 more)
+
 ## Knowledge Gaps
-- **114 isolated node(s):** `$schema`, `plugins`, `react/rules-of-hooks`, `react/only-export-components`, `name` (+109 more)
+- **120 isolated node(s):** `$schema`, `plugins`, `react/rules-of-hooks`, `react/only-export-components`, `name` (+115 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -90,11 +100,11 @@ Nodes (8): 7. Getting Started & Production Build, code:bash (npm run build), cod
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Dataguard — Enterprise Cybersecurity Platform` connect `Community 10` to `Community 11`?**
-  _High betweenness centrality (0.031) - this node is a cross-community bridge._
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Why does `DataguardManagementApiClient` connect `Community 6` to `Community 4`?**
   _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **What connects `$schema`, `plugins`, `react/rules-of-hooks` to the rest of the system?**
-  _114 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _120 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
@@ -102,4 +112,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.13015873015873017 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.14015151515151514 - nodes in this community are weakly interconnected._
