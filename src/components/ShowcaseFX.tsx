@@ -1736,102 +1736,124 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
 
           {/* =========================================================================
               3D ISOMETRIC QUANTUM MÖBIUS INFINITY RIBBON TRACK
-              Constructed in two layered interlocking halves for authentic 3D crossover
+              Seamless continuous topological lemniscate with zero bumps or apex seams
               ========================================================================= */}
-          {/* --- HALF 1 (UNDER-PASS): Right Lobe through Center to Left Lobe --- */}
+          {/* --- 1. FRONT 3D DEPTH FACETS (Only front-facing lower contours) --- */}
           <g>
-            {/* 3D Depth Under-Extrusion (+24px down) */}
+            {/* Left bottom front depth facet */}
             <path
-              d="M 800 494 C 800 589, 680 609, 580 504 C 480 399, 360 399, 360 494"
+              d="M 354 480 C 325 520, 370 565, 440 565 C 485 565, 525 514, 580 480"
+              transform="translate(0, 16)"
               stroke="url(#pqcRibbonDepthGrad)"
-              strokeWidth="56"
-              fill="none"
-              strokeLinecap="round"
-            />
-            {/* Top Metallic Track Surface */}
-            <path
-              d="M 800 470 C 800 565, 680 585, 580 480 C 480 375, 360 375, 360 470"
-              stroke="url(#pqcRibbonTopGrad)"
               strokeWidth="50"
               fill="none"
               strokeLinecap="round"
             />
-            {/* Cyan Energy Guide Rails */}
+            {/* Right bottom front depth facet */}
             <path
-              d="M 800 470 C 800 565, 680 585, 580 480 C 480 375, 360 375, 360 470"
-              stroke="#2B66FF"
-              strokeWidth="2.0"
-              strokeDasharray="6 8"
+              d="M 580 480 C 635 514, 675 565, 720 565 C 790 565, 835 520, 806 480"
+              transform="translate(0, 16)"
+              stroke="url(#pqcRibbonDepthGrad)"
+              strokeWidth="50"
               fill="none"
-              opacity="0.5"
-            />
-            {/* Streaming Quantum Laser Pulse on Under-Pass */}
-            <motion.path
-              d="M 800 470 C 800 565, 680 585, 580 480 C 480 375, 360 375, 360 470"
-              stroke="#38BDF8"
-              strokeWidth="3.2"
-              strokeDasharray="70 280"
-              fill="none"
-              animate={{ strokeDashoffset: [350, 0] }}
-              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear' }}
-            />
-            <motion.path
-              d="M 800 470 C 800 565, 680 585, 580 480 C 480 375, 360 375, 360 470"
-              stroke="#FFFFFF"
-              strokeWidth="1.6"
-              strokeDasharray="30 320"
-              fill="none"
-              animate={{ strokeDashoffset: [350, 0] }}
-              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear' }}
+              strokeLinecap="round"
             />
           </g>
 
-          {/* --- HALF 2 (OVER-PASS): Left Lobe through Center to Right Lobe --- */}
-          {/* Rendered on top so it crosses OVER Half 1 at (580, 480) with full 3D overlap */}
+          {/* --- 2. BASE CONTINUOUS CLOSED TOP SURFACE TRACK (100% Seamless Infinite Circuit) --- */}
           <g>
-            {/* 3D Depth Over-Extrusion (+24px down) */}
-            <path
-              d="M 360 494 C 360 589, 480 609, 580 504 C 680 399, 800 399, 800 494"
-              stroke="url(#pqcRibbonDepthGrad)"
-              strokeWidth="56"
-              fill="none"
-              strokeLinecap="round"
-            />
             {/* Top Metallic Track Surface */}
             <path
-              d="M 360 470 C 360 565, 480 585, 580 480 C 680 375, 800 375, 800 470"
+              d="M 440 395 C 485 395, 525 446, 580 480 C 635 514, 675 565, 720 565 C 835 565, 835 395, 720 395 C 675 395, 635 446, 580 480 C 525 514, 485 565, 440 565 C 325 565, 325 395, 440 395 Z"
               stroke="url(#pqcRibbonTopGrad)"
               strokeWidth="50"
               fill="none"
-              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             {/* Cyan Energy Guide Rails */}
             <path
-              d="M 360 470 C 360 565, 480 585, 580 480 C 680 375, 800 375, 800 470"
+              d="M 440 395 C 485 395, 525 446, 580 480 C 635 514, 675 565, 720 565 C 835 565, 835 395, 720 395 C 675 395, 635 446, 580 480 C 525 514, 485 565, 440 565 C 325 565, 325 395, 440 395 Z"
               stroke="#2B66FF"
               strokeWidth="2.0"
               strokeDasharray="6 8"
               fill="none"
               opacity="0.5"
             />
-            {/* Streaming Quantum Laser Pulse on Over-Pass */}
+            {/* Streaming Quantum Laser Pulse - Infinitely Circulating Full Loop */}
             <motion.path
-              d="M 360 470 C 360 565, 480 585, 580 480 C 680 375, 800 375, 800 470"
+              d="M 440 395 C 485 395, 525 446, 580 480 C 635 514, 675 565, 720 565 C 835 565, 835 395, 720 395 C 675 395, 635 446, 580 480 C 525 514, 485 565, 440 565 C 325 565, 325 395, 440 395 Z"
               stroke="#38BDF8"
               strokeWidth="3.2"
-              strokeDasharray="70 280"
+              strokeDasharray="90 360"
               fill="none"
-              animate={{ strokeDashoffset: [350, 0] }}
-              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear', delay: 1.6 }}
+              animate={{ strokeDashoffset: [450, 0] }}
+              transition={{ duration: 4.0, repeat: Infinity, ease: 'linear' }}
             />
             <motion.path
-              d="M 360 470 C 360 565, 480 585, 580 480 C 680 375, 800 375, 800 470"
+              d="M 440 395 C 485 395, 525 446, 580 480 C 635 514, 675 565, 720 565 C 835 565, 835 395, 720 395 C 675 395, 635 446, 580 480 C 525 514, 485 565, 440 565 C 325 565, 325 395, 440 395 Z"
               stroke="#FFFFFF"
               strokeWidth="1.6"
-              strokeDasharray="30 320"
+              strokeDasharray="40 410"
               fill="none"
-              animate={{ strokeDashoffset: [350, 0] }}
-              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear', delay: 1.6 }}
+              animate={{ strokeDashoffset: [450, 0] }}
+              transition={{ duration: 4.0, repeat: Infinity, ease: 'linear' }}
+            />
+          </g>
+
+          {/* --- 3. CENTER 3D OVERPASS CROSSOVER BRIDGE (Top-Left to Bottom-Right) --- */}
+          <g>
+            {/* Soft Ambient Depth Separation Shadow on Underpass */}
+            <line
+              x1="550"
+              y1="465"
+              x2="610"
+              y2="525"
+              stroke="rgba(30, 64, 175, 0.45)"
+              strokeWidth="36"
+              filter="url(#pqcFloorShadow)"
+            />
+            {/* Overpass Front Depth Edge */}
+            <path
+              d="M 540 455 C 560 470, 580 480, 635 514 C 675 565, 700 565, 720 565"
+              transform="translate(0, 16)"
+              stroke="url(#pqcRibbonDepthGrad)"
+              strokeWidth="50"
+              fill="none"
+            />
+            {/* Overpass Top Metallic Track Surface */}
+            <path
+              d="M 440 395 C 485 395, 525 446, 580 480 C 635 514, 675 565, 720 565"
+              stroke="url(#pqcRibbonTopGrad)"
+              strokeWidth="50"
+              fill="none"
+            />
+            {/* Overpass Energy Guide Rail */}
+            <path
+              d="M 440 395 C 485 395, 525 446, 580 480 C 635 514, 675 565, 720 565"
+              stroke="#2B66FF"
+              strokeWidth="2.0"
+              strokeDasharray="6 8"
+              fill="none"
+              opacity="0.5"
+            />
+            {/* Synchronized Overpass Laser Pulses */}
+            <motion.path
+              d="M 440 395 C 485 395, 525 446, 580 480 C 635 514, 675 565, 720 565"
+              stroke="#38BDF8"
+              strokeWidth="3.2"
+              strokeDasharray="90 360"
+              fill="none"
+              animate={{ strokeDashoffset: [450, 0] }}
+              transition={{ duration: 4.0, repeat: Infinity, ease: 'linear' }}
+            />
+            <motion.path
+              d="M 440 395 C 485 395, 525 446, 580 480 C 635 514, 675 565, 720 565"
+              stroke="#FFFFFF"
+              strokeWidth="1.6"
+              strokeDasharray="40 410"
+              fill="none"
+              animate={{ strokeDashoffset: [450, 0] }}
+              transition={{ duration: 4.0, repeat: Infinity, ease: 'linear' }}
             />
           </g>
 
@@ -1840,10 +1862,10 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               ========================================================================= */}
           {/* Node 1: Left Apex Key Generation Hub */}
           <g>
-            <circle cx="360" cy="470" r="7" fill="#10B981" />
+            <circle cx="354" cy="480" r="7" fill="#10B981" />
             <motion.circle
-              cx="360"
-              cy="470"
+              cx="354"
+              cy="480"
               r="14"
               fill="none"
               stroke="#10B981"
@@ -1852,10 +1874,10 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               transition={{ duration: 1.8, repeat: Infinity }}
             />
             {/* Leader line to Callout Badge */}
-            <line x1="330" y1="470" x2="280" y2="470" stroke="#10B981" strokeWidth="1.6" />
+            <line x1="324" y1="480" x2="280" y2="480" stroke="#10B981" strokeWidth="1.6" />
             <rect
               x="130"
-              y="452"
+              y="462"
               width="150"
               height="36"
               rx="6"
@@ -1864,10 +1886,10 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               strokeWidth="2.2"
               filter="url(#pqcPillShadow)"
             />
-            <circle cx="146" cy="470" r="4.5" fill="#10B981" />
+            <circle cx="146" cy="480" r="4.5" fill="#10B981" />
             <text
               x="158"
-              y="476"
+              y="486"
               fontSize="13.5"
               fill="#065F46"
               fontWeight="900"
@@ -1896,10 +1918,10 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
 
           {/* Node 3: Right Apex Shared Secret Hub */}
           <g>
-            <circle cx="800" cy="470" r="7" fill="#2B66FF" />
+            <circle cx="806" cy="480" r="7" fill="#2B66FF" />
             <motion.circle
-              cx="800"
-              cy="470"
+              cx="806"
+              cy="480"
               r="14"
               fill="none"
               stroke="#2B66FF"
@@ -1908,10 +1930,10 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               transition={{ duration: 1.8, repeat: Infinity, delay: 0.5 }}
             />
             {/* Leader line to Callout Badge */}
-            <line x1="800" y1="470" x2="850" y2="470" stroke="#2B66FF" strokeWidth="1.6" />
+            <line x1="806" y1="480" x2="850" y2="480" stroke="#2B66FF" strokeWidth="1.6" />
             <rect
               x="850"
-              y="452"
+              y="462"
               width="170"
               height="36"
               rx="6"
@@ -1920,10 +1942,10 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               strokeWidth="2.2"
               filter="url(#pqcPillShadow)"
             />
-            <circle cx="866" cy="470" r="4.5" fill="#2B66FF" />
+            <circle cx="866" cy="480" r="4.5" fill="#2B66FF" />
             <text
               x="878"
-              y="476"
+              y="486"
               fontSize="13.5"
               fill="#1E3A8A"
               fontWeight="900"
