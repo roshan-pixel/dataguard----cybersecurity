@@ -2171,19 +2171,53 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
           >
-            {/* 1. Back Shackle 3D Depth Shadow/Rim (Shifted +8, -4) */}
+            {/* 1. Top Cap Facet: Rendered as base plate so shackle and holes sit directly on it */}
+            <polygon
+              points="675,555 699,543 779,583 755,595"
+              fill="url(#pqcLockTopGrad)"
+              stroke="#2B66FF"
+              strokeWidth="2.2"
+              strokeLinejoin="round"
+            />
+
+            {/* 2. Back Shackle 3D Depth Shadow/Rim (Shifted +8, -4) */}
             <path
-              d="M 714 555 L 714 497 C 714 461, 754 461, 754 517 L 754 575"
+              d="M 714 556 L 714 497 C 714 461, 754 461, 754 517 L 754 576"
               fill="none"
               stroke="#172554"
               strokeWidth="11"
               strokeLinecap="round"
             />
 
-            {/* 2. Main Front Shackle Cylindrical Bar (Loops directly over the quantum track) */}
+            {/* 3. Recessed Collar Hole Cavities (Placed directly at shackle entry points) */}
+            {/* Left Collar Bore at (706, 560) */}
+            <g>
+              <ellipse cx="706" cy="560" rx="9.5" ry="4.8" fill="url(#pqcCollarRimGrad)" stroke="#2B66FF" strokeWidth="1.2" />
+              <ellipse cx="706" cy="560" rx="7.2" ry="3.6" fill="#0B132B" />
+              <ellipse cx="706" cy="559.5" rx="5.8" ry="2.8" fill="#070C18" />
+              <path
+                d="M 700.5 558.5 C 702.5 557.2, 709.5 557.2, 711.5 558.5 C 709 559.4, 703 559.4, 700.5 558.5 Z"
+                fill="#050811"
+                opacity="0.9"
+              />
+            </g>
+
+            {/* Right Collar Bore at (746, 580) */}
+            <g>
+              <ellipse cx="746" cy="580" rx="9.5" ry="4.8" fill="url(#pqcCollarRimGrad)" stroke="#2B66FF" strokeWidth="1.2" />
+              <ellipse cx="746" cy="580" rx="7.2" ry="3.6" fill="#0B132B" />
+              <ellipse cx="746" cy="579.5" rx="5.8" ry="2.8" fill="#070C18" />
+              <path
+                d="M 740.5 578.5 C 742.5 577.2, 749.5 577.2, 751.5 578.5 C 749 579.4, 743 579.4, 740.5 578.5 Z"
+                fill="#050811"
+                opacity="0.9"
+              />
+            </g>
+
+            {/* 4. Main Front Shackle Cylindrical Bar (SEATED DIRECTLY IN THE LOCK HOLES) */}
             {/* Shackle Base Dark Outline */}
             <path
-              d="M 706 559 L 706 501 C 706 465, 746 465, 746 521 L 746 579"
+              d="M 706 560 L 706 501 C 706 465, 746 465, 746 521 L 746 580"
               fill="none"
               stroke="#172554"
               strokeWidth="11"
@@ -2191,7 +2225,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             />
             {/* Shackle Metallic Blue Body */}
             <path
-              d="M 706 559 L 706 501 C 706 465, 746 465, 746 521 L 746 579"
+              d="M 706 560 L 706 501 C 706 465, 746 465, 746 521 L 746 580"
               fill="none"
               stroke="url(#pqcShackleGrad)"
               strokeWidth="8.5"
@@ -2199,7 +2233,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             />
             {/* Shackle Glowing Cyan Core (ambient base) */}
             <path
-              d="M 706 559 L 706 501 C 706 465, 746 465, 746 521 L 746 579"
+              d="M 706 560 L 706 501 C 706 465, 746 465, 746 521 L 746 580"
               fill="none"
               stroke="#38BDF8"
               strokeWidth="4.5"
@@ -2244,76 +2278,38 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               opacity="0.55"
             />
 
-            {/* 3. Top Cap Facet: Parallelogram from front top (675, 555)-(755, 595) to back (+24, -12) */}
-            {/* Naturally clips and grounds the base of the shackle into the lock */}
-            <polygon
-              points="675,555 699,543 779,583 755,595"
-              fill="url(#pqcLockTopGrad)"
-              stroke="#2B66FF"
-              strokeWidth="2.2"
-              strokeLinejoin="round"
+            {/* 5. Collar Front Ferrule Lips (Hugs the front base of the shackle legs at entry point) */}
+            {/* Left Collar Front Ferrule Lip at (706, 560) */}
+            <path
+              d="M 696.5 560 C 696.5 564.2, 715.5 564.2, 715.5 560"
+              fill="none"
+              stroke="url(#pqcCollarRimGrad)"
+              strokeWidth="2.0"
+            />
+            <path
+              d="M 698.5 560.8 C 702 563.4, 710 563.4, 713.5 560.8"
+              fill="none"
+              stroke="#FFFFFF"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+              opacity="0.95"
             />
 
-            {/* 4. Shackle Entry Collar Ferrules (Recessed 3D Holes with Proper Inner Shading) */}
-            {/* Left Recessed Hole at (706, 559) */}
-            <g>
-              {/* Outer chamfer / beveled collar ring */}
-              <ellipse cx="706" cy="560" rx="9.5" ry="4.8" fill="url(#pqcCollarRimGrad)" stroke="#2B66FF" strokeWidth="1.2" />
-              {/* Recessed bore cavity depth shadow */}
-              <ellipse cx="706" cy="560.5" rx="7.2" ry="3.6" fill="#0B132B" />
-              {/* Inner cylindrical bore depth wall */}
-              <path
-                d="M 698.8 560.5 C 698.8 564.2, 713.2 564.2, 713.2 560.5 L 712.2 558.5 C 712.2 561.8, 699.8 561.8, 699.8 558.5 Z"
-                fill="url(#pqcHoleBoreGrad)"
-              />
-              {/* Deep interior bore hole */}
-              <ellipse cx="706" cy="559.5" rx="6.0" ry="2.9" fill="#070C18" />
-              {/* Inner upper-back shadow crescent (depth shading) */}
-              <path
-                d="M 700.5 558.5 C 702.5 557.2, 709.5 557.2, 711.5 558.5 C 709 559.4, 703 559.4, 700.5 558.5 Z"
-                fill="#050811"
-                opacity="0.9"
-              />
-              {/* Lower-front lip specular catchlight reflection */}
-              <path
-                d="M 699.5 561.2 C 702.5 563.2, 709.5 563.2, 712.5 561.2"
-                fill="none"
-                stroke="#FFFFFF"
-                strokeWidth="1.0"
-                strokeLinecap="round"
-                opacity="0.85"
-              />
-            </g>
-
-            {/* Right Recessed Hole at (746, 579) */}
-            <g>
-              {/* Outer chamfer / beveled collar ring */}
-              <ellipse cx="746" cy="580" rx="9.5" ry="4.8" fill="url(#pqcCollarRimGrad)" stroke="#2B66FF" strokeWidth="1.2" />
-              {/* Recessed bore cavity depth shadow */}
-              <ellipse cx="746" cy="580.5" rx="7.2" ry="3.6" fill="#0B132B" />
-              {/* Inner cylindrical bore depth wall */}
-              <path
-                d="M 738.8 580.5 C 738.8 584.2, 753.2 584.2, 753.2 580.5 L 752.2 578.5 C 752.2 581.8, 739.8 581.8, 739.8 578.5 Z"
-                fill="url(#pqcHoleBoreGrad)"
-              />
-              {/* Deep interior bore hole */}
-              <ellipse cx="746" cy="579.5" rx="6.0" ry="2.9" fill="#070C18" />
-              {/* Inner upper-back shadow crescent (depth shading) */}
-              <path
-                d="M 740.5 578.5 C 742.5 577.2, 749.5 577.2, 751.5 578.5 C 749 579.4, 743 579.4, 740.5 578.5 Z"
-                fill="#050811"
-                opacity="0.9"
-              />
-              {/* Lower-front lip specular catchlight reflection */}
-              <path
-                d="M 739.5 581.2 C 742.5 583.2, 749.5 583.2, 752.5 581.2"
-                fill="none"
-                stroke="#FFFFFF"
-                strokeWidth="1.0"
-                strokeLinecap="round"
-                opacity="0.85"
-              />
-            </g>
+            {/* Right Collar Front Ferrule Lip at (746, 580) */}
+            <path
+              d="M 736.5 580 C 736.5 584.2, 755.5 584.2, 755.5 580"
+              fill="none"
+              stroke="url(#pqcCollarRimGrad)"
+              strokeWidth="2.0"
+            />
+            <path
+              d="M 738.5 580.8 C 742 583.4, 750 583.4, 753.5 580.8"
+              fill="none"
+              stroke="#FFFFFF"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+              opacity="0.95"
+            />
 
             {/* 5. Right Side Depth Facet */}
             <polygon
