@@ -816,7 +816,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
       </svg>
     )}
 
-      {/* Tab 03: Automated Threat Detection & Firewall Defense (Rebuilt 100% From Scratch) */}
+      {/* Tab 03: Automated Threat Detection & Firewall Defense (100% 3D Isometric Aligned) */}
       {activeTab === 2 && (
         <svg 
           viewBox="0 0 1200 900" 
@@ -838,13 +838,9 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               </feMerge>
             </filter>
 
-            {/* Red Alert Threat Glow Filter */}
-            <filter id="threatRedGlow" x="-60%" y="-60%" width="220%" height="220%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
+            {/* Crisp Pill Tag Drop Shadow */}
+            <filter id="pillShadow" x="-15%" y="-20%" width="130%" height="150%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#0F172A" floodOpacity="0.15" />
             </filter>
 
             {/* Firewall Wall - Front Face Metallic Gradient */}
@@ -879,15 +875,15 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
 
             {/* Impact Flash Shield Radial Gradient */}
             <radialGradient id="shieldImpactGrad" cx="35%" cy="50%" r="65%">
-              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="#2B66FF" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.85" />
+              <stop offset="50%" stopColor="#2B66FF" stopOpacity="0.35" />
               <stop offset="100%" stopColor="#2B66FF" stopOpacity="0" />
             </radialGradient>
 
             {/* Floating Glass Panel Gradient */}
             <linearGradient id="threatPanelGlass" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="rgba(255, 255, 255, 0.95)" />
-              <stop offset="100%" stopColor="rgba(240, 249, 255, 0.88)" />
+              <stop offset="0%" stopColor="rgba(255, 255, 255, 0.98)" />
+              <stop offset="100%" stopColor="rgba(240, 249, 255, 0.92)" />
             </linearGradient>
 
             {/* Dotted Floor Grid Pattern */}
@@ -896,643 +892,673 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             </pattern>
           </defs>
 
-          {/* Perfectly Bounded Isometric Assembly Group (zero clipping, pixel-perfect framing) */}
+          {/* =========================================================================
+              FLOOR CONTACT SHADOWS & BLUEPRINT ISOMETRIC GRID
+              ========================================================================= */}
+          {/* Subtle blueprint dot grid on floor plane */}
+          <rect x="60" y="80" width="1080" height="740" fill="url(#threatDotGrid)" opacity="0.6" />
+
+          {/* Soft elliptical floor contact shadow beneath the brick firewall wall */}
+          <ellipse 
+            cx="690" 
+            cy="735" 
+            rx="300" 
+            ry="45" 
+            fill="rgba(43, 102, 255, 0.16)" 
+            filter="url(#threatFloorShadow)" 
+          />
+          {/* Soft floor shadow directly beneath the 3D shield */}
+          <ellipse 
+            cx="580" 
+            cy="630" 
+            rx="110" 
+            ry="24" 
+            fill="rgba(43, 102, 255, 0.22)" 
+            filter="url(#threatFloorShadow)" 
+          />
+
+          {/* Isometric baseline guide rails */}
+          <line x1="160" y1="365" x2="440" y2="500" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
+          <line x1="440" y1="500" x2="880" y2="720" stroke="#2B66FF" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.35" />
+          <line x1="880" y1="720" x2="1080" y2="615" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
+
+          {/* =========================================================================
+              ISOMETRIC 3D BRICK FIREWALL WALL
+              Bounds: Front top (440, 240) to (880, 460); Height = 260; Depth = (+80, -40)
+              ========================================================================= */}
           <g>
-
-            {/* =========================================================================
-                FLOOR CONTACT SHADOWS & BLUEPRINT ISOMETRIC GRID
-                ========================================================================= */}
-            {/* Subtle blueprint dot grid on floor plane */}
-            <rect x="60" y="80" width="1080" height="740" fill="url(#threatDotGrid)" opacity="0.6" />
-
-            {/* Soft elliptical floor contact shadow beneath the brick firewall wall */}
-            <ellipse 
-              cx="690" 
-              cy="735" 
-              rx="300" 
-              ry="45" 
-              fill="rgba(43, 102, 255, 0.16)" 
-              filter="url(#threatFloorShadow)" 
-            />
-            {/* Soft floor shadow directly beneath the 3D shield */}
-            <ellipse 
-              cx="590" 
-              cy="630" 
-              rx="110" 
-              ry="24" 
-              fill="rgba(43, 102, 255, 0.22)" 
-              filter="url(#threatFloorShadow)" 
+            {/* --- TOP CAP COPING SURFACE (Parallelogram) --- */}
+            <polygon 
+              points="440,240 520,200 960,420 880,460" 
+              fill="url(#wallTopGrad)" 
+              stroke="#2B66FF" 
+              strokeWidth="2.2" 
+              strokeLinejoin="round" 
             />
 
-            {/* Isometric baseline guide rails */}
-            <line x1="160" y1="365" x2="450" y2="510" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
-            <line x1="450" y1="510" x2="870" y2="720" stroke="#2B66FF" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.35" />
-            <line x1="870" y1="720" x2="1080" y2="615" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
-
-            {/* =========================================================================
-                ISOMETRIC 3D BRICK FIREWALL WALL
-                Bounds: Front top (450, 240) to (870, 450); Height = 270; Depth = (+70, -35)
-                ========================================================================= */}
-            <g>
-              {/* --- TOP CAP COPING SURFACE (Parallelogram) --- */}
-              <polygon 
-                points="450,240 520,205 940,415 870,450" 
-                fill="url(#wallTopGrad)" 
+            {/* Top stone coping divider joints */}
+            {[0.167, 0.333, 0.5, 0.667, 0.833].map((t, idx) => (
+              <line 
+                key={`cap-joint-${idx}`}
+                x1={440 + 440 * t} 
+                y1={240 + 220 * t} 
+                x2={520 + 440 * t} 
+                y2={200 + 220 * t} 
                 stroke="#2B66FF" 
-                strokeWidth="2.2" 
-                strokeLinejoin="round" 
+                strokeWidth="1.6" 
+                opacity="0.45" 
               />
+            ))}
 
-              {/* Top stone coping divider joints */}
-              {[0.167, 0.333, 0.5, 0.667, 0.833].map((t, idx) => (
+            {/* Automated Coping Sensor Turret Beacons */}
+            {[0.25, 0.55, 0.85].map((t, idx) => {
+              const bx = 475 + 440 * t;
+              const by = 217 + 220 * t;
+              return (
+                <g key={`turret-${idx}`}>
+                  <circle cx={bx} cy={by} r="4" fill="#2B66FF" />
+                  <circle cx={bx} cy={by} r="1.8" fill="#38BDF8" />
+                  <motion.circle 
+                    cx={bx} 
+                    cy={by} 
+                    r="8" 
+                    fill="none" 
+                    stroke="#38BDF8" 
+                    strokeWidth="1.4" 
+                    animate={{ scale: [1, 1.8], opacity: [0.9, 0] }}
+                    transition={{ duration: 1.8, repeat: Infinity, delay: idx * 0.6 }}
+                  />
+                </g>
+              );
+            })}
+
+            {/* Glowing top energy perimeter rail */}
+            <line x1="440" y1="240" x2="880" y2="460" stroke="#38BDF8" strokeWidth="2.2" opacity="0.8" />
+            <motion.line 
+              x1="440" 
+              y1="240" 
+              x2="880" 
+              y2="460" 
+              stroke="#FFFFFF" 
+              strokeWidth="1.6" 
+              strokeDasharray="40 180" 
+              animate={{ strokeDashoffset: [220, 0] }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: 'linear' }}
+            />
+
+            {/* --- RIGHT SIDE DEPTH FACET (Extrusion) --- */}
+            <polygon 
+              points="880,460 960,420 960,680 880,720" 
+              fill="url(#wallSideGrad)" 
+              stroke="#2B66FF" 
+              strokeWidth="2.2" 
+              strokeLinejoin="round" 
+            />
+
+            {/* Right side course mortar lines (6 courses) */}
+            {[43.3, 86.6, 130, 173.3, 216.6].map((h, idx) => (
+              <g key={`side-course-${idx}`}>
                 <line 
-                  key={`cap-joint-${idx}`}
-                  x1={450 + 420 * t} 
-                  y1={240 + 210 * t} 
-                  x2={520 + 420 * t} 
-                  y2={205 + 210 * t} 
+                  x1="880" 
+                  y1={460 + h} 
+                  x2="960" 
+                  y2={420 + h} 
                   stroke="#2B66FF" 
                   strokeWidth="1.6" 
-                  opacity="0.45" 
+                  opacity="0.55" 
                 />
-              ))}
+                {/* Vertical joint on depth facet */}
+                <line 
+                  x1={880 + (idx % 2 === 0 ? 40 : 20)} 
+                  y1={460 + (idx % 2 === 0 ? -20 : -10) + (h - 43.3)} 
+                  x2={880 + (idx % 2 === 0 ? 40 : 20)} 
+                  y2={460 + (idx % 2 === 0 ? -20 : -10) + h} 
+                  stroke="#2B66FF" 
+                  strokeWidth="1.4" 
+                  opacity="0.4" 
+                />
+              </g>
+            ))}
 
-              {/* Automated Coping Sensor Turret Beacons */}
-              {[0.25, 0.55, 0.85].map((t, idx) => {
-                const bx = 485 + 420 * t;
-                const by = 222 + 210 * t;
-                return (
-                  <g key={`turret-${idx}`}>
-                    <circle cx={bx} cy={by} r="3.5" fill="#2B66FF" />
-                    <circle cx={bx} cy={by} r="1.5" fill="#38BDF8" />
-                    <motion.circle 
-                      cx={bx} 
-                      cy={by} 
-                      r="7" 
-                      fill="none" 
-                      stroke="#38BDF8" 
-                      strokeWidth="1.2" 
-                      animate={{ scale: [1, 1.8], opacity: [0.9, 0] }}
-                      transition={{ duration: 1.8, repeat: Infinity, delay: idx * 0.6 }}
-                    />
-                  </g>
-                );
-              })}
+            {/* --- FRONT VERTICAL BRICK FACE --- */}
+            <polygon 
+              points="440,240 880,460 880,720 440,500" 
+              fill="url(#wallFaceGrad)" 
+              stroke="#2B66FF" 
+              strokeWidth="2.4" 
+              strokeLinejoin="round" 
+            />
 
-              {/* Glowing top energy perimeter rail */}
-              <line x1="450" y1="240" x2="870" y2="450" stroke="#38BDF8" strokeWidth="2.2" opacity="0.8" />
-              <motion.line 
-                x1="450" 
-                y1="240" 
-                x2="870" 
-                y2="450" 
-                stroke="#FFFFFF" 
-                strokeWidth="1.6" 
-                strokeDasharray="40 180" 
-                animate={{ strokeDashoffset: [220, 0] }}
-                transition={{ duration: 3.2, repeat: Infinity, ease: 'linear' }}
-              />
-
-              {/* --- RIGHT SIDE DEPTH FACET (Extrusion) --- */}
-              <polygon 
-                points="870,450 940,415 940,685 870,720" 
-                fill="url(#wallSideGrad)" 
+            {/* Horizontal brick course seams (6 courses) */}
+            {[43.3, 86.6, 130, 173.3, 216.6].map((h, idx) => (
+              <line 
+                key={`course-seam-${idx}`}
+                x1="440" 
+                y1={240 + h} 
+                x2="880" 
+                y2={460 + h} 
                 stroke="#2B66FF" 
-                strokeWidth="2.2" 
-                strokeLinejoin="round" 
+                strokeWidth="1.8" 
+                opacity="0.6" 
               />
+            ))}
 
-              {/* Right side course mortar lines (6 courses) */}
-              {[45, 90, 135, 180, 225].map((h, idx) => (
-                <g key={`side-course-${idx}`}>
+            {/* Running bond vertical brick joints */}
+            {[0, 2, 4].map((courseIdx) => {
+              const hTop = courseIdx * 43.3;
+              return [0.2, 0.4, 0.6, 0.8].map((t, j) => {
+                const x = 440 + 440 * t;
+                const y1 = 240 + 220 * t + hTop;
+                return (
                   <line 
-                    x1="870" 
-                    y1={450 + h} 
-                    x2="940" 
-                    y2={415 + h} 
+                    key={`even-joint-${courseIdx}-${j}`}
+                    x1={x} 
+                    y1={y1} 
+                    x2={x} 
+                    y2={y1 + 43.3} 
                     stroke="#2B66FF" 
                     strokeWidth="1.6" 
                     opacity="0.55" 
                   />
-                  {/* Vertical joint on depth facet */}
+                );
+              });
+            })}
+
+            {[1, 3, 5].map((courseIdx) => {
+              const hTop = courseIdx * 43.3;
+              return [0.1, 0.3, 0.5, 0.7, 0.9].map((t, j) => {
+                const x = 440 + 440 * t;
+                const y1 = 240 + 220 * t + hTop;
+                return (
                   <line 
-                    x1={870 + (idx % 2 === 0 ? 35 : 18)} 
-                    y1={450 + (idx % 2 === 0 ? -17.5 : -9) + (h - 45)} 
-                    x2={870 + (idx % 2 === 0 ? 35 : 18)} 
-                    y2={450 + (idx % 2 === 0 ? -17.5 : -9) + h} 
+                    key={`odd-joint-${courseIdx}-${j}`}
+                    x1={x} 
+                    y1={y1} 
+                    x2={x} 
+                    y2={y1 + 43.3} 
                     stroke="#2B66FF" 
-                    strokeWidth="1.4" 
-                    opacity="0.4" 
+                    strokeWidth="1.6" 
+                    opacity="0.55" 
                   />
-                </g>
-              ))}
+                );
+              });
+            })}
 
-              {/* --- FRONT VERTICAL BRICK FACE --- */}
-              <polygon 
-                points="450,240 870,450 870,720 450,510" 
-                fill="url(#wallFaceGrad)" 
-                stroke="#2B66FF" 
-                strokeWidth="2.4" 
-                strokeLinejoin="round" 
-              />
+            {/* High-Tech Cyan Active Firewall Data Pulses flowing through mortar channels */}
+            <motion.line 
+              x1="440" 
+              y1="326.6" 
+              x2="880" 
+              y2="546.6" 
+              stroke="#38BDF8" 
+              strokeWidth="2.4" 
+              strokeDasharray="60 160" 
+              animate={{ strokeDashoffset: [220, 0] }}
+              transition={{ duration: 3.4, repeat: Infinity, ease: 'linear' }}
+            />
+            <motion.line 
+              x1="440" 
+              y1="456.6" 
+              x2="880" 
+              y2="676.6" 
+              stroke="#38BDF8" 
+              strokeWidth="2.2" 
+              strokeDasharray="50 190" 
+              animate={{ strokeDashoffset: [0, 240] }}
+              transition={{ duration: 4.0, repeat: Infinity, ease: 'linear' }}
+            />
+          </g>
 
-              {/* Horizontal brick course seams (6 courses) */}
-              {[45, 90, 135, 180, 225].map((h, idx) => (
-                <line 
-                  key={`course-seam-${idx}`}
-                  x1="450" 
-                  y1={240 + h} 
-                  x2="870" 
-                  y2={450 + h} 
-                  stroke="#2B66FF" 
-                  strokeWidth="1.8" 
-                  opacity="0.6" 
-                />
-              ))}
-
-              {/* Running bond vertical brick joints */}
-              {/* Even courses: 0, 2, 4 (offsets: 0.2, 0.4, 0.6, 0.8) */}
-              {[0, 2, 4].map((courseIdx) => {
-                const hTop = courseIdx * 45;
-                return [0.2, 0.4, 0.6, 0.8].map((t, j) => {
-                  const x = 450 + 420 * t;
-                  const y1 = 240 + 210 * t + hTop;
-                  return (
-                    <line 
-                      key={`even-joint-${courseIdx}-${j}`}
-                      x1={x} 
-                      y1={y1} 
-                      x2={x} 
-                      y2={y1 + 45} 
-                      stroke="#2B66FF" 
-                      strokeWidth="1.6" 
-                      opacity="0.55" 
-                    />
-                  );
-                });
-              })}
-
-              {/* Odd courses: 1, 3, 5 (offsets: 0.1, 0.3, 0.5, 0.7, 0.9) */}
-              {[1, 3, 5].map((courseIdx) => {
-                const hTop = courseIdx * 45;
-                return [0.1, 0.3, 0.5, 0.7, 0.9].map((t, j) => {
-                  const x = 450 + 420 * t;
-                  const y1 = 240 + 210 * t + hTop;
-                  return (
-                    <line 
-                      key={`odd-joint-${courseIdx}-${j}`}
-                      x1={x} 
-                      y1={y1} 
-                      x2={x} 
-                      y2={y1 + 45} 
-                      stroke="#2B66FF" 
-                      strokeWidth="1.6" 
-                      opacity="0.55" 
-                    />
-                  );
-                });
-              })}
-
-              {/* High-Tech Cyan Active Firewall Data Pulses flowing through mortar channels */}
-              <motion.line 
-                x1="450" 
-                y1="330" 
-                x2="870" 
-                y2="540" 
-                stroke="#38BDF8" 
-                strokeWidth="2.4" 
-                strokeDasharray="60 160" 
-                animate={{ strokeDashoffset: [220, 0] }}
-                transition={{ duration: 3.4, repeat: Infinity, ease: 'linear' }}
-              />
-              <motion.line 
-                x1="450" 
-                y1="465" 
-                x2="870" 
-                y2="675" 
-                stroke="#38BDF8" 
-                strokeWidth="2.2" 
-                strokeDasharray="50 190" 
-                animate={{ strokeDashoffset: [0, 240] }}
-                transition={{ duration: 4.0, repeat: Infinity, ease: 'linear' }}
-              />
-
-              {/* Brick Texture Micro-Ticks & Blueprint Crosses */}
-              {[
-                { x: 520, y: 310 },
-                { x: 670, y: 395 },
-                { x: 790, y: 460 },
-                { x: 500, y: 410 },
-                { x: 740, y: 550 },
-                { x: 830, y: 610 },
-              ].map((cross, i) => (
-                <g key={`cross-${i}`} opacity="0.45">
-                  <line x1={cross.x - 3} y1={cross.y} x2={cross.x + 3} y2={cross.y} stroke="#2B66FF" strokeWidth="1" />
-                  <line x1={cross.x} y1={cross.y - 3} x2={cross.x} y2={cross.y + 3} stroke="#2B66FF" strokeWidth="1" />
-                </g>
-              ))}
-            </g>
-
-            {/* =========================================================================
-                MODERN SOLID 3D ISOMETRIC SHIELD (Floating in Front of the Wall)
-                Center ~ (590, 490), Width = 160, Height = 205
-                ========================================================================= */}
-            <motion.g
-              animate={{ y: [0, -4.5, 0] }}
-              transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              {/* Defensive Forcefield Barrier Aura Ring (Pulsating) */}
-              <motion.path 
-                d="M 504 390 Q 547 400, 590 410 Q 633 400, 676 390 L 676 484 Q 676 552, 590 603 Q 504 552, 504 484 Z" 
-                fill="none" 
-                stroke="#38BDF8" 
-                strokeWidth="2.4" 
-                animate={{ scale: [1, 1.05, 1], opacity: [0.65, 0.15, 0.65] }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-                style={{ transformOrigin: '590px 490px' }}
-              />
-
-              {/* Top 3D Bevel Depth Facet */}
+          {/* =========================================================================
+              MODERN SOLID 3D ISOMETRIC SHIELD (100% 3D-ALIGNED WITH WALL PLANE)
+              Constructed inside the wall's isometric transform matrix: skewY(26.565deg)
+              Front face at (580, 460); Depth extrusion along (+20, -10)
+              ========================================================================= */}
+          <motion.g
+            animate={{ y: [0, -4.5, 0] }}
+            transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            {/* --- BACK DEPTH EXTRUSION (Shifted +20px x, -10px y in screen space) --- */}
+            <g transform="translate(600, 450) skewY(26.565)">
               <path 
-                d="M 510 395 L 526 387 Q 566 397, 606 407 Q 646 397, 686 387 L 670 395 Q 630 405, 590 415 Q 550 405, 510 395 Z" 
-                fill="#F0F7FF" 
-                stroke="#2B66FF" 
-                strokeWidth="2.2" 
-                strokeLinejoin="round" 
-              />
-
-              {/* Right Side 3D Extrusion Depth Facet */}
-              <path 
-                d="M 670 395 L 686 387 L 686 472 Q 686 537, 606 587 L 590 595 Q 670 545, 670 480 Z" 
+                d="M -85 -95 Q 0 -75, 85 -95 L 85 15 Q 85 85, 0 120 Q -85 85, -85 15 Z" 
                 fill="#BFDBFE" 
                 stroke="#2B66FF" 
                 strokeWidth="2.2" 
                 strokeLinejoin="round" 
               />
+            </g>
 
-              {/* Front Shield Face */}
+            {/* --- TOP 3D DEPTH FACET (Connecting front & back top rims) --- */}
+            <polygon 
+              points="495,337.5 515,327.5 685,412.5 665,422.5" 
+              fill="#F0F7FF" 
+              stroke="#2B66FF" 
+              strokeWidth="2.0" 
+              strokeLinejoin="round" 
+            />
+
+            {/* --- RIGHT 3D DEPTH FACET (Connecting front & back right rims) --- */}
+            <polygon 
+              points="665,422.5 685,412.5 685,522.5 665,532.5" 
+              fill="#93C5FD" 
+              stroke="#2B66FF" 
+              strokeWidth="2.0" 
+              strokeLinejoin="round" 
+            />
+
+            {/* --- FRONT SHIELD FACE (Strictly Isometric Aligned with Wall) --- */}
+            <g transform="translate(580, 460) skewY(26.565)">
+              {/* Pulsing Defensive Forcefield Barrier Aura */}
+              <motion.path 
+                d="M -90 -100 Q 0 -80, 90 -100 L 90 18 Q 90 92, 0 128 Q -90 92, -90 18 Z" 
+                fill="none" 
+                stroke="#38BDF8" 
+                strokeWidth="2.4" 
+                animate={{ scale: [1, 1.06, 1], opacity: [0.75, 0.15, 0.75] }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+              />
+
+              {/* Main Shield Glass Body */}
               <path 
-                d="M 510 395 Q 550 405, 590 415 Q 630 405, 670 395 L 670 480 Q 670 545, 590 595 Q 510 545, 510 480 Z" 
+                d="M -85 -95 Q 0 -75, 85 -95 L 85 15 Q 85 85, 0 120 Q -85 85, -85 15 Z" 
                 fill="url(#threatShieldFace)" 
                 stroke="#2B66FF" 
-                strokeWidth="2.5" 
+                strokeWidth="2.6" 
                 strokeLinejoin="round" 
               />
 
               {/* Active Impact Energy Absorption Ripple */}
               <motion.path 
-                d="M 510 395 Q 550 405, 590 415 Q 630 405, 670 395 L 670 480 Q 670 545, 590 595 Q 510 545, 510 480 Z" 
+                d="M -85 -95 Q 0 -75, 85 -95 L 85 15 Q 85 85, 0 120 Q -85 85, -85 15 Z" 
                 fill="url(#shieldImpactGrad)" 
-                animate={{ opacity: [0.1, 0.55, 0.1] }}
+                animate={{ opacity: [0.1, 0.65, 0.1] }}
                 transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
               />
 
               {/* Inner Glowing Cyan Perimeter Border */}
               <path 
-                d="M 522 407 Q 556 415, 590 423 Q 624 415, 658 407 L 658 474 Q 658 531, 590 577 Q 522 531, 522 474 Z" 
+                d="M -73 -83 Q 0 -67, 73 -83 L 73 12 Q 73 73, 0 106 Q -73 73, -73 12 Z" 
                 fill="none" 
                 stroke="#38BDF8" 
-                strokeWidth="1.8" 
-                strokeDasharray="5 3" 
-                opacity="0.85" 
+                strokeWidth="2" 
+                strokeDasharray="6 4" 
+                opacity="0.9" 
               />
 
-              {/* Solid High-Contrast Security Checkmark Emblem */}
+              {/* Solid 3D-Aligned Security Checkmark Emblem */}
               <path 
-                d="M 556 488 L 582 514 L 624 456" 
+                d="M -36 -5 L -8 32 L 40 -26" 
                 fill="none" 
                 stroke="#2B66FF" 
-                strokeWidth="5.5" 
+                strokeWidth="6" 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
               />
               {/* White Laser Core inside Checkmark */}
               <path 
-                d="M 556 488 L 582 514 L 624 456" 
+                d="M -36 -5 L -8 32 L 40 -26" 
                 fill="none" 
                 stroke="#FFFFFF" 
-                strokeWidth="2.0" 
+                strokeWidth="2.4" 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
               />
               {/* Sparkling Core Vertex Beacon */}
-              <circle cx="582" cy="514" r="5" fill="#38BDF8" filter="url(#threatGlow)" />
-              <circle cx="582" cy="514" r="2.5" fill="#FFFFFF" />
-            </motion.g>
+              <circle cx="-8" cy="32" r="5.5" fill="#38BDF8" filter="url(#threatGlow)" />
+              <circle cx="-8" cy="32" r="2.8" fill="#FFFFFF" />
+            </g>
+          </motion.g>
 
-            {/* =========================================================================
-                INCOMING THREAT ATTACK VECTORS & ACTIVE DEFENSIVE DEFLECTIONS
-                Incoming rays from left side hitting the shield's defensive barrier
-                ========================================================================= */}
-            {[
-              { 
-                startX: 160, 
-                startY: 320, 
-                hitX: 535, 
-                hitY: 435, 
-                bounceX: 420, 
-                bounceY: 370, 
-                color: '#EF4444', 
-                label: '0-DAY // RCE INTERCEPT', 
-                delay: 0.0 
-              },
-              { 
-                startX: 120, 
-                startY: 405, 
-                hitX: 525, 
-                hitY: 470, 
-                bounceX: 410, 
-                bounceY: 415, 
-                color: '#F59E0B', 
-                label: 'SQLi // TARPIT TRAP', 
-                delay: 0.8 
-              },
-              { 
-                startX: 100, 
-                startY: 495, 
-                hitX: 530, 
-                hitY: 505, 
-                bounceX: 395, 
-                bounceY: 475, 
-                color: '#F43F5E', 
-                label: 'DDOS // 12.4M PPS DUMP', 
-                delay: 1.6 
-              },
-              { 
-                startX: 130, 
-                startY: 585, 
-                hitX: 545, 
-                hitY: 540, 
-                bounceX: 420, 
-                bounceY: 550, 
-                color: '#A855F7', 
-                label: 'CRED-STUFF // BLOCKED', 
-                delay: 2.4 
-              },
-              { 
-                startX: 170, 
-                startY: 675, 
-                hitX: 570, 
-                hitY: 570, 
-                bounceX: 450, 
-                bounceY: 620, 
-                color: '#EF4444', 
-                label: 'EXFIL // PROBE NULLIFIED', 
-                delay: 1.2 
-              },
-            ].map((threat, i) => (
-              <g key={`threat-vector-${i}`}>
-                {/* Static faint trajectory guide line */}
-                <line 
-                  x1={threat.startX} 
-                  y1={threat.startY} 
-                  x2={threat.hitX} 
-                  y2={threat.hitY} 
-                  stroke={threat.color} 
-                  strokeWidth="1.2" 
-                  strokeDasharray="4 6" 
-                  opacity="0.32" 
-                />
-
-                {/* Fast Streaming Attack Laser Packet (Moving towards Shield) */}
-                <motion.line 
-                  x1={threat.startX} 
-                  y1={threat.startY} 
-                  x2={threat.hitX} 
-                  y2={threat.hitY} 
-                  stroke={threat.color} 
-                  strokeWidth="3.4" 
-                  strokeDasharray="50 150" 
-                  initial={{ strokeDashoffset: 200, opacity: 0 }}
-                  animate={{ strokeDashoffset: [200, 0], opacity: [0, 1, 0.9, 0] }}
-                  transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay, ease: 'easeIn' }}
-                />
-                {/* Hot White Laser Core */}
-                <motion.line 
-                  x1={threat.startX} 
-                  y1={threat.startY} 
-                  x2={threat.hitX} 
-                  y2={threat.hitY} 
-                  stroke="#FFFFFF" 
-                  strokeWidth="1.5" 
-                  strokeDasharray="25 175" 
-                  initial={{ strokeDashoffset: 200, opacity: 0 }}
-                  animate={{ strokeDashoffset: [200, 0], opacity: [0, 1, 0.85, 0] }}
-                  transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay, ease: 'easeIn' }}
-                />
-
-                {/* Threat Origin Emitter Node with Blinking Ping */}
-                <circle cx={threat.startX} cy={threat.startY} r="5" fill={threat.color} />
-                <motion.circle 
-                  cx={threat.startX} 
-                  cy={threat.startY} 
-                  r="10" 
-                  fill="none" 
-                  stroke={threat.color} 
-                  strokeWidth="1.4" 
-                  animate={{ r: [5, 16], opacity: [0.9, 0] }}
-                  transition={{ duration: 1.4, repeat: Infinity, delay: threat.delay }}
-                />
-
-                {/* Monospace Telemetry Status Pill Tag */}
-                <rect 
-                  x={threat.startX - 10} 
-                  y={threat.startY - 22} 
-                  width="146" 
-                  height="17" 
-                  rx="3" 
-                  fill="#FFFFFF" 
-                  stroke={threat.color} 
-                  strokeWidth="1.2" 
-                  opacity="0.95" 
-                />
-                <text 
-                  x={threat.startX - 3} 
-                  y={threat.startY - 10} 
-                  fontSize="8.5" 
-                  fill={threat.color} 
-                  fontWeight="bold" 
-                  fontFamily="monospace"
-                >
-                  {threat.label}
-                </text>
-
-                {/* High-Energy Impact Burst at Shield Face */}
-                <motion.circle 
-                  cx={threat.hitX} 
-                  cy={threat.hitY} 
-                  fill="#38BDF8" 
-                  initial={{ r: 3, opacity: 0 }}
-                  animate={{ r: [3, 26], opacity: [0, 0.95, 0] }}
-                  transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay + 0.5, ease: 'easeOut' }}
-                />
-                <circle cx={threat.hitX} cy={threat.hitY} r="4.5" fill="#FFFFFF" filter="url(#threatGlow)" />
-
-                {/* Deflected Energy Ray Bouncing Off into Perimeter */}
-                <motion.line 
-                  x1={threat.hitX} 
-                  y1={threat.hitY} 
-                  x2={threat.bounceX} 
-                  y2={threat.bounceY} 
-                  stroke="#38BDF8" 
-                  strokeWidth="2.6" 
-                  strokeDasharray="30 80" 
-                  initial={{ strokeDashoffset: 110, opacity: 0 }}
-                  animate={{ strokeDashoffset: [110, 0], opacity: [0, 1, 0.8, 0] }}
-                  transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay + 0.55, ease: 'easeOut' }}
-                />
-                <motion.line 
-                  x1={threat.hitX} 
-                  y1={threat.hitY} 
-                  x2={threat.bounceX} 
-                  y2={threat.bounceY} 
-                  stroke="#FFFFFF" 
-                  strokeWidth="1.2" 
-                  strokeDasharray="15 95" 
-                  initial={{ strokeDashoffset: 110, opacity: 0 }}
-                  animate={{ strokeDashoffset: [110, 0], opacity: [0, 1, 0.85, 0] }}
-                  transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay + 0.55, ease: 'easeOut' }}
-                />
-              </g>
-            ))}
-
-            {/* =========================================================================
-                FLOATING HOLOGRAPHIC UI PANELS ANCHORED IN ISOMETRIC SPACE
-                ========================================================================= */}
-            {/* --- PANEL 1: LEFT THREAT INTELLIGENCE INCIDENT FEED --- */}
-            <motion.g
-              animate={{ y: [0, -4, 0] }}
-              transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              {/* Projection Anchor Beam down to Floor */}
+          {/* =========================================================================
+              INCOMING THREAT ATTACK VECTORS & ACTIVE DEFENSIVE DEFLECTIONS
+              Spaced cleanly below y=300 to eliminate any overlap with Incidents panel
+              ========================================================================= */}
+          {[
+            { 
+              startX: 130, 
+              startY: 315, 
+              hitX: 505, 
+              hitY: 338, 
+              bounceX: 390, 
+              bounceY: 280, 
+              color: '#EF4444', 
+              label: '0-DAY EXPLOIT // INTERCEPTED', 
+              delay: 0.0 
+            },
+            { 
+              startX: 90, 
+              startY: 395, 
+              hitX: 500, 
+              hitY: 390, 
+              bounceX: 380, 
+              bounceY: 350, 
+              color: '#F59E0B', 
+              label: 'SQL INJECTION // TARPIT', 
+              delay: 0.8 
+            },
+            { 
+              startX: 70, 
+              startY: 470, 
+              hitX: 500, 
+              hitY: 430, 
+              bounceX: 370, 
+              bounceY: 420, 
+              color: '#F43F5E', 
+              label: 'DDOS VOLUMETRIC // BLOCKED', 
+              delay: 1.6 
+            },
+            { 
+              startX: 90, 
+              startY: 550, 
+              hitX: 525, 
+              hitY: 498, 
+              bounceX: 390, 
+              bounceY: 500, 
+              color: '#A855F7', 
+              label: 'CRED STUFFING // DENIED', 
+              delay: 2.4 
+            },
+            { 
+              startX: 130, 
+              startY: 630, 
+              hitX: 555, 
+              hitY: 543, 
+              bounceX: 420, 
+              bounceY: 580, 
+              color: '#EF4444', 
+              label: 'DATA EXFIL // PREVENTED', 
+              delay: 1.2 
+            },
+          ].map((threat, i) => (
+            <g key={`threat-vector-${i}`}>
+              {/* Static faint trajectory guide line */}
               <line 
-                x1="205" 
-                y1="290" 
-                x2="260" 
-                y2="410" 
-                stroke="#2B66FF" 
-                strokeWidth="1.4" 
-                strokeDasharray="3 4" 
-                opacity="0.45" 
+                x1={threat.startX} 
+                y1={threat.startY} 
+                x2={threat.hitX} 
+                y2={threat.hitY} 
+                stroke={threat.color} 
+                strokeWidth="1.2" 
+                strokeDasharray="4 6" 
+                opacity="0.32" 
               />
-              <ellipse cx="260" cy="410" rx="9" ry="4.5" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.6" />
 
-              {/* Trapezoidal Glass Panel Body (Shifted left for generous clearance) */}
-              <polygon 
-                points="125,145 275,105 275,255 125,295" 
+              {/* Fast Streaming Attack Laser Packet (Moving towards Shield) */}
+              <motion.line 
+                x1={threat.startX} 
+                y1={threat.startY} 
+                x2={threat.hitX} 
+                y2={threat.hitY} 
+                stroke={threat.color} 
+                strokeWidth="3.6" 
+                strokeDasharray="50 150" 
+                initial={{ strokeDashoffset: 200, opacity: 0 }}
+                animate={{ strokeDashoffset: [200, 0], opacity: [0, 1, 0.9, 0] }}
+                transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay, ease: 'easeIn' }}
+              />
+              {/* Hot White Laser Core */}
+              <motion.line 
+                x1={threat.startX} 
+                y1={threat.startY} 
+                x2={threat.hitX} 
+                y2={threat.hitY} 
+                stroke="#FFFFFF" 
+                strokeWidth="1.6" 
+                strokeDasharray="25 175" 
+                initial={{ strokeDashoffset: 200, opacity: 0 }}
+                animate={{ strokeDashoffset: [200, 0], opacity: [0, 1, 0.85, 0] }}
+                transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay, ease: 'easeIn' }}
+              />
+
+              {/* Threat Origin Emitter Node with Blinking Ping */}
+              <circle cx={threat.startX} cy={threat.startY} r="5.5" fill={threat.color} />
+              <motion.circle 
+                cx={threat.startX} 
+                cy={threat.startY} 
+                r="11" 
+                fill="none" 
+                stroke={threat.color} 
+                strokeWidth="1.6" 
+                animate={{ r: [5.5, 17], opacity: [0.9, 0] }}
+                transition={{ duration: 1.4, repeat: Infinity, delay: threat.delay }}
+              />
+
+              {/* High-Contrast Readable Monospace Telemetry Status Pill Tag */}
+              <rect 
+                x={threat.startX - 8} 
+                y={threat.startY - 26} 
+                width="200" 
+                height="22" 
+                rx="4" 
+                fill="#FFFFFF" 
+                stroke={threat.color} 
+                strokeWidth="2" 
+                filter="url(#pillShadow)" 
+              />
+              <text 
+                x={threat.startX + 2} 
+                y={threat.startY - 11} 
+                fontSize="11" 
+                fill={threat.color} 
+                fontWeight="800" 
+                fontFamily="monospace"
+                letterSpacing="0.02em"
+              >
+                {threat.label}
+              </text>
+
+              {/* High-Energy Impact Burst at Shield Face */}
+              <motion.circle 
+                cx={threat.hitX} 
+                cy={threat.hitY} 
+                fill="#38BDF8" 
+                initial={{ r: 3, opacity: 0 }}
+                animate={{ r: [3, 26], opacity: [0, 0.95, 0] }}
+                transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay + 0.5, ease: 'easeOut' }}
+              />
+              <circle cx={threat.hitX} cy={threat.hitY} r="5" fill="#FFFFFF" filter="url(#threatGlow)" />
+
+              {/* Deflected Energy Ray Bouncing Off into Perimeter */}
+              <motion.line 
+                x1={threat.hitX} 
+                y1={threat.hitY} 
+                x2={threat.bounceX} 
+                y2={threat.bounceY} 
+                stroke="#38BDF8" 
+                strokeWidth="2.8" 
+                strokeDasharray="30 80" 
+                initial={{ strokeDashoffset: 110, opacity: 0 }}
+                animate={{ strokeDashoffset: [110, 0], opacity: [0, 1, 0.8, 0] }}
+                transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay + 0.55, ease: 'easeOut' }}
+              />
+              <motion.line 
+                x1={threat.hitX} 
+                y1={threat.hitY} 
+                x2={threat.bounceX} 
+                y2={threat.bounceY} 
+                stroke="#FFFFFF" 
+                strokeWidth="1.4" 
+                strokeDasharray="15 95" 
+                initial={{ strokeDashoffset: 110, opacity: 0 }}
+                animate={{ strokeDashoffset: [110, 0], opacity: [0, 1, 0.85, 0] }}
+                transition={{ duration: 1.25, repeat: Infinity, delay: threat.delay + 0.55, ease: 'easeOut' }}
+              />
+            </g>
+          ))}
+
+          {/* =========================================================================
+              FLOATING HOLOGRAPHIC UI PANELS (100% 3D ISOMETRIC-ALIGNED WITH BOXES)
+              Both panels use isometric skew matrices so all text and borders align
+              ========================================================================= */}
+          {/* --- PANEL 1: LEFT THREAT INTELLIGENCE INCIDENT FEED --- */}
+          {/* Positioned at y=75 with suspended mount: 100px+ clearance above 0-DAY ray */}
+          <motion.g
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            {/* Suspended Blueprint Ceiling Mount (zero collision with attack vectors) */}
+            <line 
+              x1="185" 
+              y1="10" 
+              x2="185" 
+              y2="75" 
+              stroke="#2B66FF" 
+              strokeWidth="1.8" 
+              strokeDasharray="3 4" 
+              opacity="0.5" 
+            />
+            <rect x="175" y="6" width="20" height="8" rx="2" fill="#2B66FF" />
+            <circle cx="185" cy="10" r="2.5" fill="#38BDF8" />
+
+            {/* Left Panel Body: Isometric Skew Group matching left projection plane */}
+            <g transform="translate(65, 80) skewY(-26.565)">
+              {/* Glass Card Outer Box */}
+              <rect 
+                x="0" 
+                y="0" 
+                width="240" 
+                height="150" 
+                rx="8" 
                 fill="url(#threatPanelGlass)" 
                 stroke="#2B66FF" 
-                strokeWidth="1.8" 
-                strokeDasharray="5 3" 
-                opacity="0.88" 
+                strokeWidth="2" 
+                filter="url(#pillShadow)" 
               />
-              {/* Inner solid border */}
-              <polygon 
-                points="131,151 269,115 269,249 131,285" 
+              {/* Inner High-Tech Border */}
+              <rect 
+                x="6" 
+                y="6" 
+                width="228" 
+                height="138" 
+                rx="5" 
                 fill="none" 
                 stroke="#38BDF8" 
-                strokeWidth="1.2" 
-                opacity="0.75" 
+                strokeWidth="1.4" 
+                opacity="0.8" 
               />
 
-              {/* Header */}
-              <circle cx="147" cy="167" r="4" fill="#EF4444" />
-              <text x="159" y="171" fontSize="10" fill="#1E40AF" fontWeight="bold" fontFamily="monospace">
+              {/* Header: Red Alert Beacon + Title (100% parallel to box top) */}
+              <circle cx="20" cy="22" r="5" fill="#EF4444" />
+              <text 
+                x="32" 
+                y="26" 
+                fontSize="13" 
+                fill="#0F172A" 
+                fontWeight="800" 
+                fontFamily="monospace"
+              >
                 INCIDENTS // LIVE
               </text>
-              <line x1="139" y1="179" x2="261" y2="143" stroke="#2B66FF" strokeWidth="1" opacity="0.3" />
+              <line x1="12" y1="36" x2="228" y2="36" stroke="#2B66FF" strokeWidth="1.2" opacity="0.35" />
 
-              {/* Feed Status Items */}
-              <g transform="translate(141, 199)">
-                <text x="0" y="0" fontSize="9" fill="#1E3A8A" fontWeight="600" fontFamily="monospace">
-                  • 0-DAY MITIGATION
-                </text>
-                <text x="0" y="18" fontSize="9" fill="#10B981" fontWeight="bold" fontFamily="monospace">
-                  [100% BLOCKED]
-                </text>
-                <text x="0" y="38" fontSize="8.5" fill="#64748B" fontFamily="monospace">
-                  MTTD: &lt;4.8ms • TARPIT ON
-                </text>
-                <text x="0" y="56" fontSize="8" fill="#2563EB" fontFamily="monospace">
-                  1,284 THREATS FILTERED
-                </text>
-              </g>
-            </motion.g>
+              {/* Feed Status Items (Large, bold, high-contrast, strictly aligned) */}
+              <text x="16" y="58" fontSize="12" fill="#1E3A8A" fontWeight="800" fontFamily="monospace">
+                • 0-DAY MITIGATION
+              </text>
+              <text x="16" y="78" fontSize="12" fill="#047857" fontWeight="800" fontFamily="monospace">
+                [100% BLOCKED]
+              </text>
+              <text x="16" y="104" fontSize="11" fill="#334155" fontWeight="700" fontFamily="monospace">
+                MTTD: &lt;4.8ms • TARPIT ON
+              </text>
+              <text x="16" y="126" fontSize="11.5" fill="#2563EB" fontWeight="800" fontFamily="monospace">
+                1,284 THREATS FILTERED
+              </text>
+            </g>
+          </motion.g>
 
-            {/* --- PANEL 2: RIGHT FIREWALL MATRIX & TELEMETRY BARS --- */}
-            <motion.g
-              animate={{ y: [0, -3.8, 0] }}
-              transition={{ duration: 3.8, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
-            >
-              {/* Projection Anchor Beam down to Wall Coping */}
-              <line 
-                x1="895" 
-                y1="340" 
-                x2="880" 
-                y2="435" 
-                stroke="#2B66FF" 
-                strokeWidth="1.4" 
-                strokeDasharray="3 4" 
-                opacity="0.45" 
-              />
-              <ellipse cx="880" cy="435" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.6" />
+          {/* --- PANEL 2: RIGHT FIREWALL MATRIX & TELEMETRY BARS --- */}
+          {/* Uses skewY(26.565): 100% locked to the exact isometric angle of the wall */}
+          <motion.g
+            animate={{ y: [0, -3.8, 0] }}
+            transition={{ duration: 3.8, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
+          >
+            {/* Projection Anchor Beam down to Wall Coping */}
+            <line 
+              x1="910" 
+              y1="340" 
+              x2="880" 
+              y2="435" 
+              stroke="#2B66FF" 
+              strokeWidth="1.6" 
+              strokeDasharray="3 4" 
+              opacity="0.45" 
+            />
+            <ellipse cx="880" cy="435" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.4" opacity="0.6" />
 
-              {/* Trapezoidal Glass Panel Body */}
-              <polygon 
-                points="820,160 970,200 970,340 820,300" 
+            {/* Right Panel Body: Isometric Skew Group matching the Wall's Front Face */}
+            <g transform="translate(810, 140) skewY(26.565)">
+              {/* Glass Card Outer Box */}
+              <rect 
+                x="0" 
+                y="0" 
+                width="220" 
+                height="155" 
+                rx="8" 
                 fill="url(#threatPanelGlass)" 
                 stroke="#2B66FF" 
-                strokeWidth="1.8" 
-                strokeDasharray="5 3" 
-                opacity="0.88" 
+                strokeWidth="2" 
+                filter="url(#pillShadow)" 
               />
-              {/* Inner solid border */}
-              <polygon 
-                points="826,166 964,204 964,334 826,294" 
+              {/* Inner High-Tech Border */}
+              <rect 
+                x="6" 
+                y="6" 
+                width="208" 
+                height="143" 
+                rx="5" 
                 fill="none" 
                 stroke="#38BDF8" 
-                strokeWidth="1.2" 
-                opacity="0.75" 
+                strokeWidth="1.4" 
+                opacity="0.8" 
               />
 
-              {/* Header */}
-              <circle cx="842" cy="182" r="4" fill="#10B981" />
-              <text x="854" y="186" fontSize="10" fill="#1E40AF" fontWeight="bold" fontFamily="monospace">
+              {/* Header: Green Online Beacon + Title (100% parallel to box top) */}
+              <circle cx="20" cy="22" r="5" fill="#10B981" />
+              <text 
+                x="32" 
+                y="26" 
+                fontSize="13" 
+                fill="#0F172A" 
+                fontWeight="800" 
+                fontFamily="monospace"
+              >
                 FIREWALL MATRIX
               </text>
-              <line x1="834" y1="194" x2="956" y2="226" stroke="#2B66FF" strokeWidth="1" opacity="0.3" />
+              <line x1="12" y1="36" x2="208" y2="36" stroke="#2B66FF" strokeWidth="1.2" opacity="0.35" />
 
               {/* 4 Animated Defense Processing Activity Bars */}
               {[
-                { label: 'WAF', x: 844, yBase: 284, baseH: 48, delay: 0 },
-                { label: 'IPS', x: 872, yBase: 292, baseH: 68, delay: 0.2 },
-                { label: 'SAND', x: 900, yBase: 300, baseH: 54, delay: 0.4 },
-                { label: 'AI', x: 928, yBase: 308, baseH: 72, delay: 0.1 },
+                { label: 'WAF', x: 35, baseH: 48, delay: 0 },
+                { label: 'IPS', x: 80, baseH: 68, delay: 0.2 },
+                { label: 'SAND', x: 125, baseH: 54, delay: 0.4 },
+                { label: 'AI', x: 170, baseH: 72, delay: 0.1 },
               ].map((bar, i) => (
                 <g key={`defense-bar-${i}`}>
-                  {/* Bar Track Background */}
+                  {/* Track Background */}
                   <line 
                     x1={bar.x} 
-                    y1={bar.yBase} 
+                    y1="120" 
                     x2={bar.x} 
-                    y2={bar.yBase - 76} 
+                    y2="45" 
                     stroke="#E2E8F0" 
-                    strokeWidth="4.5" 
+                    strokeWidth="6" 
                     strokeLinecap="round" 
-                    opacity="0.55" 
+                    opacity="0.65" 
                   />
                   {/* Active Animated Throughput Bar */}
                   <motion.line 
                     x1={bar.x} 
-                    y1={bar.yBase} 
+                    y1="120" 
                     x2={bar.x} 
-                    y2={bar.yBase - bar.baseH} 
+                    y2={120 - bar.baseH} 
                     stroke="#2B66FF" 
-                    strokeWidth="5" 
+                    strokeWidth="6.5" 
                     strokeLinecap="round" 
                     opacity="0.95" 
                     animate={{ 
-                      y2: [bar.yBase - bar.baseH, bar.yBase - (bar.baseH * 0.45), bar.yBase - bar.baseH],
+                      y2: [120 - bar.baseH, 120 - (bar.baseH * 0.45), 120 - bar.baseH],
                       opacity: [0.75, 1, 0.75],
                     }}
                     transition={{ 
@@ -1543,10 +1569,11 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                     }}
                   />
                   <text 
-                    x={bar.x - 7} 
-                    y={bar.yBase + 11} 
-                    fontSize="7.5" 
-                    fill="#64748B" 
+                    x={bar.x - 12} 
+                    y="134" 
+                    fontSize="9.5" 
+                    fill="#475569" 
+                    fontWeight="800"
                     fontFamily="monospace"
                   >
                     {bar.label}
@@ -1554,31 +1581,45 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 </g>
               ))}
 
-              <text x="836" y="324" fontSize="8.5" fill="#10B981" fontWeight="bold" fontFamily="monospace">
+              <text 
+                x="20" 
+                y="146" 
+                fontSize="10.5" 
+                fill="#047857" 
+                fontWeight="800" 
+                fontFamily="monospace"
+              >
                 DEFENSE: ACTIVE // 100%
               </text>
-            </motion.g>
-
-            {/* =========================================================================
-                TOP BLUEPRINT TELEMETRY STATUS BADGE & CORNER TICKS
-                ========================================================================= */}
-            <g transform="translate(470, 110)">
-              <rect 
-                x="0" 
-                y="0" 
-                width="260" 
-                height="26" 
-                rx="4" 
-                fill="#FFFFFF" 
-                stroke="#2B66FF" 
-                strokeWidth="1.2" 
-                opacity="0.92" 
-              />
-              <circle cx="14" cy="13" r="3.5" fill="#10B981" />
-              <text x="26" y="17" fontSize="9.5" fill="#0F1115" fontWeight="bold" fontFamily="monospace">
-                0-DAY DEFENSE // AUTOMATED TARPIT
-              </text>
             </g>
+          </motion.g>
+
+          {/* =========================================================================
+              TOP BLUEPRINT TELEMETRY STATUS BADGE
+              ========================================================================= */}
+          <g transform="translate(460, 65)">
+            <rect 
+              x="0" 
+              y="0" 
+              width="290" 
+              height="32" 
+              rx="6" 
+              fill="#FFFFFF" 
+              stroke="#2B66FF" 
+              strokeWidth="1.8" 
+              filter="url(#pillShadow)" 
+            />
+            <circle cx="16" cy="16" r="4.5" fill="#10B981" />
+            <text 
+              x="30" 
+              y="21" 
+              fontSize="11.5" 
+              fill="#0F172A" 
+              fontWeight="800" 
+              fontFamily="monospace"
+            >
+              0-DAY DEFENSE // AUTOMATED TARPIT
+            </text>
           </g>
         </svg>
       )}
