@@ -79,15 +79,20 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
                 ))}
                 <circle cx="0" cy="0" r="215" fill="none" stroke="#EF4444" strokeWidth="2.2" opacity="0.55" />
 
-                {/* Rotating Sweep Beam */}
-                <motion.g
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 3.4, repeat: Infinity, ease: 'linear' }}
-                >
+                {/* Rotating Sweep Beam: Locked Strictly to Axis Point (0, 0) */}
+                <g>
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 0 0"
+                    to="360 0 0"
+                    dur="3.4s"
+                    repeatCount="indefinite"
+                  />
                   <path d="M 0 0 L 215 0 A 215 215 0 0 1 107.5 186.2 Z" fill="url(#afIpRadarSweep)" />
                   <line x1="0" y1="0" x2="215" y2="0" stroke="#EF4444" strokeWidth="3.2" opacity="1" />
                   <line x1="0" y1="0" x2="215" y2="0" stroke="#FFFFFF" strokeWidth="1.4" opacity="0.9" />
-                </motion.g>
+                </g>
 
                 {/* Red Anomaly IP Emitter Node at (-120, 65) */}
                 <circle cx="-120" cy="65" r="7.5" fill="#EF4444" />
@@ -139,14 +144,14 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
             >
-              {/* Suspended Ceiling Mount connected exactly to top center edge of skewed box */}
+              {/* Suspended Ceiling Mount: Connected directly to top center edge */}
               <line x1="182" y1="10" x2="182" y2="76" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 4" opacity="0.5" />
               <rect x="172" y="6" width="20" height="7" rx="2" fill="#2B66FF" />
               <circle cx="182" cy="9.5" r="2" fill="#38BDF8" />
 
-              {/* Anchor line down to floor */}
-              <line x1="182" y1="252" x2="220" y2="430" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
-              <ellipse cx="220" cy="430" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
+              {/* Floor Anchor Line */}
+              <line x1="182" y1="252" x2="182" y2="301" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
+              <ellipse cx="182" cy="301" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
 
               <g transform="translate(45, 145) skewY(-26.565)">
                 <rect x="0" y="0" width="274" height="175" rx="8" fill="url(#afPanelGlass)" stroke="#2B66FF" strokeWidth="2.2" filter="url(#afPillShadow)" />
@@ -185,20 +190,21 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
             </motion.g>
 
             {/* --- RIGHT 3D-ALIGNED SIDE BOX: AI DEFENSE // EDGE --- */}
+            {/* 100% 3D Isometric Aligned Parallel to Left Box (skewY -26.565) */}
             <motion.g
               animate={{ y: [0, -3.8, 0] }}
               transition={{ duration: 3.6, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
             >
-              {/* Suspended Ceiling Mount connected exactly to top center edge of skewed box */}
-              <line x1="817" y1="10" x2="817" y2="213" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 4" opacity="0.5" />
+              {/* Suspended Ceiling Mount: Connected directly to top center edge */}
+              <line x1="817" y1="10" x2="817" y2="126" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 4" opacity="0.5" />
               <rect x="807" y="6" width="20" height="7" rx="2" fill="#2B66FF" />
               <circle cx="817" cy="9.5" r="2" fill="#38BDF8" />
 
-              {/* Anchor line down to floor */}
-              <line x1="817" y1="389" x2="760" y2="460" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
-              <ellipse cx="760" cy="460" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
+              {/* Floor Anchor Line */}
+              <line x1="817" y1="301" x2="817" y2="360" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
+              <ellipse cx="817" cy="360" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
 
-              <g transform="translate(680, 145) skewY(26.565)">
+              <g transform="translate(680, 195) skewY(-26.565)">
                 <rect x="0" y="0" width="274" height="175" rx="8" fill="url(#afPanelGlass)" stroke="#2B66FF" strokeWidth="2.2" filter="url(#afPillShadow)" />
                 <rect x="5" y="5" width="264" height="165" rx="5" fill="none" stroke="#10B981" strokeWidth="1.4" opacity="0.8" />
                 
@@ -322,8 +328,8 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
             <line x1="140" y1="280" x2="490" y2="460" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
             <line x1="490" y1="460" x2="860" y2="280" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
 
-            {/* 3D Isometric Client Terminal & FIDO2 Security Core (Center at 490, 390) */}
-            <g transform="translate(490, 385)">
+            {/* 3D Isometric Client Terminal & Workstation (Center at 490, 395) */}
+            <g transform="translate(490, 395)">
               {/* Concentric Biometric Verification Scanning Rings */}
               <g transform="scale(1.30, 0.62)">
                 {[65, 120, 175].map((r, i) => (
@@ -353,9 +359,9 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
                 />
               </g>
 
-              {/* 3D Isometric Laptop / Terminal Base Body (Large, Crisp) */}
+              {/* 3D Isometric Laptop / Terminal Base Body (Clean Metallic Finish — No stray dots) */}
               <polygon
-                points="-95,30 20,-30 135,30 20,90"
+                points="-95,15 0,-32 95,15 0,62"
                 fill="url(#afLaptopFace)"
                 stroke="#2B66FF"
                 strokeWidth="2.4"
@@ -363,32 +369,32 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               />
               {/* Laptop Keyboard Bed */}
               <polygon
-                points="-75,28 15,-18 115,32 25,78"
+                points="-75,15 0,-22 75,15 0,52"
                 fill="#EFF6FF"
                 stroke="#38BDF8"
                 strokeWidth="1.6"
               />
               {/* Keyboard Grid Lines */}
-              {[-35, -5, 25, 55, 85].map((kx, idx) => (
+              {[-40, -15, 10, 35, 60].map((kx, idx) => (
                 <line
                   key={idx}
                   x1={kx}
-                  y1={8 + idx * 4}
-                  x2={kx + 10}
-                  y2={22 + idx * 4}
+                  y1={2 + idx * 3}
+                  x2={kx + 12}
+                  y2={16 + idx * 3}
                   stroke="#93C5FD"
                   strokeWidth="1.2"
-                  opacity="0.7"
+                  opacity="0.75"
                 />
               ))}
 
               {/* 3D Vertical Upright Display Screen (skewed 26.565deg) */}
-              <g transform="translate(-15, -100) skewY(26.565)">
+              <g transform="translate(-15, -95) skewY(26.565)">
                 {/* Screen Outer Bezel */}
                 <rect x="0" y="0" width="115" height="88" rx="6" fill="url(#afLaptopScreen)" stroke="#2B66FF" strokeWidth="2.2" />
                 {/* Screen Display Active Terminal */}
                 <rect x="5" y="5" width="105" height="78" rx="3" fill="#0A0F1D" />
-                {/* Header Dots */}
+                {/* Screen Header Dots */}
                 <circle cx="16" cy="18" r="4" fill="#EF4444" />
                 <circle cx="28" cy="18" r="4" fill="#F59E0B" />
                 <circle cx="40" cy="18" r="4" fill="#10B981" />
@@ -405,29 +411,6 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
                 </text>
                 <rect x="10" y="76" width="90" height="4" rx="2" fill="#2563EB" opacity="0.8" />
               </g>
-
-              {/* Floating 3D FIDO2 Hardware Key Verification Beacon */}
-              <motion.g
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <g transform="translate(35, -35)">
-                  <circle cx="0" cy="0" r="18" fill="#1E3A8A" stroke="#2B66FF" strokeWidth="2.2" />
-                  <circle cx="0" cy="0" r="10" fill="#38BDF8" filter="url(#afGlow)" />
-                  <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" />
-                  {/* Energy Aura Pulse */}
-                  <motion.circle
-                    cx="0"
-                    cy="0"
-                    r="18"
-                    fill="none"
-                    stroke="#38BDF8"
-                    strokeWidth="1.8"
-                    animate={{ r: [18, 32], opacity: [0.95, 0] }}
-                    transition={{ duration: 1.6, repeat: Infinity }}
-                  />
-                </g>
-              </motion.g>
 
               {/* 3D Isometric Defensive Shield on the Right Side */}
               <g transform="translate(195, -30)">
@@ -447,14 +430,14 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
             >
-              {/* Suspended Ceiling Mount connected exactly to top center edge of skewed box */}
+              {/* Suspended Ceiling Mount: Connected directly to top center edge */}
               <line x1="182" y1="10" x2="182" y2="76" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 4" opacity="0.5" />
               <rect x="172" y="6" width="20" height="7" rx="2" fill="#2B66FF" />
               <circle cx="182" cy="9.5" r="2" fill="#38BDF8" />
 
-              {/* Anchor line down to floor */}
-              <line x1="182" y1="252" x2="220" y2="430" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
-              <ellipse cx="220" cy="430" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
+              {/* Floor Anchor Line */}
+              <line x1="182" y1="252" x2="182" y2="301" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
+              <ellipse cx="182" cy="301" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
 
               <g transform="translate(45, 145) skewY(-26.565)">
                 <rect x="0" y="0" width="274" height="175" rx="8" fill="url(#afPanelGlass)" stroke="#2B66FF" strokeWidth="2.2" filter="url(#afPillShadow)" />
@@ -493,20 +476,21 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
             </motion.g>
 
             {/* --- RIGHT 3D-ALIGNED SIDE BOX: FIDO2 CHALLENGE --- */}
+            {/* 100% 3D Isometric Aligned Parallel to Left Box (skewY -26.565) */}
             <motion.g
               animate={{ y: [0, -3.8, 0] }}
               transition={{ duration: 3.6, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
             >
-              {/* Suspended Ceiling Mount connected exactly to top center edge of skewed box */}
-              <line x1="817" y1="10" x2="817" y2="213" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 4" opacity="0.5" />
+              {/* Suspended Ceiling Mount: Connected directly to top center edge */}
+              <line x1="817" y1="10" x2="817" y2="126" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 4" opacity="0.5" />
               <rect x="807" y="6" width="20" height="7" rx="2" fill="#2B66FF" />
               <circle cx="817" cy="9.5" r="2" fill="#38BDF8" />
 
-              {/* Anchor line down to floor */}
-              <line x1="817" y1="389" x2="760" y2="460" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
-              <ellipse cx="760" cy="460" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
+              {/* Floor Anchor Line */}
+              <line x1="817" y1="301" x2="817" y2="360" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
+              <ellipse cx="817" cy="360" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
 
-              <g transform="translate(680, 145) skewY(26.565)">
+              <g transform="translate(680, 195) skewY(-26.565)">
                 <rect x="0" y="0" width="274" height="175" rx="8" fill="url(#afPanelGlass)" stroke="#2B66FF" strokeWidth="2.2" filter="url(#afPillShadow)" />
                 <rect x="5" y="5" width="264" height="165" rx="5" fill="none" stroke="#10B981" strokeWidth="1.4" opacity="0.8" />
                 
@@ -629,11 +613,11 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
             <line x1="140" y1="280" x2="490" y2="460" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
             <line x1="490" y1="460" x2="860" y2="280" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
 
-            {/* 3D Isometric Tarpit Containment Vault & Coils (Center at 490, 390) */}
-            <g transform="translate(490, 385)">
-              {/* Concentric Tarpit Latency Spiral Coils */}
+            {/* 3D Isometric Tarpit Containment Vault & Circular Orbit Coils (Center at 490, 395) */}
+            <g transform="translate(490, 395)">
+              {/* Concentric Tarpit Latency Spiral Coils with Orbiting Packets */}
               <g transform="scale(1.30, 0.62)">
-                {[55, 105, 155, 205].map((r, i) => (
+                {[55, 110, 165, 215].map((r, i) => (
                   <circle
                     key={i}
                     cx="0"
@@ -646,24 +630,71 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
                     opacity={0.38 + i * 0.12}
                   />
                 ))}
-                {/* Slow Viscous Tarpit Energy Cycle (5000ms delay) */}
+
+                {/* Slow Viscous Energy Cycle */}
                 <motion.circle
                   cx="0"
                   cy="0"
-                  r="155"
+                  r="165"
                   fill="none"
                   stroke="#F59E0B"
-                  strokeWidth="3.4"
+                  strokeWidth="3.2"
                   strokeDasharray="70 200"
                   animate={{ strokeDashoffset: [0, 540] }}
                   transition={{ duration: 7.2, repeat: Infinity, ease: 'linear' }}
                 />
+
+                {/* 14 Trapped Brute-Force Packets Rotating with Exact Proper Gaps & Perfect Center Anchor (0, 0) */}
+                <g>
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 0 0"
+                    to="360 0 0"
+                    dur="12s"
+                    repeatCount="indefinite"
+                  />
+                  {/* Track 1: Inner Orbit (r=110) — 6 nodes spaced strictly at 60° intervals */}
+                  {[
+                    { x: 110, y: 0 },
+                    { x: 55, y: 95.3 },
+                    { x: -55, y: 95.3 },
+                    { x: -110, y: 0 },
+                    { x: -55, y: -95.3 },
+                    { x: 55, y: -95.3 },
+                  ].map((pos, idx) => (
+                    <g key={`inner-${idx}`}>
+                      <circle cx={pos.x} cy={pos.y} r="5.5" fill="#EF4444" />
+                      <circle cx={pos.x} cy={pos.y} r="2.5" fill="#FFFFFF" />
+                    </g>
+                  ))}
+
+                  {/* Track 2: Outer Orbit (r=165) — 8 nodes spaced strictly at 45° intervals (offset 22.5°) */}
+                  {[
+                    { x: 152.4, y: 63.1 },
+                    { x: 63.1, y: 152.4 },
+                    { x: -63.1, y: 152.4 },
+                    { x: -152.4, y: 63.1 },
+                    { x: -152.4, y: -63.1 },
+                    { x: -63.1, y: -152.4 },
+                    { x: 63.1, y: -152.4 },
+                    { x: 152.4, y: -63.1 },
+                  ].map((pos, idx) => (
+                    <g key={`outer-${idx}`}>
+                      <circle cx={pos.x} cy={pos.y} r="5.0" fill="#F59E0B" />
+                      <circle cx={pos.x} cy={pos.y} r="2.0" fill="#FFFFFF" />
+                    </g>
+                  ))}
+                </g>
               </g>
 
-              {/* 3D Isometric Tarpit Vault Hexagon/Cube Base */}
-              {/* Top Cap */}
+              {/* 3D Isometric Tarpit Vault Hexagon/Cube Base (Perfect 2:1 Geometry) */}
+              {/* Vault Floor Contact Shadow */}
+              <ellipse cx="0" cy="105" rx="75" ry="25" fill="#B45309" opacity="0.35" filter="url(#afFloorShadow)" />
+
+              {/* Top Cap Rhombus */}
               <polygon
-                points="-75,15 0,-25 75,15 0,55"
+                points="-70,0 0,-35 70,0 0,35"
                 fill="url(#afVaultTop)"
                 stroke="#D97706"
                 strokeWidth="2.4"
@@ -671,7 +702,7 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               />
               {/* Left Front Facet */}
               <polygon
-                points="-75,15 0,55 0,115 -75,75"
+                points="-70,0 0,35 0,105 -70,70"
                 fill="url(#afVaultSide)"
                 stroke="#B45309"
                 strokeWidth="2.4"
@@ -679,41 +710,20 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               />
               {/* Right Front Facet */}
               <polygon
-                points="0,55 75,15 75,75 0,115"
+                points="0,35 70,0 70,70 0,105"
                 fill="#92400E"
                 stroke="#B45309"
                 strokeWidth="2.4"
                 strokeLinejoin="round"
               />
 
-              {/* Amber Quarantine Padlock/Lock Core on Vault Front */}
-              <g transform="translate(0, 75)">
+              {/* Amber Quarantine Padlock/Lock Core on Vault Front Seam */}
+              <g transform="translate(0, 65)">
                 <circle cx="0" cy="0" r="16" fill="#F59E0B" filter="url(#afGlow)" />
                 <circle cx="0" cy="0" r="10" fill="#78350F" />
                 <rect x="-3" y="-3" width="6" height="12" rx="1.5" fill="#FDE68A" />
                 <circle cx="0" cy="-3" r="3" fill="#FDE68A" />
               </g>
-
-              {/* 14 Trapped Brute-Force Packets orbiting inside the Tarpit Latency Trap */}
-              <motion.g
-                animate={{ rotate: 360 }}
-                transition={{ duration: 12.0, repeat: Infinity, ease: 'linear' }}
-              >
-                <circle cx="85" cy="0" r="6" fill="#EF4444" />
-                <circle cx="-85" cy="0" r="6" fill="#EF4444" />
-                <circle cx="0" cy="46" r="6" fill="#EF4444" />
-                <circle cx="0" cy="-46" r="6" fill="#EF4444" />
-                <circle cx="60" cy="32" r="5" fill="#F59E0B" />
-                <circle cx="-60" cy="-32" r="5" fill="#F59E0B" />
-                <circle cx="-60" cy="32" r="5" fill="#F59E0B" />
-                <circle cx="60" cy="-32" r="5" fill="#F59E0B" />
-                <circle cx="110" cy="20" r="4.5" fill="#EF4444" opacity="0.8" />
-                <circle cx="-110" cy="-20" r="4.5" fill="#EF4444" opacity="0.8" />
-                <circle cx="35" cy="55" r="4" fill="#F59E0B" opacity="0.7" />
-                <circle cx="-35" cy="-55" r="4" fill="#F59E0B" opacity="0.7" />
-                <circle cx="-95" cy="40" r="4" fill="#EF4444" opacity="0.7" />
-                <circle cx="95" cy="-40" r="4" fill="#EF4444" opacity="0.7" />
-              </motion.g>
 
               {/* 3D Isometric Defensive Shield on the Right Side */}
               <g transform="translate(195, -30)">
@@ -733,14 +743,14 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
             >
-              {/* Suspended Ceiling Mount connected exactly to top center edge of skewed box */}
+              {/* Suspended Ceiling Mount: Connected directly to top center edge */}
               <line x1="182" y1="10" x2="182" y2="76" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 4" opacity="0.5" />
               <rect x="172" y="6" width="20" height="7" rx="2" fill="#2B66FF" />
               <circle cx="182" cy="9.5" r="2" fill="#38BDF8" />
 
-              {/* Anchor line down to floor */}
-              <line x1="182" y1="252" x2="220" y2="430" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
-              <ellipse cx="220" cy="430" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
+              {/* Floor Anchor Line */}
+              <line x1="182" y1="252" x2="182" y2="301" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
+              <ellipse cx="182" cy="301" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
 
               <g transform="translate(45, 145) skewY(-26.565)">
                 <rect x="0" y="0" width="274" height="175" rx="8" fill="url(#afPanelGlass)" stroke="#2B66FF" strokeWidth="2.2" filter="url(#afPillShadow)" />
@@ -779,20 +789,21 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
             </motion.g>
 
             {/* --- RIGHT 3D-ALIGNED SIDE BOX: TARPIT PROTOCOL --- */}
+            {/* 100% 3D Isometric Aligned Parallel to Left Box (skewY -26.565) */}
             <motion.g
               animate={{ y: [0, -3.8, 0] }}
               transition={{ duration: 3.6, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
             >
-              {/* Suspended Ceiling Mount connected exactly to top center edge of skewed box */}
-              <line x1="817" y1="10" x2="817" y2="213" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 4" opacity="0.5" />
+              {/* Suspended Ceiling Mount: Connected directly to top center edge */}
+              <line x1="817" y1="10" x2="817" y2="126" stroke="#2B66FF" strokeWidth="2" strokeDasharray="3 4" opacity="0.5" />
               <rect x="807" y="6" width="20" height="7" rx="2" fill="#2B66FF" />
               <circle cx="817" cy="9.5" r="2" fill="#38BDF8" />
 
-              {/* Anchor line down to floor */}
-              <line x1="817" y1="389" x2="760" y2="460" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
-              <ellipse cx="760" cy="460" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
+              {/* Floor Anchor Line */}
+              <line x1="817" y1="301" x2="817" y2="360" stroke="#2B66FF" strokeWidth="1.4" strokeDasharray="3 4" opacity="0.4" />
+              <ellipse cx="817" cy="360" rx="8" ry="4" fill="none" stroke="#2B66FF" strokeWidth="1.2" opacity="0.5" />
 
-              <g transform="translate(680, 145) skewY(26.565)">
+              <g transform="translate(680, 195) skewY(-26.565)">
                 <rect x="0" y="0" width="274" height="175" rx="8" fill="url(#afPanelGlass)" stroke="#2B66FF" strokeWidth="2.2" filter="url(#afPillShadow)" />
                 <rect x="5" y="5" width="264" height="165" rx="5" fill="none" stroke="#F59E0B" strokeWidth="1.4" opacity="0.8" />
                 
