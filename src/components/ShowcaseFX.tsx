@@ -2104,144 +2104,156 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
 
           {/* =========================================================================
               HEROIC 3D ISOMETRIC QUANTUM PADLOCK (FRONT RIGHT TRACK)
-              Constructed with exact isometric facets: slope 0.5 (26.565°) & depth (+22, -11)
+              Constructed inside the exact isometric transform matrix matching the track & screens
               ========================================================================= */}
           <motion.g
-            animate={{ y: [0, -4.5, 0] }}
-            transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
           >
-            {/* --- 3D SHACKLE (CURVED U-BAR FULLY INSERTED INTO PADLOCK TOP) --- */}
-            {/* Back Shackle Extrusion (+22, -11) */}
+            {/* 1. Back Shackle 3D Depth Shadow/Rim (Shifted +8, -4) */}
             <path
-              d="M 702 484 L 702 399 Q 702 359, 722 359 Q 742 359, 742 419 L 742 504"
+              d="M 714 490 L 714 432 C 714 396, 754 396, 754 452 L 754 510"
               fill="none"
-              stroke="#1D4ED8"
-              strokeWidth="13"
-              strokeLinecap="round"
-            />
-            {/* Front Shackle */}
-            <path
-              d="M 680 495 L 680 410 Q 680 370, 700 370 Q 720 370, 720 430 L 720 515"
-              fill="none"
-              stroke="#2B66FF"
-              strokeWidth="14"
-              strokeLinecap="round"
-            />
-            {/* Front Shackle Cyan Core */}
-            <path
-              d="M 680 410 Q 680 370, 700 370 Q 720 370, 720 430"
-              fill="none"
-              stroke="#38BDF8"
-              strokeWidth="7"
-              strokeLinecap="round"
-            />
-            {/* Hot White Highlight Core */}
-            <path
-              d="M 680 410 Q 680 370, 700 370 Q 720 370, 720 430"
-              fill="none"
-              stroke="#FFFFFF"
-              strokeWidth="2.5"
+              stroke="#172554"
+              strokeWidth="11"
               strokeLinecap="round"
             />
 
-            {/* --- 3D LOCK BODY (SOLID ISOMETRIC BLOCK) --- */}
-            {/* Top Facet: connects front top edge (655, 475)-(745, 520) to back (+22, -11) */}
+            {/* 2. Main Front Shackle Cylindrical Bar (Upright Symmetrical Semicircular Arch) */}
+            {/* Shackle Base Dark Outline */}
+            <path
+              d="M 706 494 L 706 436 C 706 400, 746 400, 746 456 L 746 514"
+              fill="none"
+              stroke="#1D4ED8"
+              strokeWidth="11"
+              strokeLinecap="round"
+            />
+            {/* Shackle Metallic Blue Core */}
+            <path
+              d="M 706 494 L 706 436 C 706 400, 746 400, 746 456 L 746 514"
+              fill="none"
+              stroke="#2B66FF"
+              strokeWidth="8.5"
+              strokeLinecap="round"
+            />
+            {/* Shackle Glowing Cyan Core */}
+            <path
+              d="M 706 494 L 706 436 C 706 400, 746 400, 746 456 L 746 514"
+              fill="none"
+              stroke="#38BDF8"
+              strokeWidth="4.5"
+              strokeLinecap="round"
+            />
+            {/* Shackle Specular Hot White Core Highlight */}
+            <path
+              d="M 706 436 C 706 404, 738 404, 738 422"
+              fill="none"
+              stroke="#FFFFFF"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+            />
+
+            {/* 3. Top Cap Facet: Parallelogram from front top (675, 490)-(755, 530) to back (+24, -12) */}
+            {/* Naturally clips and grounds the base of the shackle into the lock */}
             <polygon
-              points="655,475 677,464 767,509 745,520"
+              points="675,490 699,478 779,518 755,530"
               fill="url(#pqcLockTopGrad)"
               stroke="#2B66FF"
               strokeWidth="2.2"
               strokeLinejoin="round"
             />
-            {/* Right Depth Facet */}
+
+            {/* 4. Shackle Entry Collar Ferrules (True 3D Isometric Cylinders on Top Cap) */}
+            {/* Left Collar at (706, 494) */}
+            <ellipse cx="706" cy="496" rx="9" ry="4.5" fill="#1E40AF" stroke="#2B66FF" strokeWidth="1.2" />
+            <ellipse cx="706" cy="493" rx="9" ry="4.5" fill="#DBEAFE" stroke="#2B66FF" strokeWidth="1.2" />
+            <ellipse cx="706" cy="493" rx="5.5" ry="2.8" fill="#172554" />
+
+            {/* Right Collar at (746, 514) */}
+            <ellipse cx="746" cy="516" rx="9" ry="4.5" fill="#1E40AF" stroke="#2B66FF" strokeWidth="1.2" />
+            <ellipse cx="746" cy="513" rx="9" ry="4.5" fill="#DBEAFE" stroke="#2B66FF" strokeWidth="1.2" />
+            <ellipse cx="746" cy="513" rx="5.5" ry="2.8" fill="#172554" />
+
+            {/* 5. Right Side Depth Facet */}
             <polygon
-              points="745,520 767,509 767,599 745,610"
+              points="755,530 779,518 779,610 755,622"
               fill="url(#pqcLockSideGrad)"
               stroke="#2B66FF"
               strokeWidth="2.2"
               strokeLinejoin="round"
             />
 
-            {/* Main Front Face with Isometric Skew Group (100% parallel to 3D grid) */}
-            <g transform="translate(655, 475) skewY(26.565)">
+            {/* 6. Main Front Face with Isometric Skew Group (100% parallel to 3D grid) */}
+            <g transform="translate(675, 490) skewY(26.565)">
+              {/* Padlock Front Face Body */}
               <rect
                 x="0"
                 y="0"
-                width="90"
-                height="90"
-                rx="6"
+                width="80"
+                height="92"
+                rx="8"
                 fill="url(#pqcLockFaceGrad)"
                 stroke="#2B66FF"
                 strokeWidth="2.6"
+                filter="url(#pqcPillShadow)"
               />
+              {/* Inner Glowing Cyan Border */}
               <rect
                 x="5"
                 y="5"
-                width="80"
-                height="80"
-                rx="4"
+                width="70"
+                height="82"
+                rx="5"
                 fill="none"
                 stroke="#38BDF8"
                 strokeWidth="1.6"
                 opacity="0.85"
               />
 
-              {/* Lock Status Beacon LED */}
-              <circle cx="20" cy="20" r="4.5" fill="#10B981" />
+              {/* Status LED Beacon */}
+              <circle cx="16" cy="16" r="4" fill="#10B981" />
               <motion.circle
-                cx="20"
-                cy="20"
-                r="9"
+                cx="16"
+                cy="16"
+                r="8"
                 fill="none"
                 stroke="#10B981"
                 strokeWidth="1.4"
-                animate={{ r: [4.5, 12], opacity: [0.95, 0] }}
+                animate={{ r: [4, 11], opacity: [0.95, 0] }}
                 transition={{ duration: 1.6, repeat: Infinity }}
               />
 
-              {/* Precision Cyber Keyhole */}
-              <circle cx="45" cy="46" r="7" fill="#1E3A8A" />
-              <polygon points="42,46 48,46 51,64 39,64" fill="#1E3A8A" />
-              <circle cx="45" cy="46" r="3.2" fill="#38BDF8" filter="url(#pqcGlow)" />
-              <circle cx="45" cy="46" r="1.6" fill="#FFFFFF" />
-
-              {/* Monospace Security Badge on Lock Face */}
-              <text
-                x="12"
-                y="80"
-                fontSize="11"
-                fill="#1E3A8A"
-                fontWeight="900"
-                fontFamily="monospace"
-                letterSpacing="0.04em"
-              >
-                PQC // 256b
-              </text>
+              {/* Iconic Cyber Keyhole */}
+              <circle cx="40" cy="46" r="7.5" fill="#1E3A8A" />
+              <polygon points="36.5,46 43.5,46 46,65 34,65" fill="#1E3A8A" />
+              <circle cx="40" cy="46" r="3.5" fill="#38BDF8" filter="url(#pqcGlow)" />
+              <circle cx="40" cy="46" r="1.8" fill="#FFFFFF" />
             </g>
 
-            {/* Docked Lock Telemetry Callout Pill */}
+            {/* 7. Docked Padlock Telemetry Callout Pill */}
+            <line x1="715" y1="600" x2="715" y2="635" stroke="#2B66FF" strokeWidth="1.6" strokeDasharray="3 3" opacity="0.6" />
             <rect
-              x="630"
-              y="628"
-              width="150"
-              height="32"
+              x="612"
+              y="635"
+              width="206"
+              height="34"
               rx="6"
               fill="#FFFFFF"
               stroke="#2B66FF"
               strokeWidth="2.2"
               filter="url(#pqcPillShadow)"
             />
-            <circle cx="646" cy="644" r="4" fill="#10B981" />
+            <circle cx="628" cy="652" r="4.5" fill="#10B981" />
             <text
-              x="658"
-              y="650"
+              x="640"
+              y="658"
               fontSize="12.5"
               fill="#1E3A8A"
               fontWeight="900"
               fontFamily="monospace"
-              letterSpacing="0.02em"
+              letterSpacing="0.03em"
             >
-              SEALED // PQC
+              CRYPTO-SEALED // PQC
             </text>
           </motion.g>
 
