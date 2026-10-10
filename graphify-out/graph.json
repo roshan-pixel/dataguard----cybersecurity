@@ -931,6 +931,33 @@
       "norm_label": "isolatenoderesponse"
     },
     {
+      "label": "AdvancedFeaturesFX.tsx",
+      "file_type": "code",
+      "source_file": "src/components/AdvancedFeaturesFX.tsx",
+      "source_location": "L1",
+      "id": "src_components_advancedfeaturesfx_tsx",
+      "community": 3,
+      "norm_label": "advancedfeaturesfx.tsx"
+    },
+    {
+      "label": "AdvancedFeaturesFXProps",
+      "file_type": "code",
+      "source_file": "src/components/AdvancedFeaturesFX.tsx",
+      "source_location": "L4",
+      "id": "components_advancedfeaturesfx_advancedfeaturesfxprops",
+      "community": 3,
+      "norm_label": "advancedfeaturesfxprops"
+    },
+    {
+      "label": "AdvancedFeaturesFX()",
+      "file_type": "code",
+      "source_file": "src/components/AdvancedFeaturesFX.tsx",
+      "source_location": "L8",
+      "id": "components_advancedfeaturesfx_advancedfeaturesfx",
+      "community": 3,
+      "norm_label": "advancedfeaturesfx()"
+    },
+    {
       "label": "AudioFeedback.ts",
       "file_type": "code",
       "source_file": "src/components/AudioFeedback.ts",
@@ -1186,7 +1213,7 @@
       "label": "AdvancedFeaturesProps",
       "file_type": "code",
       "source_file": "src/sections/AdvancedFeatures.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "sections_advancedfeatures_advancedfeaturesprops",
       "community": 3,
       "norm_label": "advancedfeaturesprops"
@@ -1195,7 +1222,7 @@
       "label": "AdvancedFeatures()",
       "file_type": "code",
       "source_file": "src/sections/AdvancedFeatures.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "sections_advancedfeatures_advancedfeatures",
       "community": 3,
       "norm_label": "advancedfeatures()"
@@ -3440,6 +3467,48 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/AdvancedFeaturesFX.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_components_advancedfeaturesfx_tsx",
+      "target": "components_advancedfeaturesfx_advancedfeaturesfxprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AdvancedFeaturesFX.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_components_advancedfeaturesfx_tsx",
+      "target": "components_advancedfeaturesfx_advancedfeaturesfx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sections/AdvancedFeatures.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_sections_advancedfeatures_tsx",
+      "target": "src_components_advancedfeaturesfx_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sections/AdvancedFeatures.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_sections_advancedfeatures_tsx",
+      "target": "components_advancedfeaturesfx_advancedfeaturesfx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/AudioFeedback.ts",
       "source_location": "L2",
       "weight": 1.0,
@@ -5011,5 +5080,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f6d577cdc64b10a5d27434f9a4ef637eec1eaffd"
+  "built_at_commit": "63bef13c43ed6cee940c1be33b998314e90129c3"
 }

@@ -1,16 +1,16 @@
 # Graph Report - dataguard-cybersecurity  (2026-10-10)
 
 ## Corpus Check
-- 33 files · ~463,019 words
+- 34 files · ~473,344 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 231 nodes · 284 edges · 20 communities (17 shown, 3 thin omitted)
+- 234 nodes · 288 edges · 20 communities (17 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f6d577cd`
+- Built from commit: `63bef13c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -60,8 +60,8 @@ Cohesion: 0.12
 Nodes (16): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection, noEmit, noFallthroughCasesInSwitch (+8 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.14
-Nodes (18): sound, Crosshair(), CrosshairProps, LogoBar(), Navbar(), NavbarProps, AdvancedFeatures(), AdvancedFeaturesProps (+10 more)
+Cohesion: 0.12
+Nodes (20): AdvancedFeaturesFX(), AdvancedFeaturesFXProps, sound, Crosshair(), CrosshairProps, LogoBar(), Navbar(), NavbarProps (+12 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.18
@@ -92,7 +92,7 @@ Cohesion: 0.17
 Nodes (9): LENS_COLUMNS, LENS_CONFIG, LENS_KEYFRAMES_CSS, LensDotColumn, ShowcaseFX(), ShowcaseFXProps, SecurityShowcase(), SecurityShowcaseProps (+1 more)
 
 ## Knowledge Gaps
-- **120 isolated node(s):** `$schema`, `plugins`, `react/rules-of-hooks`, `react/only-export-components`, `name` (+115 more)
+- **121 isolated node(s):** `$schema`, `plugins`, `react/rules-of-hooks`, `react/only-export-components`, `name` (+116 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -102,14 +102,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Dataguard — Enterprise Cybersecurity Platform` connect `Community 10` to `Community 11`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Why does `DataguardManagementApiClient` connect `Community 6` to `Community 4`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+- **Why does `sound` connect `Community 3` to `Community 19`, `Community 4`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **What connects `$schema`, `plugins`, `react/rules-of-hooks` to the rest of the system?**
-  _120 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _121 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
-- **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.14015151515151514 - nodes in this community are weakly interconnected._

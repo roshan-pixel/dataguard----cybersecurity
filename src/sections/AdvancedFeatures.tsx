@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, AlertTriangle, Smartphone, ShieldAlert } from 'lucide-react';
 import { Crosshair } from '../components/Crosshair';
 import { sound } from '../components/AudioFeedback';
+import { AdvancedFeaturesFX } from '../components/AdvancedFeaturesFX';
 
 interface AdvancedFeaturesProps {
   onOpenDemo: (tab?: 'scanner' | 'docs' | 'trial') => void;
@@ -161,25 +162,8 @@ export const AdvancedFeatures: React.FC<AdvancedFeaturesProps> = ({ onOpenDemo }
                 <Crosshair size={12} />
               </div>
 
-              {/* Radar Illustration */}
-              <div className="relative w-full h-[260px] sm:h-[320px] flex items-center justify-center">
-                <img 
-                  src="/assets/sec4_radar.png" 
-                  alt="Prevent Unauthorized Access Radar Scanner" 
-                  className="max-h-full max-w-full object-contain drop-shadow-sm select-none"
-                />
-
-                {/* Interactive Click target over the LEARN MORE button */}
-                <button
-                  onClick={() => {
-                    sound.playClick(800);
-                    onOpenDemo('scanner');
-                  }}
-                  className="absolute bottom-[8%] right-[11%] w-[120px] h-[36px] bg-transparent hover:bg-white/10 rounded cursor-pointer"
-                  title="Learn More About Perimeter Protection"
-                  aria-label="Learn More"
-                />
-              </div>
+              {/* Dynamic 3D Isometric Alert Scene */}
+              <AdvancedFeaturesFX selectedAlert={selectedAlert} />
 
               {/* Sub-label and square arrow button matching reference */}
               <div className="pt-6 border-t border-[#DCE3ED] flex items-center justify-between">

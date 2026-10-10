@@ -75,8 +75,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\sections\\AdvancedFeatures.tsx": {
-    "mtime": 1790762359.566987,
-    "ast_hash": "0d0292bf11cf0d4f5ceb96e9bb1f05b1",
+    "mtime": 1791640950.5036926,
+    "ast_hash": "242e65768de91e3b28b3738b47065e78",
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\sections\\BuiltForEnterprise.tsx": {
@@ -517,6 +517,11 @@
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\screenshots\\test_lens_dotted_fill.png": {
     "mtime": 1790783606.9951248,
     "ast_hash": "ae00229fc6b7172b160f31dc50c54fe5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\components\\AdvancedFeaturesFX.tsx": {
+    "mtime": 1791641515.947056,
+    "ast_hash": "a2c169ff1bae2d570a38eacc8856db3b",
     "semantic_hash": ""
   }
 }
