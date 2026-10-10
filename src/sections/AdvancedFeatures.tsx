@@ -10,13 +10,13 @@ interface AdvancedFeaturesProps {
 }
 
 export const AdvancedFeatures: React.FC<AdvancedFeaturesProps> = ({ onOpenDemo }) => {
-  const [selectedAlert, setSelectedAlert] = useState<'ip' | 'device' | 'auth'>('device');
+  const [selectedAlert, setSelectedAlert] = useState<'ip' | 'device' | 'auth'>('ip');
 
   const alertData = {
     ip: {
       title: 'Suspicious IP Activity',
       desc: 'Automatic geo-velocity anomaly detection blocks anomalous proxy networks and bulletproof ASN ranges.',
-      source: '194.26.29.112 (Tor Exit Node)',
+      source: '198.51.100.24 (High-Risk Proxy)',
       status: 'Blocked at Edge'
     },
     device: {
@@ -149,35 +149,25 @@ export const AdvancedFeatures: React.FC<AdvancedFeaturesProps> = ({ onOpenDemo }
           {/* Right: Radar Scanning Card */}
           <div className="lg:col-span-7">
             <div className="relative border border-[#DCE3ED] rounded-xl p-6 sm:p-8 bg-white shadow-tech-card group">
-              <div className="absolute top-3 left-3">
-                <Crosshair size={12} />
-              </div>
-              <div className="absolute top-3 right-3">
-                <Crosshair size={12} />
-              </div>
-              <div className="absolute bottom-3 left-3">
-                <Crosshair size={12} />
-              </div>
-              <div className="absolute bottom-3 right-3">
-                <Crosshair size={12} />
-              </div>
-
               {/* Dynamic 3D Isometric Alert Scene */}
               <AdvancedFeaturesFX selectedAlert={selectedAlert} />
 
               {/* Sub-label and square arrow button matching reference */}
-              <div className="pt-6 border-t border-[#DCE3ED] flex items-center justify-between">
+              <div className="pt-6 border-t border-[#DCE3ED] flex items-center justify-between gap-4">
                 <div>
                   <h4 className="text-xl font-bold font-sans text-[#0F1115]">
                     Prevent Unauthorized Access
                   </h4>
+                  <p className="text-sm text-[#64748B] mt-1 font-sans">
+                    AI-powered edge inspection automatically isolates malicious traffic before it reaches your network.
+                  </p>
                 </div>
                 <button
                   onClick={() => {
                     sound.playClick(700);
                     onOpenDemo('scanner');
                   }}
-                  className="w-10 h-10 bg-[#2B66FF] hover:bg-[#1E52DB] text-white flex items-center justify-center rounded transition-all hover:scale-105"
+                  className="w-10 h-10 shrink-0 bg-[#2B66FF] hover:bg-[#1E52DB] text-white flex items-center justify-center rounded transition-all hover:scale-105"
                   aria-label="Prevent Unauthorized Access details"
                 >
                   <ArrowRight size={16} />
