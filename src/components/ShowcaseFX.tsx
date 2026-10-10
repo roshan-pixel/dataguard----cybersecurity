@@ -1728,7 +1728,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           <ellipse cx="780" cy="580" rx="180" ry="36" fill="rgba(43, 102, 255, 0.16)" filter="url(#pqcFloorShadow)" />
           <ellipse cx="580" cy="590" rx="90" ry="24" fill="rgba(43, 102, 255, 0.20)" filter="url(#pqcFloorShadow)" />
           {/* Padlock contact shadow */}
-          <ellipse cx="715" cy="625" rx="55" ry="16" fill="rgba(43, 102, 255, 0.28)" filter="url(#pqcFloorShadow)" />
+          <ellipse cx="715" cy="690" rx="55" ry="16" fill="rgba(43, 102, 255, 0.28)" filter="url(#pqcFloorShadow)" />
 
           {/* Isometric baseline guide rails */}
           <line x1="160" y1="410" x2="580" y2="620" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
@@ -2104,7 +2104,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
 
           {/* =========================================================================
               HEROIC 3D ISOMETRIC QUANTUM PADLOCK (FRONT RIGHT TRACK)
-              Constructed inside the exact isometric transform matrix matching the track & screens
+              Threaded directly onto the quantum data ribbon track
               ========================================================================= */}
           <motion.g
             animate={{ y: [0, -4, 0] }}
@@ -2112,17 +2112,17 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
           >
             {/* 1. Back Shackle 3D Depth Shadow/Rim (Shifted +8, -4) */}
             <path
-              d="M 714 490 L 714 432 C 714 396, 754 396, 754 452 L 754 510"
+              d="M 714 555 L 714 497 C 714 461, 754 461, 754 517 L 754 575"
               fill="none"
               stroke="#172554"
               strokeWidth="11"
               strokeLinecap="round"
             />
 
-            {/* 2. Main Front Shackle Cylindrical Bar (Upright Symmetrical Semicircular Arch) */}
+            {/* 2. Main Front Shackle Cylindrical Bar (Loops directly over the quantum track) */}
             {/* Shackle Base Dark Outline */}
             <path
-              d="M 706 494 L 706 436 C 706 400, 746 400, 746 456 L 746 514"
+              d="M 706 559 L 706 501 C 706 465, 746 465, 746 521 L 746 579"
               fill="none"
               stroke="#1D4ED8"
               strokeWidth="11"
@@ -2130,7 +2130,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             />
             {/* Shackle Metallic Blue Core */}
             <path
-              d="M 706 494 L 706 436 C 706 400, 746 400, 746 456 L 746 514"
+              d="M 706 559 L 706 501 C 706 465, 746 465, 746 521 L 746 579"
               fill="none"
               stroke="#2B66FF"
               strokeWidth="8.5"
@@ -2138,7 +2138,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             />
             {/* Shackle Glowing Cyan Core */}
             <path
-              d="M 706 494 L 706 436 C 706 400, 746 400, 746 456 L 746 514"
+              d="M 706 559 L 706 501 C 706 465, 746 465, 746 521 L 746 579"
               fill="none"
               stroke="#38BDF8"
               strokeWidth="4.5"
@@ -2146,17 +2146,17 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             />
             {/* Shackle Specular Hot White Core Highlight */}
             <path
-              d="M 706 436 C 706 404, 738 404, 738 422"
+              d="M 706 501 C 706 469, 738 469, 738 487"
               fill="none"
               stroke="#FFFFFF"
               strokeWidth="1.6"
               strokeLinecap="round"
             />
 
-            {/* 3. Top Cap Facet: Parallelogram from front top (675, 490)-(755, 530) to back (+24, -12) */}
+            {/* 3. Top Cap Facet: Parallelogram from front top (675, 555)-(755, 595) to back (+24, -12) */}
             {/* Naturally clips and grounds the base of the shackle into the lock */}
             <polygon
-              points="675,490 699,478 779,518 755,530"
+              points="675,555 699,543 779,583 755,595"
               fill="url(#pqcLockTopGrad)"
               stroke="#2B66FF"
               strokeWidth="2.2"
@@ -2164,19 +2164,19 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             />
 
             {/* 4. Shackle Entry Collar Ferrules (True 3D Isometric Cylinders on Top Cap) */}
-            {/* Left Collar at (706, 494) */}
-            <ellipse cx="706" cy="496" rx="9" ry="4.5" fill="#1E40AF" stroke="#2B66FF" strokeWidth="1.2" />
-            <ellipse cx="706" cy="493" rx="9" ry="4.5" fill="#DBEAFE" stroke="#2B66FF" strokeWidth="1.2" />
-            <ellipse cx="706" cy="493" rx="5.5" ry="2.8" fill="#172554" />
+            {/* Left Collar at (706, 559) */}
+            <ellipse cx="706" cy="561" rx="9" ry="4.5" fill="#1E40AF" stroke="#2B66FF" strokeWidth="1.2" />
+            <ellipse cx="706" cy="558" rx="9" ry="4.5" fill="#DBEAFE" stroke="#2B66FF" strokeWidth="1.2" />
+            <ellipse cx="706" cy="558" rx="5.5" ry="2.8" fill="#172554" />
 
-            {/* Right Collar at (746, 514) */}
-            <ellipse cx="746" cy="516" rx="9" ry="4.5" fill="#1E40AF" stroke="#2B66FF" strokeWidth="1.2" />
-            <ellipse cx="746" cy="513" rx="9" ry="4.5" fill="#DBEAFE" stroke="#2B66FF" strokeWidth="1.2" />
-            <ellipse cx="746" cy="513" rx="5.5" ry="2.8" fill="#172554" />
+            {/* Right Collar at (746, 579) */}
+            <ellipse cx="746" cy="581" rx="9" ry="4.5" fill="#1E40AF" stroke="#2B66FF" strokeWidth="1.2" />
+            <ellipse cx="746" cy="578" rx="9" ry="4.5" fill="#DBEAFE" stroke="#2B66FF" strokeWidth="1.2" />
+            <ellipse cx="746" cy="578" rx="5.5" ry="2.8" fill="#172554" />
 
             {/* 5. Right Side Depth Facet */}
             <polygon
-              points="755,530 779,518 779,610 755,622"
+              points="755,595 779,583 779,675 755,687"
               fill="url(#pqcLockSideGrad)"
               stroke="#2B66FF"
               strokeWidth="2.2"
@@ -2184,7 +2184,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             />
 
             {/* 6. Main Front Face with Isometric Skew Group (100% parallel to 3D grid) */}
-            <g transform="translate(675, 490) skewY(26.565)">
+            <g transform="translate(675, 555) skewY(26.565)">
               {/* Padlock Front Face Body */}
               <rect
                 x="0"
@@ -2231,10 +2231,10 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
             </g>
 
             {/* 7. Docked Padlock Telemetry Callout Pill */}
-            <line x1="715" y1="600" x2="715" y2="635" stroke="#2B66FF" strokeWidth="1.6" strokeDasharray="3 3" opacity="0.6" />
+            <line x1="715" y1="665" x2="715" y2="702" stroke="#2B66FF" strokeWidth="1.6" strokeDasharray="3 3" opacity="0.6" />
             <rect
               x="612"
-              y="635"
+              y="702"
               width="206"
               height="34"
               rx="6"
@@ -2243,10 +2243,10 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               strokeWidth="2.2"
               filter="url(#pqcPillShadow)"
             />
-            <circle cx="628" cy="652" r="4.5" fill="#10B981" />
+            <circle cx="628" cy="719" r="4.5" fill="#10B981" />
             <text
               x="640"
-              y="658"
+              y="725"
               fontSize="12.5"
               fill="#1E3A8A"
               fontWeight="900"
