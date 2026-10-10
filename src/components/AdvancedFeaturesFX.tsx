@@ -361,7 +361,7 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <g transform="translate(55, 80)" filter="url(#afCardShadow)">
+              <g transform="translate(55, 75)" filter="url(#afCardShadow)">
                 {/* Card Base */}
                 <rect x="0" y="0" width="270" height="145" rx="10" fill="url(#afCardGlass)" stroke="#E2E8F0" strokeWidth="1.5" />
                 {/* Top Accent Strip: Threat Alert Red */}
@@ -424,7 +424,7 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
             >
-              <g transform="translate(675, 80)" filter="url(#afCardShadow)">
+              <g transform="translate(675, 75)" filter="url(#afCardShadow)">
                 {/* Card Base */}
                 <rect x="0" y="0" width="270" height="145" rx="10" fill="url(#afCardGlass)" stroke="#E2E8F0" strokeWidth="1.5" />
                 {/* Top Accent Strip: Edge Defense Green */}
@@ -484,7 +484,7 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
 
         {/* =========================================================================
             STATE 2: UNKNOWN DEVICE // ACTIVE FILTER
-            Story: Unenrolled device detected -> FIDO2 WebAuthn Challenge Enforced
+            Story: Unenrolled device detected -> Hardware FIDO2 Security Key Enforced
             ========================================================================= */}
         {selectedAlert === 'device' && (
           <motion.svg
@@ -514,47 +514,66 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
                   <feMergeNode in="SourceGraphic" />
                 </feMerge>
               </filter>
+              <filter id="afKeyGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+
               <linearGradient id="afCardGlass" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.98" />
                 <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0.94" />
               </linearGradient>
-              <linearGradient id="afLaptopFace" x1="0%" y1="0%" x2="100%" y2="100%">
+
+              {/* FIDO2 Gold Connector & Capacitive Touch Sensor */}
+              <linearGradient id="afKeyGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FDE68A" />
+                <stop offset="50%" stopColor="#F59E0B" />
+                <stop offset="100%" stopColor="#D97706" />
+              </linearGradient>
+
+              {/* FIDO2 Matte Slate Key Body */}
+              <linearGradient id="afKeyBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#1E293B" />
+                <stop offset="100%" stopColor="#0A0F1D" />
+              </linearGradient>
+
+              {/* Metallic Space-Gray Laptop Chassis */}
+              <linearGradient id="afLaptopChassis" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#FFFFFF" />
-                <stop offset="50%" stopColor="#F0F9FF" />
-                <stop offset="100%" stopColor="#BAE6FD" />
+                <stop offset="35%" stopColor="#F1F5F9" />
+                <stop offset="100%" stopColor="#CBD5E1" />
               </linearGradient>
-              <linearGradient id="afLaptopScreen" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#0F172A" />
-                <stop offset="100%" stopColor="#1E293B" />
+              <linearGradient id="afLaptopChamferLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#E2E8F0" />
+                <stop offset="100%" stopColor="#94A3B8" />
               </linearGradient>
-              <linearGradient id="afShieldLeftFace" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FFFFFF" />
-                <stop offset="50%" stopColor="#F0F7FF" />
-                <stop offset="100%" stopColor="#DBEAFE" />
+              <linearGradient id="afLaptopChamferRight" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#CBD5E1" />
+                <stop offset="100%" stopColor="#64748B" />
               </linearGradient>
-              <linearGradient id="afShieldRightFace" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#DBEAFE" />
-                <stop offset="100%" stopColor="#93C5FD" />
-              </linearGradient>
+
               <pattern id="afDotGrid" width="30" height="30" patternUnits="userSpaceOnUse">
                 <circle cx="15" cy="15" r="1.1" fill="#2B66FF" opacity="0.08" />
               </pattern>
             </defs>
 
-            {/* Blueprint Grid & Floor Shadows */}
+            {/* Blueprint Grid & Ground Floor Shadows */}
             <rect x="40" y="40" width="920" height="560" fill="url(#afDotGrid)" />
-            <ellipse cx="500" cy="515" rx="270" ry="42" fill="#1E3A8A" opacity="0.18" filter="url(#afFloorShadow)" />
-            <ellipse cx="500" cy="515" rx="170" ry="26" fill="#2B66FF" opacity="0.22" filter="url(#afFloorShadow)" />
+            {/* Amber warning shadow under laptop, Cobalt security shadow under key & scan rings */}
+            <ellipse cx="430" cy="515" rx="220" ry="38" fill="#F59E0B" opacity="0.14" filter="url(#afFloorShadow)" />
+            <ellipse cx="510" cy="515" rx="270" ry="42" fill="#1E3A8A" opacity="0.20" filter="url(#afFloorShadow)" />
 
-            {/* Ground Rails */}
+            {/* Ground Alignment Rails */}
             <line x1="160" y1="360" x2="500" y2="480" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.22" />
             <line x1="500" y1="480" x2="840" y2="360" stroke="#2B66FF" strokeWidth="1" strokeDasharray="4 6" opacity="0.22" />
 
-            {/* --- CENTER STAGE: WORKSTATION TERMINAL (500, 405) --- */}
-            <g transform="translate(500, 405)">
-              {/* Concentric Biometric Verification Rings */}
+            {/* --- CENTER STAGE: BIOMETRIC & IDENTITY SCAN RINGS --- */}
+            <g transform="translate(470, 420) rotate(-3)">
               <g transform="scale(1.30, 0.63)">
-                {[65, 120, 175].map((r, i) => (
+                {[70, 130, 195, 245].map((r, i) => (
                   <circle
                     key={i}
                     cx="0"
@@ -563,162 +582,360 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
                     fill="none"
                     stroke="#2B66FF"
                     strokeWidth="2.0"
-                    strokeDasharray="4 6"
-                    opacity={0.35 + i * 0.15}
+                    strokeDasharray="5 5"
+                    opacity={0.32 + i * 0.12}
                   />
                 ))}
-                {/* Rotating Security Scan Ring */}
+                {/* Rotating Cyan Identity Radar Scan Beam */}
                 <motion.circle
                   cx="0"
                   cy="0"
-                  r="175"
+                  r="195"
                   fill="none"
                   stroke="#38BDF8"
-                  strokeWidth="2.6"
-                  strokeDasharray="60 160"
-                  animate={{ strokeDashoffset: [0, 440] }}
-                  transition={{ duration: 3.6, repeat: Infinity, ease: 'linear' }}
+                  strokeWidth="2.8"
+                  strokeDasharray="70 190"
+                  animate={{ strokeDashoffset: [0, 520] }}
+                  transition={{ duration: 4.2, repeat: Infinity, ease: 'linear' }}
                 />
-              </g>
-
-              {/* 3D Isometric Workstation Body (Sleek Titanium) */}
-              <polygon
-                points="-95,15 0,-32 95,15 0,62"
-                fill="url(#afLaptopFace)"
-                stroke="#2B66FF"
-                strokeWidth="2.4"
-                strokeLinejoin="round"
-              />
-              <polygon
-                points="-75,15 0,-22 75,15 0,52"
-                fill="#EFF6FF"
-                stroke="#38BDF8"
-                strokeWidth="1.6"
-              />
-              {[-40, -15, 10, 35, 60].map((kx, idx) => (
-                <line
-                  key={idx}
-                  x1={kx}
-                  y1={2 + idx * 3}
-                  x2={kx + 12}
-                  y2={16 + idx * 3}
-                  stroke="#93C5FD"
-                  strokeWidth="1.2"
-                  opacity="0.75"
-                />
-              ))}
-
-              {/* 3D Upright Display (Unrecognized Client Prompt) */}
-              <g transform="translate(-15, -95) skewY(26.565)">
-                <rect x="0" y="0" width="115" height="88" rx="6" fill="url(#afLaptopScreen)" stroke="#2B66FF" strokeWidth="2.2" />
-                <rect x="5" y="5" width="105" height="78" rx="3" fill="#0A0F1D" />
-                <circle cx="16" cy="18" r="4" fill="#EF4444" />
-                <circle cx="28" cy="18" r="4" fill="#F59E0B" />
-                <circle cx="40" cy="18" r="4" fill="#10B981" />
-                <text x="14" y="38" fontSize="10.5" fill="#EF4444" fontWeight="900" fontFamily="system-ui, sans-serif">
-                  UNRECOGNIZED CLIENT
-                </text>
-                <line x1="10" y1="44" x2="105" y2="44" stroke="#2B66FF" strokeWidth="1" opacity="0.4" />
-                <text x="14" y="58" fontSize="9" fill="#38BDF8" fontWeight="700" fontFamily="monospace">
-                  ID: MAC-OS-SONOMA-17
-                </text>
-                <text x="14" y="70" fontSize="8.5" fill="#94A3B8" fontWeight="700" fontFamily="monospace">
-                  AUTH: FIDO2 REQUIRED
-                </text>
-                <rect x="10" y="76" width="90" height="4" rx="2" fill="#2563EB" opacity="0.8" />
-              </g>
-
-              {/* 3D Defensive Shield with Keyhole Crest (Clear of Right Card) */}
-              <g transform="translate(195, -30)" filter="url(#afShieldShadow)">
-                <ellipse cx="0" cy="78" rx="34" ry="9" fill="#1E3A8A" opacity="0.35" filter="url(#afFloorShadow)" />
-                <polygon points="-28,0 0,-16 28,0 0,10" fill="#FFFFFF" stroke="#2B66FF" strokeWidth="2.2" strokeLinejoin="round" />
-                <polygon points="-28,0 0,10 0,66 -28,42" fill="url(#afShieldLeftFace)" stroke="#2B66FF" strokeWidth="2.2" strokeLinejoin="round" />
-                <polygon points="0,10 28,0 28,42 0,66" fill="url(#afShieldRightFace)" stroke="#2B66FF" strokeWidth="2.2" strokeLinejoin="round" />
-                {/* Security Keyhole Emblem */}
-                <circle cx="0" cy="26" r="6" fill="#2B66FF" />
-                <polygon points="-3,26 3,26 4.5,40 -4.5,40" fill="#2B66FF" />
-                <circle cx="0" cy="12" r="3.5" fill="#38BDF8" />
               </g>
             </g>
 
-            {/* Meaningful Data Connectors */}
-            <path
-              d="M 190 225 C 190 310, 360 410, 440 410"
-              fill="none"
-              stroke="#2B66FF"
-              strokeWidth="2.0"
-              strokeDasharray="5 5"
-              opacity="0.65"
+            {/* --- HERO OBJECT 1: 3D METALLIC WORKSTATION LAPTOP (400, 390) --- */}
+            <g transform="translate(400, 390)">
+              {/* Ground Contact Shadow directly under Laptop Chassis */}
+              <polygon points="-125,25 0,-40 125,25 0,90" fill="#0F172A" opacity="0.32" filter="url(#afFloorShadow)" />
+
+              {/* 3D Base Chassis - Top Anodized Aluminum Deck */}
+              <polygon
+                points="-115,18 0,-36 115,18 0,72"
+                fill="url(#afLaptopChassis)"
+                stroke="#94A3B8"
+                strokeWidth="1.8"
+                strokeLinejoin="round"
+              />
+              {/* Left Front Chamfer / Thickness Extrusion */}
+              <polygon
+                points="-115,18 0,72 0,85 -115,31"
+                fill="url(#afLaptopChamferLeft)"
+                stroke="#94A3B8"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+              {/* Right Front Chamfer / Thickness Extrusion */}
+              <polygon
+                points="0,72 115,18 115,31 0,85"
+                fill="url(#afLaptopChamferRight)"
+                stroke="#64748B"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+              {/* Specular Metallic Edge Highlight along Top Rim */}
+              <line x1="-115" y1="18" x2="0" y2="72" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" opacity="0.95" />
+
+              {/* Recessed Dark Titanium Keyboard Bed */}
+              <polygon
+                points="-88,14 0,-26 88,14 0,54"
+                fill="#0F172A"
+                stroke="#334155"
+                strokeWidth="1.4"
+              />
+              {/* Backlit Chiclet Keyboard Grid Lines */}
+              {[-60, -36, -12, 12, 36, 60].map((kx, idx) => (
+                <line
+                  key={idx}
+                  x1={kx}
+                  y1={-2 + idx * 4}
+                  x2={kx + 16}
+                  y2={18 + idx * 4}
+                  stroke="#38BDF8"
+                  strokeWidth="1.2"
+                  opacity="0.65"
+                />
+              ))}
+
+              {/* Integrated Trackpad */}
+              <polygon
+                points="-26,44 0,33 26,44 0,55"
+                fill="#E2E8F0"
+                stroke="#94A3B8"
+                strokeWidth="1.2"
+              />
+
+              {/* USB-C Port Cutout on Right Chassis Flank (Facing the Security Key) */}
+              <g transform="translate(100, 22)">
+                <rect x="0" y="-3" width="9" height="5" rx="1.5" fill="#0A0F1D" stroke="#64748B" strokeWidth="1" />
+                <rect x="2" y="-1.5" width="5" height="2" rx="0.5" fill="#FBBF24" />
+              </g>
+
+              {/* Solid Mechanical Cylindrical Display Hinge */}
+              <rect x="-65" y="-40" width="130" height="8" rx="4" fill="#475569" stroke="#334155" strokeWidth="1.4" />
+              <line x1="-60" y1="-36" x2="60" y2="-36" stroke="#94A3B8" strokeWidth="1.2" opacity="0.9" />
+
+              {/* 3D Upright Display Screen - Physically Attached to Hinge */}
+              <g transform="translate(-85, -158)">
+                {/* Aluminum Outer Lid Bezel */}
+                <rect x="0" y="0" width="170" height="122" rx="7" fill="#0F172A" stroke="#334155" strokeWidth="2.2" filter="url(#afCardShadow)" />
+                {/* Display Screen Deep OLED Glass */}
+                <rect x="6" y="6" width="158" height="110" rx="4" fill="#080C16" />
+
+                {/* Top Traffic Lights */}
+                <circle cx="16" cy="16" r="3.5" fill="#EF4444" />
+                <circle cx="26" cy="16" r="3.5" fill="#F59E0B" />
+                <circle cx="36" cy="16" r="3.5" fill="#10B981" />
+
+                {/* Amber/Red Alert Header Pill */}
+                <g transform="translate(14, 25)">
+                  <rect x="0" y="0" width="142" height="18" rx="9" fill="#450A0A" stroke="#EF4444" strokeWidth="1" />
+                  <circle cx="10" cy="9" r="3" fill="#EF4444" />
+                  <text x="18" y="12.5" fontSize="9" fill="#FCA5A5" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="0.04em">
+                    UNENROLLED DEVICE
+                  </text>
+                </g>
+
+                {/* Hero Client Identification (Large, Crisp, High-Contrast) */}
+                <text x="14" y="62" fontSize="15" fill="#FFFFFF" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="-0.01em">
+                  macOS Sonoma
+                </text>
+                <text x="14" y="78" fontSize="10.5" fill="#94A3B8" fontWeight="600" fontFamily="system-ui, sans-serif">
+                  Hardware ID: Unrecognized
+                </text>
+
+                {/* FIDO2 Challenge Action Prompt Bar */}
+                <rect x="10" y="86" width="150" height="24" rx="4" fill="#172554" stroke="#38BDF8" strokeWidth="1.2" />
+                <circle cx="21" cy="98" r="3.5" fill="#FBBF24" />
+                <text x="30" y="102" fontSize="10" fill="#38BDF8" fontWeight="800" fontFamily="system-ui, sans-serif">
+                  FIDO2 Prompt: Touch Key...
+                </text>
+              </g>
+            </g>
+
+            {/* --- HERO OBJECT 2: PROMINENT 3D FLOATING FIDO2 SECURITY KEY TOKEN (610, 335) --- */}
+            <motion.g
+              animate={{ y: [0, -7, 0] }}
+              transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <g transform="translate(610, 335)">
+                {/* Floating Shadow under Key */}
+                <ellipse cx="0" cy="108" rx="30" ry="8" fill="#1E3A8A" opacity="0.28" filter="url(#afFloorShadow)" />
+
+                {/* Gold USB-C Connector Tongue (Pointing toward the Laptop's USB Port) */}
+                <g transform="translate(-30, 24) rotate(-22)">
+                  <rect x="0" y="-9" width="22" height="18" rx="2" fill="url(#afKeyGold)" stroke="#B45309" strokeWidth="1.2" />
+                  <line x1="5" y1="-5" x2="17" y2="-5" stroke="#78350F" strokeWidth="1.2" />
+                  <line x1="5" y1="0" x2="17" y2="0" stroke="#78350F" strokeWidth="1.2" />
+                  <line x1="5" y1="5" x2="17" y2="5" stroke="#78350F" strokeWidth="1.2" />
+                </g>
+
+                {/* Security Key Main Body (Substantial 56x94mm Token) */}
+                <rect
+                  x="-28"
+                  y="-8"
+                  width="56"
+                  height="94"
+                  rx="10"
+                  fill="url(#afKeyBody)"
+                  stroke="#38BDF8"
+                  strokeWidth="2.2"
+                  filter="url(#afShieldShadow)"
+                />
+
+                {/* Top Bevel Highlight */}
+                <path d="M -26 0 Q -26 -6 -20 -6 L 20 -6 Q 26 -6 26 0" fill="none" stroke="#60A5FA" strokeWidth="1.6" />
+
+                {/* Cryptographic Shield Emblem at Key Top */}
+                <path
+                  d="M 0,5 L 9,9 L 9,18 Q 0,24 0,24 Q 0,24 -9,18 L -9,9 Z"
+                  fill="none"
+                  stroke="#38BDF8"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                />
+                <circle cx="0" cy="13" r="2.5" fill="#38BDF8" />
+
+                {/* Golden Capacitive Touch Sensor (Center) with Radiating Auras */}
+                <g transform="translate(0, 42)">
+                  {/* Expanding Capacitive Touch Pulse Waves */}
+                  <motion.circle
+                    cx="0"
+                    cy="0"
+                    r="15"
+                    fill="none"
+                    stroke="#38BDF8"
+                    strokeWidth="2.6"
+                    animate={{ r: [15, 36], opacity: [0.95, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }}
+                  />
+                  <motion.circle
+                    cx="0"
+                    cy="0"
+                    r="15"
+                    fill="none"
+                    stroke="#FBBF24"
+                    strokeWidth="2.0"
+                    animate={{ r: [15, 28], opacity: [0.85, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.35, ease: 'easeOut' }}
+                  />
+
+                  {/* Gold Capacitive Sensor Brass Button */}
+                  <circle cx="0" cy="0" r="15" fill="url(#afKeyGold)" stroke="#B45309" strokeWidth="2.0" />
+                  <circle cx="0" cy="0" r="11" fill="none" stroke="#78350F" strokeWidth="1.2" strokeDasharray="3 3" />
+                  <circle cx="0" cy="0" r="7" fill="url(#afKeyGold)" />
+
+                  {/* Fingerprint Touch Icon */}
+                  <path d="M -4,0 Q 0,-4 4,0 Q 0,4 -4,0" fill="none" stroke="#78350F" strokeWidth="1.6" strokeLinecap="round" />
+                </g>
+
+                {/* Lanyard Cutout Loop at Bottom */}
+                <circle cx="0" cy="74" r="8" fill="#0A0F1D" stroke="#38BDF8" strokeWidth="1.6" />
+                <circle cx="0" cy="74" r="4.5" fill="#1E293B" />
+              </g>
+            </motion.g>
+
+            {/* --- ENCRYPTED WEBAUTHN DATA RAY: Key Touch Sensor to Laptop USB Port --- */}
+            <line
+              x1="575"
+              y1="365"
+              x2="505"
+              y2="410"
+              stroke="#38BDF8"
+              strokeWidth="3.0"
+              strokeDasharray="5 4"
+              filter="url(#afGlow)"
+              opacity="0.9"
             />
-            <path
-              d="M 810 225 C 810 300, 730 375, 695 375"
-              fill="none"
-              stroke="#10B981"
-              strokeWidth="2.0"
-              strokeDasharray="5 5"
-              opacity="0.65"
+            {/* Glowing Handshake Packets Traveling from Key to Laptop */}
+            <motion.circle
+              cx="575"
+              cy="365"
+              r="4.5"
+              fill="#38BDF8"
+              filter="url(#afGlow)"
+              animate={{ cx: [575, 505], cy: [365, 410], opacity: [1, 0.4] }}
+              transition={{ duration: 1.1, repeat: Infinity, ease: 'easeOut' }}
+            />
+            <motion.circle
+              cx="575"
+              cy="365"
+              r="2.2"
+              fill="#FFFFFF"
+              animate={{ cx: [575, 505], cy: [365, 410], opacity: [1, 0.4] }}
+              transition={{ duration: 1.1, repeat: Infinity, ease: 'easeOut' }}
             />
 
-            {/* LEFT CARD: UNKNOWN DEVICE */}
+            {/* --- PURPOSEFUL DATA CONNECTOR LINES --- */}
+            {/* Left Connector (Amber): Links Left Risk Card to Laptop */}
+            <path
+              d="M 190 220 C 190 300, 290 330, 350 330"
+              fill="none"
+              stroke="#F59E0B"
+              strokeWidth="2.2"
+              strokeDasharray="5 5"
+              opacity="0.8"
+            />
+            <motion.circle
+              cx="190"
+              cy="220"
+              r="3.5"
+              fill="#F59E0B"
+              animate={{ cx: [190, 270, 350], cy: [220, 280, 330] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+            />
+
+            {/* Right Connector (Cobalt): Links Right Challenge Card to FIDO2 Key */}
+            <path
+              d="M 810 220 C 810 290, 690 340, 640 340"
+              fill="none"
+              stroke="#2B66FF"
+              strokeWidth="2.2"
+              strokeDasharray="5 5"
+              opacity="0.8"
+            />
+            <motion.circle
+              cx="810"
+              cy="220"
+              r="3.5"
+              fill="#2B66FF"
+              animate={{ cx: [810, 730, 640], cy: [220, 290, 340] }}
+              transition={{ duration: 2.0, repeat: Infinity, ease: 'easeInOut' }}
+            />
+
+            {/* =========================================================================
+                LEFT CARD: UNENROLLED DEVICE (Amber Risk State, 2-3 Large High-Contrast Lines)
+                ========================================================================= */}
             <motion.g
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <g transform="translate(55, 80)" filter="url(#afCardShadow)">
+              <g transform="translate(55, 75)" filter="url(#afCardShadow)">
                 <rect x="0" y="0" width="270" height="145" rx="10" fill="url(#afCardGlass)" stroke="#E2E8F0" strokeWidth="1.5" />
-                <path d="M 0 10 Q 0 0 10 0 L 260 0 Q 270 0 270 10 L 270 12 L 0 12 Z" fill="#2B66FF" />
+                {/* Amber Warning Stripe */}
+                <path d="M 0 10 Q 0 0 10 0 L 260 0 Q 270 0 270 10 L 270 12 L 0 12 Z" fill="#F59E0B" />
 
+                {/* Line 1: Header Category Pill */}
                 <g transform="translate(16, 26)">
-                  <rect x="0" y="0" width="145" height="22" rx="11" fill="#EFF6FF" stroke="#BFDBFE" strokeWidth="1" />
-                  <circle cx="11" cy="11" r="4" fill="#2B66FF" />
-                  <text x="21" y="15" fontSize="11" fill="#1D4ED8" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="0.04em">
-                    POLICY TRIGGERED
+                  <rect x="0" y="0" width="144" height="22" rx="11" fill="#FFFBEB" stroke="#FDE68A" strokeWidth="1" />
+                  <circle cx="11" cy="11" r="4" fill="#F59E0B" />
+                  <text x="21" y="15" fontSize="11" fill="#B45309" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="0.04em">
+                    UNENROLLED DEVICE
                   </text>
                 </g>
 
-                <text x="16" y="76" fontSize="19" fill="#0F172A" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
+                {/* Line 2: Large Crystal-Clear Device Name (20.5px Bold) */}
+                <text x="16" y="77" fontSize="20.5" fill="#0F172A" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
                   macOS Sonoma
                 </text>
-                <text x="16" y="98" fontSize="13" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
-                  Unenrolled Hardware Fingerprint
+
+                {/* Line 3: Clean Plain-Language Detail */}
+                <text x="16" y="100" fontSize="13.5" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
+                  Unrecognized Client Fingerprint
                 </text>
 
-                <line x1="16" y1="110" x2="254" y2="110" stroke="#F1F5F9" strokeWidth="1.2" />
-                <rect x="16" y="117" width="140" height="18" rx="4" fill="#EFF6FF" stroke="#BFDBFE" strokeWidth="1" />
-                <text x="23" y="130" fontSize="10.5" fill="#1D4ED8" fontWeight="700" fontFamily="system-ui, sans-serif">
-                  Active Filter Enforced
+                {/* Bottom Divider & Action Pill */}
+                <line x1="16" y1="112" x2="254" y2="112" stroke="#F1F5F9" strokeWidth="1.2" />
+                <rect x="16" y="118" width="158" height="18" rx="4" fill="#FFFBEB" stroke="#FDE68A" strokeWidth="1" />
+                <text x="23" y="131" fontSize="10.5" fill="#B45309" fontWeight="700" fontFamily="system-ui, sans-serif">
+                  Zero-Trust Policy Enforced
                 </text>
               </g>
             </motion.g>
 
-            {/* RIGHT CARD: FIDO2 CHALLENGE */}
+            {/* =========================================================================
+                RIGHT CARD: SECURITY KEY CHALLENGE (Cobalt Challenge Gate, 2-3 Large Lines)
+                ========================================================================= */}
             <motion.g
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
             >
-              <g transform="translate(675, 80)" filter="url(#afCardShadow)">
+              <g transform="translate(675, 75)" filter="url(#afCardShadow)">
                 <rect x="0" y="0" width="270" height="145" rx="10" fill="url(#afCardGlass)" stroke="#E2E8F0" strokeWidth="1.5" />
-                <path d="M 0 10 Q 0 0 10 0 L 260 0 Q 270 0 270 10 L 270 12 L 0 12 Z" fill="#10B981" />
+                {/* Brand Cobalt Challenge Stripe */}
+                <path d="M 0 10 Q 0 0 10 0 L 260 0 Q 270 0 270 10 L 270 12 L 0 12 Z" fill="#2B66FF" />
 
+                {/* Line 1: Header Category Pill */}
                 <g transform="translate(16, 26)">
-                  <rect x="0" y="0" width="142" height="22" rx="11" fill="#ECFDF5" stroke="#A7F3D0" strokeWidth="1" />
-                  <circle cx="11" cy="11" r="4" fill="#10B981" />
-                  <text x="21" y="15" fontSize="11" fill="#047857" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="0.04em">
-                    MFA CHALLENGE
+                  <rect x="0" y="0" width="160" height="22" rx="11" fill="#EFF6FF" stroke="#BFDBFE" strokeWidth="1" />
+                  <circle cx="11" cy="11" r="4" fill="#2B66FF" />
+                  <text x="21" y="15" fontSize="11" fill="#1D4ED8" fontWeight="700" fontFamily="system-ui, sans-serif" letterSpacing="0.04em">
+                    SECURITY KEY CHALLENGE
                   </text>
                 </g>
 
-                <text x="16" y="76" fontSize="19" fill="#0F172A" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
-                  FIDO2 Security Key
-                </text>
-                <text x="16" y="98" fontSize="13" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
-                  Hardware Authentication Prompt
+                {/* Line 2: Large Hero Metric (20.5px Bold) */}
+                <text x="16" y="77" fontSize="20.5" fill="#0F172A" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
+                  FIDO2 Key Required
                 </text>
 
-                <line x1="16" y1="110" x2="254" y2="110" stroke="#F1F5F9" strokeWidth="1.2" />
-                <rect x="16" y="117" width="160" height="18" rx="4" fill="#ECFDF5" stroke="#A7F3D0" strokeWidth="1" />
-                <text x="23" y="130" fontSize="10.5" fill="#059669" fontWeight="700" fontFamily="system-ui, sans-serif">
-                  Access Restricted · Gate Locked
+                {/* Line 3: Clean Plain-Language Detail */}
+                <text x="16" y="100" fontSize="13.5" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
+                  Touch Security Key to Authenticate
+                </text>
+
+                {/* Bottom Divider & Action Pill */}
+                <line x1="16" y1="112" x2="254" y2="112" stroke="#F1F5F9" strokeWidth="1.2" />
+                <rect x="16" y="118" width="165" height="18" rx="4" fill="#EFF6FF" stroke="#BFDBFE" strokeWidth="1" />
+                <text x="23" y="131" fontSize="10.5" fill="#1D4ED8" fontWeight="700" fontFamily="system-ui, sans-serif">
+                  Access Locked · Awaiting Touch
                 </text>
               </g>
             </motion.g>
@@ -913,7 +1130,7 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <g transform="translate(55, 80)" filter="url(#afCardShadow)">
+              <g transform="translate(55, 75)" filter="url(#afCardShadow)">
                 <rect x="0" y="0" width="270" height="145" rx="10" fill="url(#afCardGlass)" stroke="#E2E8F0" strokeWidth="1.5" />
                 <path d="M 0 10 Q 0 0 10 0 L 260 0 Q 270 0 270 10 L 270 12 L 0 12 Z" fill="#EF4444" />
 
@@ -925,16 +1142,16 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
                   </text>
                 </g>
 
-                <text x="16" y="76" fontSize="19" fill="#DC2626" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
+                <text x="16" y="77" fontSize="20.5" fill="#DC2626" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
                   14 Rapid Logins
                 </text>
-                <text x="16" y="98" fontSize="13" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
+                <text x="16" y="100" fontSize="13.5" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
                   Brute-Force Stuffing Pattern
                 </text>
 
-                <line x1="16" y1="110" x2="254" y2="110" stroke="#F1F5F9" strokeWidth="1.2" />
-                <rect x="16" y="117" width="160" height="18" rx="4" fill="#FEF2F2" stroke="#FCA5A5" strokeWidth="1" />
-                <text x="23" y="130" fontSize="10.5" fill="#DC2626" fontWeight="700" fontFamily="system-ui, sans-serif">
+                <line x1="16" y1="112" x2="254" y2="112" stroke="#F1F5F9" strokeWidth="1.2" />
+                <rect x="16" y="118" width="160" height="18" rx="4" fill="#FEF2F2" stroke="#FCA5A5" strokeWidth="1" />
+                <text x="23" y="131" fontSize="10.5" fill="#DC2626" fontWeight="700" fontFamily="system-ui, sans-serif">
                   Threshold Exceeded · Locked
                 </text>
               </g>
@@ -945,7 +1162,7 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}
             >
-              <g transform="translate(675, 80)" filter="url(#afCardShadow)">
+              <g transform="translate(675, 75)" filter="url(#afCardShadow)">
                 <rect x="0" y="0" width="270" height="145" rx="10" fill="url(#afCardGlass)" stroke="#E2E8F0" strokeWidth="1.5" />
                 <path d="M 0 10 Q 0 0 10 0 L 260 0 Q 270 0 270 10 L 270 12 L 0 12 Z" fill="#F59E0B" />
 
@@ -957,10 +1174,10 @@ export const AdvancedFeaturesFX: React.FC<AdvancedFeaturesFXProps> = ({ selected
                   </text>
                 </g>
 
-                <text x="16" y="76" fontSize="19" fill="#0F172A" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
+                <text x="16" y="77" fontSize="20.5" fill="#0F172A" fontWeight="800" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
                   Delay: <tspan fill="#D97706">5,000 ms</tspan>
                 </text>
-                <text x="16" y="98" fontSize="13" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
+                <text x="16" y="100" fontSize="13.5" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
                   Exponential Penalty Hold
                 </text>
 

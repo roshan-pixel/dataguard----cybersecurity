@@ -33,6 +33,21 @@ export const AdvancedFeatures: React.FC<AdvancedFeaturesProps> = ({ onOpenDemo }
     }
   };
 
+  const stateCaptions = {
+    ip: {
+      title: 'Prevent Unauthorized Access',
+      subtitle: 'AI-powered edge inspection automatically isolates malicious traffic before it reaches your network.'
+    },
+    device: {
+      title: 'Zero-Trust Device Verification',
+      subtitle: 'Unrecognized device detected? Hardware-backed FIDO2 security keys enforce zero-trust identity before granting access.'
+    },
+    auth: {
+      title: 'Brute-Force Attack Mitigation',
+      subtitle: 'Rapid login burst detected? Exponential tarpitting delays malicious requests to protect backend resources.'
+    }
+  };
+
   return (
     <section id="capabilities" className="relative w-full bg-white border-b border-[#DCE3ED] py-16 sm:py-24">
       {/* Precision Crosshairs */}
@@ -156,10 +171,10 @@ export const AdvancedFeatures: React.FC<AdvancedFeaturesProps> = ({ onOpenDemo }
               <div className="pt-6 border-t border-[#DCE3ED] flex items-center justify-between gap-4">
                 <div>
                   <h4 className="text-xl font-bold font-sans text-[#0F1115]">
-                    Prevent Unauthorized Access
+                    {stateCaptions[selectedAlert].title}
                   </h4>
                   <p className="text-sm text-[#64748B] mt-1 font-sans">
-                    AI-powered edge inspection automatically isolates malicious traffic before it reaches your network.
+                    {stateCaptions[selectedAlert].subtitle}
                   </p>
                 </div>
                 <button
