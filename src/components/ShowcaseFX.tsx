@@ -468,10 +468,16 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
               />
 
               {/* 360° Rotating Radar Sweep Cone with luminous radial gradient, electric cyan scanline, white laser core */}
-              <motion.g
-                animate={{ rotate: 360 }}
-                transition={{ duration: 3.6, repeat: Infinity, ease: 'linear' }}
-              >
+              {/* Rotating strictly around the apex / center point (0, 0) as the fixed rotation axis */}
+              <g>
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 0 0"
+                  to="360 0 0"
+                  dur="3.6s"
+                  repeatCount="indefinite"
+                />
                 {/* 60° sweep wedge sector */}
                 <path 
                   d="M 0 0 L 310 0 A 310 310 0 0 1 155 268.5 Z" 
@@ -493,7 +499,7 @@ export const ShowcaseFX: React.FC<ShowcaseFXProps> = ({ activeTab }) => {
                 <line x1="0" y1="0" x2="310" y2="0" stroke="#FFFFFF" strokeWidth="1.6" opacity="0.95" />
                 {/* Trailing edge */}
                 <line x1="0" y1="0" x2="155" y2="268.5" stroke="#2B66FF" strokeWidth="1.6" opacity="0.55" />
-              </motion.g>
+              </g>
 
               {/* Central Radar Emitter Core */}
               <circle cx="0" cy="0" r="18" fill="#2B66FF" opacity="0.9" />
