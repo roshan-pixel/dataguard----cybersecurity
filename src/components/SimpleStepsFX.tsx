@@ -447,7 +447,7 @@ export const SimpleStepsFX: React.FC<SimpleStepsFXProps> = ({ activeStep }) => {
 
         {/* =========================================================================
             SCENE 2: DETECT THREATS (activeStep === 1)
-            Story: Multi-layer heuristics & transformer models flagging unauthorized access
+            Story: Rogue Intrusion Vector (Left) -> 3D Behavioral Engine Inspection & Interception (Center) -> Neural Verification & Zero False Positives (Right)
             ========================================================================= */}
         {activeStep === 1 && (
           <motion.svg
@@ -461,169 +461,442 @@ export const SimpleStepsFX: React.FC<SimpleStepsFXProps> = ({ activeStep }) => {
           >
             <defs>
               <filter id="ssFloorShadow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="16" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="14" />
               </filter>
               <filter id="ssCardShadow" x="-20%" y="-20%" width="140%" height="150%">
-                <feDropShadow dx="0" dy="10" stdDeviation="14" floodColor="#0F172A" floodOpacity="0.08" />
+                <feDropShadow dx="0" dy="10" stdDeviation="12" floodColor="#0F172A" floodOpacity="0.09" />
                 <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#0F172A" floodOpacity="0.04" />
               </filter>
               <filter id="ssGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
                   <feMergeNode in="SourceGraphic" />
                 </feMerge>
               </filter>
               <linearGradient id="ssPanelGlass" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.98" />
-                <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0.94" />
+                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.99" />
+                <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0.95" />
               </linearGradient>
+
+              {/* Behavioral Engine Gradients */}
+              <linearGradient id="ssEngineTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FFFFFF" />
+                <stop offset="50%" stopColor="#EFF6FF" />
+                <stop offset="100%" stopColor="#DBEAFE" />
+              </linearGradient>
+              <linearGradient id="ssEngineFacetLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#DBEAFE" />
+                <stop offset="100%" stopColor="#93C5FD" />
+              </linearGradient>
+              <linearGradient id="ssEngineFacetRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#93C5FD" />
+                <stop offset="100%" stopColor="#60A5FA" />
+              </linearGradient>
+
+              {/* Threat Deflection Gradient */}
+              <linearGradient id="ssThreatBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#EF4444" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#DC2626" stopOpacity="0.95" />
+              </linearGradient>
+
+              {/* Blueprint Dot Grid */}
               <pattern id="ssDotGrid" width="28" height="28" patternUnits="userSpaceOnUse">
-                <circle cx="14" cy="14" r="1.1" fill="#2B66FF" opacity="0.08" />
+                <circle cx="14" cy="14" r="1.1" fill="#2B66FF" opacity="0.14" />
               </pattern>
             </defs>
 
-            {/* Background Grid */}
-            <rect x="20" y="20" width="920" height="480" fill="url(#ssDotGrid)" />
-            <ellipse cx="480" cy="420" rx="270" ry="36" fill="#EF4444" opacity="0.14" filter="url(#ssFloorShadow)" />
+            {/* Background Blueprint Grid with Full Margin Frame */}
+            <rect x="18" y="18" width="924" height="484" fill="url(#ssDotGrid)" />
 
-            {/* Center Transformer Heuristic Radar Scanner */}
-            <g transform="translate(480, 270)">
-              {/* Concentric Threat Range Rings */}
-              {[60, 120, 180, 230].map((r, i) => (
+            {/* Precision 4-Corner Crosshairs */}
+            <g stroke="#2B66FF" strokeWidth="1.5" opacity="0.5">
+              <line x1="24" y1="18" x2="24" y2="30" />
+              <line x1="18" y1="24" x2="30" y2="24" />
+              <line x1="936" y1="18" x2="936" y2="30" />
+              <line x1="930" y1="24" x2="942" y2="24" />
+              <line x1="24" y1="490" x2="24" y2="502" />
+              <line x1="18" y1="496" x2="30" y2="496" />
+              <line x1="936" y1="490" x2="936" y2="502" />
+              <line x1="930" y1="496" x2="942" y2="496" />
+            </g>
+
+            {/* Ground Contact Shadow under Central Behavioral Engine */}
+            <ellipse cx="480" cy="330" rx="240" ry="32" fill="#1E3A8A" opacity="0.18" filter="url(#ssFloorShadow)" />
+
+            {/* =========================================================================
+                TOP HEADER PILL: Positioned at y=16 with 36px clearance from cards
+                ========================================================================= */}
+            <g transform="translate(250, 16)">
+              <rect x="0" y="0" width="460" height="34" rx="8" fill="#FFFFFF" stroke="#2B66FF" strokeWidth="2.0" filter="url(#ssCardShadow)" />
+              <circle cx="20" cy="17" r="5" fill="#EF4444" />
+              <text x="36" y="22" fontSize="13.5" fill="#0F172A" fontWeight="900" fontFamily="monospace" letterSpacing="0.02em">
+                STEP 02 // DETECT THREATS (BEHAVIORAL ENGINE)
+              </text>
+            </g>
+
+            {/* =========================================================================
+                LEFT: ROGUE INTRUSION VECTOR NODE (185, 335)
+                Clear origin point of suspicious activity
+                ========================================================================= */}
+            <g transform="translate(185, 335)">
+              {/* Floor Shadow */}
+              <ellipse cx="0" cy="28" rx="36" ry="11" fill="#450A0A" opacity="0.30" filter="url(#ssFloorShadow)" />
+
+              {/* 3D Rogue Infiltration Terminal Chassis */}
+              <polygon points="-28,-11 0,-24 28,-11 0,2" fill="#1E1E2E" stroke="#EF4444" strokeWidth="2.0" />
+              <polygon points="-28,-11 0,2 0,40 -28,27" fill="#0F172A" stroke="#EF4444" strokeWidth="1.8" />
+              <polygon points="0,2 28,-11 28,27 0,40" fill="#181825" stroke="#EF4444" strokeWidth="1.8" />
+
+              {/* Upright Intrusion Probe Screen */}
+              <rect x="-24" y="-30" width="48" height="30" rx="3" fill="#0F172A" stroke="#EF4444" strokeWidth="1.8" />
+              <rect x="-21" y="-27" width="42" height="24" rx="2" fill="#080C16" />
+              <line x1="-16" y1="-19" x2="6" y2="-19" stroke="#EF4444" strokeWidth="1.6" />
+              <line x1="-16" y1="-13" x2="-2" y2="-13" stroke="#F59E0B" strokeWidth="1.6" />
+              <circle cx="12" cy="-15" r="2.5" fill="#EF4444" filter="url(#ssGlow)" />
+
+              {/* Threat Origin Label Tag */}
+              <rect x="-75" y="46" width="150" height="38" rx="6" fill="#FFFFFF" stroke="#EF4444" strokeWidth="1.6" filter="url(#ssCardShadow)" />
+              <text x="0" y="61" fontSize="13.5" fill="#991B1B" fontWeight="900" fontFamily="system-ui, sans-serif" textAnchor="middle">
+                ROGUE INTRUSION
+              </text>
+              <text x="0" y="76" fontSize="12" fill="#475569" fontWeight="800" fontFamily="monospace" textAnchor="middle">
+                198.51.100.44
+              </text>
+            </g>
+
+            {/* =========================================================================
+                ATTACK VECTOR CONDUIT & INTERCEPTION BARRIER
+                Trajectory from Rogue Node (230, 330) -> Center Deflection Boundary (400, 260)
+                ========================================================================= */}
+            <g>
+              <line x1="230" y1="330" x2="400" y2="260" stroke="#EF4444" strokeWidth="2.8" strokeDasharray="6 4" opacity="0.85" />
+              {/* Directional Attack Chevrons */}
+              <polygon points="285,307 297,302 288,316" fill="#EF4444" />
+              <polygon points="345,283 357,278 348,292" fill="#EF4444" />
+
+              {/* Traveling Rogue Exploit Payload */}
+              <motion.circle
+                cx="230"
+                cy="330"
+                r="5"
+                fill="#EF4444"
+                filter="url(#ssGlow)"
+                animate={{ cx: [230, 400], cy: [330, 260], opacity: [1, 0.4] }}
+                transition={{ duration: 1.1, repeat: Infinity, ease: 'easeIn' }}
+              />
+              <motion.circle
+                cx="230"
+                cy="330"
+                r="2.2"
+                fill="#FFFFFF"
+                animate={{ cx: [230, 400], cy: [330, 260], opacity: [1, 0.4] }}
+                transition={{ duration: 1.1, repeat: Infinity, ease: 'easeIn' }}
+              />
+
+              {/* Active Volumetric Deflection Barrier Arc at Inception Perimeter (400, 260) */}
+              <path
+                d="M 390,215 Q 418,260 390,305"
+                fill="none"
+                stroke="#38BDF8"
+                strokeWidth="4.2"
+                strokeLinecap="round"
+                filter="url(#ssGlow)"
+              />
+              <path
+                d="M 390,215 Q 418,260 390,305"
+                fill="none"
+                stroke="#FFFFFF"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+
+              {/* Collision Reticle & Deflection Burst */}
+              <g transform="translate(404, 260)">
+                <circle cx="0" cy="0" r="14" fill="none" stroke="#EF4444" strokeWidth="1.8" strokeDasharray="4 3" />
+                <circle cx="0" cy="0" r="4" fill="#EF4444" filter="url(#ssGlow)" />
+                <rect x="-55" y="-36" width="110" height="20" rx="4" fill="#0F172A" stroke="#38BDF8" strokeWidth="1.4" />
+                <text x="0" y="-22" fontSize="10.5" fill="#38BDF8" fontWeight="900" fontFamily="monospace" textAnchor="middle">
+                  INTERCEPTED: 0.4ms
+                </text>
+              </g>
+            </g>
+
+            {/* =========================================================================
+                CENTER: 3D MULTI-LAYER BEHAVIORAL ENGINE (480, 255)
+                Replaces infinity loop/padlock. 35-40% larger, hero focal point.
+                ========================================================================= */}
+            <g transform="translate(480, 255)">
+              {/* Concentric Radar Inspection Scanning Rings (Centered Exactly on Engine) */}
+              {[70, 130, 190].map((r, i) => (
                 <circle
                   key={i}
                   cx="0"
                   cy="0"
                   r={r}
                   fill="none"
-                  stroke="#EF4444"
-                  strokeWidth="1.8"
+                  stroke="#2B66FF"
+                  strokeWidth="1.6"
                   strokeDasharray="5 5"
-                  opacity={0.3 + i * 0.12}
+                  opacity={0.32 + i * 0.08}
                 />
               ))}
 
-              {/* Rotating Threat Scan Sweep */}
+              {/* Continuous 360-Degree Radar Scan Sweep (Centered Exactly at (0, 0)) */}
               <g>
-                <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="3.0s" repeatCount="indefinite" />
-                <path d="M 0 0 L 230 0 A 230 230 0 0 1 115 199 Z" fill="#EF4444" fillOpacity="0.15" />
-                <line x1="0" y1="0" x2="230" y2="0" stroke="#EF4444" strokeWidth="2.5" />
+                <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="3.8s" repeatCount="indefinite" />
+                <path d="M 0 0 L 190 0 A 190 190 0 0 1 134 134 Z" fill="#2B66FF" fillOpacity="0.12" />
+                <line x1="0" y1="0" x2="190" y2="0" stroke="#38BDF8" strokeWidth="2.2" />
               </g>
 
-              {/* 3D Infinity Loop in Interception Mode */}
-              <path
-                d="M -150,0 C -150,-70 -50,-70 0,0 C 50,70 150,70 150,0 C 150,-70 50,-70 0,0 C -50,70 -150,70 -150,0 Z"
-                fill="none"
-                stroke="#E2E8F0"
-                strokeWidth="20"
-                strokeLinecap="round"
-              />
-              <path
-                d="M -150,0 C -150,-70 -50,-70 0,0 C 50,70 150,70 150,0 C 150,-70 50,-70 0,0 C -50,70 -150,70 -150,0 Z"
-                fill="none"
+              {/* Contact Shadow under Engine */}
+              <ellipse cx="0" cy="50" rx="100" ry="24" fill="#0F172A" opacity="0.32" filter="url(#ssFloorShadow)" />
+
+              {/* 3D Tier 1: Octagonal Base Platform (Rule-Based Heuristic Layer) */}
+              <polygon
+                points="-88,0 -44,-28 44,-28 88,0 44,28 -44,28"
+                fill="url(#ssEngineTop)"
                 stroke="#2B66FF"
-                strokeWidth="8"
-                strokeLinecap="round"
+                strokeWidth="2.4"
+              />
+              <polygon
+                points="-88,0 -44,28 -44,48 -88,20"
+                fill="url(#ssEngineFacetLeft)"
+                stroke="#2B66FF"
+                strokeWidth="2.2"
+              />
+              <polygon
+                points="-44,28 44,28 44,48 -44,48"
+                fill="url(#ssEngineFacetRight)"
+                stroke="#2B66FF"
+                strokeWidth="2.2"
+              />
+              <polygon
+                points="44,28 88,0 88,20 44,48"
+                fill="url(#ssEngineFacetLeft)"
+                stroke="#2B66FF"
+                strokeWidth="2.2"
               />
 
-              {/* Intercepted Threat Vector Rays Targeting Loop */}
-              {[
-                { x1: -280, y1: -70, x2: -60, y2: 0 },
-                { x1: -280, y1: 50, x2: -60, y2: 0 },
-                { x1: -280, y1: 140, x2: -60, y2: 0 },
-              ].map((ray, idx) => (
-                <g key={idx}>
-                  <line x1={ray.x1} y1={ray.y1} x2={ray.x2} y2={ray.y2} stroke="#EF4444" strokeWidth="2.6" strokeDasharray="6 4" />
-                  <motion.circle
-                    cx={ray.x1}
-                    cy={ray.y1}
-                    r="5.5"
-                    fill="#EF4444"
-                    filter="url(#ssGlow)"
-                    animate={{ cx: [ray.x1, ray.x2], cy: [ray.y1, ray.y2], opacity: [1, 0.4] }}
-                    transition={{ duration: 0.9 + idx * 0.2, repeat: Infinity, ease: 'easeIn' }}
-                  />
-                </g>
+              {/* Heuristic Gate Status LEDs along Platform Perimeter */}
+              {[-60, -20, 20, 60].map((px, idx) => (
+                <circle key={idx} cx={px} cy={idx % 2 === 0 ? 14 : -14} r="2.8" fill="#10B981" />
               ))}
 
-              {/* Red Target Reticle over Rogue Access Attempt */}
-              <g transform="translate(-60, 0)">
-                <circle cx="0" cy="0" r="18" fill="none" stroke="#EF4444" strokeWidth="2.0" />
-                <line x1="-24" y1="0" x2="24" y2="0" stroke="#EF4444" strokeWidth="1.6" />
-                <line x1="0" y1="-24" x2="0" y2="24" stroke="#EF4444" strokeWidth="1.6" />
-                <circle cx="0" cy="0" r="5" fill="#EF4444" filter="url(#ssGlow)" />
-              </g>
+              {/* 3D Tier 2: Raised Secondary Processing Enclave (Deep Neural Layer) */}
+              <polygon points="-56,-8 -28,-24 28,-24 56,-8 28,8 -28,8" fill="#0F172A" stroke="#38BDF8" strokeWidth="2.0" />
+              <polygon points="-56,-8 -28,8 -28,18 -56,2" fill="#1E293B" stroke="#38BDF8" strokeWidth="1.8" />
+              <polygon points="-28,8 28,8 28,18 -28,18" fill="#334155" stroke="#38BDF8" strokeWidth="1.8" />
+              <polygon points="28,8 56,-8 56,2 28,18" fill="#1E293B" stroke="#38BDF8" strokeWidth="1.8" />
 
-              {/* Center Lock Badge in Alert State */}
-              <g transform="translate(0, 15)">
-                <rect x="-18" y="-4" width="36" height="30" rx="5" fill="#450A0A" stroke="#EF4444" strokeWidth="2.0" />
-                <path d="M -10,-4 L -10,-15 C -10,-22 10,-22 10,-15 L 10,-4" fill="none" stroke="#EF4444" strokeWidth="3.0" strokeLinecap="round" />
-                <circle cx="0" cy="11" r="3.5" fill="#FCA5A5" />
-              </g>
-            </g>
+              {/* Concentric Holographic Neural Scan Rings */}
+              <ellipse cx="0" cy="-6" rx="42" ry="14" fill="none" stroke="#38BDF8" strokeWidth="2.0" strokeDasharray="5 4" opacity="0.85" />
+              <motion.ellipse
+                cx="0"
+                cy="-6"
+                rx="20"
+                ry="7"
+                fill="#EFF6FF"
+                stroke="#38BDF8"
+                strokeWidth="2.4"
+                animate={{ rx: [20, 48], ry: [7, 16], opacity: [1, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
+              />
 
-            {/* --- FLOATING TELEMETRY CARDS --- */}
-            {/* Left Card */}
-            <motion.g animate={{ y: [0, -4, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}>
-              <g transform="translate(45, 55)" filter="url(#ssCardShadow)">
-                <rect x="0" y="0" width="250" height="135" rx="10" fill="url(#ssPanelGlass)" stroke="#E2E8F0" strokeWidth="1.5" />
-                <path d="M 0 10 Q 0 0 10 0 L 240 0 Q 250 0 250 10 L 250 12 L 0 12 Z" fill="#EF4444" />
-                <g transform="translate(14, 24)">
-                  <rect x="0" y="0" width="145" height="20" rx="10" fill="#FEF2F2" stroke="#FCA5A5" strokeWidth="1" />
-                  <circle cx="10" cy="10" r="3.5" fill="#EF4444" />
-                  <text x="18" y="14" fontSize="10.5" fill="#DC2626" fontWeight="800" fontFamily="system-ui, sans-serif">
-                    THREAT DETECTED
-                  </text>
-                </g>
-                <text x="14" y="70" fontSize="18" fill="#0F172A" fontWeight="800" fontFamily="system-ui, sans-serif">
-                  Unauthorized Access
-                </text>
-                <text x="14" y="92" fontSize="12" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
-                  Privilege Escalation Flagged
-                </text>
-                <line x1="14" y1="104" x2="236" y2="104" stroke="#F1F5F9" strokeWidth="1.2" />
-                <rect x="14" y="110" width="140" height="17" rx="3" fill="#FEF2F2" stroke="#FCA5A5" strokeWidth="1" />
-                <text x="20" y="122" fontSize="10" fill="#DC2626" fontWeight="700" fontFamily="monospace">
-                  INTERCEPTION ACTIVE
-                </text>
-              </g>
-            </motion.g>
+              {/* Center Floating Transformer Neural Core */}
+              <motion.g animate={{ y: [-3, 3, -3] }} transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}>
+                <polygon points="0,-48 20,-36 0,-24 -20,-36" fill="#FFFFFF" stroke="#38BDF8" strokeWidth="2.0" />
+                <polygon points="-20,-36 0,-24 0,-6 -20,-18" fill="#38BDF8" stroke="#0284C7" strokeWidth="1.8" />
+                <polygon points="0,-24 20,-36 20,-18 0,-6" fill="#0284C7" stroke="#1E40AF" strokeWidth="1.8" />
+                <circle cx="0" cy="-26" r="6" fill="#10B981" filter="url(#ssGlow)" />
+                <circle cx="0" cy="-26" r="2.5" fill="#FFFFFF" />
+              </motion.g>
 
-            {/* Right Card */}
-            <motion.g animate={{ y: [0, -4, 0] }} transition={{ duration: 3.5, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}>
-              <g transform="translate(665, 55)" filter="url(#ssCardShadow)">
-                <rect x="0" y="0" width="250" height="135" rx="10" fill="url(#ssPanelGlass)" stroke="#E2E8F0" strokeWidth="1.5" />
-                <path d="M 0 10 Q 0 0 10 0 L 240 0 Q 250 0 250 10 L 250 12 L 0 12 Z" fill="#EF4444" />
-                <g transform="translate(14, 24)">
-                  <rect x="0" y="0" width="145" height="20" rx="10" fill="#FFFBEB" stroke="#FDE68A" strokeWidth="1" />
-                  <circle cx="10" cy="10" r="3.5" fill="#F59E0B" />
-                  <text x="18" y="14" fontSize="10.5" fill="#B45309" fontWeight="800" fontFamily="system-ui, sans-serif">
-                    HEURISTIC MODEL
-                  </text>
-                </g>
-                <text x="14" y="70" fontSize="18" fill="#0F172A" fontWeight="800" fontFamily="system-ui, sans-serif">
-                  0 False Positives
-                </text>
-                <text x="14" y="92" fontSize="12" fill="#475569" fontWeight="600" fontFamily="system-ui, sans-serif">
-                  Transformer Confidence: 99.98%
-                </text>
-                <line x1="14" y1="104" x2="236" y2="104" stroke="#F1F5F9" strokeWidth="1.2" />
-                <rect x="14" y="110" width="150" height="17" rx="3" fill="#FFFBEB" stroke="#FDE68A" strokeWidth="1" />
-                <text x="20" y="122" fontSize="10" fill="#B45309" fontWeight="700" fontFamily="monospace">
-                  RECORDED IN LAST 72H
-                </text>
-              </g>
-            </motion.g>
-
-            {/* Top Center Status Pill */}
-            <g transform="translate(290, 20)">
-              <rect x="0" y="0" width="380" height="32" rx="7" fill="#FFFFFF" stroke="#EF4444" strokeWidth="1.8" filter="url(#ssCardShadow)" />
-              <circle cx="18" cy="16" r="4.5" fill="#EF4444" />
-              <text x="30" y="21" fontSize="11.5" fill="#0F172A" fontWeight="800" fontFamily="monospace">
-                STEP 02 // DETECT THREATS (TRANSFORMER MODEL)
+              {/* Behavioral Engine Nameplate */}
+              <rect x="-110" y="54" width="220" height="24" rx="5" fill="#0F172A" stroke="#2B66FF" strokeWidth="1.6" />
+              <text x="0" y="70" fontSize="12" fill="#38BDF8" fontWeight="900" fontFamily="monospace" textAnchor="middle">
+                BEHAVIORAL DETECTION ENGINE
               </text>
             </g>
+
+            {/* =========================================================================
+                RIGHT: NEURAL VERIFICATION & AUDIT LEDGER NODE (775, 335)
+                Confirms clean operations, verified rule adherence, 0 false positives
+                ========================================================================= */}
+            <g transform="translate(775, 335)">
+              {/* Floor Shadow */}
+              <ellipse cx="0" cy="28" rx="36" ry="11" fill="#1E3A8A" opacity="0.30" filter="url(#ssFloorShadow)" />
+
+              {/* 3D Neural Audit Ledger Chassis */}
+              <polygon points="-28,-11 0,-24 28,-11 0,2" fill="#FFFFFF" stroke="#10B981" strokeWidth="2.0" />
+              <polygon points="-28,-11 0,2 0,40 -28,27" fill="#ECFDF5" stroke="#10B981" strokeWidth="1.8" />
+              <polygon points="0,2 28,-11 28,27 0,40" fill="#D1FAE5" stroke="#10B981" strokeWidth="1.8" />
+
+              {/* Upright Audit Verification Display */}
+              <rect x="-24" y="-30" width="48" height="30" rx="3" fill="#064E3B" stroke="#10B981" strokeWidth="1.8" />
+              <rect x="-21" y="-27" width="42" height="24" rx="2" fill="#022C22" />
+              {/* Green Verified Checkmark */}
+              <path d="M -9,-14 L -3,-8 L 9,-20" fill="none" stroke="#34D399" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+
+              {/* Label Tag */}
+              <rect x="-75" y="46" width="150" height="38" rx="6" fill="#FFFFFF" stroke="#10B981" strokeWidth="1.6" filter="url(#ssCardShadow)" />
+              <text x="0" y="61" fontSize="13.5" fill="#065F46" fontWeight="900" fontFamily="system-ui, sans-serif" textAnchor="middle">
+                NEURAL AUDIT
+              </text>
+              <text x="0" y="76" fontSize="12" fill="#475569" fontWeight="800" fontFamily="monospace" textAnchor="middle">
+                Zero-Trust Verified
+              </text>
+            </g>
+
+            {/* Verified Telemetry Conduit (Center Engine 560, 265 -> Right Node 730, 330) */}
+            <g>
+              <line x1="560" y1="265" x2="730" y2="330" stroke="#10B981" strokeWidth="2.8" strokeDasharray="6 4" opacity="0.75" />
+              {/* Directional Chevrons */}
+              <polygon points="620,288 632,292 623,280" fill="#10B981" />
+              <polygon points="680,311 692,315 683,303" fill="#10B981" />
+              {/* Traveling Verified Token Packet */}
+              <motion.circle
+                cx="560"
+                cy="265"
+                r="4.6"
+                fill="#34D399"
+                filter="url(#ssGlow)"
+                animate={{ cx: [560, 730], cy: [265, 330], opacity: [1, 0.4] }}
+                transition={{ duration: 1.4, repeat: Infinity, delay: 0.2, ease: 'easeIn' }}
+              />
+              <motion.circle
+                cx="560"
+                cy="265"
+                r="2.2"
+                fill="#FFFFFF"
+                animate={{ cx: [560, 730], cy: [265, 330], opacity: [1, 0.4] }}
+                transition={{ duration: 1.4, repeat: Infinity, delay: 0.2, ease: 'easeIn' }}
+              />
+            </g>
+
+            {/* =========================================================================
+                TARGET ATTACK CHIP (45, 216)
+                100% CLEAN ZONE - ZERO OVERLAP WITH TERMINAL WINDOW!
+                ========================================================================= */}
+            <g transform="translate(45, 216)" filter="url(#ssCardShadow)">
+              <rect x="0" y="0" width="240" height="28" rx="6" fill="#FEF2F2" stroke="#FCA5A5" strokeWidth="1.5" />
+              <circle cx="14" cy="14" r="4" fill="#EF4444" />
+              <text x="24" y="18.5" fontSize="12" fill="#991B1B" fontWeight="900" fontFamily="monospace">
+                FLAGGED: ROGUE TOKEN REPLAY
+              </text>
+            </g>
+
+            {/* =========================================================================
+                VERIFIED CONFIDENCE CHIP (675, 216)
+                ========================================================================= */}
+            <g transform="translate(675, 216)" filter="url(#ssCardShadow)">
+              <rect x="0" y="0" width="240" height="28" rx="6" fill="#ECFDF5" stroke="#A7F3D0" strokeWidth="1.5" />
+              <circle cx="14" cy="14" r="4" fill="#10B981" />
+              <text x="24" y="18.5" fontSize="12" fill="#065F46" fontWeight="900" fontFamily="monospace">
+                HEURISTICS + TRANSFORMER ACTIVE
+              </text>
+            </g>
+
+            {/* =========================================================================
+                THE DIAGNOSTIC TERMINAL CONSOLE: CENTERED AT (280, 385)
+                Width: 400px, Height: 96px - ZERO COLLISION
+                ========================================================================= */}
+            <g transform="translate(280, 385)" filter="url(#ssCardShadow)">
+              <rect x="0" y="0" width="400" height="96" rx="8" fill="#0B0F19" stroke="#1E293B" strokeWidth="2.0" />
+              {/* Header Bar */}
+              <rect x="0" y="0" width="400" height="22" rx="8" fill="#151E2E" />
+              <circle cx="14" cy="11" r="3.5" fill="#EF4444" />
+              <circle cx="23" cy="11" r="3.5" fill="#F59E0B" />
+              <circle cx="32" cy="11" r="3.5" fill="#10B981" />
+              <text x="46" y="15.5" fontSize="11.5" fill="#94A3B8" fontWeight="800" fontFamily="monospace">
+                behavioral-engine // threat-inspection
+              </text>
+
+              {/* Console Output Lines */}
+              <text x="16" y="42" fontSize="13.5" fill="#38BDF8" fontWeight="900" fontFamily="monospace">
+                $ deep_packet_inspect --source 198.51.100.44
+              </text>
+              <text x="16" y="62" fontSize="12.5" fill="#EF4444" fontWeight="800" fontFamily="monospace">
+                ⚠ ALERT: Rogue token replay detected (SEV-1)
+              </text>
+              <text x="16" y="80" fontSize="12" fill="#10B981" fontWeight="700" fontFamily="monospace">
+                ✓ Intercepted by transformer model in 0.4ms (0 FP)
+              </text>
+            </g>
+
+            {/* =========================================================================
+                FLOATING TELEMETRY CARDS (Enlarged Typography & High Contrast)
+                ========================================================================= */}
+
+            {/* Left Card: Threat Detected */}
+            <motion.g animate={{ y: [0, -3.5, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}>
+              <g transform="translate(45, 68)" filter="url(#ssCardShadow)">
+                <rect x="0" y="0" width="240" height="136" rx="10" fill="url(#ssPanelGlass)" stroke="#E2E8F0" strokeWidth="1.6" />
+                {/* Crimson Header Strip */}
+                <path d="M 0 10 Q 0 0 10 0 L 230 0 Q 240 0 240 10 L 240 12 L 0 12 Z" fill="#EF4444" />
+
+                {/* Category Pill */}
+                <g transform="translate(14, 24)">
+                  <rect x="0" y="0" width="160" height="23" rx="11.5" fill="#FEF2F2" stroke="#FCA5A5" strokeWidth="1.4" />
+                  <circle cx="11" cy="11.5" r="4" fill="#EF4444" />
+                  <text x="20" y="15.5" fontSize="12" fill="#DC2626" fontWeight="900" fontFamily="system-ui, sans-serif">
+                    THREAT DETECTED // SEV-1
+                  </text>
+                </g>
+
+                {/* Primary Metric (Enlarged to 21px bold) */}
+                <text x="14" y="74" fontSize="21" fill="#0F172A" fontWeight="900" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
+                  Unauthorized Access
+                </text>
+
+                {/* Subtitle (Enlarged to 13.5px) */}
+                <text x="14" y="96" fontSize="13.5" fill="#1E293B" fontWeight="700" fontFamily="system-ui, sans-serif">
+                  Privilege Escalation Blocked
+                </text>
+
+                {/* Divider and Status Chip */}
+                <line x1="14" y1="107" x2="226" y2="107" stroke="#E2E8F0" strokeWidth="1.2" />
+                <rect x="14" y="112" width="168" height="20" rx="4" fill="#FEF2F2" stroke="#FCA5A5" strokeWidth="1.2" />
+                <text x="22" y="126" fontSize="12" fill="#DC2626" fontWeight="900" fontFamily="monospace">
+                  ATTACK INTERCEPTED: 0.4ms
+                </text>
+              </g>
+            </motion.g>
+
+            {/* Right Card: Transformer Neural Analysis */}
+            <motion.g animate={{ y: [0, -3.5, 0] }} transition={{ duration: 3.5, repeat: Infinity, delay: 0.3, ease: 'easeInOut' }}>
+              <g transform="translate(675, 68)" filter="url(#ssCardShadow)">
+                <rect x="0" y="0" width="240" height="136" rx="10" fill="url(#ssPanelGlass)" stroke="#E2E8F0" strokeWidth="1.6" />
+                {/* Emerald Header Strip (NOT AMBER!) */}
+                <path d="M 0 10 Q 0 0 10 0 L 230 0 Q 240 0 240 10 L 240 12 L 0 12 Z" fill="#10B981" />
+
+                {/* Category Pill */}
+                <g transform="translate(14, 24)">
+                  <rect x="0" y="0" width="170" height="23" rx="11.5" fill="#ECFDF5" stroke="#A7F3D0" strokeWidth="1.4" />
+                  <circle cx="11" cy="11.5" r="4" fill="#10B981" />
+                  <text x="20" y="15.5" fontSize="12" fill="#047857" fontWeight="900" fontFamily="system-ui, sans-serif">
+                    TRANSFORMER ANALYSIS
+                  </text>
+                </g>
+
+                {/* Primary Metric (Enlarged to 21px bold) */}
+                <text x="14" y="74" fontSize="21" fill="#0F172A" fontWeight="900" fontFamily="system-ui, sans-serif" letterSpacing="-0.02em">
+                  0 False Positives
+                </text>
+
+                {/* Subtitle (Enlarged to 13.5px) */}
+                <text x="14" y="96" fontSize="13.5" fill="#1E293B" fontWeight="700" fontFamily="system-ui, sans-serif">
+                  1.4M Events Tested / Last 72h
+                </text>
+
+                {/* Divider and Confidence Chip */}
+                <line x1="14" y1="107" x2="226" y2="107" stroke="#E2E8F0" strokeWidth="1.2" />
+                <rect x="14" y="112" width="186" height="20" rx="4" fill="#ECFDF5" stroke="#A7F3D0" strokeWidth="1.2" />
+                <text x="22" y="126" fontSize="12" fill="#047857" fontWeight="900" fontFamily="monospace">
+                  MODEL CONFIDENCE: 99.98%
+                </text>
+              </g>
+            </motion.g>
           </motion.svg>
         )}
 
