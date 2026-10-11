@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Crosshair } from '../components/Crosshair';
 import { sound } from '../components/AudioFeedback';
+import { SimpleStepsFX } from '../components/SimpleStepsFX';
 
 export const SimpleSteps: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number | null>(0);
@@ -68,60 +69,34 @@ export const SimpleSteps: React.FC = () => {
         {/* Content Body: Left Graphic, Right Dark Step Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center py-14">
           
-          {/* Left: Infinity Code & Lock Illustration Card */}
+          {/* Left: 4 Dynamic Interactive 3D Scenes for Monitor, Detect, Secure, and Respond */}
           <div className="lg:col-span-6">
-            <div className="relative border border-[#DCE3ED] rounded-xl p-8 sm:p-12 bg-white flex items-center justify-center min-h-[380px] sm:min-h-[440px] shadow-tech-card">
-              <div className="absolute top-3 left-3">
+            <div className="relative border border-[#DCE3ED] rounded-xl p-4 sm:p-6 bg-white flex flex-col shadow-tech-card">
+              <div className="absolute top-3 left-3 z-10">
                 <Crosshair size={12} />
               </div>
-              <div className="absolute top-3 right-3">
+              <div className="absolute top-3 right-3 z-10">
                 <Crosshair size={12} />
               </div>
-              <div className="absolute bottom-3 left-3">
+              <div className="absolute bottom-3 left-3 z-10">
                 <Crosshair size={12} />
               </div>
-              <div className="absolute bottom-3 right-3">
+              <div className="absolute bottom-3 right-3 z-10">
                 <Crosshair size={12} />
               </div>
 
-              <div className="relative w-full flex flex-col items-center justify-center">
-                {/* Dynamic Top Badge for Active Step */}
-                <div className="w-full flex items-center justify-between mb-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F7FA] border border-[#DCE3ED] text-xs font-mono-tech text-[#0F1115]">
-                    <span
-                      className="w-2 h-2 rounded-full animate-pulse"
-                      style={{
-                        backgroundColor:
-                          activeStep === 1 ? '#EF4444' : activeStep === 2 ? '#10B981' : activeStep === 3 ? '#F59E0B' : '#2B66FF',
-                      }}
-                    />
-                    <span>
-                      STEP 0{(activeStep ?? 0) + 1} // {steps[activeStep ?? 0].title.toUpperCase()}
-                    </span>
-                  </div>
-                  <span className="text-[11px] font-mono-tech text-[#8CA3C4]">
-                    {activeStep === 3 ? 'STATUS: QUARANTINE' : 'STATUS: LIVE'}
-                  </span>
+              {/* Dynamic 3D Scene corresponding to the active step */}
+              <SimpleStepsFX activeStep={activeStep ?? 0} />
+
+              {/* Live Active Step Console Status */}
+              <div className="w-full mt-4 p-3 rounded-lg bg-[#0F1115] border border-[#1E2430] text-xs font-mono-tech text-white flex items-center justify-between">
+                <div className="flex items-center gap-2 truncate text-emerald-400">
+                  <span className="text-gray-500">$</span>
+                  <span className="truncate">{steps[activeStep ?? 0].log}</span>
                 </div>
-
-                <motion.img 
-                  src="/assets/sec5_infinity_clean.png" 
-                  alt="Smart Security Infinity Pipeline Illustration" 
-                  className="max-h-[290px] max-w-full object-contain drop-shadow-sm select-none my-4"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                />
-
-                {/* Bottom Active Status / Console Pill */}
-                <div className="w-full mt-2 p-2.5 rounded-lg bg-[#0F1115] border border-[#1E2430] text-xs font-mono-tech text-white flex items-center justify-between">
-                  <div className="flex items-center gap-2 truncate text-emerald-400">
-                    <span className="text-gray-500">$</span>
-                    <span className="truncate">{steps[activeStep ?? 0].log}</span>
-                  </div>
-                  <span className="text-[10px] text-gray-400 uppercase tracking-wider px-2 py-0.5 rounded bg-gray-800 flex-shrink-0">
-                    {steps[activeStep ?? 0].title}
-                  </span>
-                </div>
+                <span className="text-[10px] text-gray-400 uppercase tracking-wider px-2 py-0.5 rounded bg-gray-800 flex-shrink-0">
+                  {steps[activeStep ?? 0].title}
+                </span>
               </div>
             </div>
           </div>
