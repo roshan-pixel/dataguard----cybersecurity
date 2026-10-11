@@ -12,7 +12,7 @@ export const SimpleSteps: React.FC = () => {
     {
       title: 'Monitor Activity',
       description: 'connected devices using AI-powered monitoring systems.',
-      expandedDetail: 'Continuous ingestion of telemetry across edge proxies, cloud clusters, and employee endpoints with zero CPU overhead.',
+      expandedDetail: 'Continuous ingestion of telemetry across edge proxies, cloud clusters, and employee endpoints with <0.01% CPU overhead.',
       log: 'telemetry_stream.init() -> 42,910 endpoints reporting status: OK'
     },
     {
