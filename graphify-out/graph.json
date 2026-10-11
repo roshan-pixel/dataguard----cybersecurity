@@ -8,2079 +8,2133 @@
       "file_type": "code",
       "source_file": ".oxlintrc.json",
       "source_location": "L1",
-      "id": "oxlintrc_json",
       "community": 8,
-      "norm_label": ".oxlintrc.json"
+      "norm_label": ".oxlintrc.json",
+      "id": "oxlintrc_json"
     },
     {
       "label": "$schema",
       "file_type": "code",
       "source_file": ".oxlintrc.json",
       "source_location": "L2",
-      "id": "dataguard_cybersecurity_oxlintrc_schema",
       "community": 8,
-      "norm_label": "$schema"
+      "norm_label": "$schema",
+      "id": "dataguard_cybersecurity_oxlintrc_schema"
     },
     {
       "label": "plugins",
       "file_type": "code",
       "source_file": ".oxlintrc.json",
       "source_location": "L3",
-      "id": "dataguard_cybersecurity_oxlintrc_plugins",
       "community": 8,
-      "norm_label": "plugins"
+      "norm_label": "plugins",
+      "id": "dataguard_cybersecurity_oxlintrc_plugins"
     },
     {
       "label": "rules",
       "file_type": "code",
       "source_file": ".oxlintrc.json",
       "source_location": "L4",
-      "id": "dataguard_cybersecurity_oxlintrc_rules",
       "community": 8,
-      "norm_label": "rules"
+      "norm_label": "rules",
+      "id": "dataguard_cybersecurity_oxlintrc_rules"
     },
     {
       "label": "react/rules-of-hooks",
       "file_type": "code",
       "source_file": ".oxlintrc.json",
       "source_location": "L5",
-      "id": "dataguard_cybersecurity_oxlintrc_rules_react_rules_of_hooks",
       "community": 8,
-      "norm_label": "react/rules-of-hooks"
+      "norm_label": "react/rules-of-hooks",
+      "id": "dataguard_cybersecurity_oxlintrc_rules_react_rules_of_hooks"
     },
     {
       "label": "react/only-export-components",
       "file_type": "code",
       "source_file": ".oxlintrc.json",
       "source_location": "L6",
-      "id": "dataguard_cybersecurity_oxlintrc_rules_react_only_export_components",
       "community": 8,
-      "norm_label": "react/only-export-components"
+      "norm_label": "react/only-export-components",
+      "id": "dataguard_cybersecurity_oxlintrc_rules_react_only_export_components"
     },
     {
       "label": "package.json",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L1",
-      "id": "package_json",
       "community": 1,
-      "norm_label": "package.json"
+      "norm_label": "package.json",
+      "id": "package_json"
     },
     {
       "label": "name",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L2",
-      "id": "dataguard_cybersecurity_package_name",
       "community": 1,
-      "norm_label": "name"
+      "norm_label": "name",
+      "id": "dataguard_cybersecurity_package_name"
     },
     {
       "label": "private",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L3",
-      "id": "dataguard_cybersecurity_package_private",
       "community": 1,
-      "norm_label": "private"
+      "norm_label": "private",
+      "id": "dataguard_cybersecurity_package_private"
     },
     {
       "label": "version",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L4",
-      "id": "dataguard_cybersecurity_package_version",
       "community": 1,
-      "norm_label": "version"
+      "norm_label": "version",
+      "id": "dataguard_cybersecurity_package_version"
     },
     {
       "label": "type",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L5",
-      "id": "dataguard_cybersecurity_package_type",
       "community": 1,
-      "norm_label": "type"
+      "norm_label": "type",
+      "id": "dataguard_cybersecurity_package_type"
     },
     {
       "label": "scripts",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L6",
-      "id": "dataguard_cybersecurity_package_scripts",
       "community": 1,
-      "norm_label": "scripts"
+      "norm_label": "scripts",
+      "id": "dataguard_cybersecurity_package_scripts"
     },
     {
       "label": "dev",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L7",
-      "id": "dataguard_cybersecurity_package_scripts_dev",
       "community": 1,
-      "norm_label": "dev"
+      "norm_label": "dev",
+      "id": "dataguard_cybersecurity_package_scripts_dev"
     },
     {
       "label": "build",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L8",
-      "id": "dataguard_cybersecurity_package_scripts_build",
       "community": 1,
-      "norm_label": "build"
+      "norm_label": "build",
+      "id": "dataguard_cybersecurity_package_scripts_build"
     },
     {
       "label": "lint",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L9",
-      "id": "dataguard_cybersecurity_package_scripts_lint",
       "community": 1,
-      "norm_label": "lint"
+      "norm_label": "lint",
+      "id": "dataguard_cybersecurity_package_scripts_lint"
     },
     {
       "label": "preview",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L10",
-      "id": "dataguard_cybersecurity_package_scripts_preview",
       "community": 1,
-      "norm_label": "preview"
+      "norm_label": "preview",
+      "id": "dataguard_cybersecurity_package_scripts_preview"
     },
     {
       "label": "dependencies",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L12",
-      "id": "dataguard_cybersecurity_package_dependencies",
       "community": 1,
-      "norm_label": "dependencies"
+      "norm_label": "dependencies",
+      "id": "dataguard_cybersecurity_package_dependencies"
     },
     {
       "label": "autoprefixer",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L13",
-      "id": "dataguard_cybersecurity_package_dependencies_autoprefixer",
       "community": 1,
-      "norm_label": "autoprefixer"
+      "norm_label": "autoprefixer",
+      "id": "dataguard_cybersecurity_package_dependencies_autoprefixer"
     },
     {
       "label": "framer-motion",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L14",
-      "id": "dataguard_cybersecurity_package_dependencies_framer_motion",
       "community": 1,
-      "norm_label": "framer-motion"
+      "norm_label": "framer-motion",
+      "id": "dataguard_cybersecurity_package_dependencies_framer_motion"
     },
     {
       "label": "lucide-react",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L15",
-      "id": "dataguard_cybersecurity_package_dependencies_lucide_react",
       "community": 1,
-      "norm_label": "lucide-react"
+      "norm_label": "lucide-react",
+      "id": "dataguard_cybersecurity_package_dependencies_lucide_react"
     },
     {
       "label": "postcss",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L16",
-      "id": "dataguard_cybersecurity_package_dependencies_postcss",
       "community": 1,
-      "norm_label": "postcss"
+      "norm_label": "postcss",
+      "id": "dataguard_cybersecurity_package_dependencies_postcss"
     },
     {
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L17",
-      "id": "dataguard_cybersecurity_package_dependencies_react",
       "community": 1,
-      "norm_label": "react"
+      "norm_label": "react",
+      "id": "dataguard_cybersecurity_package_dependencies_react"
     },
     {
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L18",
-      "id": "dataguard_cybersecurity_package_dependencies_react_dom",
       "community": 1,
-      "norm_label": "react-dom"
+      "norm_label": "react-dom",
+      "id": "dataguard_cybersecurity_package_dependencies_react_dom"
     },
     {
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L19",
-      "id": "dataguard_cybersecurity_package_dependencies_tailwindcss",
       "community": 1,
-      "norm_label": "tailwindcss"
+      "norm_label": "tailwindcss",
+      "id": "dataguard_cybersecurity_package_dependencies_tailwindcss"
     },
     {
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L21",
-      "id": "dataguard_cybersecurity_package_devdependencies",
       "community": 1,
-      "norm_label": "devdependencies"
+      "norm_label": "devdependencies",
+      "id": "dataguard_cybersecurity_package_devdependencies"
     },
     {
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L22",
-      "id": "dataguard_cybersecurity_package_devdependencies_types_node",
       "community": 1,
-      "norm_label": "@types/node"
+      "norm_label": "@types/node",
+      "id": "dataguard_cybersecurity_package_devdependencies_types_node"
     },
     {
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L23",
-      "id": "dataguard_cybersecurity_package_devdependencies_types_react",
       "community": 1,
-      "norm_label": "@types/react"
+      "norm_label": "@types/react",
+      "id": "dataguard_cybersecurity_package_devdependencies_types_react"
     },
     {
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L24",
-      "id": "dataguard_cybersecurity_package_devdependencies_types_react_dom",
       "community": 1,
-      "norm_label": "@types/react-dom"
+      "norm_label": "@types/react-dom",
+      "id": "dataguard_cybersecurity_package_devdependencies_types_react_dom"
     },
     {
       "label": "@vitejs/plugin-react",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L25",
-      "id": "dataguard_cybersecurity_package_devdependencies_vitejs_plugin_react",
       "community": 1,
-      "norm_label": "@vitejs/plugin-react"
+      "norm_label": "@vitejs/plugin-react",
+      "id": "dataguard_cybersecurity_package_devdependencies_vitejs_plugin_react"
     },
     {
       "label": "oxlint",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L26",
-      "id": "dataguard_cybersecurity_package_devdependencies_oxlint",
       "community": 1,
-      "norm_label": "oxlint"
+      "norm_label": "oxlint",
+      "id": "dataguard_cybersecurity_package_devdependencies_oxlint"
     },
     {
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L27",
-      "id": "dataguard_cybersecurity_package_devdependencies_typescript",
       "community": 1,
-      "norm_label": "typescript"
+      "norm_label": "typescript",
+      "id": "dataguard_cybersecurity_package_devdependencies_typescript"
     },
     {
       "label": "vite",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L28",
-      "id": "dataguard_cybersecurity_package_devdependencies_vite",
       "community": 1,
-      "norm_label": "vite"
+      "norm_label": "vite",
+      "id": "dataguard_cybersecurity_package_devdependencies_vite"
     },
     {
       "label": "postcss.config.js",
       "file_type": "code",
       "source_file": "postcss.config.js",
       "source_location": "L1",
-      "id": "postcss_config_js",
       "community": 16,
-      "norm_label": "postcss.config.js"
+      "norm_label": "postcss.config.js",
+      "id": "postcss_config_js"
     },
     {
       "label": "tailwind.config.js",
       "file_type": "code",
       "source_file": "tailwind.config.js",
       "source_location": "L1",
-      "id": "tailwind_config_js",
       "community": 17,
-      "norm_label": "tailwind.config.js"
+      "norm_label": "tailwind.config.js",
+      "id": "tailwind_config_js"
     },
     {
       "label": "tsconfig.app.json",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L1",
-      "id": "tsconfig_app_json",
       "community": 0,
-      "norm_label": "tsconfig.app.json"
+      "norm_label": "tsconfig.app.json",
+      "id": "tsconfig_app_json"
     },
     {
       "label": "compilerOptions",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L2",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions",
       "community": 0,
-      "norm_label": "compileroptions"
+      "norm_label": "compileroptions",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions"
     },
     {
       "label": "tsBuildInfoFile",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L3",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_tsbuildinfofile",
       "community": 0,
-      "norm_label": "tsbuildinfofile"
+      "norm_label": "tsbuildinfofile",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_tsbuildinfofile"
     },
     {
       "label": "target",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L4",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_target",
       "community": 0,
-      "norm_label": "target"
+      "norm_label": "target",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_target"
     },
     {
       "label": "lib",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L5",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_lib",
       "community": 0,
-      "norm_label": "lib"
+      "norm_label": "lib",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_lib"
     },
     {
       "label": "module",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L6",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_module",
       "community": 0,
-      "norm_label": "module"
+      "norm_label": "module",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_module"
     },
     {
       "label": "types",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L7",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_types",
       "community": 0,
-      "norm_label": "types"
+      "norm_label": "types",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_types"
     },
     {
       "label": "allowArbitraryExtensions",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L8",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_allowarbitraryextensions",
       "community": 0,
-      "norm_label": "allowarbitraryextensions"
+      "norm_label": "allowarbitraryextensions",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_allowarbitraryextensions"
     },
     {
       "label": "skipLibCheck",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L9",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_skiplibcheck",
       "community": 0,
-      "norm_label": "skiplibcheck"
+      "norm_label": "skiplibcheck",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_skiplibcheck"
     },
     {
       "label": "moduleResolution",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L12",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_moduleresolution",
       "community": 0,
-      "norm_label": "moduleresolution"
+      "norm_label": "moduleresolution",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_moduleresolution"
     },
     {
       "label": "allowImportingTsExtensions",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L13",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_allowimportingtsextensions",
       "community": 0,
-      "norm_label": "allowimportingtsextensions"
+      "norm_label": "allowimportingtsextensions",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_allowimportingtsextensions"
     },
     {
       "label": "verbatimModuleSyntax",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L14",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_verbatimmodulesyntax",
       "community": 0,
-      "norm_label": "verbatimmodulesyntax"
+      "norm_label": "verbatimmodulesyntax",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_verbatimmodulesyntax"
     },
     {
       "label": "moduleDetection",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L15",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_moduledetection",
       "community": 0,
-      "norm_label": "moduledetection"
+      "norm_label": "moduledetection",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_moduledetection"
     },
     {
       "label": "noEmit",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L16",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_noemit",
       "community": 0,
-      "norm_label": "noemit"
+      "norm_label": "noemit",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_noemit"
     },
     {
       "label": "jsx",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L17",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_jsx",
       "community": 0,
-      "norm_label": "jsx"
+      "norm_label": "jsx",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_jsx"
     },
     {
       "label": "noUnusedLocals",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L20",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_nounusedlocals",
       "community": 0,
-      "norm_label": "nounusedlocals"
+      "norm_label": "nounusedlocals",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_nounusedlocals"
     },
     {
       "label": "noUnusedParameters",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L21",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_nounusedparameters",
       "community": 0,
-      "norm_label": "nounusedparameters"
+      "norm_label": "nounusedparameters",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_nounusedparameters"
     },
     {
       "label": "erasableSyntaxOnly",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L22",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_erasablesyntaxonly",
       "community": 0,
-      "norm_label": "erasablesyntaxonly"
+      "norm_label": "erasablesyntaxonly",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_erasablesyntaxonly"
     },
     {
       "label": "noFallthroughCasesInSwitch",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L23",
-      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_nofallthroughcasesinswitch",
       "community": 0,
-      "norm_label": "nofallthroughcasesinswitch"
+      "norm_label": "nofallthroughcasesinswitch",
+      "id": "dataguard_cybersecurity_tsconfig_app_compileroptions_nofallthroughcasesinswitch"
     },
     {
       "label": "include",
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L25",
-      "id": "dataguard_cybersecurity_tsconfig_app_include",
       "community": 0,
-      "norm_label": "include"
+      "norm_label": "include",
+      "id": "dataguard_cybersecurity_tsconfig_app_include"
     },
     {
       "label": "tsconfig.json",
       "file_type": "code",
       "source_file": "tsconfig.json",
       "source_location": "L1",
-      "id": "tsconfig_json",
       "community": 15,
-      "norm_label": "tsconfig.json"
+      "norm_label": "tsconfig.json",
+      "id": "tsconfig_json"
     },
     {
       "label": "files",
       "file_type": "code",
       "source_file": "tsconfig.json",
       "source_location": "L2",
-      "id": "dataguard_cybersecurity_tsconfig_files",
       "community": 15,
-      "norm_label": "files"
+      "norm_label": "files",
+      "id": "dataguard_cybersecurity_tsconfig_files"
     },
     {
       "label": "references",
       "file_type": "code",
       "source_file": "tsconfig.json",
       "source_location": "L3",
-      "id": "dataguard_cybersecurity_tsconfig_references",
       "community": 15,
-      "norm_label": "references"
+      "norm_label": "references",
+      "id": "dataguard_cybersecurity_tsconfig_references"
     },
     {
       "label": "tsconfig.node.json",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L1",
-      "id": "tsconfig_node_json",
       "community": 2,
-      "norm_label": "tsconfig.node.json"
+      "norm_label": "tsconfig.node.json",
+      "id": "tsconfig_node_json"
     },
     {
       "label": "compilerOptions",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L2",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions",
       "community": 2,
-      "norm_label": "compileroptions"
+      "norm_label": "compileroptions",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions"
     },
     {
       "label": "tsBuildInfoFile",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L3",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_tsbuildinfofile",
       "community": 2,
-      "norm_label": "tsbuildinfofile"
+      "norm_label": "tsbuildinfofile",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_tsbuildinfofile"
     },
     {
       "label": "target",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L4",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_target",
       "community": 2,
-      "norm_label": "target"
+      "norm_label": "target",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_target"
     },
     {
       "label": "lib",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L5",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_lib",
       "community": 2,
-      "norm_label": "lib"
+      "norm_label": "lib",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_lib"
     },
     {
       "label": "types",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L6",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_types",
       "community": 2,
-      "norm_label": "types"
+      "norm_label": "types",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_types"
     },
     {
       "label": "skipLibCheck",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L7",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_skiplibcheck",
       "community": 2,
-      "norm_label": "skiplibcheck"
+      "norm_label": "skiplibcheck",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_skiplibcheck"
     },
     {
       "label": "module",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L10",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_module",
       "community": 2,
-      "norm_label": "module"
+      "norm_label": "module",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_module"
     },
     {
       "label": "allowImportingTsExtensions",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L11",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_allowimportingtsextensions",
       "community": 2,
-      "norm_label": "allowimportingtsextensions"
+      "norm_label": "allowimportingtsextensions",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_allowimportingtsextensions"
     },
     {
       "label": "verbatimModuleSyntax",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L12",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_verbatimmodulesyntax",
       "community": 2,
-      "norm_label": "verbatimmodulesyntax"
+      "norm_label": "verbatimmodulesyntax",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_verbatimmodulesyntax"
     },
     {
       "label": "moduleDetection",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L13",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_moduledetection",
       "community": 2,
-      "norm_label": "moduledetection"
+      "norm_label": "moduledetection",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_moduledetection"
     },
     {
       "label": "noEmit",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L14",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_noemit",
       "community": 2,
-      "norm_label": "noemit"
+      "norm_label": "noemit",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_noemit"
     },
     {
       "label": "noUnusedLocals",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L17",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_nounusedlocals",
       "community": 2,
-      "norm_label": "nounusedlocals"
+      "norm_label": "nounusedlocals",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_nounusedlocals"
     },
     {
       "label": "noUnusedParameters",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L18",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_nounusedparameters",
       "community": 2,
-      "norm_label": "nounusedparameters"
+      "norm_label": "nounusedparameters",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_nounusedparameters"
     },
     {
       "label": "erasableSyntaxOnly",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L19",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_erasablesyntaxonly",
       "community": 2,
-      "norm_label": "erasablesyntaxonly"
+      "norm_label": "erasablesyntaxonly",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_erasablesyntaxonly"
     },
     {
       "label": "noFallthroughCasesInSwitch",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L20",
-      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_nofallthroughcasesinswitch",
       "community": 2,
-      "norm_label": "nofallthroughcasesinswitch"
+      "norm_label": "nofallthroughcasesinswitch",
+      "id": "dataguard_cybersecurity_tsconfig_node_compileroptions_nofallthroughcasesinswitch"
     },
     {
       "label": "include",
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L22",
-      "id": "dataguard_cybersecurity_tsconfig_node_include",
       "community": 2,
-      "norm_label": "include"
+      "norm_label": "include",
+      "id": "dataguard_cybersecurity_tsconfig_node_include"
     },
     {
       "label": "vite.config.ts",
       "file_type": "code",
       "source_file": "vite.config.ts",
       "source_location": "L1",
-      "id": "vite_config_ts",
       "community": 18,
-      "norm_label": "vite.config.ts"
+      "norm_label": "vite.config.ts",
+      "id": "vite_config_ts"
     },
     {
       "label": "ask_claude.py",
       "file_type": "code",
       "source_file": "scripts/ask_claude.py",
       "source_location": "L1",
-      "id": "scripts_ask_claude_py",
       "community": 13,
-      "norm_label": "ask_claude.py"
+      "norm_label": "ask_claude.py",
+      "id": "scripts_ask_claude_py"
     },
     {
       "label": "clean_showcase.py",
       "file_type": "code",
       "source_file": "scripts/clean_showcase.py",
       "source_location": "L1",
-      "id": "scripts_clean_showcase_py",
       "community": 12,
-      "norm_label": "clean_showcase.py"
+      "norm_label": "clean_showcase.py",
+      "id": "scripts_clean_showcase_py"
     },
     {
       "label": "purify_all_showcase.py",
       "file_type": "code",
       "source_file": "scripts/purify_all_showcase.py",
       "source_location": "L1",
-      "id": "scripts_purify_all_showcase_py",
       "community": 14,
-      "norm_label": "purify_all_showcase.py"
+      "norm_label": "purify_all_showcase.py",
+      "id": "scripts_purify_all_showcase_py"
     },
     {
       "label": "App.tsx",
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L1",
-      "id": "src_app_tsx",
       "community": 3,
-      "norm_label": "app.tsx"
+      "norm_label": "app.tsx",
+      "id": "src_app_tsx"
     },
     {
       "label": "App()",
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L17",
-      "id": "src_app_app",
       "community": 3,
-      "norm_label": "app()"
+      "norm_label": "app()",
+      "id": "src_app_app"
     },
     {
       "label": "main.tsx",
       "file_type": "code",
       "source_file": "src/main.tsx",
       "source_location": "L1",
-      "id": "src_main_tsx",
       "community": 3,
-      "norm_label": "main.tsx"
+      "norm_label": "main.tsx",
+      "id": "src_main_tsx"
     },
     {
       "label": "managementApi.ts",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L1",
-      "id": "src_api_managementapi_ts",
       "community": 4,
-      "norm_label": "managementapi.ts"
+      "norm_label": "managementapi.ts",
+      "id": "src_api_managementapi_ts"
     },
     {
       "label": "DataguardManagementApiClient",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L18",
-      "id": "api_managementapi_dataguardmanagementapiclient",
       "community": 6,
-      "norm_label": "dataguardmanagementapiclient"
+      "norm_label": "dataguardmanagementapiclient",
+      "id": "api_managementapi_dataguardmanagementapiclient"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L23",
-      "id": "api_managementapi_dataguardmanagementapiclient_constructor",
       "community": 6,
-      "norm_label": ".constructor()"
+      "norm_label": ".constructor()",
+      "id": "api_managementapi_dataguardmanagementapiclient_constructor"
     },
     {
       "label": ".getHeaders()",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L32",
-      "id": "api_managementapi_dataguardmanagementapiclient_getheaders",
       "community": 6,
-      "norm_label": ".getheaders()"
+      "norm_label": ".getheaders()",
+      "id": "api_managementapi_dataguardmanagementapiclient_getheaders"
     },
     {
       "label": ".getDiagnosticHealth()",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L45",
-      "id": "api_managementapi_dataguardmanagementapiclient_getdiagnostichealth",
       "community": 6,
-      "norm_label": ".getdiagnostichealth()"
+      "norm_label": ".getdiagnostichealth()",
+      "id": "api_managementapi_dataguardmanagementapiclient_getdiagnostichealth"
     },
     {
       "label": ".runPerimeterAudit()",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L89",
-      "id": "api_managementapi_dataguardmanagementapiclient_runperimeteraudit",
       "community": 6,
-      "norm_label": ".runperimeteraudit()"
+      "norm_label": ".runperimeteraudit()",
+      "id": "api_managementapi_dataguardmanagementapiclient_runperimeteraudit"
     },
     {
       "label": ".getTelemetryStream()",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L146",
-      "id": "api_managementapi_dataguardmanagementapiclient_gettelemetrystream",
       "community": 6,
-      "norm_label": ".gettelemetrystream()"
+      "norm_label": ".gettelemetrystream()",
+      "id": "api_managementapi_dataguardmanagementapiclient_gettelemetrystream"
     },
     {
       "label": ".verifyZeroTrustToken()",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L202",
-      "id": "api_managementapi_dataguardmanagementapiclient_verifyzerotrusttoken",
       "community": 6,
-      "norm_label": ".verifyzerotrusttoken()"
+      "norm_label": ".verifyzerotrusttoken()",
+      "id": "api_managementapi_dataguardmanagementapiclient_verifyzerotrusttoken"
     },
     {
       "label": ".isolateNode()",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L231",
-      "id": "api_managementapi_dataguardmanagementapiclient_isolatenode",
       "community": 6,
-      "norm_label": ".isolatenode()"
+      "norm_label": ".isolatenode()",
+      "id": "api_managementapi_dataguardmanagementapiclient_isolatenode"
     },
     {
       "label": "dataguardApi",
       "file_type": "code",
       "source_file": "src/api/managementApi.ts",
       "source_location": "L254",
-      "id": "api_managementapi_dataguardapi",
       "community": 4,
-      "norm_label": "dataguardapi"
+      "norm_label": "dataguardapi",
+      "id": "api_managementapi_dataguardapi"
     },
     {
       "label": "types.ts",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L1",
-      "id": "src_api_types_ts",
       "community": 4,
-      "norm_label": "types.ts"
+      "norm_label": "types.ts",
+      "id": "src_api_types_ts"
     },
     {
       "label": "SeverityLevel",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L6",
-      "id": "api_types_severitylevel",
       "community": 4,
-      "norm_label": "severitylevel"
+      "norm_label": "severitylevel",
+      "id": "api_types_severitylevel"
     },
     {
       "label": "NodeStatus",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L7",
-      "id": "api_types_nodestatus",
       "community": 4,
-      "norm_label": "nodestatus"
+      "norm_label": "nodestatus",
+      "id": "api_types_nodestatus"
     },
     {
       "label": "DiagnosticHealthResponse",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L9",
-      "id": "api_types_diagnostichealthresponse",
       "community": 4,
-      "norm_label": "diagnostichealthresponse"
+      "norm_label": "diagnostichealthresponse",
+      "id": "api_types_diagnostichealthresponse"
     },
     {
       "label": "PerimeterAuditRequest",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L34",
-      "id": "api_types_perimeterauditrequest",
       "community": 4,
-      "norm_label": "perimeterauditrequest"
+      "norm_label": "perimeterauditrequest",
+      "id": "api_types_perimeterauditrequest"
     },
     {
       "label": "VulnerabilityFinding",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L41",
-      "id": "api_types_vulnerabilityfinding",
       "community": 4,
-      "norm_label": "vulnerabilityfinding"
+      "norm_label": "vulnerabilityfinding",
+      "id": "api_types_vulnerabilityfinding"
     },
     {
       "label": "PerimeterAuditResponse",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L51",
-      "id": "api_types_perimeterauditresponse",
       "community": 4,
-      "norm_label": "perimeterauditresponse"
+      "norm_label": "perimeterauditresponse",
+      "id": "api_types_perimeterauditresponse"
     },
     {
       "label": "TelemetryStreamEvent",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L69",
-      "id": "api_types_telemetrystreamevent",
       "community": 4,
-      "norm_label": "telemetrystreamevent"
+      "norm_label": "telemetrystreamevent",
+      "id": "api_types_telemetrystreamevent"
     },
     {
       "label": "ZeroTrustTokenVerificationRequest",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L81",
-      "id": "api_types_zerotrusttokenverificationrequest",
       "community": 4,
-      "norm_label": "zerotrusttokenverificationrequest"
+      "norm_label": "zerotrusttokenverificationrequest",
+      "id": "api_types_zerotrusttokenverificationrequest"
     },
     {
       "label": "ZeroTrustTokenVerificationResponse",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L88",
-      "id": "api_types_zerotrusttokenverificationresponse",
       "community": 4,
-      "norm_label": "zerotrusttokenverificationresponse"
+      "norm_label": "zerotrusttokenverificationresponse",
+      "id": "api_types_zerotrusttokenverificationresponse"
     },
     {
       "label": "IsolateNodeRequest",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L98",
-      "id": "api_types_isolatenoderequest",
       "community": 4,
-      "norm_label": "isolatenoderequest"
+      "norm_label": "isolatenoderequest",
+      "id": "api_types_isolatenoderequest"
     },
     {
       "label": "IsolateNodeResponse",
       "file_type": "code",
       "source_file": "src/api/types.ts",
       "source_location": "L104",
-      "id": "api_types_isolatenoderesponse",
       "community": 4,
-      "norm_label": "isolatenoderesponse"
+      "norm_label": "isolatenoderesponse",
+      "id": "api_types_isolatenoderesponse"
     },
     {
       "label": "AdvancedFeaturesFX.tsx",
       "file_type": "code",
       "source_file": "src/components/AdvancedFeaturesFX.tsx",
       "source_location": "L1",
-      "id": "src_components_advancedfeaturesfx_tsx",
       "community": 3,
-      "norm_label": "advancedfeaturesfx.tsx"
+      "norm_label": "advancedfeaturesfx.tsx",
+      "id": "src_components_advancedfeaturesfx_tsx"
     },
     {
       "label": "AdvancedFeaturesFXProps",
       "file_type": "code",
       "source_file": "src/components/AdvancedFeaturesFX.tsx",
       "source_location": "L4",
-      "id": "components_advancedfeaturesfx_advancedfeaturesfxprops",
       "community": 3,
-      "norm_label": "advancedfeaturesfxprops"
+      "norm_label": "advancedfeaturesfxprops",
+      "id": "components_advancedfeaturesfx_advancedfeaturesfxprops"
     },
     {
       "label": "AdvancedFeaturesFX()",
       "file_type": "code",
       "source_file": "src/components/AdvancedFeaturesFX.tsx",
       "source_location": "L8",
-      "id": "components_advancedfeaturesfx_advancedfeaturesfx",
       "community": 3,
-      "norm_label": "advancedfeaturesfx()"
+      "norm_label": "advancedfeaturesfx()",
+      "id": "components_advancedfeaturesfx_advancedfeaturesfx"
     },
     {
       "label": "AudioFeedback.ts",
       "file_type": "code",
       "source_file": "src/components/AudioFeedback.ts",
       "source_location": "L1",
-      "id": "src_components_audiofeedback_ts",
       "community": 3,
-      "norm_label": "audiofeedback.ts"
+      "norm_label": "audiofeedback.ts",
+      "id": "src_components_audiofeedback_ts"
     },
     {
       "label": "SoundEffects",
       "file_type": "code",
       "source_file": "src/components/AudioFeedback.ts",
       "source_location": "L2",
-      "id": "components_audiofeedback_soundeffects",
       "community": 9,
-      "norm_label": "soundeffects"
+      "norm_label": "soundeffects",
+      "id": "components_audiofeedback_soundeffects"
     },
     {
       "label": ".init()",
       "file_type": "code",
       "source_file": "src/components/AudioFeedback.ts",
       "source_location": "L6",
-      "id": "components_audiofeedback_soundeffects_init",
       "community": 9,
-      "norm_label": ".init()"
+      "norm_label": ".init()",
+      "id": "components_audiofeedback_soundeffects_init"
     },
     {
       "label": ".playClick()",
       "file_type": "code",
       "source_file": "src/components/AudioFeedback.ts",
       "source_location": "L15",
-      "id": "components_audiofeedback_soundeffects_playclick",
       "community": 9,
-      "norm_label": ".playclick()"
+      "norm_label": ".playclick()",
+      "id": "components_audiofeedback_soundeffects_playclick"
     },
     {
       "label": ".playBeep()",
       "file_type": "code",
       "source_file": "src/components/AudioFeedback.ts",
       "source_location": "L43",
-      "id": "components_audiofeedback_soundeffects_playbeep",
       "community": 9,
-      "norm_label": ".playbeep()"
+      "norm_label": ".playbeep()",
+      "id": "components_audiofeedback_soundeffects_playbeep"
     },
     {
       "label": ".toggleMute()",
       "file_type": "code",
       "source_file": "src/components/AudioFeedback.ts",
       "source_location": "L47",
-      "id": "components_audiofeedback_soundeffects_togglemute",
       "community": 9,
-      "norm_label": ".togglemute()"
+      "norm_label": ".togglemute()",
+      "id": "components_audiofeedback_soundeffects_togglemute"
     },
     {
       "label": "sound",
       "file_type": "code",
       "source_file": "src/components/AudioFeedback.ts",
       "source_location": "L53",
-      "id": "components_audiofeedback_sound",
       "community": 3,
-      "norm_label": "sound"
+      "norm_label": "sound",
+      "id": "components_audiofeedback_sound"
     },
     {
       "label": "Crosshair.tsx",
       "file_type": "code",
       "source_file": "src/components/Crosshair.tsx",
       "source_location": "L1",
-      "id": "src_components_crosshair_tsx",
       "community": 3,
-      "norm_label": "crosshair.tsx"
+      "norm_label": "crosshair.tsx",
+      "id": "src_components_crosshair_tsx"
     },
     {
       "label": "CrosshairProps",
       "file_type": "code",
       "source_file": "src/components/Crosshair.tsx",
       "source_location": "L3",
-      "id": "components_crosshair_crosshairprops",
       "community": 3,
-      "norm_label": "crosshairprops"
+      "norm_label": "crosshairprops",
+      "id": "components_crosshair_crosshairprops"
     },
     {
       "label": "Crosshair()",
       "file_type": "code",
       "source_file": "src/components/Crosshair.tsx",
       "source_location": "L9",
-      "id": "components_crosshair_crosshair",
       "community": 3,
-      "norm_label": "crosshair()"
+      "norm_label": "crosshair()",
+      "id": "components_crosshair_crosshair"
+    },
+    {
+      "label": "FirewallFX.tsx",
+      "file_type": "code",
+      "source_file": "src/components/FirewallFX.tsx",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "firewallfx.tsx",
+      "id": "src_components_firewallfx_tsx"
+    },
+    {
+      "label": "FirewallFXProps",
+      "file_type": "code",
+      "source_file": "src/components/FirewallFX.tsx",
+      "source_location": "L6",
+      "community": 3,
+      "norm_label": "firewallfxprops",
+      "id": "components_firewallfx_firewallfxprops"
+    },
+    {
+      "label": "FirewallFX()",
+      "file_type": "code",
+      "source_file": "src/components/FirewallFX.tsx",
+      "source_location": "L10",
+      "community": 3,
+      "norm_label": "firewallfx()",
+      "id": "components_firewallfx_firewallfx"
     },
     {
       "label": "InteractiveDemoModal.tsx",
       "file_type": "code",
       "source_file": "src/components/InteractiveDemoModal.tsx",
       "source_location": "L1",
-      "id": "src_components_interactivedemomodal_tsx",
       "community": 4,
-      "norm_label": "interactivedemomodal.tsx"
+      "norm_label": "interactivedemomodal.tsx",
+      "id": "src_components_interactivedemomodal_tsx"
     },
     {
       "label": "ModalProps",
       "file_type": "code",
       "source_file": "src/components/InteractiveDemoModal.tsx",
       "source_location": "L7",
-      "id": "components_interactivedemomodal_modalprops",
       "community": 4,
-      "norm_label": "modalprops"
+      "norm_label": "modalprops",
+      "id": "components_interactivedemomodal_modalprops"
     },
     {
       "label": "InteractiveDemoModal()",
       "file_type": "code",
       "source_file": "src/components/InteractiveDemoModal.tsx",
       "source_location": "L13",
-      "id": "components_interactivedemomodal_interactivedemomodal",
       "community": 4,
-      "norm_label": "interactivedemomodal()"
+      "norm_label": "interactivedemomodal()",
+      "id": "components_interactivedemomodal_interactivedemomodal"
     },
     {
       "label": "LogoBar.tsx",
       "file_type": "code",
       "source_file": "src/components/LogoBar.tsx",
       "source_location": "L1",
-      "id": "src_components_logobar_tsx",
       "community": 3,
-      "norm_label": "logobar.tsx"
+      "norm_label": "logobar.tsx",
+      "id": "src_components_logobar_tsx"
     },
     {
       "label": "LogoBar()",
       "file_type": "code",
       "source_file": "src/components/LogoBar.tsx",
       "source_location": "L4",
-      "id": "components_logobar_logobar",
       "community": 3,
-      "norm_label": "logobar()"
+      "norm_label": "logobar()",
+      "id": "components_logobar_logobar"
     },
     {
       "label": "Navbar.tsx",
       "file_type": "code",
       "source_file": "src/components/Navbar.tsx",
       "source_location": "L1",
-      "id": "src_components_navbar_tsx",
       "community": 3,
-      "norm_label": "navbar.tsx"
+      "norm_label": "navbar.tsx",
+      "id": "src_components_navbar_tsx"
     },
     {
       "label": "NavbarProps",
       "file_type": "code",
       "source_file": "src/components/Navbar.tsx",
       "source_location": "L6",
-      "id": "components_navbar_navbarprops",
       "community": 3,
-      "norm_label": "navbarprops"
+      "norm_label": "navbarprops",
+      "id": "components_navbar_navbarprops"
     },
     {
       "label": "Navbar()",
       "file_type": "code",
       "source_file": "src/components/Navbar.tsx",
       "source_location": "L11",
-      "id": "components_navbar_navbar",
       "community": 3,
-      "norm_label": "navbar()"
+      "norm_label": "navbar()",
+      "id": "components_navbar_navbar"
     },
     {
       "label": "ShowcaseFX.tsx",
       "file_type": "code",
       "source_file": "src/components/ShowcaseFX.tsx",
       "source_location": "L1",
-      "id": "src_components_showcasefx_tsx",
       "community": 19,
-      "norm_label": "showcasefx.tsx"
+      "norm_label": "showcasefx.tsx",
+      "id": "src_components_showcasefx_tsx"
     },
     {
       "label": "LENS_CONFIG",
       "file_type": "code",
       "source_file": "src/components/ShowcaseFX.tsx",
       "source_location": "L16",
-      "id": "components_showcasefx_lens_config",
       "community": 19,
-      "norm_label": "lens_config"
+      "norm_label": "lens_config",
+      "id": "components_showcasefx_lens_config"
     },
     {
       "label": "LensDotColumn",
       "file_type": "code",
       "source_file": "src/components/ShowcaseFX.tsx",
       "source_location": "L28",
-      "id": "components_showcasefx_lensdotcolumn",
       "community": 19,
-      "norm_label": "lensdotcolumn"
+      "norm_label": "lensdotcolumn",
+      "id": "components_showcasefx_lensdotcolumn"
     },
     {
       "label": "generateLensColumns()",
       "file_type": "code",
       "source_file": "src/components/ShowcaseFX.tsx",
       "source_location": "L34",
-      "id": "components_showcasefx_generatelenscolumns",
       "community": 19,
-      "norm_label": "generatelenscolumns()"
+      "norm_label": "generatelenscolumns()",
+      "id": "components_showcasefx_generatelenscolumns"
     },
     {
       "label": "generateLensKeyframesCSS()",
       "file_type": "code",
       "source_file": "src/components/ShowcaseFX.tsx",
       "source_location": "L65",
-      "id": "components_showcasefx_generatelenskeyframescss",
       "community": 19,
-      "norm_label": "generatelenskeyframescss()"
+      "norm_label": "generatelenskeyframescss()",
+      "id": "components_showcasefx_generatelenskeyframescss"
     },
     {
       "label": "LENS_COLUMNS",
       "file_type": "code",
       "source_file": "src/components/ShowcaseFX.tsx",
       "source_location": "L113",
-      "id": "components_showcasefx_lens_columns",
       "community": 19,
-      "norm_label": "lens_columns"
+      "norm_label": "lens_columns",
+      "id": "components_showcasefx_lens_columns"
     },
     {
       "label": "LENS_KEYFRAMES_CSS",
       "file_type": "code",
       "source_file": "src/components/ShowcaseFX.tsx",
       "source_location": "L114",
-      "id": "components_showcasefx_lens_keyframes_css",
       "community": 19,
-      "norm_label": "lens_keyframes_css"
+      "norm_label": "lens_keyframes_css",
+      "id": "components_showcasefx_lens_keyframes_css"
     },
     {
       "label": "ShowcaseFXProps",
       "file_type": "code",
       "source_file": "src/components/ShowcaseFX.tsx",
       "source_location": "L116",
-      "id": "components_showcasefx_showcasefxprops",
       "community": 19,
-      "norm_label": "showcasefxprops"
+      "norm_label": "showcasefxprops",
+      "id": "components_showcasefx_showcasefxprops"
     },
     {
       "label": "ShowcaseFX()",
       "file_type": "code",
       "source_file": "src/components/ShowcaseFX.tsx",
       "source_location": "L120",
-      "id": "components_showcasefx_showcasefx",
       "community": 19,
-      "norm_label": "showcasefx()"
+      "norm_label": "showcasefx()",
+      "id": "components_showcasefx_showcasefx"
+    },
+    {
+      "label": "SimpleStepsFX.tsx",
+      "file_type": "code",
+      "source_file": "src/components/SimpleStepsFX.tsx",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "simplestepsfx.tsx",
+      "id": "src_components_simplestepsfx_tsx"
+    },
+    {
+      "label": "SimpleStepsFXProps",
+      "file_type": "code",
+      "source_file": "src/components/SimpleStepsFX.tsx",
+      "source_location": "L4",
+      "community": 3,
+      "norm_label": "simplestepsfxprops",
+      "id": "components_simplestepsfx_simplestepsfxprops"
+    },
+    {
+      "label": "SimpleStepsFX()",
+      "file_type": "code",
+      "source_file": "src/components/SimpleStepsFX.tsx",
+      "source_location": "L8",
+      "community": 3,
+      "norm_label": "simplestepsfx()",
+      "id": "components_simplestepsfx_simplestepsfx"
     },
     {
       "label": "AdvancedFeatures.tsx",
       "file_type": "code",
       "source_file": "src/sections/AdvancedFeatures.tsx",
       "source_location": "L1",
-      "id": "src_sections_advancedfeatures_tsx",
       "community": 3,
-      "norm_label": "advancedfeatures.tsx"
+      "norm_label": "advancedfeatures.tsx",
+      "id": "src_sections_advancedfeatures_tsx"
     },
     {
       "label": "AdvancedFeaturesProps",
       "file_type": "code",
       "source_file": "src/sections/AdvancedFeatures.tsx",
-      "source_location": "L8",
-      "id": "sections_advancedfeatures_advancedfeaturesprops",
+      "source_location": "L9",
       "community": 3,
-      "norm_label": "advancedfeaturesprops"
+      "norm_label": "advancedfeaturesprops",
+      "id": "sections_advancedfeatures_advancedfeaturesprops"
     },
     {
       "label": "AdvancedFeatures()",
       "file_type": "code",
       "source_file": "src/sections/AdvancedFeatures.tsx",
-      "source_location": "L12",
-      "id": "sections_advancedfeatures_advancedfeatures",
+      "source_location": "L13",
       "community": 3,
-      "norm_label": "advancedfeatures()"
+      "norm_label": "advancedfeatures()",
+      "id": "sections_advancedfeatures_advancedfeatures"
     },
     {
       "label": "BuiltForEnterprise.tsx",
       "file_type": "code",
       "source_file": "src/sections/BuiltForEnterprise.tsx",
       "source_location": "L1",
-      "id": "src_sections_builtforenterprise_tsx",
       "community": 3,
-      "norm_label": "builtforenterprise.tsx"
+      "norm_label": "builtforenterprise.tsx",
+      "id": "src_sections_builtforenterprise_tsx"
     },
     {
       "label": "BuiltForEnterprise()",
       "file_type": "code",
       "source_file": "src/sections/BuiltForEnterprise.tsx",
       "source_location": "L7",
-      "id": "sections_builtforenterprise_builtforenterprise",
       "community": 3,
-      "norm_label": "builtforenterprise()"
+      "norm_label": "builtforenterprise()",
+      "id": "sections_builtforenterprise_builtforenterprise"
     },
     {
       "label": "CaseStudyDrawer.tsx",
       "file_type": "code",
       "source_file": "src/sections/CaseStudyDrawer.tsx",
       "source_location": "L1",
-      "id": "src_sections_casestudydrawer_tsx",
       "community": 3,
-      "norm_label": "casestudydrawer.tsx"
+      "norm_label": "casestudydrawer.tsx",
+      "id": "src_sections_casestudydrawer_tsx"
     },
     {
       "label": "CaseStudyProps",
       "file_type": "code",
       "source_file": "src/sections/CaseStudyDrawer.tsx",
       "source_location": "L6",
-      "id": "sections_casestudydrawer_casestudyprops",
       "community": 3,
-      "norm_label": "casestudyprops"
+      "norm_label": "casestudyprops",
+      "id": "sections_casestudydrawer_casestudyprops"
     },
     {
       "label": "CaseStudyDrawer()",
       "file_type": "code",
       "source_file": "src/sections/CaseStudyDrawer.tsx",
       "source_location": "L11",
-      "id": "sections_casestudydrawer_casestudydrawer",
       "community": 3,
-      "norm_label": "casestudydrawer()"
+      "norm_label": "casestudydrawer()",
+      "id": "sections_casestudydrawer_casestudydrawer"
     },
     {
       "label": "CTASection.tsx",
       "file_type": "code",
       "source_file": "src/sections/CTASection.tsx",
       "source_location": "L1",
-      "id": "src_sections_ctasection_tsx",
       "community": 3,
-      "norm_label": "ctasection.tsx"
+      "norm_label": "ctasection.tsx",
+      "id": "src_sections_ctasection_tsx"
     },
     {
       "label": "CTASectionProps",
       "file_type": "code",
       "source_file": "src/sections/CTASection.tsx",
       "source_location": "L7",
-      "id": "sections_ctasection_ctasectionprops",
       "community": 3,
-      "norm_label": "ctasectionprops"
+      "norm_label": "ctasectionprops",
+      "id": "sections_ctasection_ctasectionprops"
     },
     {
       "label": "CTASection()",
       "file_type": "code",
       "source_file": "src/sections/CTASection.tsx",
       "source_location": "L11",
-      "id": "sections_ctasection_ctasection",
       "community": 3,
-      "norm_label": "ctasection()"
+      "norm_label": "ctasection()",
+      "id": "sections_ctasection_ctasection"
     },
     {
       "label": "Footer.tsx",
       "file_type": "code",
       "source_file": "src/sections/Footer.tsx",
       "source_location": "L1",
-      "id": "src_sections_footer_tsx",
       "community": 3,
-      "norm_label": "footer.tsx"
+      "norm_label": "footer.tsx",
+      "id": "src_sections_footer_tsx"
     },
     {
       "label": "Footer()",
       "file_type": "code",
       "source_file": "src/sections/Footer.tsx",
       "source_location": "L5",
-      "id": "sections_footer_footer",
       "community": 3,
-      "norm_label": "footer()"
+      "norm_label": "footer()",
+      "id": "sections_footer_footer"
     },
     {
       "label": "Hero.tsx",
       "file_type": "code",
       "source_file": "src/sections/Hero.tsx",
       "source_location": "L1",
-      "id": "src_sections_hero_tsx",
       "community": 3,
-      "norm_label": "hero.tsx"
+      "norm_label": "hero.tsx",
+      "id": "src_sections_hero_tsx"
     },
     {
       "label": "HeroProps",
       "file_type": "code",
       "source_file": "src/sections/Hero.tsx",
       "source_location": "L7",
-      "id": "sections_hero_heroprops",
       "community": 3,
-      "norm_label": "heroprops"
+      "norm_label": "heroprops",
+      "id": "sections_hero_heroprops"
     },
     {
       "label": "Hero()",
       "file_type": "code",
       "source_file": "src/sections/Hero.tsx",
       "source_location": "L11",
-      "id": "sections_hero_hero",
       "community": 3,
-      "norm_label": "hero()"
+      "norm_label": "hero()",
+      "id": "sections_hero_hero"
     },
     {
       "label": "SecurityShowcase.tsx",
       "file_type": "code",
       "source_file": "src/sections/SecurityShowcase.tsx",
       "source_location": "L1",
-      "id": "src_sections_securityshowcase_tsx",
       "community": 19,
-      "norm_label": "securityshowcase.tsx"
+      "norm_label": "securityshowcase.tsx",
+      "id": "src_sections_securityshowcase_tsx"
     },
     {
       "label": "SecurityShowcaseProps",
       "file_type": "code",
       "source_file": "src/sections/SecurityShowcase.tsx",
       "source_location": "L8",
-      "id": "sections_securityshowcase_securityshowcaseprops",
       "community": 19,
-      "norm_label": "securityshowcaseprops"
+      "norm_label": "securityshowcaseprops",
+      "id": "sections_securityshowcase_securityshowcaseprops"
     },
     {
       "label": "slideVariants",
       "file_type": "code",
       "source_file": "src/sections/SecurityShowcase.tsx",
       "source_location": "L12",
-      "id": "sections_securityshowcase_slidevariants",
       "community": 19,
-      "norm_label": "slidevariants"
+      "norm_label": "slidevariants",
+      "id": "sections_securityshowcase_slidevariants"
     },
     {
       "label": "SecurityShowcase()",
       "file_type": "code",
       "source_file": "src/sections/SecurityShowcase.tsx",
       "source_location": "L30",
-      "id": "sections_securityshowcase_securityshowcase",
       "community": 19,
-      "norm_label": "securityshowcase()"
+      "norm_label": "securityshowcase()",
+      "id": "sections_securityshowcase_securityshowcase"
     },
     {
       "label": "SimpleSteps.tsx",
       "file_type": "code",
       "source_file": "src/sections/SimpleSteps.tsx",
       "source_location": "L1",
-      "id": "src_sections_simplesteps_tsx",
       "community": 3,
-      "norm_label": "simplesteps.tsx"
+      "norm_label": "simplesteps.tsx",
+      "id": "src_sections_simplesteps_tsx"
     },
     {
       "label": "SimpleSteps()",
       "file_type": "code",
       "source_file": "src/sections/SimpleSteps.tsx",
-      "source_location": "L7",
-      "id": "sections_simplesteps_simplesteps",
+      "source_location": "L8",
       "community": 3,
-      "norm_label": "simplesteps()"
+      "norm_label": "simplesteps()",
+      "id": "sections_simplesteps_simplesteps"
     },
     {
       "label": "Testimonials.tsx",
       "file_type": "code",
       "source_file": "src/sections/Testimonials.tsx",
       "source_location": "L1",
-      "id": "src_sections_testimonials_tsx",
       "community": 3,
-      "norm_label": "testimonials.tsx"
+      "norm_label": "testimonials.tsx",
+      "id": "src_sections_testimonials_tsx"
     },
     {
       "label": "Testimonials()",
       "file_type": "code",
       "source_file": "src/sections/Testimonials.tsx",
       "source_location": "L7",
-      "id": "sections_testimonials_testimonials",
       "community": 3,
-      "norm_label": "testimonials()"
+      "norm_label": "testimonials()",
+      "id": "sections_testimonials_testimonials"
     },
     {
       "label": "index.ts",
       "file_type": "code",
       "source_file": "src/types/index.ts",
       "source_location": "L1",
-      "id": "src_types_index_ts",
       "community": 7,
-      "norm_label": "index.ts"
+      "norm_label": "index.ts",
+      "id": "src_types_index_ts"
     },
     {
       "label": "NavItem",
       "file_type": "code",
       "source_file": "src/types/index.ts",
       "source_location": "L1",
-      "id": "types_index_navitem",
       "community": 7,
-      "norm_label": "navitem"
+      "norm_label": "navitem",
+      "id": "types_index_navitem"
     },
     {
       "label": "SecurityFeature",
       "file_type": "code",
       "source_file": "src/types/index.ts",
       "source_location": "L6",
-      "id": "types_index_securityfeature",
       "community": 7,
-      "norm_label": "securityfeature"
+      "norm_label": "securityfeature",
+      "id": "types_index_securityfeature"
     },
     {
       "label": "SecurityTab",
       "file_type": "code",
       "source_file": "src/types/index.ts",
       "source_location": "L13",
-      "id": "types_index_securitytab",
       "community": 7,
-      "norm_label": "securitytab"
+      "norm_label": "securitytab",
+      "id": "types_index_securitytab"
     },
     {
       "label": "ThreatAlert",
       "file_type": "code",
       "source_file": "src/types/index.ts",
       "source_location": "L27",
-      "id": "types_index_threatalert",
       "community": 7,
-      "norm_label": "threatalert"
+      "norm_label": "threatalert",
+      "id": "types_index_threatalert"
     },
     {
       "label": "StepItem",
       "file_type": "code",
       "source_file": "src/types/index.ts",
       "source_location": "L36",
-      "id": "types_index_stepitem",
       "community": 7,
-      "norm_label": "stepitem"
+      "norm_label": "stepitem",
+      "id": "types_index_stepitem"
     },
     {
       "label": "TestimonialItem",
       "file_type": "code",
       "source_file": "src/types/index.ts",
       "source_location": "L44",
-      "id": "types_index_testimonialitem",
       "community": 7,
-      "norm_label": "testimonialitem"
+      "norm_label": "testimonialitem",
+      "id": "types_index_testimonialitem"
     },
     {
       "label": "README.md",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L1",
-      "id": "readme_md",
       "community": 10,
-      "norm_label": "readme.md"
+      "norm_label": "readme.md",
+      "id": "readme_md"
     },
     {
       "label": "Dataguard \u2014 Enterprise Cybersecurity Platform",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L1",
-      "id": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform",
       "community": 10,
-      "norm_label": "dataguard \u2014 enterprise cybersecurity platform"
+      "norm_label": "dataguard \u2014 enterprise cybersecurity platform",
+      "id": "dataguard_cybersecurity_readme_dataguard_enterprise_cybersecurity_platform"
     },
     {
       "label": "Table of Contents",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L15",
-      "id": "dataguard_cybersecurity_readme_table_of_contents",
       "community": 10,
-      "norm_label": "table of contents"
+      "norm_label": "table of contents",
+      "id": "dataguard_cybersecurity_readme_table_of_contents"
     },
     {
       "label": "1. System Architecture Diagram",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L27",
-      "id": "dataguard_cybersecurity_readme_1_system_architecture_diagram",
       "community": 10,
-      "norm_label": "1. system architecture diagram"
+      "norm_label": "1. system architecture diagram",
+      "id": "dataguard_cybersecurity_readme_1_system_architecture_diagram"
     },
     {
       "label": "code:mermaid (flowchart TD)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L31",
-      "id": "dataguard_cybersecurity_readme_codeblock_1",
       "community": 10,
-      "norm_label": "code:mermaid (flowchart td)"
+      "norm_label": "code:mermaid (flowchart td)",
+      "id": "dataguard_cybersecurity_readme_codeblock_1"
     },
     {
       "label": "2. Core Engineering Highlights",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L95",
-      "id": "dataguard_cybersecurity_readme_2_core_engineering_highlights",
       "community": 10,
-      "norm_label": "2. core engineering highlights"
+      "norm_label": "2. core engineering highlights",
+      "id": "dataguard_cybersecurity_readme_2_core_engineering_highlights"
     },
     {
       "label": "2.1. 100% Visual Fidelity to Behance Reference #255038607",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L97",
-      "id": "dataguard_cybersecurity_readme_2_1_100_visual_fidelity_to_behance_reference_255038607",
       "community": 10,
-      "norm_label": "2.1. 100% visual fidelity to behance reference #255038607"
+      "norm_label": "2.1. 100% visual fidelity to behance reference #255038607",
+      "id": "dataguard_cybersecurity_readme_2_1_100_visual_fidelity_to_behance_reference_255038607"
     },
     {
       "label": "2.2. Generative Particle Canvas Collision Engine",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L102",
-      "id": "dataguard_cybersecurity_readme_2_2_generative_particle_canvas_collision_engine",
       "community": 10,
-      "norm_label": "2.2. generative particle canvas collision engine"
+      "norm_label": "2.2. generative particle canvas collision engine",
+      "id": "dataguard_cybersecurity_readme_2_2_generative_particle_canvas_collision_engine"
     },
     {
       "label": "2.3. Zero-Asset Synthetic Web Audio Micro-Interactions",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L106",
-      "id": "dataguard_cybersecurity_readme_2_3_zero_asset_synthetic_web_audio_micro_interactions",
       "community": 10,
-      "norm_label": "2.3. zero-asset synthetic web audio micro-interactions"
+      "norm_label": "2.3. zero-asset synthetic web audio micro-interactions",
+      "id": "dataguard_cybersecurity_readme_2_3_zero_asset_synthetic_web_audio_micro_interactions"
     },
     {
       "label": "2.4. Dual Viewport Presentation Switcher",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L111",
-      "id": "dataguard_cybersecurity_readme_2_4_dual_viewport_presentation_switcher",
       "community": 10,
-      "norm_label": "2.4. dual viewport presentation switcher"
+      "norm_label": "2.4. dual viewport presentation switcher",
+      "id": "dataguard_cybersecurity_readme_2_4_dual_viewport_presentation_switcher"
     },
     {
       "label": "2.5. Stepwise Perimeter Vulnerability Scanner",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L116",
-      "id": "dataguard_cybersecurity_readme_2_5_stepwise_perimeter_vulnerability_scanner",
       "community": 10,
-      "norm_label": "2.5. stepwise perimeter vulnerability scanner"
+      "norm_label": "2.5. stepwise perimeter vulnerability scanner",
+      "id": "dataguard_cybersecurity_readme_2_5_stepwise_perimeter_vulnerability_scanner"
     },
     {
       "label": "2.6. Production Build Performance",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L120",
-      "id": "dataguard_cybersecurity_readme_2_6_production_build_performance",
       "community": 10,
-      "norm_label": "2.6. production build performance"
+      "norm_label": "2.6. production build performance",
+      "id": "dataguard_cybersecurity_readme_2_6_production_build_performance"
     },
     {
       "label": "3. End-to-End Sequence Flow",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L126",
-      "id": "dataguard_cybersecurity_readme_3_end_to_end_sequence_flow",
       "community": 10,
-      "norm_label": "3. end-to-end sequence flow"
+      "norm_label": "3. end-to-end sequence flow",
+      "id": "dataguard_cybersecurity_readme_3_end_to_end_sequence_flow"
     },
     {
       "label": "3.1. Zero-Trust Access & Threat Scanning Pipeline",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L128",
-      "id": "dataguard_cybersecurity_readme_3_1_zero_trust_access_threat_scanning_pipeline",
       "community": 10,
-      "norm_label": "3.1. zero-trust access & threat scanning pipeline"
+      "norm_label": "3.1. zero-trust access & threat scanning pipeline",
+      "id": "dataguard_cybersecurity_readme_3_1_zero_trust_access_threat_scanning_pipeline"
     },
     {
       "label": "code:mermaid (sequenceDiagram)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L130",
-      "id": "dataguard_cybersecurity_readme_codeblock_2",
       "community": 10,
-      "norm_label": "code:mermaid (sequencediagram)"
+      "norm_label": "code:mermaid (sequencediagram)",
+      "id": "dataguard_cybersecurity_readme_codeblock_2"
     },
     {
       "label": "3.2. Real-Time Telemetry & Diagnostic Alerting Flow",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L158",
-      "id": "dataguard_cybersecurity_readme_3_2_real_time_telemetry_diagnostic_alerting_flow",
       "community": 10,
-      "norm_label": "3.2. real-time telemetry & diagnostic alerting flow"
+      "norm_label": "3.2. real-time telemetry & diagnostic alerting flow",
+      "id": "dataguard_cybersecurity_readme_3_2_real_time_telemetry_diagnostic_alerting_flow"
     },
     {
       "label": "code:mermaid (sequenceDiagram)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L160",
-      "id": "dataguard_cybersecurity_readme_codeblock_3",
       "community": 10,
-      "norm_label": "code:mermaid (sequencediagram)"
+      "norm_label": "code:mermaid (sequencediagram)",
+      "id": "dataguard_cybersecurity_readme_codeblock_3"
     },
     {
       "label": "4. HTTP Management & Diagnostic API Reference",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L187",
-      "id": "dataguard_cybersecurity_readme_4_http_management_diagnostic_api_reference",
-      "community": 10,
-      "norm_label": "4. http management & diagnostic api reference"
+      "community": 20,
+      "norm_label": "4. http management & diagnostic api reference",
+      "id": "dataguard_cybersecurity_readme_4_http_management_diagnostic_api_reference"
     },
     {
       "label": "4.1. Core Endpoints Summary",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L193",
-      "id": "dataguard_cybersecurity_readme_4_1_core_endpoints_summary",
-      "community": 10,
-      "norm_label": "4.1. core endpoints summary"
+      "community": 20,
+      "norm_label": "4.1. core endpoints summary",
+      "id": "dataguard_cybersecurity_readme_4_1_core_endpoints_summary"
     },
     {
       "label": "4.2. Sample Request & Response",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L203",
-      "id": "dataguard_cybersecurity_readme_4_2_sample_request_response",
-      "community": 10,
-      "norm_label": "4.2. sample request & response"
+      "community": 20,
+      "norm_label": "4.2. sample request & response",
+      "id": "dataguard_cybersecurity_readme_4_2_sample_request_response"
     },
     {
       "label": "Cluster Health Diagnostic",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L205",
-      "id": "dataguard_cybersecurity_readme_cluster_health_diagnostic",
-      "community": 10,
-      "norm_label": "cluster health diagnostic"
+      "community": 20,
+      "norm_label": "cluster health diagnostic",
+      "id": "dataguard_cybersecurity_readme_cluster_health_diagnostic"
     },
     {
       "label": "code:bash (curl -X GET \"https://api.dataguard.ai/v1/health/diagnostic\" )",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L206",
-      "id": "dataguard_cybersecurity_readme_codeblock_4",
-      "community": 10,
-      "norm_label": "code:bash (curl -x get \"https://api.dataguard.ai/v1/health/diagnostic\" )"
+      "community": 20,
+      "norm_label": "code:bash (curl -x get \"https://api.dataguard.ai/v1/health/diagnostic\" )",
+      "id": "dataguard_cybersecurity_readme_codeblock_4"
     },
     {
       "label": "code:json ({)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L213",
-      "id": "dataguard_cybersecurity_readme_codeblock_5",
-      "community": 10,
-      "norm_label": "code:json ({)"
+      "community": 20,
+      "norm_label": "code:json ({)",
+      "id": "dataguard_cybersecurity_readme_codeblock_5"
     },
     {
       "label": "5. Graphify Knowledge Graph",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L240",
-      "id": "dataguard_cybersecurity_readme_5_graphify_knowledge_graph",
       "community": 10,
-      "norm_label": "5. graphify knowledge graph"
+      "norm_label": "5. graphify knowledge graph",
+      "id": "dataguard_cybersecurity_readme_5_graphify_knowledge_graph"
     },
     {
       "label": "Knowledge Graph Metrics",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L244",
-      "id": "dataguard_cybersecurity_readme_knowledge_graph_metrics",
       "community": 10,
-      "norm_label": "knowledge graph metrics"
+      "norm_label": "knowledge graph metrics",
+      "id": "dataguard_cybersecurity_readme_knowledge_graph_metrics"
     },
     {
       "label": "Core Abstractions (God Nodes)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L250",
-      "id": "dataguard_cybersecurity_readme_core_abstractions_god_nodes",
       "community": 10,
-      "norm_label": "core abstractions (god nodes)"
+      "norm_label": "core abstractions (god nodes)",
+      "id": "dataguard_cybersecurity_readme_core_abstractions_god_nodes"
     },
     {
       "label": "Graph Inspection Commands",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L257",
-      "id": "dataguard_cybersecurity_readme_graph_inspection_commands",
       "community": 10,
-      "norm_label": "graph inspection commands"
+      "norm_label": "graph inspection commands",
+      "id": "dataguard_cybersecurity_readme_graph_inspection_commands"
     },
     {
       "label": "code:bash (# Query the codebase knowledge graph via BFS)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L258",
-      "id": "dataguard_cybersecurity_readme_codeblock_6",
       "community": 10,
-      "norm_label": "code:bash (# query the codebase knowledge graph via bfs)"
+      "norm_label": "code:bash (# query the codebase knowledge graph via bfs)",
+      "id": "dataguard_cybersecurity_readme_codeblock_6"
     },
     {
       "label": "6. Component & Directory Structure",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L274",
-      "id": "dataguard_cybersecurity_readme_6_component_directory_structure",
       "community": 10,
-      "norm_label": "6. component & directory structure"
+      "norm_label": "6. component & directory structure",
+      "id": "dataguard_cybersecurity_readme_6_component_directory_structure"
     },
     {
       "label": "code:block7 (dataguard-cybersecurity/)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L276",
-      "id": "dataguard_cybersecurity_readme_codeblock_7",
       "community": 10,
-      "norm_label": "code:block7 (dataguard-cybersecurity/)"
+      "norm_label": "code:block7 (dataguard-cybersecurity/)",
+      "id": "dataguard_cybersecurity_readme_codeblock_7"
     },
     {
       "label": "7. Getting Started & Production Build",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L325",
-      "id": "dataguard_cybersecurity_readme_7_getting_started_production_build",
       "community": 11,
-      "norm_label": "7. getting started & production build"
+      "norm_label": "7. getting started & production build",
+      "id": "dataguard_cybersecurity_readme_7_getting_started_production_build"
     },
     {
       "label": "Prerequisites",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L327",
-      "id": "dataguard_cybersecurity_readme_prerequisites",
       "community": 11,
-      "norm_label": "prerequisites"
+      "norm_label": "prerequisites",
+      "id": "dataguard_cybersecurity_readme_prerequisites"
     },
     {
       "label": "Installation",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L331",
-      "id": "dataguard_cybersecurity_readme_installation",
       "community": 11,
-      "norm_label": "installation"
+      "norm_label": "installation",
+      "id": "dataguard_cybersecurity_readme_installation"
     },
     {
       "label": "code:bash (# Clone the repository)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L332",
-      "id": "dataguard_cybersecurity_readme_codeblock_8",
       "community": 11,
-      "norm_label": "code:bash (# clone the repository)"
+      "norm_label": "code:bash (# clone the repository)",
+      "id": "dataguard_cybersecurity_readme_codeblock_8"
     },
     {
       "label": "Development",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L341",
-      "id": "dataguard_cybersecurity_readme_development",
       "community": 11,
-      "norm_label": "development"
+      "norm_label": "development",
+      "id": "dataguard_cybersecurity_readme_development"
     },
     {
       "label": "code:bash (npm run dev)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L342",
-      "id": "dataguard_cybersecurity_readme_codeblock_9",
       "community": 11,
-      "norm_label": "code:bash (npm run dev)"
+      "norm_label": "code:bash (npm run dev)",
+      "id": "dataguard_cybersecurity_readme_codeblock_9"
     },
     {
       "label": "Production Build",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L347",
-      "id": "dataguard_cybersecurity_readme_production_build",
       "community": 11,
-      "norm_label": "production build"
+      "norm_label": "production build",
+      "id": "dataguard_cybersecurity_readme_production_build"
     },
     {
       "label": "code:bash (npm run build)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L348",
-      "id": "dataguard_cybersecurity_readme_codeblock_10",
       "community": 11,
-      "norm_label": "code:bash (npm run build)"
+      "norm_label": "code:bash (npm run build)",
+      "id": "dataguard_cybersecurity_readme_codeblock_10"
     },
     {
       "label": "License & Credits",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L355",
-      "id": "dataguard_cybersecurity_readme_license_credits",
       "community": 10,
-      "norm_label": "license & credits"
+      "norm_label": "license & credits",
+      "id": "dataguard_cybersecurity_readme_license_credits"
     },
     {
       "label": "API_REFERENCE.md",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L1",
-      "id": "docs_api_reference_md",
       "community": 5,
-      "norm_label": "api_reference.md"
+      "norm_label": "api_reference.md",
+      "id": "docs_api_reference_md"
     },
     {
       "label": "Dataguard Cybersecurity \u2014 HTTP Management & Diagnostic API Reference",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L1",
-      "id": "docs_api_reference_dataguard_cybersecurity_http_management_diagnostic_api_reference",
       "community": 5,
-      "norm_label": "dataguard cybersecurity \u2014 http management & diagnostic api reference"
+      "norm_label": "dataguard cybersecurity \u2014 http management & diagnostic api reference",
+      "id": "docs_api_reference_dataguard_cybersecurity_http_management_diagnostic_api_reference"
     },
     {
       "label": "1. Global Specifications",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L7",
-      "id": "docs_api_reference_1_global_specifications",
       "community": 5,
-      "norm_label": "1. global specifications"
+      "norm_label": "1. global specifications",
+      "id": "docs_api_reference_1_global_specifications"
     },
     {
       "label": "2. Authentication & Headers",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L17",
-      "id": "docs_api_reference_2_authentication_headers",
       "community": 5,
-      "norm_label": "2. authentication & headers"
+      "norm_label": "2. authentication & headers",
+      "id": "docs_api_reference_2_authentication_headers"
     },
     {
       "label": "code:http (Authorization: Bearer dg_live_38bf8c991a0c4f8285e683)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L21",
-      "id": "docs_api_reference_codeblock_1",
       "community": 5,
-      "norm_label": "code:http (authorization: bearer dg_live_38bf8c991a0c4f8285e683)"
+      "norm_label": "code:http (authorization: bearer dg_live_38bf8c991a0c4f8285e683)",
+      "id": "docs_api_reference_codeblock_1"
     },
     {
       "label": "3. Endpoints Overview",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L36",
-      "id": "docs_api_reference_3_endpoints_overview",
       "community": 5,
-      "norm_label": "3. endpoints overview"
+      "norm_label": "3. endpoints overview",
+      "id": "docs_api_reference_3_endpoints_overview"
     },
     {
       "label": "4. Endpoint Reference",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L49",
-      "id": "docs_api_reference_4_endpoint_reference",
       "community": 5,
-      "norm_label": "4. endpoint reference"
+      "norm_label": "4. endpoint reference",
+      "id": "docs_api_reference_4_endpoint_reference"
     },
     {
       "label": "4.1. Cluster Health & Diagnostic",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L51",
-      "id": "docs_api_reference_4_1_cluster_health_diagnostic",
       "community": 5,
-      "norm_label": "4.1. cluster health & diagnostic"
+      "norm_label": "4.1. cluster health & diagnostic",
+      "id": "docs_api_reference_4_1_cluster_health_diagnostic"
     },
     {
       "label": "`GET /health/diagnostic`",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L53",
-      "id": "docs_api_reference_get_health_diagnostic",
       "community": 5,
-      "norm_label": "`get /health/diagnostic`"
+      "norm_label": "`get /health/diagnostic`",
+      "id": "docs_api_reference_get_health_diagnostic"
     },
     {
       "label": "code:bash (curl -X GET \"https://api.dataguard.ai/v1/health/diagnostic\" )",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L57",
-      "id": "docs_api_reference_codeblock_2",
       "community": 5,
-      "norm_label": "code:bash (curl -x get \"https://api.dataguard.ai/v1/health/diagnostic\" )"
+      "norm_label": "code:bash (curl -x get \"https://api.dataguard.ai/v1/health/diagnostic\" )",
+      "id": "docs_api_reference_codeblock_2"
     },
     {
       "label": "code:json ({)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L64",
-      "id": "docs_api_reference_codeblock_3",
       "community": 5,
-      "norm_label": "code:json ({)"
+      "norm_label": "code:json ({)",
+      "id": "docs_api_reference_codeblock_3"
     },
     {
       "label": "4.2. On-Demand Perimeter Audit",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L93",
-      "id": "docs_api_reference_4_2_on_demand_perimeter_audit",
       "community": 5,
-      "norm_label": "4.2. on-demand perimeter audit"
+      "norm_label": "4.2. on-demand perimeter audit",
+      "id": "docs_api_reference_4_2_on_demand_perimeter_audit"
     },
     {
       "label": "`POST /security/perimeter-audit`",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L95",
-      "id": "docs_api_reference_post_security_perimeter_audit",
       "community": 5,
-      "norm_label": "`post /security/perimeter-audit`"
+      "norm_label": "`post /security/perimeter-audit`",
+      "id": "docs_api_reference_post_security_perimeter_audit"
     },
     {
       "label": "code:bash (curl -X POST \"https://api.dataguard.ai/v1/security/perimeter)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L99",
-      "id": "docs_api_reference_codeblock_4",
       "community": 5,
-      "norm_label": "code:bash (curl -x post \"https://api.dataguard.ai/v1/security/perimeter)"
+      "norm_label": "code:bash (curl -x post \"https://api.dataguard.ai/v1/security/perimeter)",
+      "id": "docs_api_reference_codeblock_4"
     },
     {
       "label": "code:json ({)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L112",
-      "id": "docs_api_reference_codeblock_5",
       "community": 5,
-      "norm_label": "code:json ({)"
+      "norm_label": "code:json ({)",
+      "id": "docs_api_reference_codeblock_5"
     },
     {
       "label": "4.3. Real-Time Telemetry Stream",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L144",
-      "id": "docs_api_reference_4_3_real_time_telemetry_stream",
       "community": 5,
-      "norm_label": "4.3. real-time telemetry stream"
+      "norm_label": "4.3. real-time telemetry stream",
+      "id": "docs_api_reference_4_3_real_time_telemetry_stream"
     },
     {
       "label": "`GET /telemetry/stream`",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L146",
-      "id": "docs_api_reference_get_telemetry_stream",
       "community": 5,
-      "norm_label": "`get /telemetry/stream`"
+      "norm_label": "`get /telemetry/stream`",
+      "id": "docs_api_reference_get_telemetry_stream"
     },
     {
       "label": "code:bash (curl -X GET \"https://api.dataguard.ai/v1/telemetry/stream?li)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L150",
-      "id": "docs_api_reference_codeblock_6",
       "community": 5,
-      "norm_label": "code:bash (curl -x get \"https://api.dataguard.ai/v1/telemetry/stream?li)"
+      "norm_label": "code:bash (curl -x get \"https://api.dataguard.ai/v1/telemetry/stream?li)",
+      "id": "docs_api_reference_codeblock_6"
     },
     {
       "label": "code:json ([)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L157",
-      "id": "docs_api_reference_codeblock_7",
       "community": 5,
-      "norm_label": "code:json ([)"
+      "norm_label": "code:json ([)",
+      "id": "docs_api_reference_codeblock_7"
     },
     {
       "label": "4.4. Zero-Trust Token Verification",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L186",
-      "id": "docs_api_reference_4_4_zero_trust_token_verification",
       "community": 5,
-      "norm_label": "4.4. zero-trust token verification"
+      "norm_label": "4.4. zero-trust token verification",
+      "id": "docs_api_reference_4_4_zero_trust_token_verification"
     },
     {
       "label": "`POST /access/verify-token`",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L188",
-      "id": "docs_api_reference_post_access_verify_token",
       "community": 5,
-      "norm_label": "`post /access/verify-token`"
+      "norm_label": "`post /access/verify-token`",
+      "id": "docs_api_reference_post_access_verify_token"
     },
     {
       "label": "code:bash (curl -X POST \"https://api.dataguard.ai/v1/access/verify-toke)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L192",
-      "id": "docs_api_reference_codeblock_8",
       "community": 5,
-      "norm_label": "code:bash (curl -x post \"https://api.dataguard.ai/v1/access/verify-toke)"
+      "norm_label": "code:bash (curl -x post \"https://api.dataguard.ai/v1/access/verify-toke)",
+      "id": "docs_api_reference_codeblock_8"
     },
     {
       "label": "code:json ({)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L205",
-      "id": "docs_api_reference_codeblock_9",
       "community": 5,
-      "norm_label": "code:json ({)"
+      "norm_label": "code:json ({)",
+      "id": "docs_api_reference_codeblock_9"
     },
     {
       "label": "4.5. Automated Node Quarantine & Mitigation",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L219",
-      "id": "docs_api_reference_4_5_automated_node_quarantine_mitigation",
       "community": 5,
-      "norm_label": "4.5. automated node quarantine & mitigation"
+      "norm_label": "4.5. automated node quarantine & mitigation",
+      "id": "docs_api_reference_4_5_automated_node_quarantine_mitigation"
     },
     {
       "label": "`POST /mitigation/isolate-node`",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L221",
-      "id": "docs_api_reference_post_mitigation_isolate_node",
       "community": 5,
-      "norm_label": "`post /mitigation/isolate-node`"
+      "norm_label": "`post /mitigation/isolate-node`",
+      "id": "docs_api_reference_post_mitigation_isolate_node"
     },
     {
       "label": "code:bash (curl -X POST \"https://api.dataguard.ai/v1/mitigation/isolate)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L225",
-      "id": "docs_api_reference_codeblock_10",
       "community": 5,
-      "norm_label": "code:bash (curl -x post \"https://api.dataguard.ai/v1/mitigation/isolate)"
+      "norm_label": "code:bash (curl -x post \"https://api.dataguard.ai/v1/mitigation/isolate)",
+      "id": "docs_api_reference_codeblock_10"
     },
     {
       "label": "code:json ({)",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L237",
-      "id": "docs_api_reference_codeblock_11",
       "community": 5,
-      "norm_label": "code:json ({)"
+      "norm_label": "code:json ({)",
+      "id": "docs_api_reference_codeblock_11"
     },
     {
       "label": "5. HTTP Status Code Conventions",
       "file_type": "document",
       "source_file": "docs/API_REFERENCE.md",
       "source_location": "L248",
-      "id": "docs_api_reference_5_http_status_code_conventions",
       "community": 5,
-      "norm_label": "5. http status code conventions"
+      "norm_label": "5. http status code conventions",
+      "id": "docs_api_reference_5_http_status_code_conventions"
     },
     {
       "label": "React + TypeScript + Vite",
@@ -3470,9 +3524,9 @@
       "source_file": "src/components/AdvancedFeaturesFX.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_advancedfeaturesfx_tsx",
-      "target": "components_advancedfeaturesfx_advancedfeaturesfxprops",
-      "confidence_score": 1.0
+      "target": "components_advancedfeaturesfx_advancedfeaturesfxprops"
     },
     {
       "relation": "contains",
@@ -3480,9 +3534,9 @@
       "source_file": "src/components/AdvancedFeaturesFX.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_advancedfeaturesfx_tsx",
-      "target": "components_advancedfeaturesfx_advancedfeaturesfx",
-      "confidence_score": 1.0
+      "target": "components_advancedfeaturesfx_advancedfeaturesfx"
     },
     {
       "relation": "imports_from",
@@ -3491,9 +3545,9 @@
       "source_file": "src/sections/AdvancedFeatures.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_sections_advancedfeatures_tsx",
-      "target": "src_components_advancedfeaturesfx_tsx",
-      "confidence_score": 1.0
+      "target": "src_components_advancedfeaturesfx_tsx"
     },
     {
       "relation": "imports",
@@ -3502,9 +3556,9 @@
       "source_file": "src/sections/AdvancedFeatures.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_sections_advancedfeatures_tsx",
-      "target": "components_advancedfeaturesfx_advancedfeaturesfx",
-      "confidence_score": 1.0
+      "target": "components_advancedfeaturesfx_advancedfeaturesfx"
     },
     {
       "relation": "contains",
@@ -3525,6 +3579,17 @@
       "confidence_score": 1.0,
       "source": "src_components_audiofeedback_ts",
       "target": "components_audiofeedback_sound"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/FirewallFX.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_firewallfx_tsx",
+      "target": "src_components_audiofeedback_ts"
     },
     {
       "relation": "imports_from",
@@ -3708,6 +3773,17 @@
       "confidence_score": 1.0,
       "source": "components_audiofeedback_soundeffects_playbeep",
       "target": "components_audiofeedback_soundeffects_playclick"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/FirewallFX.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_firewallfx_tsx",
+      "target": "components_audiofeedback_sound"
     },
     {
       "relation": "imports",
@@ -4029,6 +4105,48 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/FirewallFX.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_firewallfx_tsx",
+      "target": "components_firewallfx_firewallfxprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/FirewallFX.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_firewallfx_tsx",
+      "target": "components_firewallfx_firewallfx"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sections/AdvancedFeatures.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sections_advancedfeatures_tsx",
+      "target": "src_components_firewallfx_tsx"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sections/AdvancedFeatures.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sections_advancedfeatures_tsx",
+      "target": "components_firewallfx_firewallfx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/InteractiveDemoModal.tsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -4177,6 +4295,48 @@
       "confidence_score": 1.0,
       "source": "src_sections_securityshowcase_tsx",
       "target": "components_showcasefx_showcasefx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SimpleStepsFX.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_simplestepsfx_tsx",
+      "target": "components_simplestepsfx_simplestepsfxprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SimpleStepsFX.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_simplestepsfx_tsx",
+      "target": "components_simplestepsfx_simplestepsfx"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sections/SimpleSteps.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sections_simplesteps_tsx",
+      "target": "src_components_simplestepsfx_tsx"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sections/SimpleSteps.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sections_simplesteps_tsx",
+      "target": "components_simplestepsfx_simplestepsfx"
     },
     {
       "relation": "contains",
@@ -5080,5 +5240,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "63bef13c43ed6cee940c1be33b998314e90129c3"
+  "built_at_commit": "fffe97f0c061863c46beb4e5ed2c56ebb277a748"
 }

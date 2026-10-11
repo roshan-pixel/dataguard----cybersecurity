@@ -75,8 +75,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\sections\\AdvancedFeatures.tsx": {
-    "mtime": 1791644330.238502,
-    "ast_hash": "38767a2961a022b6835d42526a4f8a39",
+    "mtime": 1791719492.833835,
+    "ast_hash": "18210ae8213e07a313fc07c031205489",
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\sections\\BuiltForEnterprise.tsx": {
@@ -110,8 +110,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\sections\\SimpleSteps.tsx": {
-    "mtime": 1790761711.2122834,
-    "ast_hash": "3fdae239ed46ca4a2f66fc6d6f5603da",
+    "mtime": 1791720188.4242358,
+    "ast_hash": "fd45e030a95ce4859098504f7364fec7",
     "semantic_hash": ""
   },
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\sections\\Testimonials.tsx": {
@@ -522,6 +522,16 @@
   "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\components\\AdvancedFeaturesFX.tsx": {
     "mtime": 1791644556.5447726,
     "ast_hash": "953f786afb7dfe71c4795dae91f39047",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\components\\FirewallFX.tsx": {
+    "mtime": 1791719897.323229,
+    "ast_hash": "2ecde2a70be9063f480677f5c6c46881",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\sgarm\\dataguard-cybersecurity\\src\\components\\SimpleStepsFX.tsx": {
+    "mtime": 1791720716.2765296,
+    "ast_hash": "1afce9c423367ad2189ee673a6c5cea2",
     "semantic_hash": ""
   }
 }

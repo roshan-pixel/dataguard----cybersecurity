@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dataguard-cybersecurity — Complete Call Flow &amp; Architecture Documentation</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #0f172a; --surface: #1e293b; --border: #334155;
+  --text: #e2e8f0; --muted: #94a3b8; --accent: #38bdf8;
+  --warn: #fbbf24; --err: #f87171; --ok: #34d399;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2.4rem; margin-bottom: 8px; background: linear-gradient(135deg, var(--accent), #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+h2 { font-size: 1.7rem; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 1.25rem; margin: 32px 0 12px; color: var(--accent); }
+h4 { font-size: 1.05rem; margin: 20px 0 8px; color: var(--warn); }
+p { margin: 8px 0; color: var(--muted); }
+.subtitle { color: var(--muted); font-size: 1.1rem; margin-bottom: 32px; }
+.mermaid { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0; overflow-x: auto; position: relative; }
+.mermaid.is-enhanced { padding: 0; overflow: hidden; min-height: 260px; }
+.mermaid-viewport { padding: 54px 24px 24px; overflow: hidden; cursor: grab; touch-action: none; min-height: 260px; }
+.mermaid-viewport.is-dragging { cursor: grabbing; }
+.mermaid-viewport svg { max-width: none !important; height: auto; transform-origin: 0 0; transition: transform 120ms ease; }
+.mermaid-toolbar { position: absolute; top: 10px; right: 10px; z-index: 3; display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(15,23,42,0.92); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.28); }
+.mermaid-toolbar button, .mermaid-toolbar .zoom-level { height: 28px; min-width: 32px; border: 1px solid var(--border); border-radius: 6px; background: #1e293b; color: var(--text); font: 600 0.78rem system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; }
+.mermaid-toolbar button { cursor: pointer; }
+.mermaid-toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+.mermaid-toolbar .zoom-level { min-width: 52px; color: var(--muted); background: transparent; }
+.call-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+.call-table th { background: #1a2744; color: var(--accent); text-align: left; padding: 10px 14px; border: 1px solid var(--border); }
+.call-table td { padding: 8px 14px; border: 1px solid var(--border); vertical-align: top; }
+.call-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+.tag-async { background: #7c3aed33; color: #a78bfa; }
+.tag-class { background: #05966933; color: var(--ok); }
+.tag-func { background: #2563eb33; color: var(--accent); }
+.tag-cmd { background: #d9770633; color: var(--warn); }
+.tag-endpoint { background: #dc262633; color: var(--err); }
+.tag-hook { background: #db277733; color: #f472b6; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin: 16px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; margin: 16px 0; }
+.arrow-chain { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--accent); padding: 10px; background: rgba(56,189,248,0.06); border-radius: 6px; }
+code { font-family: 'Fira Code', 'Cascadia Code', monospace; background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 3px; font-size: 0.88em; }
+ul, ol { margin: 8px 0 8px 24px; color: var(--muted); }
+li { margin: 4px 0; }
+a { color: var(--accent); }
+hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+.nav { position: sticky; top: 0; background: var(--bg); z-index: 10; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.9rem; }
+.nav a { text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) { .container { padding: 16px; } h1 { font-size: 1.8rem; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>dataguard-cybersecurity — Complete Call Flow &amp; Architecture Documentation</h1>
+<p class="subtitle">Generated from graphify knowledge graph: 240 nodes, 298 edges, 21 communities. Commit: fffe97f</p>
+
+<div class="nav">
+    <a href="#overview">Architecture Overview</a>
+    <a href="#build-graph">Graph Build</a>
+    <a href="#cli-skills">CLI &amp; Skill Installers</a>
+    <a href="#serve-api">Serving API</a>
+    <a href="#community-19">Community 19</a>
+    <a href="#community-7">Community 7</a>
+    <a href="#community-9">Community 9</a>
+    <a href="#community-12">Community 12</a>
+    <a href="#community-14">Community 14</a>
+    <a href="#community-16">Community 16</a>
+    <a href="#community-17">Community 17</a>
+    <a href="#community-18">Community 18</a>
+</div>
+
+<!-- ====== Architecture Overview ====== -->
+<h2 id="overview">1. Architecture Overview</h2>
+
+<div class="mermaid">
+
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    BUILD_GRAPH_321CBB04("Graph Build<br/><small>108 nodes</small>")
+    class BUILD_GRAPH_321CBB04 module;
+    CLI_SKILLS_9964CBB8("CLI &amp; Skill Installers<br/><small>43 nodes</small>")
+    class CLI_SKILLS_9964CBB8 module;
+    SERVE_API_35EC8E86("Serving API<br/><small>59 nodes</small>")
+    class SERVE_API_35EC8E86 module;
+    COMMUNITY_19_9462A0B9("Community 19<br/><small>13 nodes</small>")
+    class COMMUNITY_19_9462A0B9 module;
+    COMMUNITY_7_989501FC("Community 7<br/><small>7 nodes</small>")
+    class COMMUNITY_7_989501FC module;
+    COMMUNITY_9_1D55D1EE("Community 9<br/><small>5 nodes</small>")
+    class COMMUNITY_9_1D55D1EE module;
+    COMMUNITY_12_82F13F05("Community 12<br/><small>1 nodes</small>")
+    class COMMUNITY_12_82F13F05 module;
+    COMMUNITY_14_21BC55C3("Community 14<br/><small>1 nodes</small>")
+    class COMMUNITY_14_21BC55C3 module;
+    COMMUNITY_16_BD3EE841("Community 16<br/><small>1 nodes</small>")
+    class COMMUNITY_16_BD3EE841 module;
+    COMMUNITY_17_648F8D7C("Community 17<br/><small>1 nodes</small>")
+    class COMMUNITY_17_648F8D7C module;
+    COMMUNITY_18_A335126F("Community 18<br/><small>1 nodes</small>")
+    class COMMUNITY_18_A335126F module;
+    CLI_SKILLS_9964CBB8 -->|imports x6| COMMUNITY_19_9462A0B9
+    CLI_SKILLS_9964CBB8 -->|imports x4| SERVE_API_35EC8E86
+    CLI_SKILLS_9964CBB8 -->|contains| COMMUNITY_9_1D55D1EE
+    BUILD_GRAPH_321CBB04 -->|contains| SERVE_API_35EC8E86
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h4>Architecture Layers</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>Layer</th><th>Nodes</th><th>Communities</th></tr>
+      <tr><td>Graph Build</td><td>108</td><td><code>10, 1, 0, 2, 11, 8, 15</code></td></tr><tr><td>CLI &amp; Skill Installers</td><td>43</td><td><code>3, 13</code></td></tr><tr><td>Serving API</td><td>59</td><td><code>5, 4, 6, 20</code></td></tr><tr><td>Community 19</td><td>13</td><td><code>19</code></td></tr><tr><td>Community 7</td><td>7</td><td><code>7</code></td></tr><tr><td>Community 9</td><td>5</td><td><code>9</code></td></tr><tr><td>Community 12</td><td>1</td><td><code>12</code></td></tr><tr><td>Community 14</td><td>1</td><td><code>14</code></td></tr><tr><td>Community 16</td><td>1</td><td><code>16</code></td></tr><tr><td>Community 17</td><td>1</td><td><code>17</code></td></tr><tr><td>Community 18</td><td>1</td><td><code>18</code></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Core Flow</h4>
+    <div class="arrow-chain">Graph Build -&gt; Serving API -&gt; CLI &amp; Skill Installers -&gt; Community 19 -&gt; Community 7 -&gt; Community 9 -&gt; Community 12</div>
+  </div>
+</div>
+<div class="grid">
+  <div class="card">
+    <h4>Graph Report Highlights</h4>
+    <ul>
+      <li>240 nodes · 298 edges · 21 communities (18 shown, 3 thin omitted)</li>
+      <li>Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS</li>
+      <li>Token cost: 0 input · 0 output</li>
+      <li>1. `compilerOptions` - 18 edges</li>
+      <li>2. `compilerOptions` - 15 edges</li>
+      <li>3. `sound` - 14 edges</li>
+    </ul>
+  </div>
+</div>
+<hr>
+<!-- ====== 2. Graph Build ====== -->
+<h2 id="build-graph">2. Graph Build</h2>
+<p>Graph Build groups implementation around readmemd, packagejson, tsconfigappjson, tsconfignodejson, mostly in README.md, package.json, tsconfig.app.json. This section covers 108 nodes and 103 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Graph Build (108 nodes, 103 edges)
+    subgraph build_graph_package_json_4e40bfbd["package.json"]
+        package_json_ae96f451("package.json")
+        dataguard_cybersecurity_package_dependencies_6c14f5af("dependencies<br/><small>package.json</small>")
+        dataguard_cybersecurity_package_devdependencies_8255e895("devDependencies<br/><small>package.json</small>")
+        dataguard_cybersecurity_package_name_f8622a47("name<br/><small>package.json</small>")
+        dataguard_cybersecurity_package_private_c5078df0("private<br/><small>package.json</small>")
+        dataguard_cybersecurity_package_version_9ae3595a("version<br/><small>package.json</small>")
+        dataguard_cybersecurity_package_type_cc8f8a18("type<br/><small>package.json</small>")
+        dataguard_cybersecurity_package_scripts_8c71376b("scripts<br/><small>package.json</small>")
+        dataguard_cybersecurity_package_scripts_dev_a9293fd5("dev<br/><small>package.json</small>")
+    end
+    subgraph build_graph_oxlintrc_json_86cac9d4[".oxlintrc.json"]
+        oxlintrc_json_f15d790e(".oxlintrc.json")
+        dataguard_cybersecurity_oxlintrc_schema_600af87c("$schema<br/><small>.oxlintrc.json</small>")
+        dataguard_cybersecurity_oxlintrc_plugins_5adbef88("plugins<br/><small>.oxlintrc.json</small>")
+        dataguard_cybersecurity_oxlintrc_rules_3da83deb("rules<br/><small>.oxlintrc.json</small>")
+        dataguard_cybersecurity_oxlintrc_rules_react_rul_a4028553("react/rules-of-hooks<br/><small>.oxlintrc.json</small>")
+        dataguard_cybersecurity_oxlintrc_rules_react_onl_d39b3578("react/only-export-components<br/><small>.oxlintrc.json</small>")
+    end
+    dataguard_cybersecurity_readme_dataguard_enterpr_7dd21906("Dataguard — Enterprise Cybersecurity Pl...<br/><small>README.md</small>")
+    dataguard_cybersecurity_tsconfig_app_compileropt_a5218df7("compilerOptions<br/><small>tsconfig.app.json</small>")
+    dataguard_cybersecurity_tsconfig_node_compilerop_e7702862("compilerOptions<br/><small>tsconfig.node.json</small>")
+    oxlintrc_json_f15d790e -->|contains| dataguard_cybersecurity_oxlintrc_schema_600af87c
+    oxlintrc_json_f15d790e -->|contains| dataguard_cybersecurity_oxlintrc_plugins_5adbef88
+    oxlintrc_json_f15d790e -->|contains| dataguard_cybersecurity_oxlintrc_rules_3da83deb
+    dataguard_cybersecurity_oxlintrc_rules_3da83deb -->|contains| dataguard_cybersecurity_oxlintrc_rules_react_rul_a4028553
+    dataguard_cybersecurity_oxlintrc_rules_3da83deb -->|contains| dataguard_cybersecurity_oxlintrc_rules_react_onl_d39b3578
+    package_json_ae96f451 -->|contains| dataguard_cybersecurity_package_name_f8622a47
+    package_json_ae96f451 -->|contains| dataguard_cybersecurity_package_private_c5078df0
+    package_json_ae96f451 -->|contains| dataguard_cybersecurity_package_version_9ae3595a
+    package_json_ae96f451 -->|contains| dataguard_cybersecurity_package_type_cc8f8a18
+    package_json_ae96f451 -->|contains| dataguard_cybersecurity_package_scripts_8c71376b
+    package_json_ae96f451 -->|contains| dataguard_cybersecurity_package_dependencies_6c14f5af
+    package_json_ae96f451 -->|contains| dataguard_cybersecurity_package_devdependencies_8255e895
+    dataguard_cybersecurity_package_scripts_8c71376b -->|contains| dataguard_cybersecurity_package_scripts_dev_a9293fd5
+    %% Omitted for readability: 90 nodes, 0 edges
+    class package_json_ae96f451 function;
+    class dataguard_cybersecurity_package_dependencies_6c14f5af function;
+    class dataguard_cybersecurity_package_devdependencies_8255e895 function;
+    class dataguard_cybersecurity_package_name_f8622a47 function;
+    class dataguard_cybersecurity_package_private_c5078df0 function;
+    class dataguard_cybersecurity_package_version_9ae3595a function;
+    class dataguard_cybersecurity_package_type_cc8f8a18 function;
+    class dataguard_cybersecurity_package_scripts_8c71376b function;
+    class dataguard_cybersecurity_package_scripts_dev_a9293fd5 function;
+    class oxlintrc_json_f15d790e function;
+    class dataguard_cybersecurity_oxlintrc_schema_600af87c function;
+    class dataguard_cybersecurity_oxlintrc_plugins_5adbef88 function;
+    class dataguard_cybersecurity_oxlintrc_rules_3da83deb function;
+    class dataguard_cybersecurity_oxlintrc_rules_react_rul_a4028553 ui;
+    class dataguard_cybersecurity_oxlintrc_rules_react_onl_d39b3578 ui;
+    class dataguard_cybersecurity_readme_dataguard_enterpr_7dd21906 concept;
+    class dataguard_cybersecurity_tsconfig_app_compileropt_a5218df7 function;
+    class dataguard_cybersecurity_tsconfig_node_compilerop_e7702862 function;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>README.md</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing README.md.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Dataguard — Enterprise Cybersecurity Platform</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Dataguard — Enterprise Cybersecurity Platform.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>Table of Contents</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Table of Contents.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>1. System Architecture Diagram</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 1. System Architecture Diagram.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>code:mermaid (flowchart TD)</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:mermaid (flowchart TD).</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>2. Core Engineering Highlights</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 2. Core Engineering Highlights.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>2.1. 100% Visual Fidelity to Behance Reference #255038607</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 2.1. 100% Visual Fidelity to Behance Reference #255038607.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>2.2. Generative Particle Canvas Collision Engine</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 2.2. Generative Particle Canvas Collision Engine.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>2.3. Zero-Asset Synthetic Web Audio Micro-Interactions</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 2.3. Zero-Asset Synthetic Web Audio Micro-Interactions.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>2.4. Dual Viewport Presentation Switcher</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 2.4. Dual Viewport Presentation Switcher.</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><code>2.5. Stepwise Perimeter Vulnerability Scanner</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 2.5. Stepwise Perimeter Vulnerability Scanner.</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><code>2.6. Production Build Performance</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 2.6. Production Build Performance.</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><code>3. End-to-End Sequence Flow</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 3. End-to-End Sequence Flow.</td>
+</tr>
+<tr>
+  <td>14</td>
+  <td><code>3.1. Zero-Trust Access &amp; Threat Scanning Pipeline</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 3.1. Zero-Trust Access &amp; Threat Scanning Pipeline.</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><code>code:mermaid (sequenceDiagram)</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:mermaid (sequenceDiagram).</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><code>3.2. Real-Time Telemetry &amp; Diagnostic Alerting Flow</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 3.2. Real-Time Telemetry &amp; Diagnostic Alerting Flow.</td>
+</tr>
+<tr>
+  <td>17</td>
+  <td><code>code:mermaid (sequenceDiagram)</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:mermaid (sequenceDiagram).</td>
+</tr>
+<tr>
+  <td>18</td>
+  <td><code>5. Graphify Knowledge Graph</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 5. Graphify Knowledge Graph.</td>
+</tr>
+<tr>
+  <td>19</td>
+  <td><code>Knowledge Graph Metrics</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Knowledge Graph Metrics.</td>
+</tr>
+<tr>
+  <td>20</td>
+  <td><code>Core Abstractions (God Nodes)</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Core Abstractions (God Nodes).</td>
+</tr>
+<tr>
+  <td>21</td>
+  <td><code>Graph Inspection Commands</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Graph Inspection Commands.</td>
+</tr>
+<tr>
+  <td>22</td>
+  <td><code>code:bash (# Query the codebase knowledge graph via BFS)</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:bash (# Query the codebase knowledge graph via BFS).</td>
+</tr>
+<tr>
+  <td>23</td>
+  <td><code>6. Component &amp; Directory Structure</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 6. Component &amp; Directory Structure.</td>
+</tr>
+<tr>
+  <td>24</td>
+  <td><code>code:block7 (dataguard-cybersecurity/)</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:block7 (dataguard-cybersecurity/).</td>
+</tr>
+<tr>
+  <td>25</td>
+  <td><code>License &amp; Credits</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing License &amp; Credits.</td>
+</tr>
+<tr>
+  <td>26</td>
+  <td><code>React + TypeScript + Vite</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing React + TypeScript + Vite.</td>
+</tr>
+<tr>
+  <td>27</td>
+  <td><code>React Compiler</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing React Compiler.</td>
+</tr>
+<tr>
+  <td>28</td>
+  <td><code>Expanding the Oxlint configuration</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Expanding the Oxlint configuration.</td>
+</tr>
+<tr>
+  <td>29</td>
+  <td><code>package.json</code><br><small style="color:var(--muted)">package.json</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>package.json node in package.json.</td>
+</tr>
+<tr>
+  <td>30</td>
+  <td><code>name</code><br><small style="color:var(--muted)">package.json</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>name node in package.json.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>README.md</code></td><td>36 nodes</td></tr>
+<tr><td><code>package.json</code></td><td>26 nodes</td></tr>
+<tr><td><code>tsconfig.app.json</code></td><td>20 nodes</td></tr>
+<tr><td><code>tsconfig.node.json</code></td><td>17 nodes</td></tr>
+<tr><td><code>.oxlintrc.json</code></td><td>6 nodes</td></tr>
+<tr><td><code>tsconfig.json</code></td><td>3 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x103. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 3. CLI & Skill Installers ====== -->
+<h2 id="cli-skills">3. CLI &amp; Skill Installers</h2>
+<p>CLI &amp; Skill Installers groups implementation around sections, components, advancedfeaturesfxtsx, crosshairtsx, mostly in src/components/AdvancedFeaturesFX.tsx, src/components/Crosshair.tsx, src/components/FirewallFX.tsx. This section covers 43 nodes and 88 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: CLI &amp; Skill Installers (43 nodes, 88 edges)
+    subgraph cli_skills_src_components_AudioFeedback_ts_280bee43["src/components/AudioFeedback.ts"]
+        components_audiofeedback_sound_854848d6("sound<br/><small>src/components/AudioFeedback.ts</small>")
+        src_components_audiofeedback_ts_0ebf44cb("AudioFeedback.ts")
+    end
+    subgraph cli_skills_src_components_Crosshair_tsx_a2d62e22["src/components/Crosshair.tsx"]
+        components_crosshair_crosshair_ae667119("Crosshair()<br/><small>src/components/Crosshair.tsx</small>")
+        src_components_crosshair_tsx_404b7ff4("Crosshair.tsx")
+    end
+    subgraph cli_skills_src_components_LogoBar_tsx_b92676aa["src/components/LogoBar.tsx"]
+        src_components_logobar_tsx_117d318a("LogoBar.tsx")
+        components_logobar_logobar_a1eea1dc("LogoBar()<br/><small>src/components/LogoBar.tsx</small>")
+    end
+    subgraph cli_skills_src_components_Navbar_tsx_7c2f4761["src/components/Navbar.tsx"]
+        src_components_navbar_tsx_884a023e("Navbar.tsx")
+        components_navbar_navbar_17342590("Navbar()<br/><small>src/components/Navbar.tsx</small>")
+    end
+    subgraph cli_skills_src_sections_AdvancedFeatures_tsx_1c601d0d["src/sections/AdvancedFeatures.tsx"]
+        src_sections_advancedfeatures_tsx_6b6d994c("AdvancedFeatures.tsx")
+        sections_advancedfeatures_advancedfeatures_30098500("AdvancedFeatures()<br/><small>src/sections/AdvancedFeatures.tsx</small>")
+    end
+    subgraph cli_skills_src_sections_BuiltForEnterprise_tsx_61e1ba81["src/sections/BuiltForEnterprise.tsx"]
+        src_sections_builtforenterprise_tsx_bd634c16("BuiltForEnterprise.tsx")
+        sections_builtforenterprise_builtforenterprise_ebe32d7f("BuiltForEnterprise()<br/><small>src/sections/BuiltForEnterprise.tsx</small>")
+    end
+    subgraph cli_skills_src_sections_Hero_tsx_4fee99dc["src/sections/Hero.tsx"]
+        src_sections_hero_tsx_1182947e("Hero.tsx")
+        sections_hero_hero_fcef7819("Hero()<br/><small>src/sections/Hero.tsx</small>")
+    end
+    subgraph cli_skills_src_sections_SimpleSteps_tsx_80e7a5dd["src/sections/SimpleSteps.tsx"]
+        src_sections_simplesteps_tsx_de8e202b("SimpleSteps.tsx")
+        sections_simplesteps_simplesteps_eb619f7a("SimpleSteps()<br/><small>src/sections/SimpleSteps.tsx</small>")
+    end
+    src_app_tsx_7809c3b0("App.tsx")
+    components_advancedfeaturesfx_advancedfeaturesfx_053f3f66("AdvancedFeaturesFX()<br/><small>src/components/AdvancedFeaturesFX.tsx</small>")
+    src_app_tsx_7809c3b0 -->|imports| src_components_navbar_tsx_884a023e
+    src_app_tsx_7809c3b0 -->|imports| components_navbar_navbar_17342590
+    src_app_tsx_7809c3b0 -->|imports| src_sections_hero_tsx_1182947e
+    src_app_tsx_7809c3b0 -->|imports| sections_hero_hero_fcef7819
+    src_app_tsx_7809c3b0 -->|imports| src_components_logobar_tsx_117d318a
+    src_app_tsx_7809c3b0 -->|imports| components_logobar_logobar_a1eea1dc
+    src_app_tsx_7809c3b0 -->|imports| src_sections_builtforenterprise_tsx_bd634c16
+    src_app_tsx_7809c3b0 -->|imports| sections_builtforenterprise_builtforenterprise_ebe32d7f
+    src_app_tsx_7809c3b0 -->|imports| src_sections_advancedfeatures_tsx_6b6d994c
+    src_app_tsx_7809c3b0 -->|imports| sections_advancedfeatures_advancedfeatures_30098500
+    src_app_tsx_7809c3b0 -->|imports| src_sections_simplesteps_tsx_de8e202b
+    src_app_tsx_7809c3b0 -->|imports| sections_simplesteps_simplesteps_eb619f7a
+    src_app_tsx_7809c3b0 -->|imports| src_components_audiofeedback_ts_0ebf44cb
+    src_app_tsx_7809c3b0 -->|imports| components_audiofeedback_sound_854848d6
+    components_advancedfeaturesfx_advancedfeaturesfx_053f3f66 -->|imports| src_sections_advancedfeatures_tsx_6b6d994c
+    src_components_audiofeedback_ts_0ebf44cb -->|imports| src_components_navbar_tsx_884a023e
+    src_components_audiofeedback_ts_0ebf44cb -->|imports| src_sections_advancedfeatures_tsx_6b6d994c
+    src_components_audiofeedback_ts_0ebf44cb -->|imports| src_sections_builtforenterprise_tsx_bd634c16
+    src_components_audiofeedback_ts_0ebf44cb -->|imports| src_sections_hero_tsx_1182947e
+    src_components_audiofeedback_ts_0ebf44cb -->|imports| src_sections_simplesteps_tsx_de8e202b
+    components_audiofeedback_sound_854848d6 -->|imports| src_components_navbar_tsx_884a023e
+    components_audiofeedback_sound_854848d6 -->|imports| src_sections_advancedfeatures_tsx_6b6d994c
+    components_audiofeedback_sound_854848d6 -->|imports| src_sections_builtforenterprise_tsx_bd634c16
+    components_audiofeedback_sound_854848d6 -->|imports| src_sections_hero_tsx_1182947e
+    %% Omitted for readability: 25 nodes, 9 edges
+    class components_audiofeedback_sound_854848d6 function;
+    class src_components_audiofeedback_ts_0ebf44cb klass;
+    class components_crosshair_crosshair_ae667119 ui;
+    class src_components_crosshair_tsx_404b7ff4 ui;
+    class src_components_logobar_tsx_117d318a ui;
+    class components_logobar_logobar_a1eea1dc ui;
+    class src_components_navbar_tsx_884a023e ui;
+    class components_navbar_navbar_17342590 ui;
+    class src_sections_advancedfeatures_tsx_6b6d994c ui;
+    class sections_advancedfeatures_advancedfeatures_30098500 ui;
+    class src_sections_builtforenterprise_tsx_bd634c16 ui;
+    class sections_builtforenterprise_builtforenterprise_ebe32d7f ui;
+    class src_sections_hero_tsx_1182947e ui;
+    class sections_hero_hero_fcef7819 ui;
+    class src_sections_simplesteps_tsx_de8e202b ui;
+    class sections_simplesteps_simplesteps_eb619f7a ui;
+    class src_app_tsx_7809c3b0 ui;
+    class components_advancedfeaturesfx_advancedfeaturesfx_053f3f66 ui;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>AdvancedFeatures()</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small><br><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small><br><code>AudioFeedback.ts</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br>+20 more</td>
+  <td>Module file in src/App.tsx.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>App()</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>App() node in src/App.tsx.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>main.tsx</code><br><small style="color:var(--muted)">src/main.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td>No direct outbound edge</td>
+  <td>Module file in src/main.tsx.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>AdvancedFeaturesFX.tsx</code><br><small style="color:var(--muted)">src/components/AdvancedFeaturesFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small></td>
+  <td>Module file in src/components/AdvancedFeaturesFX.tsx.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>AdvancedFeaturesFXProps</code><br><small style="color:var(--muted)">src/components/AdvancedFeaturesFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>AdvancedFeaturesFXProps node in src/components/AdvancedFeaturesFX.tsx.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>AdvancedFeaturesFX()</code><br><small style="color:var(--muted)">src/components/AdvancedFeaturesFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small></td>
+  <td>AdvancedFeaturesFX() node in src/components/AdvancedFeaturesFX.tsx.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>AudioFeedback.ts</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small><br><code>BuiltForEnterprise.tsx</code><br><small style="color:var(--muted)">src/sections/BuiltForEnterprise.tsx</small><br><code>CaseStudyDrawer.tsx</code><br><small style="color:var(--muted)">src/sections/CaseStudyDrawer.tsx</small><br>+7 more</td>
+  <td>Module file in src/components/AudioFeedback.ts.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>sound</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small><br><code>BuiltForEnterprise.tsx</code><br><small style="color:var(--muted)">src/sections/BuiltForEnterprise.tsx</small><br><code>CaseStudyDrawer.tsx</code><br><small style="color:var(--muted)">src/sections/CaseStudyDrawer.tsx</small><br>+7 more</td>
+  <td>sound node in src/components/AudioFeedback.ts.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>Crosshair.tsx</code><br><small style="color:var(--muted)">src/components/Crosshair.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small><br><code>BuiltForEnterprise.tsx</code><br><small style="color:var(--muted)">src/sections/BuiltForEnterprise.tsx</small><br><code>CTASection.tsx</code><br><small style="color:var(--muted)">src/sections/CTASection.tsx</small><br>+4 more</td>
+  <td>Module file in src/components/Crosshair.tsx.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>CrosshairProps</code><br><small style="color:var(--muted)">src/components/Crosshair.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>CrosshairProps node in src/components/Crosshair.tsx.</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><code>Crosshair()</code><br><small style="color:var(--muted)">src/components/Crosshair.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small><br><code>BuiltForEnterprise.tsx</code><br><small style="color:var(--muted)">src/sections/BuiltForEnterprise.tsx</small><br><code>CTASection.tsx</code><br><small style="color:var(--muted)">src/sections/CTASection.tsx</small><br>+4 more</td>
+  <td>Crosshair() node in src/components/Crosshair.tsx.</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><code>FirewallFX.tsx</code><br><small style="color:var(--muted)">src/components/FirewallFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>AudioFeedback.ts</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br><code>sound</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small></td>
+  <td>Module file in src/components/FirewallFX.tsx.</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><code>FirewallFXProps</code><br><small style="color:var(--muted)">src/components/FirewallFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>FirewallFXProps node in src/components/FirewallFX.tsx.</td>
+</tr>
+<tr>
+  <td>14</td>
+  <td><code>FirewallFX()</code><br><small style="color:var(--muted)">src/components/FirewallFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small></td>
+  <td>FirewallFX() node in src/components/FirewallFX.tsx.</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><code>LogoBar.tsx</code><br><small style="color:var(--muted)">src/components/LogoBar.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td>No direct outbound edge</td>
+  <td>Module file in src/components/LogoBar.tsx.</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><code>LogoBar()</code><br><small style="color:var(--muted)">src/components/LogoBar.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td>No direct outbound edge</td>
+  <td>LogoBar() node in src/components/LogoBar.tsx.</td>
+</tr>
+<tr>
+  <td>17</td>
+  <td><code>Navbar.tsx</code><br><small style="color:var(--muted)">src/components/Navbar.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small><br><code>AudioFeedback.ts</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br><code>sound</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td>No direct outbound edge</td>
+  <td>Module file in src/components/Navbar.tsx.</td>
+</tr>
+<tr>
+  <td>18</td>
+  <td><code>NavbarProps</code><br><small style="color:var(--muted)">src/components/Navbar.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>NavbarProps node in src/components/Navbar.tsx.</td>
+</tr>
+<tr>
+  <td>19</td>
+  <td><code>Navbar()</code><br><small style="color:var(--muted)">src/components/Navbar.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td>No direct outbound edge</td>
+  <td>Navbar() node in src/components/Navbar.tsx.</td>
+</tr>
+<tr>
+  <td>20</td>
+  <td><code>SimpleStepsFX.tsx</code><br><small style="color:var(--muted)">src/components/SimpleStepsFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>SimpleSteps.tsx</code><br><small style="color:var(--muted)">src/sections/SimpleSteps.tsx</small></td>
+  <td>Module file in src/components/SimpleStepsFX.tsx.</td>
+</tr>
+<tr>
+  <td>21</td>
+  <td><code>SimpleStepsFXProps</code><br><small style="color:var(--muted)">src/components/SimpleStepsFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>SimpleStepsFXProps node in src/components/SimpleStepsFX.tsx.</td>
+</tr>
+<tr>
+  <td>22</td>
+  <td><code>SimpleStepsFX()</code><br><small style="color:var(--muted)">src/components/SimpleStepsFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>SimpleSteps.tsx</code><br><small style="color:var(--muted)">src/sections/SimpleSteps.tsx</small></td>
+  <td>SimpleStepsFX() node in src/components/SimpleStepsFX.tsx.</td>
+</tr>
+<tr>
+  <td>23</td>
+  <td><code>AdvancedFeatures.tsx</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>AdvancedFeaturesFX()</code><br><small style="color:var(--muted)">src/components/AdvancedFeaturesFX.tsx</small><br><code>AdvancedFeaturesFX.tsx</code><br><small style="color:var(--muted)">src/components/AdvancedFeaturesFX.tsx</small><br><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small><br>+6 more</td>
+  <td>No direct outbound edge</td>
+  <td>Module file in src/sections/AdvancedFeatures.tsx.</td>
+</tr>
+<tr>
+  <td>24</td>
+  <td><code>AdvancedFeaturesProps</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>AdvancedFeaturesProps node in src/sections/AdvancedFeatures.tsx.</td>
+</tr>
+<tr>
+  <td>25</td>
+  <td><code>AdvancedFeatures()</code><br><small style="color:var(--muted)">src/sections/AdvancedFeatures.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td>No direct outbound edge</td>
+  <td>AdvancedFeatures() node in src/sections/AdvancedFeatures.tsx.</td>
+</tr>
+<tr>
+  <td>26</td>
+  <td><code>BuiltForEnterprise.tsx</code><br><small style="color:var(--muted)">src/sections/BuiltForEnterprise.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small><br><code>AudioFeedback.ts</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br><code>Crosshair()</code><br><small style="color:var(--muted)">src/components/Crosshair.tsx</small><br>+2 more</td>
+  <td>No direct outbound edge</td>
+  <td>Module file in src/sections/BuiltForEnterprise.tsx.</td>
+</tr>
+<tr>
+  <td>27</td>
+  <td><code>BuiltForEnterprise()</code><br><small style="color:var(--muted)">src/sections/BuiltForEnterprise.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td>No direct outbound edge</td>
+  <td>BuiltForEnterprise() node in src/sections/BuiltForEnterprise.tsx.</td>
+</tr>
+<tr>
+  <td>28</td>
+  <td><code>CaseStudyDrawer.tsx</code><br><small style="color:var(--muted)">src/sections/CaseStudyDrawer.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small><br><code>AudioFeedback.ts</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br><code>sound</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td>No direct outbound edge</td>
+  <td>Module file in src/sections/CaseStudyDrawer.tsx.</td>
+</tr>
+<tr>
+  <td>29</td>
+  <td><code>CaseStudyProps</code><br><small style="color:var(--muted)">src/sections/CaseStudyDrawer.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>CaseStudyProps node in src/sections/CaseStudyDrawer.tsx.</td>
+</tr>
+<tr>
+  <td>30</td>
+  <td><code>CaseStudyDrawer()</code><br><small style="color:var(--muted)">src/sections/CaseStudyDrawer.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>App.tsx</code><br><small style="color:var(--muted)">src/App.tsx</small></td>
+  <td>No direct outbound edge</td>
+  <td>CaseStudyDrawer() node in src/sections/CaseStudyDrawer.tsx.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>src/components/AdvancedFeaturesFX.tsx</code></td><td>3 nodes</td></tr>
+<tr><td><code>src/components/Crosshair.tsx</code></td><td>3 nodes</td></tr>
+<tr><td><code>src/components/FirewallFX.tsx</code></td><td>3 nodes</td></tr>
+<tr><td><code>src/components/Navbar.tsx</code></td><td>3 nodes</td></tr>
+<tr><td><code>src/components/SimpleStepsFX.tsx</code></td><td>3 nodes</td></tr>
+<tr><td><code>src/sections/AdvancedFeatures.tsx</code></td><td>3 nodes</td></tr>
+<tr><td><code>src/sections/CTASection.tsx</code></td><td>3 nodes</td></tr>
+<tr><td><code>src/sections/CaseStudyDrawer.tsx</code></td><td>3 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: imports x32, imports x31, contains x25. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 4. Serving API ====== -->
+<h2 id="serve-api">4. Serving API</h2>
+<p>Serving API groups implementation around api, referencemd, docs, typests, mostly in docs/API_REFERENCE.md, src/api/types.ts, src/api/managementApi.ts. This section covers 59 nodes and 70 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Serving API (59 nodes, 70 edges)
+    subgraph serve_api_src_api_managementApi_ts_d3e730a5["src/api/managementApi.ts"]
+        src_api_managementapi_ts_2118b218("managementApi.ts")
+        api_managementapi_dataguardmanagementapiclient_5e1eb081("DataguardManagementApiClient<br/><small>src/api/managementApi.ts</small>")
+        api_managementapi_dataguardmanagementapiclient_g_0f65d0c3("getHeaders()<br/><small>src/api/managementApi.ts</small>")
+        api_managementapi_dataguardapi_72967952("dataguardApi<br/><small>src/api/managementApi.ts</small>")
+        api_managementapi_dataguardmanagementapiclient_c_325be6f0("constructor()<br/><small>src/api/managementApi.ts</small>")
+        api_managementapi_dataguardmanagementapiclient_g_d1c0c60c("getDiagnosticHealth()<br/><small>src/api/managementApi.ts</small>")
+        api_managementapi_dataguardmanagementapiclient_r_99c604ac("runPerimeterAudit()<br/><small>src/api/managementApi.ts</small>")
+        api_managementapi_dataguardmanagementapiclient_g_2f2ce920("getTelemetryStream()<br/><small>src/api/managementApi.ts</small>")
+        api_managementapi_dataguardmanagementapiclient_v_d27f96d3("verifyZeroTrustToken()<br/><small>src/api/managementApi.ts</small>")
+        api_managementapi_dataguardmanagementapiclient_i_140b4def("isolateNode()<br/><small>src/api/managementApi.ts</small>")
+    end
+    subgraph serve_api_src_api_types_ts_2d4fe9be["src/api/types.ts"]
+        src_api_types_ts_76dba934("types.ts")
+        api_types_diagnostichealthresponse_45bc56e8("DiagnosticHealthResponse<br/><small>src/api/types.ts</small>")
+        api_types_perimeterauditrequest_84ff4137("PerimeterAuditRequest<br/><small>src/api/types.ts</small>")
+        api_types_perimeterauditresponse_75540424("PerimeterAuditResponse<br/><small>src/api/types.ts</small>")
+        api_types_telemetrystreamevent_6747c58c("TelemetryStreamEvent<br/><small>src/api/types.ts</small>")
+        api_types_zerotrusttokenverificationrequest_a7f1d0bd("ZeroTrustTokenVerificationRequest<br/><small>src/api/types.ts</small>")
+        api_types_zerotrusttokenverificationresponse_54d78e5b("ZeroTrustTokenVerificationResponse<br/><small>src/api/types.ts</small>")
+        api_types_isolatenoderequest_ad1dac80("IsolateNodeRequest<br/><small>src/api/types.ts</small>")
+    end
+    api_managementapi_dataguardmanagementapiclient_5e1eb081 -->|method| api_managementapi_dataguardmanagementapiclient_c_325be6f0
+    api_managementapi_dataguardmanagementapiclient_5e1eb081 -->|method| api_managementapi_dataguardmanagementapiclient_g_0f65d0c3
+    api_managementapi_dataguardmanagementapiclient_5e1eb081 -->|method| api_managementapi_dataguardmanagementapiclient_g_d1c0c60c
+    api_managementapi_dataguardmanagementapiclient_5e1eb081 -->|method| api_managementapi_dataguardmanagementapiclient_r_99c604ac
+    api_managementapi_dataguardmanagementapiclient_5e1eb081 -->|method| api_managementapi_dataguardmanagementapiclient_g_2f2ce920
+    api_managementapi_dataguardmanagementapiclient_5e1eb081 -->|method| api_managementapi_dataguardmanagementapiclient_v_d27f96d3
+    api_managementapi_dataguardmanagementapiclient_5e1eb081 -->|method| api_managementapi_dataguardmanagementapiclient_i_140b4def
+    api_managementapi_dataguardmanagementapiclient_g_0f65d0c3 -->|calls| api_managementapi_dataguardmanagementapiclient_g_d1c0c60c
+    api_managementapi_dataguardmanagementapiclient_g_0f65d0c3 -->|calls| api_managementapi_dataguardmanagementapiclient_r_99c604ac
+    api_managementapi_dataguardmanagementapiclient_g_0f65d0c3 -->|calls| api_managementapi_dataguardmanagementapiclient_g_2f2ce920
+    api_managementapi_dataguardmanagementapiclient_g_0f65d0c3 -->|calls| api_managementapi_dataguardmanagementapiclient_v_d27f96d3
+    api_managementapi_dataguardmanagementapiclient_g_0f65d0c3 -->|calls| api_managementapi_dataguardmanagementapiclient_i_140b4def
+    src_api_managementapi_ts_2118b218 -->|imports| src_api_types_ts_76dba934
+    src_api_managementapi_ts_2118b218 -->|imports| api_types_diagnostichealthresponse_45bc56e8
+    src_api_managementapi_ts_2118b218 -->|imports| api_types_perimeterauditrequest_84ff4137
+    src_api_managementapi_ts_2118b218 -->|imports| api_types_perimeterauditresponse_75540424
+    src_api_managementapi_ts_2118b218 -->|imports| api_types_telemetrystreamevent_6747c58c
+    src_api_managementapi_ts_2118b218 -->|imports| api_types_zerotrusttokenverificationrequest_a7f1d0bd
+    src_api_managementapi_ts_2118b218 -->|imports| api_types_zerotrusttokenverificationresponse_54d78e5b
+    src_api_managementapi_ts_2118b218 -->|imports| api_types_isolatenoderequest_ad1dac80
+    %% Omitted for readability: 41 nodes, 0 edges
+    class src_api_managementapi_ts_2118b218 api;
+    class api_managementapi_dataguardmanagementapiclient_5e1eb081 api;
+    class api_managementapi_dataguardmanagementapiclient_g_0f65d0c3 function;
+    class api_managementapi_dataguardapi_72967952 api;
+    class api_managementapi_dataguardmanagementapiclient_c_325be6f0 function;
+    class api_managementapi_dataguardmanagementapiclient_g_d1c0c60c function;
+    class api_managementapi_dataguardmanagementapiclient_r_99c604ac function;
+    class api_managementapi_dataguardmanagementapiclient_g_2f2ce920 async;
+    class api_managementapi_dataguardmanagementapiclient_v_d27f96d3 function;
+    class api_managementapi_dataguardmanagementapiclient_i_140b4def function;
+    class src_api_types_ts_76dba934 module;
+    class api_types_diagnostichealthresponse_45bc56e8 klass;
+    class api_types_perimeterauditrequest_84ff4137 klass;
+    class api_types_perimeterauditresponse_75540424 klass;
+    class api_types_telemetrystreamevent_6747c58c async;
+    class api_types_zerotrusttokenverificationrequest_a7f1d0bd klass;
+    class api_types_zerotrusttokenverificationresponse_54d78e5b klass;
+    class api_types_isolatenoderequest_ad1dac80 klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>API_REFERENCE.md</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing API_REFERENCE.md.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Dataguard Cybersecurity — HTTP Management &amp; Diagnostic API Reference</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Dataguard Cybersecurity — HTTP Management &amp; Diagnostic API Reference.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>1. Global Specifications</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 1. Global Specifications.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>2. Authentication &amp; Headers</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 2. Authentication &amp; Headers.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>code:http (Authorization: Bearer dg_live_38bf8c991a0c4f8285e683)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:http (Authorization: Bearer dg_live_38bf8c991a0c4f8285e683).</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>3. Endpoints Overview</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 3. Endpoints Overview.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>4. Endpoint Reference</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 4. Endpoint Reference.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>4.1. Cluster Health &amp; Diagnostic</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 4.1. Cluster Health &amp; Diagnostic.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>`GET /health/diagnostic`</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing `GET /health/diagnostic`.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>code:bash (curl -X GET &quot;https://api.dataguard.ai/v1/health/diagnostic&quot; )</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:bash (curl -X GET &quot;https://api.dataguard.ai/v1/health/diagnostic&quot; ).</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><code>code:json ({)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:json ({).</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><code>4.2. On-Demand Perimeter Audit</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 4.2. On-Demand Perimeter Audit.</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><code>`POST /security/perimeter-audit`</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing `POST /security/perimeter-audit`.</td>
+</tr>
+<tr>
+  <td>14</td>
+  <td><code>code:bash (curl -X POST &quot;https://api.dataguard.ai/v1/security/perimeter)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:bash (curl -X POST &quot;https://api.dataguard.ai/v1/security/perimeter).</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><code>code:json ({)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:json ({).</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><code>4.3. Real-Time Telemetry Stream</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 4.3. Real-Time Telemetry Stream.</td>
+</tr>
+<tr>
+  <td>17</td>
+  <td><code>`GET /telemetry/stream`</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing `GET /telemetry/stream`.</td>
+</tr>
+<tr>
+  <td>18</td>
+  <td><code>code:bash (curl -X GET &quot;https://api.dataguard.ai/v1/telemetry/stream?li)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:bash (curl -X GET &quot;https://api.dataguard.ai/v1/telemetry/stream?li).</td>
+</tr>
+<tr>
+  <td>19</td>
+  <td><code>code:json ([)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:json ([).</td>
+</tr>
+<tr>
+  <td>20</td>
+  <td><code>4.4. Zero-Trust Token Verification</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 4.4. Zero-Trust Token Verification.</td>
+</tr>
+<tr>
+  <td>21</td>
+  <td><code>`POST /access/verify-token`</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing `POST /access/verify-token`.</td>
+</tr>
+<tr>
+  <td>22</td>
+  <td><code>code:bash (curl -X POST &quot;https://api.dataguard.ai/v1/access/verify-toke)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:bash (curl -X POST &quot;https://api.dataguard.ai/v1/access/verify-toke).</td>
+</tr>
+<tr>
+  <td>23</td>
+  <td><code>code:json ({)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:json ({).</td>
+</tr>
+<tr>
+  <td>24</td>
+  <td><code>4.5. Automated Node Quarantine &amp; Mitigation</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 4.5. Automated Node Quarantine &amp; Mitigation.</td>
+</tr>
+<tr>
+  <td>25</td>
+  <td><code>`POST /mitigation/isolate-node`</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing `POST /mitigation/isolate-node`.</td>
+</tr>
+<tr>
+  <td>26</td>
+  <td><code>code:bash (curl -X POST &quot;https://api.dataguard.ai/v1/mitigation/isolate)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:bash (curl -X POST &quot;https://api.dataguard.ai/v1/mitigation/isolate).</td>
+</tr>
+<tr>
+  <td>27</td>
+  <td><code>code:json ({)</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:json ({).</td>
+</tr>
+<tr>
+  <td>28</td>
+  <td><code>5. HTTP Status Code Conventions</code><br><small style="color:var(--muted)">docs/API_REFERENCE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing 5. HTTP Status Code Conventions.</td>
+</tr>
+<tr>
+  <td>29</td>
+  <td><code>managementApi.ts</code><br><small style="color:var(--muted)">src/api/managementApi.ts</small></td>
+  <td><span class="tag tag-endpoint">API</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>DiagnosticHealthResponse</code><br><small style="color:var(--muted)">src/api/types.ts</small><br><code>InteractiveDemoModal.tsx</code><br><small style="color:var(--muted)">src/components/InteractiveDemoModal.tsx</small><br><code>IsolateNodeRequest</code><br><small style="color:var(--muted)">src/api/types.ts</small><br>+7 more</td>
+  <td>Module file in src/api/managementApi.ts.</td>
+</tr>
+<tr>
+  <td>30</td>
+  <td><code>dataguardApi</code><br><small style="color:var(--muted)">src/api/managementApi.ts</small></td>
+  <td><span class="tag tag-endpoint">API</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>InteractiveDemoModal.tsx</code><br><small style="color:var(--muted)">src/components/InteractiveDemoModal.tsx</small></td>
+  <td>dataguardApi node in src/api/managementApi.ts.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>docs/API_REFERENCE.md</code></td><td>28 nodes</td></tr>
+<tr><td><code>src/api/types.ts</code></td><td>12 nodes</td></tr>
+<tr><td><code>src/api/managementApi.ts</code></td><td>10 nodes</td></tr>
+<tr><td><code>README.md</code></td><td>6 nodes</td></tr>
+<tr><td><code>src/components/InteractiveDemoModal.tsx</code></td><td>3 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x47, imports x9, method x7, calls x5. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 5. Community 19 ====== -->
+<h2 id="community-19">5. Community 19</h2>
+<p>Community 19 groups implementation around showcasefxtsx, components, securityshowcasetsx, sections, mostly in src/components/ShowcaseFX.tsx, src/sections/SecurityShowcase.tsx. This section covers 13 nodes and 13 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 19 (13 nodes, 13 edges)
+    subgraph community_19_src_components_ShowcaseFX_tsx_d2245dc0["src/components/ShowcaseFX.tsx"]
+        components_showcasefx_showcasefx_07b71b5b("ShowcaseFX()<br/><small>src/components/ShowcaseFX.tsx</small>")
+        src_components_showcasefx_tsx_2c8d7089("ShowcaseFX.tsx")
+        components_showcasefx_lens_columns_706371b4("LENS_COLUMNS<br/><small>src/components/ShowcaseFX.tsx</small>")
+        components_showcasefx_lens_config_68c27a47("LENS_CONFIG<br/><small>src/components/ShowcaseFX.tsx</small>")
+        components_showcasefx_lens_keyframes_css_d5b29dbc("LENS_KEYFRAMES_CSS<br/><small>src/components/ShowcaseFX.tsx</small>")
+        components_showcasefx_lensdotcolumn_8e97b759("LensDotColumn<br/><small>src/components/ShowcaseFX.tsx</small>")
+        components_showcasefx_showcasefxprops_6b27ceb3("ShowcaseFXProps<br/><small>src/components/ShowcaseFX.tsx</small>")
+        components_showcasefx_generatelenscolumns_e4d9c503("generateLensColumns()<br/><small>src/components/ShowcaseFX.tsx</small>")
+        components_showcasefx_generatelenskeyframescss_c2cd5694("generateLensKeyframesCSS()<br/><small>src/components/ShowcaseFX.tsx</small>")
+    end
+    subgraph community_19_src_sections_SecurityShowcase_tsx_8d05cf96["src/sections/SecurityShowcase.tsx"]
+        src_sections_securityshowcase_tsx_b5878e6d("SecurityShowcase.tsx")
+        sections_securityshowcase_securityshowcase_290e4492("SecurityShowcase()<br/><small>src/sections/SecurityShowcase.tsx</small>")
+        sections_securityshowcase_securityshowcaseprops_81e2f35f("SecurityShowcaseProps<br/><small>src/sections/SecurityShowcase.tsx</small>")
+        sections_securityshowcase_slidevariants_4f935d2e("slideVariants<br/><small>src/sections/SecurityShowcase.tsx</small>")
+    end
+    src_components_showcasefx_tsx_2c8d7089 -->|imports| src_sections_securityshowcase_tsx_b5878e6d
+    components_showcasefx_showcasefx_07b71b5b -->|imports| src_sections_securityshowcase_tsx_b5878e6d
+    class components_showcasefx_showcasefx_07b71b5b ui;
+    class src_components_showcasefx_tsx_2c8d7089 ui;
+    class components_showcasefx_lens_columns_706371b4 ui;
+    class components_showcasefx_lens_config_68c27a47 ui;
+    class components_showcasefx_lens_keyframes_css_d5b29dbc ui;
+    class components_showcasefx_lensdotcolumn_8e97b759 ui;
+    class components_showcasefx_showcasefxprops_6b27ceb3 ui;
+    class components_showcasefx_generatelenscolumns_e4d9c503 ui;
+    class components_showcasefx_generatelenskeyframescss_c2cd5694 ui;
+    class src_sections_securityshowcase_tsx_b5878e6d ui;
+    class sections_securityshowcase_securityshowcase_290e4492 ui;
+    class sections_securityshowcase_securityshowcaseprops_81e2f35f ui;
+    class sections_securityshowcase_slidevariants_4f935d2e ui;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>ShowcaseFX.tsx</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>SecurityShowcase.tsx</code><br><small style="color:var(--muted)">src/sections/SecurityShowcase.tsx</small></td>
+  <td>Module file in src/components/ShowcaseFX.tsx.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>LENS_CONFIG</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Reads, resolves, or persists project configuration.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>LensDotColumn</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>LensDotColumn node in src/components/ShowcaseFX.tsx.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>generateLensColumns()</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>generateLensColumns() node in src/components/ShowcaseFX.tsx.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>generateLensKeyframesCSS()</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>generateLensKeyframesCSS() node in src/components/ShowcaseFX.tsx.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>LENS_COLUMNS</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>LENS_COLUMNS node in src/components/ShowcaseFX.tsx.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>LENS_KEYFRAMES_CSS</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>LENS_KEYFRAMES_CSS node in src/components/ShowcaseFX.tsx.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>ShowcaseFXProps</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>ShowcaseFXProps node in src/components/ShowcaseFX.tsx.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>ShowcaseFX()</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>SecurityShowcase.tsx</code><br><small style="color:var(--muted)">src/sections/SecurityShowcase.tsx</small></td>
+  <td>ShowcaseFX() node in src/components/ShowcaseFX.tsx.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>SecurityShowcase.tsx</code><br><small style="color:var(--muted)">src/sections/SecurityShowcase.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td><code>ShowcaseFX()</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small><br><code>ShowcaseFX.tsx</code><br><small style="color:var(--muted)">src/components/ShowcaseFX.tsx</small></td>
+  <td>No direct outbound edge</td>
+  <td>Module file in src/sections/SecurityShowcase.tsx.</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><code>SecurityShowcaseProps</code><br><small style="color:var(--muted)">src/sections/SecurityShowcase.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>SecurityShowcaseProps node in src/sections/SecurityShowcase.tsx.</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><code>slideVariants</code><br><small style="color:var(--muted)">src/sections/SecurityShowcase.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>slideVariants node in src/sections/SecurityShowcase.tsx.</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><code>SecurityShowcase()</code><br><small style="color:var(--muted)">src/sections/SecurityShowcase.tsx</small></td>
+  <td><span class="tag tag-hook">UI</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>SecurityShowcase() node in src/sections/SecurityShowcase.tsx.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>src/components/ShowcaseFX.tsx</code></td><td>9 nodes</td></tr>
+<tr><td><code>src/sections/SecurityShowcase.tsx</code></td><td>4 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x11, imports x1, imports x1. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 6. Community 7 ====== -->
+<h2 id="community-7">6. Community 7</h2>
+<p>Community 7 groups implementation around indexts, types, navitem, securityfeature, mostly in src/types/index.ts. This section covers 7 nodes and 6 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 7 (7 nodes, 6 edges)
+    src_types_index_ts_508b7486("index.ts")
+    types_index_navitem_e66c06e2("NavItem<br/><small>src/types/index.ts</small>")
+    types_index_securityfeature_f0da4f31("SecurityFeature<br/><small>src/types/index.ts</small>")
+    types_index_securitytab_83fa58dd("SecurityTab<br/><small>src/types/index.ts</small>")
+    types_index_threatalert_6778857a("ThreatAlert<br/><small>src/types/index.ts</small>")
+    types_index_stepitem_8c91cad6("StepItem<br/><small>src/types/index.ts</small>")
+    types_index_testimonialitem_5cadabe3("TestimonialItem<br/><small>src/types/index.ts</small>")
+    src_types_index_ts_508b7486 -->|contains| types_index_navitem_e66c06e2
+    src_types_index_ts_508b7486 -->|contains| types_index_securityfeature_f0da4f31
+    src_types_index_ts_508b7486 -->|contains| types_index_securitytab_83fa58dd
+    src_types_index_ts_508b7486 -->|contains| types_index_threatalert_6778857a
+    src_types_index_ts_508b7486 -->|contains| types_index_stepitem_8c91cad6
+    src_types_index_ts_508b7486 -->|contains| types_index_testimonialitem_5cadabe3
+    class src_types_index_ts_508b7486 module;
+    class types_index_navitem_e66c06e2 klass;
+    class types_index_securityfeature_f0da4f31 klass;
+    class types_index_securitytab_83fa58dd klass;
+    class types_index_threatalert_6778857a klass;
+    class types_index_stepitem_8c91cad6 klass;
+    class types_index_testimonialitem_5cadabe3 klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>index.ts</code><br><small style="color:var(--muted)">src/types/index.ts</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Module file in src/types/index.ts.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>NavItem</code><br><small style="color:var(--muted)">src/types/index.ts</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>NavItem node in src/types/index.ts.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>SecurityFeature</code><br><small style="color:var(--muted)">src/types/index.ts</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>SecurityFeature node in src/types/index.ts.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>SecurityTab</code><br><small style="color:var(--muted)">src/types/index.ts</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>SecurityTab node in src/types/index.ts.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>ThreatAlert</code><br><small style="color:var(--muted)">src/types/index.ts</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>ThreatAlert node in src/types/index.ts.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>StepItem</code><br><small style="color:var(--muted)">src/types/index.ts</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>StepItem node in src/types/index.ts.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>TestimonialItem</code><br><small style="color:var(--muted)">src/types/index.ts</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Verifies imports, entry points, or version behavior.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>src/types/index.ts</code></td><td>7 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x6. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 7. Community 9 ====== -->
+<h2 id="community-9">7. Community 9</h2>
+<p>Community 9 groups implementation around components, audiofeedbackts, soundeffects, playclick, mostly in src/components/AudioFeedback.ts. This section covers 5 nodes and 6 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 9 (5 nodes, 6 edges)
+    components_audiofeedback_soundeffects_e5dbed17("SoundEffects<br/><small>src/components/AudioFeedback.ts</small>")
+    components_audiofeedback_soundeffects_init_e5e0acab("init()<br/><small>src/components/AudioFeedback.ts</small>")
+    components_audiofeedback_soundeffects_playclick_c5d899dc("playClick()<br/><small>src/components/AudioFeedback.ts</small>")
+    components_audiofeedback_soundeffects_playbeep_4157bcff("playBeep()<br/><small>src/components/AudioFeedback.ts</small>")
+    components_audiofeedback_soundeffects_togglemute_4ee03d2d("toggleMute()<br/><small>src/components/AudioFeedback.ts</small>")
+    components_audiofeedback_soundeffects_e5dbed17 -->|method| components_audiofeedback_soundeffects_init_e5e0acab
+    components_audiofeedback_soundeffects_e5dbed17 -->|method| components_audiofeedback_soundeffects_playclick_c5d899dc
+    components_audiofeedback_soundeffects_e5dbed17 -->|method| components_audiofeedback_soundeffects_playbeep_4157bcff
+    components_audiofeedback_soundeffects_e5dbed17 -->|method| components_audiofeedback_soundeffects_togglemute_4ee03d2d
+    components_audiofeedback_soundeffects_init_e5e0acab -->|calls| components_audiofeedback_soundeffects_playclick_c5d899dc
+    components_audiofeedback_soundeffects_playclick_c5d899dc -->|calls| components_audiofeedback_soundeffects_playbeep_4157bcff
+    class components_audiofeedback_soundeffects_e5dbed17 klass;
+    class components_audiofeedback_soundeffects_init_e5e0acab function;
+    class components_audiofeedback_soundeffects_playclick_c5d899dc entry;
+    class components_audiofeedback_soundeffects_playbeep_4157bcff function;
+    class components_audiofeedback_soundeffects_togglemute_4ee03d2d function;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>SoundEffects</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>init()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br><code>playBeep()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br><code>playClick()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br>+1 more</td>
+  <td>SoundEffects node in src/components/AudioFeedback.ts.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>.init()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>SoundEffects</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><code>playClick()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td>.init() node in src/components/AudioFeedback.ts.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>.playClick()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><span class="tag tag-cmd">Entry</span></td>
+  <td><code>init()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br><code>SoundEffects</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><code>playBeep()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td>.playClick() node in src/components/AudioFeedback.ts.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>.playBeep()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>playClick()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small><br><code>SoundEffects</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td>No direct outbound edge</td>
+  <td>.playBeep() node in src/components/AudioFeedback.ts.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>.toggleMute()</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>SoundEffects</code><br><small style="color:var(--muted)">src/components/AudioFeedback.ts</small></td>
+  <td>No direct outbound edge</td>
+  <td>.toggleMute() node in src/components/AudioFeedback.ts.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>src/components/AudioFeedback.ts</code></td><td>5 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: method x4, calls x2. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 8. Community 12 ====== -->
+<h2 id="community-12">8. Community 12</h2>
+<p>Community 12 groups implementation around clean, showcasepy, scripts, mostly in scripts/clean_showcase.py. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 12 (1 nodes, 0 edges)
+    scripts_clean_showcase_py_8ecf55cf("clean_showcase.py")
+    class scripts_clean_showcase_py_8ecf55cf module;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>clean_showcase.py</code><br><small style="color:var(--muted)">scripts/clean_showcase.py</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Module file in scripts/clean_showcase.py.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>scripts/clean_showcase.py</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 9. Community 14 ====== -->
+<h2 id="community-14">9. Community 14</h2>
+<p>Community 14 groups implementation around purify, all, showcasepy, scripts, mostly in scripts/purify_all_showcase.py. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 14 (1 nodes, 0 edges)
+    scripts_purify_all_showcase_py_eb669e5b("purify_all_showcase.py")
+    class scripts_purify_all_showcase_py_eb669e5b module;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>purify_all_showcase.py</code><br><small style="color:var(--muted)">scripts/purify_all_showcase.py</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Module file in scripts/purify_all_showcase.py.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>scripts/purify_all_showcase.py</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 10. Community 16 ====== -->
+<h2 id="community-16">10. Community 16</h2>
+<p>Community 16 groups implementation around postcssconfigjs, mostly in postcss.config.js. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 16 (1 nodes, 0 edges)
+    postcss_config_js_e45138c6("postcss.config.js")
+    class postcss_config_js_e45138c6 module;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>postcss.config.js</code><br><small style="color:var(--muted)">postcss.config.js</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Reads, resolves, or persists project configuration.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>postcss.config.js</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 11. Community 17 ====== -->
+<h2 id="community-17">11. Community 17</h2>
+<p>Community 17 groups implementation around tailwindconfigjs, mostly in tailwind.config.js. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 17 (1 nodes, 0 edges)
+    tailwind_config_js_cf729719("tailwind.config.js")
+    class tailwind_config_js_cf729719 module;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>tailwind.config.js</code><br><small style="color:var(--muted)">tailwind.config.js</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Reads, resolves, or persists project configuration.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>tailwind.config.js</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 12. Community 18 ====== -->
+<h2 id="community-18">12. Community 18</h2>
+<p>Community 18 groups implementation around viteconfigts, mostly in vite.config.ts. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 18 (1 nodes, 0 edges)
+    vite_config_ts_82a87785("vite.config.ts")
+    class vite_config_ts_82a87785 module;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>vite.config.ts</code><br><small style="color:var(--muted)">vite.config.ts</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Module file in vite.config.ts.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>vite.config.ts</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<h2 id="stats">Project Statistics</h2>
+
+<div class="grid">
+  <div class="card">
+    <h4>Graph</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><td>Nodes</td><td>240</td></tr>
+      <tr><td>Edges</td><td>298</td></tr>
+      <tr><td>Hyperedges</td><td>0</td></tr>
+      <tr><td>Communities</td><td>21</td></tr>
+      <tr><td>Documented Sections</td><td>11</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Edge Confidence</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><td>EXTRACTED</td><td>298</td></tr>
+      <tr><td>INFERRED</td><td>0</td></tr>
+      <tr><td>AMBIGUOUS</td><td>0</td></tr>
+    </table>
+  </div>
+</div>
+
+<div style="text-align:center; padding:40px 0; color: var(--muted); font-size:0.9rem;">
+  <p>dataguard-cybersecurity — Architecture Documentation</p>
+  <p>Generated: 2026-10-11 12:17 UTC · graphify callflow-html</p>
+</div>
+
+</div><!-- .container -->
+
+<script>
+(function () {
+  const mermaidConfig = {
+    startOnLoad: false,
+    theme: 'dark',
+    securityLevel: 'loose',
+    flowchart: { htmlLabels: true, useMaxWidth: true },
+    themeVariables: {
+      primaryColor: '#1e293b',
+      primaryTextColor: '#e2e8f0',
+      primaryBorderColor: '#38bdf8',
+      secondaryColor: '#0f172a',
+      tertiaryColor: '#334155',
+      lineColor: '#64748b',
+      textColor: '#e2e8f0',
+    }
+  };
+
+  mermaid.initialize(mermaidConfig);
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function enhanceMermaidDiagrams() {
+    document.querySelectorAll('.mermaid').forEach((container) => {
+      if (container.dataset.zoomReady === 'true') return;
+      const svg = container.querySelector('svg');
+      if (!svg) return;
+
+      container.dataset.zoomReady = 'true';
+      container.classList.add('is-enhanced');
+
+      const viewport = document.createElement('div');
+      viewport.className = 'mermaid-viewport';
+      svg.parentNode.insertBefore(viewport, svg);
+      viewport.appendChild(svg);
+
+      const toolbar = document.createElement('div');
+      toolbar.className = 'mermaid-toolbar';
+      toolbar.innerHTML = [
+        '<button type="button" data-action="zoom-out" title="Zoom out">-</button>',
+        '<span class="zoom-level" data-role="level">100%</span>',
+        '<button type="button" data-action="zoom-in" title="Zoom in">+</button>',
+        '<button type="button" data-action="fit" title="Fit width">Fit</button>',
+        '<button type="button" data-action="reset" title="Reset view">Reset</button>'
+      ].join('');
+      container.insertBefore(toolbar, viewport);
+
+      const state = { scale: 1, x: 0, y: 0, dragging: false, startX: 0, startY: 0, originX: 0, originY: 0 };
+      const level = toolbar.querySelector('[data-role="level"]');
+
+      function applyTransform() {
+        svg.style.transform = `translate(${state.x}px, ${state.y}px) scale(${state.scale})`;
+        level.textContent = `${Math.round(state.scale * 100)}%`;
+      }
+
+      function zoomBy(delta) {
+        state.scale = clamp(state.scale + delta, 0.25, 3);
+        applyTransform();
+      }
+
+      function reset() {
+        state.scale = 1;
+        state.x = 0;
+        state.y = 0;
+        applyTransform();
+      }
+
+      function fitWidth() {
+        const rawWidth = svg.viewBox && svg.viewBox.baseVal && svg.viewBox.baseVal.width
+          ? svg.viewBox.baseVal.width
+          : svg.getBoundingClientRect().width / state.scale;
+        if (!rawWidth) {
+          reset();
+          return;
+        }
+        state.scale = clamp((viewport.clientWidth - 48) / rawWidth, 0.25, 1.4);
+        state.x = 0;
+        state.y = 0;
+        applyTransform();
+      }
+
+      toolbar.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-action]');
+        if (!button) return;
+        const action = button.dataset.action;
+        if (action === 'zoom-in') zoomBy(0.15);
+        if (action === 'zoom-out') zoomBy(-0.15);
+        if (action === 'fit') fitWidth();
+        if (action === 'reset') reset();
+      });
+
+      viewport.addEventListener('wheel', (event) => {
+        if (!event.ctrlKey && !event.metaKey) return;
+        event.preventDefault();
+        zoomBy(event.deltaY < 0 ? 0.1 : -0.1);
+      }, { passive: false });
+
+      viewport.addEventListener('pointerdown', (event) => {
+        if (event.button !== 0) return;
+        state.dragging = true;
+        state.startX = event.clientX;
+        state.startY = event.clientY;
+        state.originX = state.x;
+        state.originY = state.y;
+        viewport.classList.add('is-dragging');
+        viewport.setPointerCapture(event.pointerId);
+      });
+
+      viewport.addEventListener('pointermove', (event) => {
+        if (!state.dragging) return;
+        state.x = state.originX + event.clientX - state.startX;
+        state.y = state.originY + event.clientY - state.startY;
+        applyTransform();
+      });
+
+      function endDrag(event) {
+        if (!state.dragging) return;
+        state.dragging = false;
+        viewport.classList.remove('is-dragging');
+        if (viewport.hasPointerCapture(event.pointerId)) {
+          viewport.releasePointerCapture(event.pointerId);
+        }
+      }
+
+      viewport.addEventListener('pointerup', endDrag);
+      viewport.addEventListener('pointercancel', endDrag);
+      applyTransform();
+    });
+  }
+
+  function renderMermaid() {
+    const result = mermaid.run
+      ? mermaid.run({ querySelector: '.mermaid' })
+      : Promise.resolve();
+    Promise.resolve(result)
+      .then(enhanceMermaidDiagrams)
+      .catch((error) => {
+        console.error('Mermaid render failed:', error);
+        enhanceMermaidDiagrams();
+      });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+</script>
+
+</body>
+</html>
