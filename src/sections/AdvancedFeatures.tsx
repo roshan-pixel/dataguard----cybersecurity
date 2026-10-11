@@ -4,6 +4,7 @@ import { ArrowRight, AlertTriangle, Smartphone, ShieldAlert } from 'lucide-react
 import { Crosshair } from '../components/Crosshair';
 import { sound } from '../components/AudioFeedback';
 import { AdvancedFeaturesFX } from '../components/AdvancedFeaturesFX';
+import { FirewallFX } from '../components/FirewallFX';
 
 interface AdvancedFeaturesProps {
   onOpenDemo: (tab?: 'scanner' | 'docs' | 'trial') => void;
@@ -240,25 +241,8 @@ export const AdvancedFeatures: React.FC<AdvancedFeaturesProps> = ({ onOpenDemo }
                 <Crosshair size={12} />
               </div>
 
-              {/* Firewall Illustration with pill badges directly integrated */}
-              <div className="relative w-full h-[280px] sm:h-[340px] flex items-center justify-center">
-                <img 
-                  src="/assets/sec4_firewall.png" 
-                  alt="3D Brick Firewall and Shield" 
-                  className="max-h-full max-w-full object-contain drop-shadow-sm select-none"
-                />
-
-                {/* Interactive Click target over the arrow button */}
-                <button
-                  onClick={() => {
-                    sound.playClick(700);
-                    onOpenDemo('trial');
-                  }}
-                  className="absolute bottom-[6%] right-[5%] w-[42px] h-[42px] bg-transparent hover:bg-white/10 rounded cursor-pointer"
-                  title="Explore AI Threat Detection"
-                  aria-label="Explore AI Threat Detection"
-                />
-              </div>
+              {/* Dynamic 3D Isometric Brick Firewall & Threat Response System */}
+              <FirewallFX onOpenDemo={onOpenDemo} />
 
             </div>
           </div>
